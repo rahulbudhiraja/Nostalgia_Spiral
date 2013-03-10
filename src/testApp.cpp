@@ -8,14 +8,22 @@ void testApp::setup()
     ofBackground(0, 0, 0);
     
     generateCircularSpiral();
+    loadImagesFromDirectory();
+    
+#ifdef DEBUGMODE
     camera.setDistance(200);
     camera.setFarClip(1000000);
-   // camera.rotate(180, 0, 1, 0);
-    
-    loadImagesFromDirectory();
-    AssignRandomPositions();
+
+#else 
+    camera.setFarClip(10000000);
+    cameraindex=ImageVector.size()-1;
+    camera.setPosition(cameraStartPosition);
+    animationMode=false;
+#endif
+   
+ 
     ofEnableAlphaBlending();
-    
+  
 }
 
 //--------------------------------------------------------------
@@ -31,22 +39,42 @@ void testApp::draw()
     
     ofSetColor(255,255,255);
     
-    camera.begin();
     
+#ifndef DEBUGMODE
+    
+    //if(ofGetElapsedTimeMillis()/1000 %2==0)
+//    if(cameraindex>0)
+//        cameraindex-=200;
+//    camera.setPosition(35*SpiralPoints[cameraindex]+ofVec3f(0,0,600));
+    if(animationMode)
+        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,400));
+    else
+    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,400));
+    
+//    cout<<cameraindex<<endl<<cameraEndPosition;
+    
+#endif
+    camera.begin();
+
+   
     for(int i=0;i<SpiralPoints.size();i++)
     {
-       //ofSetColor(ofRandom(255),ofRandom(255),ofRandom(255));
-        
-//        ofSphere(SpiralPoints[i].x,SpiralPoints[i].y,SpiralPoints[i].z,0.4);
+     
+        // ofSphere(SpiralPoints[i].x,SpiralPoints[i].y,SpiralPoints[i].z,0.4);
+//        if(i%330!=0)
+//            continue;
+
         ofRect(SpiralPoints[i].x-2,SpiralPoints[i].y-1,SpiralPoints[i].z,4,2);
-        
+
     }
     
 //    ofLine(-100,0,100,0);
     
     drawImages();
+    
     camera.end();
-        
+  
+
 }
 
 //--------------------------------------------------------------
@@ -56,6 +84,25 @@ void testApp::keyPressed(int key){
     {
         ofToggleFullscreen();
     }
+    
+#ifndef DEBUGMODE    
+    
+    else if(key==OF_KEY_UP&&cameraindex!=ImageVector.size()-1&&!animationMode)
+    {
+        cameraindex++;
+        animationMode=true;
+    
+    }
+    else if(key==OF_KEY_DOWN&&cameraindex!=0&&!animationMode)
+    {
+        
+    cameraindex--;
+    animationMode=true;
+      animationCounter=0;
+    
+    }
+#endif
+
 }
 
 //--------------------------------------------------------------
@@ -123,27 +170,32 @@ void testApp::generateCircularSpiral()
     // Conical Concentric Circles .....
     
 //    for(int r=0;r<200;r+=spreadDistance)
-//    {
-//        
-//
-//        
+      
 //    {
 //        for(float angle=0;angle<=360;angle+=4)
 //            SpiralPoints.push_back(ofVec3f(r*cos(ofDegToRad(angle)),r*sin(ofDegToRad(angle)),r));
-//    }
-//    
-//    }
+//    }    
+
     
     
 /// Conical Helix ..
     
+    float height=10000,radius=100,ang_freq=3;
+    
 
-            for(float angle=0;angle<=3600;angle+=1)
-                SpiralPoints.push_back(ofVec3f(angle*cos(ofDegToRad(6*angle)),angle*sin(ofDegToRad(6*angle)),angle));
+            for(float angle=0;angle<=3600;angle+=0.01)
+            {
+
+                //radius=angle;
+                float angle2=angle;
+                
+                SpiralPoints.push_back(ofVec3f(((height-angle2)/height)*radius*cos(ofDegToRad(ang_freq*angle2)),((height-angle2)/height)*radius*sin(ofDegToRad(ang_freq*angle2)),angle2));
+            }
         
-        
-
-
+#ifndef DEBUGMODE
+    cameraStartPosition=SpiralPoints.back();
+    cameraEndPosition=SpiralPoints.front();
+#endif
 
 }
 
@@ -164,7 +216,7 @@ void testApp::loadImagesFromDirectory()
     for(int i = 0; i < dir.numFiles(); i++){
         TempImage.loadImage(dir.getPath(i));
         TempImage.resize(TempImage.getWidth()/2, TempImage.getHeight()/2);
-        TempImage.mirror(false,true);
+        TempImage.mirror(true,false);
         ImageVector.push_back(TempImage);
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
@@ -172,23 +224,50 @@ void testApp::loadImagesFromDirectory()
     
 }
 
-void testApp::AssignRandomPositions()
-{
-    for(int i=0;i<ImageVector.size();i++)
-        ImagePositions.push_back(ofVec3f(ofRandom(0,1.5*ofGetWidth()),ofRandom(0,1.5*ofGetHeight()),ofRandom(100000,-10000)));
-    
-}
+
 
 void testApp::drawImages()
 {
     for(int i=0;i<ImageVector.size();i++)
     {
         ofPushMatrix();
-        ofTranslate(ImagePositions[i].x,ImagePositions[i].y,ImagePositions[i].z);
-        ;// cout<<ImagePositions[i].z<<"\t";
-        ImageVector[i].draw(0,0);
+        int index=4;//ofRandom(30,70);
+        ofTranslate(35*SpiralPoints[700*i]);
+        
+        ; //cout<<35*SpiralPoints[700*i]<<"\t";
+        ImageVector[i].draw(-ImageVector[i].getWidth()/2,-ImageVector[i].getHeight()/2);
         ofPopMatrix();
+        
+        if(i>=1)
+            ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
     }
 }
+
+#ifndef DEBUGMODE
+
+ofVec3f testApp::animate(int pos1, int pos2)
+{
+    
+    float smoothnessFactor=2400,timeInterval=150;
+    
+        if(animationCounter<=smoothnessFactor-timeInterval)
+            { tweenvalue = (animationCounter) /smoothnessFactor;
+                    animationCounter+=timeInterval;
+            }
+    else {
+        tweenvalue=0;
+    animationMode=false;
+        return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
+    }
+    tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
+    tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
+    tweenedCameraPosition.z=ofLerp(35*SpiralPoints[700*pos1].z,35*SpiralPoints[700*pos2].z,tweenvalue);
+     cout<<tweenvalue<<"\n";
+    
+    return tweenedCameraPosition;
+    
+}
+
+#endif
 
 

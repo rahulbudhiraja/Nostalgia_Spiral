@@ -2,6 +2,12 @@
 
 #include "ofMain.h"
 
+//#define DEBUGMODE
+
+//#define Prototype1
+//
+//#define Prototype2
+
 class testApp : public ofBaseApp{
 	public:
 		void setup();
@@ -18,7 +24,22 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-        ofEasyCam camera;
+#ifdef DEBUGMODE
+       ofEasyCam camera;
+#endif
+#ifndef DEBUGMODE
+        ofCamera camera;
+        ofVec3f cameraStartPosition,cameraEndPosition;
+        int cameraindex=0;
+        bool animationMode;
+        ofVec3f animate(int,int);
+        float tweenvalue,beginAnimationtime;
+       ofVec3f tweenedCameraPosition;
+       int animationCounter;
+#endif
+
+    
+    
         vector<ofVec3f> SpiralPoints;
         void generateSpiral();
         void generateCircularSpiral();
