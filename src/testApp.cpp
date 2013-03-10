@@ -15,10 +15,15 @@ void testApp::setup()
     camera.setFarClip(1000000);
 
 #else 
+    
     camera.setFarClip(10000000);
     cameraindex=ImageVector.size()-1;
     camera.setPosition(cameraStartPosition);
     animationMode=false;
+    isstartingAnimationActive=true;
+    animationStartingPosition=ofVec3f(0,0,0);
+    startAnimationCounter=0;
+    
 #endif
    
  
@@ -40,23 +45,37 @@ void testApp::draw()
     ofSetColor(255,255,255);
     
     
-#ifndef DEBUGMODE
     
-    //if(ofGetElapsedTimeMillis()/1000 %2==0)
-//    if(cameraindex>0)
-//        cameraindex-=200;
-//    camera.setPosition(35*SpiralPoints[cameraindex]+ofVec3f(0,0,600));
+#ifndef DEBUGMODE
+//    if(isstartingAnimationActive)
+//    {
+//        camera.setPosition(0, 0, 0);
+//    }
+
+    if(isstartingAnimationActive)
+    {
+        camera.setPosition(startAnimationCameraPosition());
+    }
+    
+    else
+    {
+    
     if(animationMode)
         camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,400));
     else
     camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,400));
     
+    }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
+    
+    
+    
     
 #endif
     camera.begin();
 
-   
+    
+    
     for(int i=0;i<SpiralPoints.size();i++)
     {
      
@@ -266,6 +285,29 @@ ofVec3f testApp::animate(int pos1, int pos2)
     
     return tweenedCameraPosition;
     
+}
+
+ofVec3f testApp::startAnimationCameraPosition()
+{
+
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=150;
+    
+    if(startAnimationCounter<=smoothnessFactor-timeInterval)
+    { tweenvalue = (startAnimationCounter) /smoothnessFactor;
+        startAnimationCounter+=timeInterval;
+    }
+    
+    else isstartingAnimationActive=false;
+    
+    tweenedCameraPosition.x=tweenedCameraPosition.y=0;
+    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z, tweenvalue);
+    //cout<<tweenedCameraPosition.z<<"\n";
+
+    
+    cout<<35*SpiralPoints[700*cameraindex].z<<endl;
+    
+    return tweenedCameraPosition;
+
 }
 
 #endif

@@ -30,12 +30,20 @@ class testApp : public ofBaseApp{
 #ifndef DEBUGMODE
         ofCamera camera;
         ofVec3f cameraStartPosition,cameraEndPosition;
+    
         int cameraindex=0;
         bool animationMode;
         ofVec3f animate(int,int);
-        float tweenvalue,beginAnimationtime;
-       ofVec3f tweenedCameraPosition;
-       int animationCounter;
+    
+    float tweenvalue,beginAnimationtime;
+        ofVec3f tweenedCameraPosition;
+        int animationCounter;
+    
+        void startAnimation();
+        bool isstartingAnimationActive;
+        ofVec3f animationStartingPosition,animationEndPosition;
+        ofVec3f startAnimationCameraPosition();
+        int startAnimationCounter;
 #endif
 
     
