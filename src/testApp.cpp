@@ -239,7 +239,7 @@ void testApp::drawImages()
         ofPopMatrix();
         
         if(i>=1)
-            ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
+            ;// ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
     }
 }
 
