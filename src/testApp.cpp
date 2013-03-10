@@ -13,9 +13,10 @@ void testApp::setup()
 #ifdef DEBUGMODE
     camera.setDistance(200);
     camera.setFarClip(1000000);
+    
 
 #else 
-    
+    camera.setFov(40);
     camera.setFarClip(10000000);
     cameraindex=ImageVector.size()-1;
     camera.setPosition(cameraStartPosition);
@@ -290,7 +291,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=150;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=15   ;
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
     { tweenvalue = (startAnimationCounter) /smoothnessFactor;
@@ -299,8 +300,9 @@ ofVec3f testApp::startAnimationCameraPosition()
     
     else isstartingAnimationActive=false;
     
-    tweenedCameraPosition.x=tweenedCameraPosition.y=0;
-    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z, tweenvalue);
+    tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
+    tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
+    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +400, tweenvalue);
     //cout<<tweenedCameraPosition.z<<"\n";
 
     
