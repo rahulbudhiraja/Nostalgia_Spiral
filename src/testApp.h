@@ -44,6 +44,7 @@ class testApp : public ofBaseApp{
         ofVec3f animationStartingPosition,animationEndPosition;
         ofVec3f startAnimationCameraPosition();
         int startAnimationCounter;
+        int zdistanceFactor;
 #endif
 
     

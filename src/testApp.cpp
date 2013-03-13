@@ -24,7 +24,7 @@ void testApp::setup()
     isstartingAnimationActive=true;
     animationStartingPosition=ofVec3f(0,0,0);
     startAnimationCounter=0;
-    
+    zdistanceFactor=35;
 #endif
    
  
@@ -45,7 +45,7 @@ void testApp::draw()
     
     ofSetColor(255,255,255);
     
-    
+    ofSetFullscreen(true);
     
 #ifndef DEBUGMODE
 //    if(isstartingAnimationActive)
@@ -62,9 +62,9 @@ void testApp::draw()
     {
     
     if(animationMode)
-        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,400));
+        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,1000));
     else
-    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,400));
+    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000));
     
     }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
@@ -77,16 +77,16 @@ void testApp::draw()
 
     
     
-    for(int i=0;i<SpiralPoints.size();i++)
-    {
-     
-        // ofSphere(SpiralPoints[i].x,SpiralPoints[i].y,SpiralPoints[i].z,0.4);
-//        if(i%330!=0)
-//            continue;
-
-        ofRect(SpiralPoints[i].x-2,SpiralPoints[i].y-1,SpiralPoints[i].z,4,2);
-
-    }
+//    for(int i=0;i<SpiralPoints.size();i++)
+//    {
+//     
+//        // ofSphere(SpiralPoints[i].x,SpiralPoints[i].y,SpiralPoints[i].z,0.4);
+////        if(i%330!=0)
+////            continue;
+//
+//       // ofRect(SpiralPoints[i].x-2,SpiralPoints[i].y-1,SpiralPoints[i].z,4,2);
+//
+//    }
     
 //    ofLine(-100,0,100,0);
     
@@ -209,7 +209,8 @@ void testApp::generateCircularSpiral()
                 //radius=angle;
                 float angle2=angle;
                 
-                SpiralPoints.push_back(ofVec3f(((height-angle2)/height)*radius*cos(ofDegToRad(ang_freq*angle2)),((height-angle2)/height)*radius*sin(ofDegToRad(ang_freq*angle2)),angle2));
+                SpiralPoints.push_back(ofVec3f(((height-angle2)/height)*radius*cos(ofDegToRad(ang_freq*angle2)),((height-angle2)/height)*radius*sin(ofDegToRad(ang_freq*angle2)),6*angle2));
+                
             }
         
 #ifndef DEBUGMODE
@@ -235,7 +236,7 @@ void testApp::loadImagesFromDirectory()
     
     for(int i = 0; i < dir.numFiles(); i++){
         TempImage.loadImage(dir.getPath(i));
-        TempImage.resize(TempImage.getWidth()/2, TempImage.getHeight()/2);
+        TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
         TempImage.mirror(true,false);
         ImageVector.push_back(TempImage);
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
@@ -252,7 +253,10 @@ void testApp::drawImages()
     {
         ofPushMatrix();
         int index=4;//ofRandom(30,70);
-        ofTranslate(35*SpiralPoints[700*i]);
+//        SpiralPoints[i].z*=600;
+        
+        ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
+        
         
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         ImageVector[i].draw(-ImageVector[i].getWidth()/2,-ImageVector[i].getHeight()/2);
@@ -268,7 +272,7 @@ void testApp::drawImages()
 ofVec3f testApp::animate(int pos1, int pos2)
 {
     
-    float smoothnessFactor=2400,timeInterval=150;
+    float smoothnessFactor=2400,timeInterval=10;
     
         if(animationCounter<=smoothnessFactor-timeInterval)
             { tweenvalue = (animationCounter) /smoothnessFactor;
@@ -291,7 +295,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=15   ;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=9;
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
     { tweenvalue = (startAnimationCounter) /smoothnessFactor;
@@ -302,7 +306,7 @@ ofVec3f testApp::startAnimationCameraPosition()
     
     tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
     tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
-    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +400, tweenvalue);
+    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +1000, tweenvalue);
     //cout<<tweenedCameraPosition.z<<"\n";
 
     
