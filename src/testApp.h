@@ -49,7 +49,7 @@ class testApp : public ofBaseApp{
         int zdistanceFactor;
     
         void sortImages();
-        multimap <int, int,greater<int> > imageScores;
+        multimap <int, int > imageScores;
     
         ofxXmlSettings pictures_XML;
         

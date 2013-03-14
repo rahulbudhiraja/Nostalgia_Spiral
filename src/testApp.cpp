@@ -31,6 +31,7 @@ void testApp::setup()
  
     ofEnableAlphaBlending();
   
+    
 }
 
 //--------------------------------------------------------------
@@ -225,25 +226,28 @@ void testApp::generateCircularSpiral()
 void testApp::loadImagesFromDirectory()
 {
     
-    string path = "/Applications/MAMP/htdocs/25labs/100002627332238";
+    string path = "/Applications/MAMP/htdocs/25labs/100002627332238/";
     ofDirectory dir(path);
     dir.allowExt("png");
     dir.allowExt("jpg");
     dir.allowExt("gif");
-    dir.listDir();
+    
+    cout<<dir.listDir();
     
     cout<<dir.numFiles();
+    
     ofImage TempImage;
     
     for(int i = 0; i < dir.numFiles(); i++){
-        TempImage.loadImage(dir.getPath(i));
+        TempImage.loadImage(ofToString(path+ofToString(i+1)+".jpg")); // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
         TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
         TempImage.mirror(true,false);
         ImageVector.push_back(TempImage);
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
+        ofLogNotice(dir.getPath(i));
     }
-    
+   
 }
 
 
@@ -251,28 +255,35 @@ void testApp::loadImagesFromDirectory()
 void testApp::drawImages()
 {
     
+    std::multimap<int,int>::iterator it;
+    int imageIterator=0;
     
     
+//    cout<<"Starting";
     
-    
-    
-    for(int i=0;i<ImageVector.size();i++)
+    for(it=imageScores.begin();it!=imageScores.end();++it)
+
+    //for(int i=0;i<ImageVector.size();i++)
     {
-        ofPushMatrix();
-        int index=4;//ofRandom(30,70);
-//        SpiralPoints[i].z*=600;
         
-        ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
+        ofPushMatrix();
+        int index=(*it).second-1;//ofRandom(30,70);
+//        SpiralPoints[i].z*=600;
+//        cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
+        
+        ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
         
         
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
         
-
-        ImageVector[i].draw(-ImageVector[i].getWidth()/2,-ImageVector[i].getHeight()/2);
+        
+        ImageVector[index].draw(-ImageVector[index].getWidth()/2,-ImageVector[index].getHeight()/2);
         ofPopMatrix();
         
-        if(i>=1)
+        
+        imageIterator++;
+        //if(i>=1)
             ;// ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
     }
 }
