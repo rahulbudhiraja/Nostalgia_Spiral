@@ -11,7 +11,10 @@
 
 class testApp : public ofBaseApp{
 	public:
-		void setup();
+    testApp(long long int id);
+    
+    
+        void setup();
 		void update();
 		void draw();
 		
@@ -52,11 +55,12 @@ class testApp : public ofBaseApp{
         multimap <int, int > imageScores;
     
         ofxXmlSettings pictures_XML;
-        
+        long long int userid;
+    
     
 #endif
 
-    
+
     
         vector<ofVec3f> SpiralPoints;
         void generateSpiral();
@@ -69,7 +73,7 @@ class testApp : public ofBaseApp{
 
         void AssignRandomPositions();
         void drawImages();
-    
+    int blahblah;
 
 
 };

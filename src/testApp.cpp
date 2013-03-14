@@ -226,7 +226,9 @@ void testApp::generateCircularSpiral()
 void testApp::loadImagesFromDirectory()
 {
     
-    string path = "/Applications/MAMP/htdocs/25labs/100002627332238/";
+   // string path = "/Applications/MAMP/htdocs/25labs/100002627332238/";
+
+    string path="/Applications/MAMP/htdocs/25labs/"+ofToString(userid)+"/";
     ofDirectory dir(path);
     dir.allowExt("png");
     dir.allowExt("jpg");
@@ -245,7 +247,7 @@ void testApp::loadImagesFromDirectory()
         ImageVector.push_back(TempImage);
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
-        ofLogNotice(dir.getPath(i));
+//        ofLogNotice(dir.getPath(i));
     }
    
 }
@@ -316,7 +318,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=9;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=49;
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
     { tweenvalue = (startAnimationCounter) /smoothnessFactor;
@@ -341,7 +343,9 @@ void testApp::sortImages()
 {
    // Create an unordered map ....
     
-    string path = "/Applications/MAMP/htdocs/25labs/100002627332238/pictures.xml";
+ //   string path = "/Applications/MAMP/htdocs/25labs/100002627332238/pictures.xml";
+    string path="/Applications/MAMP/htdocs/25labs/"+ofToString(userid)+"/pictures.xml";
+    
     int imageCounter=1;
     
    
@@ -357,11 +361,15 @@ void testApp::sortImages()
             pictures_XML.pushTag("Album",i);
             cout<<pictures_XML.getNumTags("Image")<<endl;;
             
+            
             for (int j=0;j<pictures_XML.getNumTags("Image");j++)
             {
                 pictures_XML.pushTag("Image",j);
                 cout<<pictures_XML.getValue("Likes",0)<<endl;
-                int score=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+2*pictures_XML.getValue("Comments",0);
+                int score;
+                if(pictures_XML.getValue("Tags",0)>15)
+                    score=0;
+                else  { score=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+2*pictures_XML.getValue("Comments",0);}
                 //cout<<score<<endl;
                 imageScores.insert(std::pair<int,int>(score,imageCounter));
                 pictures_XML.popTag();
@@ -385,4 +393,9 @@ void testApp::sortImages()
 
 #endif
 
+testApp::testApp(long long int id)
+{
+    userid=id;
+    cout<<"\n User ID:"<<id<<endl;
+}
 
