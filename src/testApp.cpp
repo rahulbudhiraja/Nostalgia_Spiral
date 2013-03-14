@@ -16,6 +16,7 @@ void testApp::setup()
     
 
 #else 
+    sortImages();
     camera.setFov(40);
     camera.setFarClip(10000000);
     cameraindex=ImageVector.size()-1;
@@ -26,7 +27,7 @@ void testApp::setup()
     startAnimationCounter=0;
     zdistanceFactor=35;
 #endif
-   
+//    ofExit();
  
     ofEnableAlphaBlending();
   
@@ -45,7 +46,7 @@ void testApp::draw()
     
     ofSetColor(255,255,255);
     
-    ofSetFullscreen(true);
+    //ofSetFullscreen(true);
     
 #ifndef DEBUGMODE
 //    if(isstartingAnimationActive)
@@ -249,6 +250,12 @@ void testApp::loadImagesFromDirectory()
 
 void testApp::drawImages()
 {
+    
+    
+    
+    
+    
+    
     for(int i=0;i<ImageVector.size();i++)
     {
         ofPushMatrix();
@@ -259,6 +266,9 @@ void testApp::drawImages()
         
         
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
+        
+        
+
         ImageVector[i].draw(-ImageVector[i].getWidth()/2,-ImageVector[i].getHeight()/2);
         ofPopMatrix();
         
@@ -314,6 +324,52 @@ ofVec3f testApp::startAnimationCameraPosition()
     
     return tweenedCameraPosition;
 
+}
+
+void testApp::sortImages()
+{
+   // Create an unordered map ....
+    
+    string path = "/Applications/MAMP/htdocs/25labs/100002627332238/pictures.xml";
+    int imageCounter=1;
+    
+   
+    
+    if(pictures_XML.loadFile(path))
+    {
+    
+        pictures_XML.pushTag("xml");
+        pictures_XML.pushTag("ImageList");
+        
+        for(int i=0;i<pictures_XML.getNumTags("Album");i++)
+        {
+            pictures_XML.pushTag("Album",i);
+            cout<<pictures_XML.getNumTags("Image")<<endl;;
+            
+            for (int j=0;j<pictures_XML.getNumTags("Image");j++)
+            {
+                pictures_XML.pushTag("Image",j);
+                cout<<pictures_XML.getValue("Likes",0)<<endl;
+                int score=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+2*pictures_XML.getValue("Comments",0);
+                //cout<<score<<endl;
+                imageScores.insert(std::pair<int,int>(score,imageCounter));
+                pictures_XML.popTag();
+                imageCounter++;
+                
+            }
+            pictures_XML.popTag();
+        }
+        
+    
+    }
+    
+  
+    
+    std::multimap<int,int>::iterator it;
+    for(it=imageScores.begin();it!=imageScores.end();++it)
+        cout<<(*it).first<<"  "<<(*it).second<<endl;;
+    
+      cout<<imageCounter<<endl;
 }
 
 #endif

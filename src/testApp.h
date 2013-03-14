@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
 
 //#define DEBUGMODE
 
@@ -28,6 +29,7 @@ class testApp : public ofBaseApp{
        ofEasyCam camera;
 #endif
 #ifndef DEBUGMODE
+    
         ofCamera camera;
         ofVec3f cameraStartPosition,cameraEndPosition;
     
@@ -35,7 +37,7 @@ class testApp : public ofBaseApp{
         bool animationMode;
         ofVec3f animate(int,int);
     
-    float tweenvalue,beginAnimationtime;
+        float tweenvalue,beginAnimationtime;
         ofVec3f tweenedCameraPosition;
         int animationCounter;
     
@@ -45,6 +47,13 @@ class testApp : public ofBaseApp{
         ofVec3f startAnimationCameraPosition();
         int startAnimationCounter;
         int zdistanceFactor;
+    
+        void sortImages();
+        multimap <int, int,greater<int> > imageScores;
+    
+        ofxXmlSettings pictures_XML;
+        
+    
 #endif
 
     
@@ -60,5 +69,7 @@ class testApp : public ofBaseApp{
 
         void AssignRandomPositions();
         void drawImages();
+    
+
 
 };
