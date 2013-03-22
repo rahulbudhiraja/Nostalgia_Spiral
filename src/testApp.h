@@ -56,8 +56,8 @@ class testApp : public ofBaseApp{
     
         ofxXmlSettings pictures_XML;
         long long int userid;
-    
-    
+        vector <ofVec3f> wigglePositions;
+        void pushWigglePositions();
 #endif
 
 

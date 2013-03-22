@@ -26,6 +26,8 @@ void testApp::setup()
     animationStartingPosition=ofVec3f(0,0,0);
     startAnimationCounter=0;
     zdistanceFactor=35;
+    pushWigglePositions();
+    
 #endif
 //    ofExit();
  
@@ -34,6 +36,7 @@ void testApp::setup()
     NostalgiaFont.setLineHeight(200);
     ofEnableAlphaBlending();
   
+   
     
 }
 
@@ -65,11 +68,11 @@ void testApp::draw()
     
     else
     {
-    
+
     if(animationMode)
         camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,1000));
     else
-    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000));
+    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
     
     }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
@@ -405,5 +408,42 @@ testApp::testApp(long long int id)
 {
     userid=id;
     cout<<"\n User ID:"<<id<<endl;
+}
+
+void testApp::pushWigglePositions()
+{
+    
+    wigglePositions.push_back(ofVec3f(0,0,0));
+    
+    wigglePositions.push_back(ofVec3f(0,0,1));
+    
+    wigglePositions.push_back(ofVec3f(0,1,0));
+    
+    wigglePositions.push_back(ofVec3f(0,1,1));
+    
+    wigglePositions.push_back(ofVec3f(1,0,0));
+    
+    wigglePositions.push_back(ofVec3f(1,0,1));
+    
+    wigglePositions.push_back(ofVec3f(1,1,0));
+    
+    wigglePositions.push_back(ofVec3f(1,1,1));
+    
+    
+    wigglePositions.push_back(ofVec3f(0,0,-1));
+    
+    wigglePositions.push_back(ofVec3f(0,-1,0));
+    
+    wigglePositions.push_back(ofVec3f(0,-1,-1));
+    
+    wigglePositions.push_back(ofVec3f(-1,0,0));
+    
+    wigglePositions.push_back(ofVec3f(-1,0,-1));
+    
+    wigglePositions.push_back(ofVec3f(-1,-1,0));
+    
+    wigglePositions.push_back(ofVec3f(-1,-1,-1));
+    
+  
 }
 
