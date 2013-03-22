@@ -56,8 +56,19 @@ class testApp : public ofBaseApp{
     
         ofxXmlSettings pictures_XML;
         long long int userid;
+    
         vector <ofVec3f> wigglePositions;
-        void pushWigglePositions();
+    
+        void pushWigglePositions(); /// Pushing values ...
+    
+        ofVec3f wiggle(); // Actual wiggle code ...similar to the ofLerp for the animations ...
+    
+        ofVec3f currentwigglePosition; // Current Position of the camera ...
+    
+        int currentwiggleindex; // the index of the position in the Wiggle Positions vector ...
+    
+        float wiggleAnimationCounter;
+    
 #endif
 
 

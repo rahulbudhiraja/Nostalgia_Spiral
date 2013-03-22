@@ -27,6 +27,8 @@ void testApp::setup()
     startAnimationCounter=0;
     zdistanceFactor=35;
     pushWigglePositions();
+    currentwiggleindex=0;
+    wiggleAnimationCounter=0;
     
 #endif
 //    ofExit();
@@ -72,8 +74,13 @@ void testApp::draw()
     if(animationMode)
         camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,1000));
     else
-    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
-    
+//    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
+    {
+//        if(currentwiggleindex%2==0)
+        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wiggle());
+//        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
+        
+    }
     }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
     
@@ -413,37 +420,77 @@ testApp::testApp(long long int id)
 void testApp::pushWigglePositions()
 {
     
-    wigglePositions.push_back(ofVec3f(0,0,0));
+//    wigglePositions.push_back(ofVec3f(0,0,0));
     
     wigglePositions.push_back(ofVec3f(0,0,1));
     
+    wigglePositions.push_back(ofVec3f(0,0,1));
+    
+    
     wigglePositions.push_back(ofVec3f(0,1,0));
     
-    wigglePositions.push_back(ofVec3f(0,1,1));
+    wigglePositions.push_back(ofVec3f(0,1,0));
     
     wigglePositions.push_back(ofVec3f(1,0,0));
     
-    wigglePositions.push_back(ofVec3f(1,0,1));
-    
-    wigglePositions.push_back(ofVec3f(1,1,0));
-    
-    wigglePositions.push_back(ofVec3f(1,1,1));
+    wigglePositions.push_back(ofVec3f(1,0,0));
     
     
-    wigglePositions.push_back(ofVec3f(0,0,-1));
-    
-    wigglePositions.push_back(ofVec3f(0,-1,0));
-    
-    wigglePositions.push_back(ofVec3f(0,-1,-1));
-    
-    wigglePositions.push_back(ofVec3f(-1,0,0));
-    
-    wigglePositions.push_back(ofVec3f(-1,0,-1));
-    
-    wigglePositions.push_back(ofVec3f(-1,-1,0));
-    
-    wigglePositions.push_back(ofVec3f(-1,-1,-1));
     
   
+}
+
+ofVec3f testApp::wiggle()
+{
+    //Check if wiggling ...
+    
+    int maxValue=20; // Change this for adjusting the Maximum Value of the Wiggling ....
+    
+    
+    if(currentwiggleindex%2==0)
+    {
+        
+    if(wiggleAnimationCounter<=maxValue)
+            wiggleAnimationCounter+=0.008;
+        
+    else {
+        currentwiggleindex++;
+        currentwiggleindex=currentwiggleindex%wigglePositions.size();
+        wiggleAnimationCounter=maxValue;
+    }
+        
+        
+    }
+    
+    else {
+        
+                   
+            if(wiggleAnimationCounter>=0)
+                wiggleAnimationCounter-=0.008;
+            
+            else {
+                currentwiggleindex++;
+                currentwiggleindex=currentwiggleindex%wigglePositions.size();
+                wiggleAnimationCounter=0;
+            }
+            
+            
+        
+        
+    }
+
+    
+    currentwigglePosition.x=wigglePositions[currentwiggleindex].x*wiggleAnimationCounter;
+    currentwigglePosition.y=wigglePositions[currentwiggleindex].y*wiggleAnimationCounter;
+    currentwigglePosition.z=wigglePositions[currentwiggleindex].z*wiggleAnimationCounter;
+
+    cout<<currentwigglePosition<<endl;
+    
+    // If not wiggling ..change the index ....
+    
+    
+    //If wiggling ,advance the lerp ....
+    
+    return currentwigglePosition;
 }
 
