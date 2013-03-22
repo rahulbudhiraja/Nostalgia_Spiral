@@ -73,7 +73,9 @@ class testApp : public ofBaseApp{
 
         void AssignRandomPositions();
         void drawImages();
-    int blahblah;
+        int blahblah;
+    
+        ofTrueTypeFont NostalgiaFont;
 
 
 };

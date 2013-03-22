@@ -13,9 +13,9 @@ void testApp::setup()
 #ifdef DEBUGMODE
     camera.setDistance(200);
     camera.setFarClip(1000000);
-    
 
 #else 
+    
     sortImages();
     camera.setFov(40);
     camera.setFarClip(10000000);
@@ -29,6 +29,9 @@ void testApp::setup()
 #endif
 //    ofExit();
  
+    NostalgiaFont.loadFont("asyouwish.ttf", 300);
+//    NostalgiaFont.setLetterSpacing(30);
+    NostalgiaFont.setLineHeight(200);
     ofEnableAlphaBlending();
   
     
@@ -92,6 +95,11 @@ void testApp::draw()
     
 //    ofLine(-100,0,100,0);
     
+    ofPushMatrix();
+    ofRotateX(180);
+//    ofScale(400,400,400);
+//    NostalgiaFont.drawString("NOSTALGIA", 0, 0);
+    ofPopMatrix();
     drawImages();
     
     camera.end();
@@ -318,7 +326,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=49;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=29;
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
     { tweenvalue = (startAnimationCounter) /smoothnessFactor;
@@ -327,8 +335,8 @@ ofVec3f testApp::startAnimationCameraPosition()
     
     else isstartingAnimationActive=false;
     
-    tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
-    tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
+    tweenedCameraPosition.x=ofLerp(0, 0, tweenvalue);
+    tweenedCameraPosition.y=ofLerp(0, 0, tweenvalue);
     tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +1000, tweenvalue);
     //cout<<tweenedCameraPosition.z<<"\n";
 
