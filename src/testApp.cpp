@@ -29,8 +29,8 @@ void testApp::setup()
     pushWigglePositions();
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
-    reorder();
-
+//    reorder();
+    newReorder();
 #endif
 //    ofExit();
  
@@ -277,18 +277,19 @@ void testApp::drawImages()
     
 //    cout<<"Starting";
     
-    for(it=imageScores.begin();it!=imageScores.end();++it)
+//    for(it=imageScores.begin();it!=imageScores.end();++it)
 
-    //for(int i=0;i<ImageVector.size();i++)
+    for(int i=0;i<imageData.size();i++)
     {
         
         ofPushMatrix();
-        int index=(*it).second-1;//ofRandom(30,70);
+//        int index=(*it).second-1;//ofRandom(30,70);
+        int index=imageData[i].y-1;
 //        SpiralPoints[i].z*=600;
 //       cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
         
-        ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
-        
+//        ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
+    ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
         
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
@@ -590,4 +591,65 @@ void testApp::reorder()
            
     }
 
+}
+
+void testApp::newReorder()
+{
+    int j,tempVal;
+    
+//    for(int i=0;i<imageData.size()-3;i++)
+//    {
+//        j=i+1;
+//        
+//        if(imageData[i].z==imageData[j].z)
+//        {
+//            
+//            while(imageData[i].z==imageData[j].z||imageData[i].z==imageData[j+1].z)
+//            {
+////                cout<<"passing"<<endl;
+//                j++;// this will help us to find the index so that we can swap the element ..
+//
+//            }
+//            
+//            tempVal=imageData[i].z;
+//            imageData[i].z=imageData[j].z;
+//            imageData[j].z=tempVal;
+//            
+//
+//        }
+//        cout<<imageData[i]<<endl;
+//    }
+
+    cout<<"reordering";
+    for(int i=imageData.size()-1;i>1;i--)
+    {
+        j=i-1;
+        
+        
+        if(imageData[i].z==imageData[j].z)
+        {
+            cout<<"doing this when i= \t "<<imageData[i].z<<"\t";
+            
+            while(j>0&&(imageData[i].z==imageData[j].z))
+               {
+                   j--;
+               }
+            cout<<" and then j= \t"<<imageData[j].z<<endl;
+         
+            tempVal=imageData[i-1].z;
+            imageData[i-1].z=imageData[j].z;
+            imageData[j].z=tempVal;
+          
+            tempVal=imageData[i-1].y;
+            imageData[i-1].y=imageData[j].y;
+            imageData[j].y=tempVal;
+
+            
+        }
+    }
+    
+    for(int k=0;k<imageData.size();k++)
+        cout<<imageData[k]<<endl;
+    
+    
 }

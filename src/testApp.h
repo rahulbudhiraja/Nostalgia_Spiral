@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
+#include <algorithm>  
 
 //#define DEBUGMODE
 
@@ -77,7 +78,7 @@ class testApp : public ofBaseApp{
     
         multimap <int, int > albumScores;
         vector<ofVec3f> imageData;
-    
+        void newReorder();
 #endif
     
         vector<ofVec3f> SpiralPoints;
