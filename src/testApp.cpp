@@ -29,7 +29,8 @@ void testApp::setup()
     pushWigglePositions();
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
-    
+    reorder();
+
 #endif
 //    ofExit();
  
@@ -55,13 +56,7 @@ void testApp::draw()
     
     ofSetColor(255,255,255);
     
-    //ofSetFullscreen(true);
-    
 #ifndef DEBUGMODE
-//    if(isstartingAnimationActive)
-//    {
-//        camera.setPosition(0, 0, 0);
-//    }
 
     if(isstartingAnimationActive)
     {
@@ -72,15 +67,16 @@ void testApp::draw()
     {
 
     if(animationMode)
-        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,1000));
+        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,800));
     else
 //    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
     {
 //        if(currentwiggleindex%2==0)
-        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wiggle());
+        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,800)+wiggle());
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
         
     }
+        
     }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
     
@@ -210,7 +206,7 @@ void testApp::generateCircularSpiral()
     // Conical Concentric Circles .....
     
 //    for(int r=0;r<200;r+=spreadDistance)
-      
+    
 //    {
 //        for(float angle=0;angle<=360;angle+=4)
 //            SpiralPoints.push_back(ofVec3f(r*cos(ofDegToRad(angle)),r*sin(ofDegToRad(angle)),r));
@@ -289,7 +285,7 @@ void testApp::drawImages()
         ofPushMatrix();
         int index=(*it).second-1;//ofRandom(30,70);
 //        SpiralPoints[i].z*=600;
-//        cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
+//       cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
         
         ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
         
@@ -313,7 +309,7 @@ void testApp::drawImages()
 ofVec3f testApp::animate(int pos1, int pos2)
 {
     
-    float smoothnessFactor=2400,timeInterval=10;
+    float smoothnessFactor=2400,timeInterval=5;
     
         if(animationCounter<=smoothnessFactor-timeInterval)
             { tweenvalue = (animationCounter) /smoothnessFactor;
@@ -327,7 +323,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
     tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
     tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
     tweenedCameraPosition.z=ofLerp(35*SpiralPoints[700*pos1].z,35*SpiralPoints[700*pos2].z,tweenvalue);
-     cout<<tweenvalue<<"\n";
+//     cout<<tweenvalue<<"\n";
     
     return tweenedCameraPosition;
     
@@ -351,7 +347,7 @@ ofVec3f testApp::startAnimationCameraPosition()
     //cout<<tweenedCameraPosition.z<<"\n";
 
     
-    cout<<35*SpiralPoints[700*cameraindex].z<<endl;
+//    cout<<35*SpiralPoints[700*cameraindex].z<<endl;
     
     return tweenedCameraPosition;
 
@@ -390,6 +386,7 @@ void testApp::sortImages()
                 else  { score=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+2*pictures_XML.getValue("Comments",0);}
                 //cout<<score<<endl;
                 imageScores.insert(std::pair<int,int>(score,imageCounter));
+                albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...		
                 pictures_XML.popTag();
                 imageCounter++;
                 
@@ -403,10 +400,20 @@ void testApp::sortImages()
   
     
     std::multimap<int,int>::iterator it;
-    for(it=imageScores.begin();it!=imageScores.end();++it)
-        cout<<(*it).first<<"  "<<(*it).second<<endl;;
+     std::multimap<int,int>::iterator albumiterator=albumScores.begin();
     
-      cout<<imageCounter<<endl;
+    for(it=imageScores.begin();it!=imageScores.end();++it)
+    {
+        cout<<(*it).first<<"  "<<(*it).second<<endl;
+        imageData.push_back(ofVec3f((*it).first,(*it).second,(*albumiterator).second));
+        albumiterator++;
+    
+    }
+    
+    for(int i=0;i<imageData.size();i++)
+        cout<<imageData[i]<<endl;
+    
+//      cout<<imageCounter<<endl;
 }
 
 #endif
@@ -436,8 +443,27 @@ void testApp::pushWigglePositions()
     wigglePositions.push_back(ofVec3f(1,0,0));
     
     
+//  new experiments ...
     
-  
+//    wigglePositions.push_back(ofVec3f(1,1,1));
+//    
+//    wigglePositions.push_back(ofVec3f(1,1,1));
+//    
+//    
+//    wigglePositions.push_back(ofVec3f(0,1,1));
+//    
+//    wigglePositions.push_back(ofVec3f(0,1,1));
+//    
+//    
+//    wigglePositions.push_back(ofVec3f(1,0,1));
+//    
+//    wigglePositions.push_back(ofVec3f(1,0,1));
+//    
+//    
+//    wigglePositions.push_back(ofVec3f(1,1,0));
+//    
+//    wigglePositions.push_back(ofVec3f(1,1,0));
+
 }
 
 ofVec3f testApp::wiggle()
@@ -451,7 +477,7 @@ ofVec3f testApp::wiggle()
     {
         
     if(wiggleAnimationCounter<=maxValue)
-            wiggleAnimationCounter+=0.008;
+            wiggleAnimationCounter+=0.01;
         
     else {
         currentwiggleindex++;
@@ -466,7 +492,7 @@ ofVec3f testApp::wiggle()
         
                    
             if(wiggleAnimationCounter>=0)
-                wiggleAnimationCounter-=0.008;
+                wiggleAnimationCounter-=0.01 ;
             
             else {
                 currentwiggleindex++;
@@ -494,3 +520,74 @@ ofVec3f testApp::wiggle()
     return currentwigglePosition;
 }
 
+void testApp::reorder()
+{
+    std::multimap<int,int>::iterator it;
+    std::multimap<int,int>::iterator tempIterator;
+    std::multimap<int,int>::iterator thirdtempIterator;
+    
+    
+    //
+    std::multimap<int,int>::iterator firstAlbumIterator;
+    std::multimap<int,int>::iterator secondAlbumIterator;
+    
+    
+    int imageIterator=0;
+    
+    cout<<"*************************\n";
+    cout<<"Reordering***************\n";
+    cout<<endl;
+    int albumnumber,tempPicIndex;
+    
+    firstAlbumIterator=imageScores.begin();
+    
+    for(it=albumScores.begin();it!=albumScores.end();++it)
+    {
+        tempIterator=++it;
+
+        it--;
+
+              
+        if((tempIterator)==albumScores.end())
+            break;
+
+        //tempIterator--;
+        
+        secondAlbumIterator=++firstAlbumIterator;
+        firstAlbumIterator--;
+        
+        if((*it).second==(*tempIterator).second)
+        {
+            thirdtempIterator=++tempIterator;
+            tempIterator--;
+            
+            while((*it).second==(*tempIterator).second||(*tempIterator).second==(*thirdtempIterator).second)
+            {
+                
+            tempIterator++;
+                secondAlbumIterator++;
+//                cout<<"reassigning\n";
+                thirdtempIterator++;
+            }
+            
+            cout<<"swapping values "<<(*it).second<<"   "<<(*tempIterator).second;
+                
+//            tempPicIndex=(*it).second;
+//            (*it).second=(*tempIterator).second;
+//            (*tempIterator).second=tempPicIndex;
+            
+//            cout<<"swapping values "<<(*it).second<<"   "<<(*tempIterator).second;
+
+            tempPicIndex=(*firstAlbumIterator).second;
+            (*firstAlbumIterator).second=(*secondAlbumIterator).second;
+            (*secondAlbumIterator).second=tempPicIndex;
+        }
+        
+        
+        cout<<(*it).second<<"::"<<(*tempIterator).second<<endl;
+        firstAlbumIterator++;
+        //Perform a swap ...
+           
+    }
+
+}

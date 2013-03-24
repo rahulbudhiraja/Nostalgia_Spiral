@@ -57,6 +57,8 @@ class testApp : public ofBaseApp{
         ofxXmlSettings pictures_XML;
         long long int userid;
     
+    
+    /* The Wiggling Stuff */
         vector <ofVec3f> wigglePositions;
     
         void pushWigglePositions(); /// Pushing values ...
@@ -68,10 +70,15 @@ class testApp : public ofBaseApp{
         int currentwiggleindex; // the index of the position in the Wiggle Positions vector ...
     
         float wiggleAnimationCounter;
+        void reorder();
+    
+    /* End of Wiggling stuff. */
+    
+    
+        multimap <int, int > albumScores;
+        vector<ofVec3f> imageData;
     
 #endif
-
-
     
         vector<ofVec3f> SpiralPoints;
         void generateSpiral();
