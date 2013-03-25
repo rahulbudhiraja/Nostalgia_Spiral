@@ -31,6 +31,9 @@ void testApp::setup()
     wiggleAnimationCounter=0;
 //    reorder();
     newReorder();
+//    assignStarPositions();
+  
+    
 #endif
 //    ofExit();
  
@@ -55,7 +58,7 @@ void testApp::draw()
 	ofBackground(0, 0, 0);
     
     ofSetColor(255,255,255);
-    
+  
 #ifndef DEBUGMODE
 
     if(isstartingAnimationActive)
@@ -86,7 +89,7 @@ void testApp::draw()
 #endif
     camera.begin();
 
-    
+//      drawStars();
     
 //    for(int i=0;i<SpiralPoints.size();i++)
 //    {
@@ -384,7 +387,7 @@ void testApp::sortImages()
                 int score;
                 if(pictures_XML.getValue("Tags",0)>15)
                     score=0;
-                else  { score=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+2*pictures_XML.getValue("Comments",0);}
+                else  { score=2*pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+3*pictures_XML.getValue("Comments",0);}
                 //cout<<score<<endl;
                 imageScores.insert(std::pair<int,int>(score,imageCounter));
                 albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...		
@@ -430,9 +433,9 @@ void testApp::pushWigglePositions()
     
 //    wigglePositions.push_back(ofVec3f(0,0,0));
     
-    wigglePositions.push_back(ofVec3f(0,0,1));
+    wigglePositions.push_back(ofVec3f(1,1,0));
     
-    wigglePositions.push_back(ofVec3f(0,0,1));
+    wigglePositions.push_back(ofVec3f(1,1,0));
     
     
     wigglePositions.push_back(ofVec3f(0,1,0));
@@ -651,5 +654,21 @@ void testApp::newReorder()
     for(int k=0;k<imageData.size();k++)
         cout<<imageData[k]<<endl;
     
+    
+}
+
+void testApp::drawStars()
+{
+    ofSetColor(255, 255, 255);
+    
+    for(int i=0;i<StarPositions.size();i++)
+        ofSphere(StarPositions[i], 1);
+    
+}
+
+void testApp::assignStarPositions()
+{
+    for(int i=0;i<10000;i++)
+        StarPositions.push_back(ofVec3f(ofRandom(100000), ofRandom(10000),ofRandom(10000)));
     
 }

@@ -73,12 +73,17 @@ class testApp : public ofBaseApp{
         float wiggleAnimationCounter;
         void reorder();
     
-    /* End of Wiggling stuff. */
+        /* End of Wiggling stuff. */
     
     
         multimap <int, int > albumScores;
         vector<ofVec3f> imageData;
         void newReorder();
+        void assignStarPositions();
+        void drawStars();
+    
+        vector<ofVec3f>StarPositions;
+    
 #endif
     
         vector<ofVec3f> SpiralPoints;
