@@ -297,7 +297,7 @@ void testApp::drawImages()
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
         
-        
+      
         ImageVector[index].draw(-ImageVector[index].getWidth()/2,-ImageVector[index].getHeight()/2);
         ofPopMatrix();
         
