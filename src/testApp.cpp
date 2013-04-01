@@ -42,7 +42,8 @@ void testApp::setup()
     NostalgiaFont.setLineHeight(200);
     ofEnableAlphaBlending();
   
-   
+    cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
+
     
 }
 
@@ -68,14 +69,16 @@ void testApp::draw()
     
     else
     {
+        
 
+        
     if(animationMode)
-        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,800));
+        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,max(ImageVector[imageData[cameraindex].y-1].getHeight(),ImageVector[imageData[cameraindex].y-1].getWidth())));
     else
 //    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
     {
 //        if(currentwiggleindex%2==0)
-        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,800)+wiggle());
+        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,max(ImageVector[imageData[cameraindex].y-1].getHeight(),ImageVector[imageData[cameraindex].y-1].getWidth()))+wiggle());
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
         
     }
@@ -136,6 +139,8 @@ void testApp::keyPressed(int key){
     {
         
     cameraindex--;
+        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
+        cout<<"The dimensions of the Image are: Height = "<<ImageVector[imageData[cameraindex].y-1].getHeight()<<" \t Width = "<<ImageVector[imageData[cameraindex].y-1].getWidth()<<"Max value is\t"<<max(ImageVector[imageData[cameraindex].y-1].getHeight(),ImageVector[imageData[cameraindex].y-1].getWidth())<<endl;;
     animationMode=true;
       animationCounter=0;
     
@@ -253,7 +258,7 @@ void testApp::loadImagesFromDirectory()
     
     cout<<dir.listDir();
     
-    cout<<dir.numFiles();
+    cout<<"NUMBER OF FILES"<<dir.numFiles()<<endl;
     
     ofImage TempImage;
     
@@ -323,6 +328,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
         tweenvalue=0;
     animationMode=false;
         return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
+        
     }
     tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
     tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
@@ -336,7 +342,9 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=29;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=smoothnessFactor/5000;
+    
+//    cout<<"smoothness factor\n"<<smoothnessFactor;
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
     { tweenvalue = (startAnimationCounter) /smoothnessFactor;
@@ -514,7 +522,7 @@ ofVec3f testApp::wiggle()
     currentwigglePosition.y=wigglePositions[currentwiggleindex].y*wiggleAnimationCounter;
     currentwigglePosition.z=wigglePositions[currentwiggleindex].z*wiggleAnimationCounter;
 
-    cout<<currentwigglePosition<<endl;
+//    cout<<currentwigglePosition<<endl;
     
     // If not wiggling ..change the index ....
     
