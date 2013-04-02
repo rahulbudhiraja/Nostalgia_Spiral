@@ -10,6 +10,8 @@
 //
 //#define Prototype2
 
+# define REPETITION_TESTING
+
 class testApp : public ofBaseApp{
 	public:
     testApp(long long int id);
@@ -100,6 +102,10 @@ class testApp : public ofBaseApp{
         int blahblah;
     
         ofTrueTypeFont NostalgiaFont;
+    
 
+#ifdef REPETITION_TESTING
+        vector<int>imageIndices;
+#endif
 
 };

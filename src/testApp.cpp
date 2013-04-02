@@ -44,6 +44,7 @@ void testApp::setup()
   
     cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
 
+
     
 }
 
@@ -71,14 +72,25 @@ void testApp::draw()
     {
         
 
-        
+
     if(animationMode)
-        camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,max(ImageVector[imageData[cameraindex].y-1].getHeight(),ImageVector[imageData[cameraindex].y-1].getWidth())));
+    {
+        if(ImageVector[imageData[cameraindex].y-1].getHeight()>ImageVector[imageData[cameraindex].y-1].getWidth())
+            camera.setPosition(animate(cameraindex+1, cameraindex)+1.4*ofVec3f(0,0,ImageVector[imageData[cameraindex].y-1].getHeight()));
+        else camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,ImageVector[imageData[cameraindex].y-1].getHeight()));
+        
+    
+        
+    }
     else
 //    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
     {
 //        if(currentwiggleindex%2==0)
-        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,max(ImageVector[imageData[cameraindex].y-1].getHeight(),ImageVector[imageData[cameraindex].y-1].getWidth()))+wiggle());
+        
+        if(ImageVector[imageData[cameraindex].y-1].getHeight()>ImageVector[imageData[cameraindex].y-1].getWidth())
+        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.4*ImageVector[imageData[cameraindex].y-1].getHeight())+wiggle());
+        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,ImageVector[imageData[cameraindex].y-1].getWidth())+wiggle());
+        
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
         
     }
@@ -318,7 +330,7 @@ void testApp::drawImages()
 ofVec3f testApp::animate(int pos1, int pos2)
 {
     
-    float smoothnessFactor=2400,timeInterval=5;
+    float smoothnessFactor=2400,timeInterval=500;
     
         if(animationCounter<=smoothnessFactor-timeInterval)
             { tweenvalue = (animationCounter) /smoothnessFactor;
@@ -333,6 +345,8 @@ ofVec3f testApp::animate(int pos1, int pos2)
     tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
     tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
     tweenedCameraPosition.z=ofLerp(35*SpiralPoints[700*pos1].z,35*SpiralPoints[700*pos2].z,tweenvalue);
+    
+    
 //     cout<<tweenvalue<<"\n";
     
     return tweenedCameraPosition;
@@ -659,10 +673,15 @@ void testApp::newReorder()
         }
     }
     
-    for(int k=0;k<imageData.size();k++)
-        cout<<imageData[k]<<endl;
-    
-    
+//    
+//    for(int k=0;k<imageData.size();k++)
+//        ;imageIndices.push_back(imageData[k].y);
+   
+
+//    
+//    
+
+//    
 }
 
 void testApp::drawStars()
