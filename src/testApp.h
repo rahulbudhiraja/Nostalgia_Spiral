@@ -10,10 +10,24 @@
 //
 //#define Prototype2
 
+struct ImageData
+{
+    int imageScore;
+    int albumnumber;
+    int imageNumber;
+    bool isTagged;
+ 
+   bool operator()(const ImageData&l,const ImageData &m) {
+        return (l.imageScore<m.imageScore);
+       }
+     
+};
+
 # define REPETITION_TESTING
 
 class testApp : public ofBaseApp{
-	public:
+	
+public:
     testApp(long long int id);
     
     
@@ -79,8 +93,22 @@ class testApp : public ofBaseApp{
     
     
         multimap <int, int > albumScores;
+    
+//        multimap<int,int>taggedimageScores;
+//        multimap<int,int>untaggedimageScores;
+//    
+//        multimap<int,int>taggedalbumScores;
+//        multimap<int,int>untaggedalbumScores;
+    
+        vector<ImageData> imageDetails,taggedImages,untaggedImages;
+    
+    
+    
+        bool sortOnImageScore(ImageData l,ImageData r);
+    
         vector<ofVec3f> imageData;
         void newReorder();
+        void complexReorder();
         void assignStarPositions();
         void drawStars();
     

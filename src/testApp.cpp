@@ -31,6 +31,7 @@ void testApp::setup()
     wiggleAnimationCounter=0;
 //    reorder();
     newReorder();
+    complexReorder();
 //    assignStarPositions();
   
     
@@ -299,18 +300,20 @@ void testApp::drawImages()
     
 //    for(it=imageScores.begin();it!=imageScores.end();++it)
 
-    for(int i=0;i<imageData.size();i++)
-    {
-        
+//    for(int i=0;i<imageData.size();i++)
+//    {
+        for(int i=0;i<imageDetails.size();i++)
+        {
+    
         ofPushMatrix();
 //        int index=(*it).second-1;//ofRandom(30,70);
-        int index=imageData[i].y-1;
+        int index=imageDetails[i].imageNumber-1;
 //        SpiralPoints[i].z*=600;
 //       cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
         
 //        ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
-    ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
-        
+        ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
+         
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
         
@@ -319,7 +322,7 @@ void testApp::drawImages()
         ofPopMatrix();
         
         
-        imageIterator++;
+//        imageIterator++;
         //if(i>=1)
             ;// ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
     }
@@ -387,8 +390,8 @@ void testApp::sortImages()
     string path="/Applications/MAMP/htdocs/25labs/"+ofToString(userid)+"/pictures.xml";
     
     int imageCounter=1;
-    
-   
+    int newScore;
+    ImageData imagedataObject;
     
     if(pictures_XML.loadFile(path))
     {
@@ -399,20 +402,50 @@ void testApp::sortImages()
         for(int i=0;i<pictures_XML.getNumTags("Album");i++)
         {
             pictures_XML.pushTag("Album",i);
-            cout<<pictures_XML.getNumTags("Image")<<endl;;
+//            cout<<pictures_XML.getNumTags("Image")<<endl;;
             
             
             for (int j=0;j<pictures_XML.getNumTags("Image");j++)
             {
                 pictures_XML.pushTag("Image",j);
-                cout<<pictures_XML.getValue("Likes",0)<<endl;
+//                cout<<pictures_XML.getValue("Likes",0)<<endl;
                 int score;
                 if(pictures_XML.getValue("Tags",0)>15)
                     score=0;
                 else  { score=2*pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+3*pictures_XML.getValue("Comments",0);}
                 //cout<<score<<endl;
+                
+                
                 imageScores.insert(std::pair<int,int>(score,imageCounter));
-                albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...		
+                albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...
+                
+   /// THE NEW SORTING ALGORITHM ..
+                
+          
+                
+           
+                
+                imagedataObject.albumnumber= i;
+                imagedataObject.imageNumber=imageCounter;
+                
+                if(pictures_XML.getValue("Tags",0)>0)
+                {
+                    imagedataObject.imageScore=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Comments",0);;
+                    imagedataObject.isTagged=true;
+                    taggedImages.push_back(imagedataObject);
+
+                }
+                
+                
+                else
+                {
+                   imagedataObject.isTagged=false;
+                   imagedataObject.imageScore=0.5*pictures_XML.getValue("Likes",0)+pictures_XML.getValue("Comments",0);
+                   untaggedImages.push_back(imagedataObject);
+                }
+                
+//                imageDetails.push_back(imagedataObject);
+                
                 pictures_XML.popTag();
                 imageCounter++;
                 
@@ -423,9 +456,20 @@ void testApp::sortImages()
     
     }
     
-  
+//    cout<<"Size of Tagged Images"<<taggedimageScores.size()<<endl;
+//   cout<<"size of Untagged Images"<<untaggedimageScores.size()<<endl;
     
-    std::multimap<int,int>::iterator it;
+//    sort(imageDetails.begin(),imageDetails.end(),imagedataObject);
+  
+    sort(taggedImages.begin(),taggedImages.end(),imagedataObject);
+    sort(untaggedImages.begin(),untaggedImages.end(),imagedataObject);
+    
+    cout<<"checking .....\n";
+    for(int i=0;i<taggedImages.size();i++)
+            cout<<taggedImages[i].imageScore<<" \t"<<endl;
+
+    ////////////////////////////////////////////////////////////////////
+     std::multimap<int,int>::iterator it;
      std::multimap<int,int>::iterator albumiterator=albumScores.begin();
     
     for(it=imageScores.begin();it!=imageScores.end();++it)
@@ -646,6 +690,7 @@ void testApp::newReorder()
 //    }
 
     cout<<"reordering";
+    
     for(int i=imageData.size()-1;i>1;i--)
     {
         j=i-1;
@@ -699,3 +744,89 @@ void testApp::assignStarPositions()
         StarPositions.push_back(ofVec3f(ofRandom(100000), ofRandom(10000),ofRandom(10000)));
     
 }
+
+//bool testApp::sortOnImageScore(, )
+
+bool testApp::sortOnImageScore(ImageData l,ImageData r) {
+    return l.imageScore<r.imageScore;
+}
+
+
+void testApp::complexReorder()
+{
+    int ratio= 3; // This ratio defines how many images should be taken from the untagged Images compared to the TaggedImages ....
+                  // 2+1 ..
+    
+    imageData.clear();
+    
+    
+    cout <<"Trying the complex reorder"<<endl;
+    int untaggedImageCount=0,taggedImageCount=0,i;
+    
+    while(untaggedImageCount!=untaggedImages.size())
+    {
+        
+        if(i%ratio==0 && i!=0 && taggedImageCount<taggedImages.size())
+        {
+            imageDetails.push_back(taggedImages[taggedImageCount]);
+            taggedImageCount++;
+        }
+        else {
+            imageDetails.push_back(untaggedImages[untaggedImageCount]);
+            untaggedImageCount++;
+        }
+        i++;
+        
+    }
+    
+    // Fill the remaining
+    
+    while(taggedImageCount<taggedImages.size())
+    {
+        imageDetails.push_back(taggedImages[taggedImageCount]);
+        taggedImageCount++;
+    }
+    
+    for(int i=0;i<imageDetails.size();i++)
+        cout<<imageDetails[i].isTagged<<endl;
+    
+    // Sorted Data Structures,How to re-order these so that the same album number isnt the problem ...
+    
+    int j,tempVal;
+     
+    for(int i=imageDetails.size()-1;i>=1;i--)
+    {
+        j=i-1;
+        
+        
+        if(imageDetails[i].albumnumber==imageDetails[j].albumnumber)
+        {
+            cout<<"doing this when i= \t "<<imageDetails[i].albumnumber<<"\t";
+            
+            while(j>0&&(imageDetails[i].albumnumber==imageDetails[j].albumnumber))
+            {
+                j--;
+            }
+            cout<<" and then j= \t"<<imageDetails[j].albumnumber<<endl;
+            
+//            tempVal=imageDetails[i-1].albumnumber;
+//            imageDetails[i-1].albumnumber=imageDetails[j].albumnumber;
+//            imageDetails[j].albumnumber=tempVal;
+//            
+//            tempVal=imageDetails[i-1].albumnumber;
+//            imageDetails[i-1].albumnumber=imageDetails[j].albumnumber;
+//            imageDetails[j].albumnumber=tempVal;
+//            
+            std::swap(imageDetails[i-1], imageDetails[j]);
+            
+        }
+    }
+    
+    cout<<"Now checking the album numbers .";
+//
+//    for(int i=0;i<imageDetails.size();i++)
+//        cout<<imageDetails[i].albumnumber<<endl;
+//
+    
+    
+    }

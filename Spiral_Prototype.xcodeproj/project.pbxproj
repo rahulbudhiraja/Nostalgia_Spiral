@@ -541,8 +541,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				7A50825C166B5B4F00920C56 /* testApp.cpp */,
 				7A50825D166B5B4F00920C56 /* testApp.h */,
+				7A50825C166B5B4F00920C56 /* testApp.cpp */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 			);
 			path = src;
