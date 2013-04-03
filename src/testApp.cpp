@@ -13,6 +13,7 @@ void testApp::setup()
 #ifdef DEBUGMODE
     camera.setDistance(200);
     camera.setFarClip(1000000);
+    
 
 #else 
     
@@ -72,14 +73,15 @@ void testApp::draw()
     else
     {
         
+        cout<<"The dimensions of the Image are: width = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth()<<" \t Height = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()<<"Max value is\t"<<max(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight(),ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())<<"Index is"<<imageDetails[cameraindex].imageNumber<<endl;;
 
 
     if(animationMode)
     {
-        if(ImageVector[imageData[cameraindex].y-1].getHeight()>ImageVector[imageData[cameraindex].y-1].getWidth())
-            camera.setPosition(animate(cameraindex+1, cameraindex)+1.4*ofVec3f(0,0,ImageVector[imageData[cameraindex].y-1].getHeight()));
-        else camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,ImageVector[imageData[cameraindex].y-1].getHeight()));
-        
+        if(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()>=ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())
+            camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,1.6*ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()));
+        else camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()));
+          
     
         
     }
@@ -88,9 +90,12 @@ void testApp::draw()
     {
 //        if(currentwiggleindex%2==0)
         
-        if(ImageVector[imageData[cameraindex].y-1].getHeight()>ImageVector[imageData[cameraindex].y-1].getWidth())
-        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.4*ImageVector[imageData[cameraindex].y-1].getHeight())+wiggle());
-        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,ImageVector[imageData[cameraindex].y-1].getWidth())+wiggle());
+        if(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()>=ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())
+        {
+         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.4*ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight())+wiggle());
+            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
+        }
+        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())+wiggle());
         
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
         
@@ -153,7 +158,6 @@ void testApp::keyPressed(int key){
         
     cameraindex--;
         cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
-        cout<<"The dimensions of the Image are: Height = "<<ImageVector[imageData[cameraindex].y-1].getHeight()<<" \t Width = "<<ImageVector[imageData[cameraindex].y-1].getWidth()<<"Max value is\t"<<max(ImageVector[imageData[cameraindex].y-1].getHeight(),ImageVector[imageData[cameraindex].y-1].getWidth())<<endl;;
     animationMode=true;
       animationCounter=0;
     
