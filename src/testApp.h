@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
 #include <algorithm>  
+#include "ofxBlur.h"
 
 //#define DEBUGMODE
 
@@ -10,9 +11,11 @@
 //
 //#define Prototype2
 
+//#define BLUR
+
 struct ImageData
 {
-    int imageScore;
+    float imageScore;
     int albumnumber;
     int imageNumber;
     bool isTagged;
@@ -131,6 +134,13 @@ public:
     
         ofTrueTypeFont NostalgiaFont;
     
+    ///// Blur the Photos ....
+    
+#ifdef BLUR
+    ofxBlur blur;
+#endif
+    
+    float position1_z,position2_z;
 
 #ifdef REPETITION_TESTING
         vector<int>imageIndices;

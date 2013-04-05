@@ -34,9 +34,10 @@ void testApp::setup()
     newReorder();
     complexReorder();
 //    assignStarPositions();
-  
-    
+#ifdef BLUR
+    blur.setup(ofGetScreenWidth(), ofGetScreenHeight(), 1, .05, 10);
 #endif
+    #endif
 //    ofExit();
  
     NostalgiaFont.loadFont("asyouwish.ttf", 300);
@@ -45,6 +46,7 @@ void testApp::setup()
     ofEnableAlphaBlending();
   
     cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
+    ofSetBackgroundAuto(true);
 
 
     
@@ -59,7 +61,7 @@ void testApp::update(){
 void testApp::draw()
 {
 
-	ofBackground(0, 0, 0);
+//	ofBackground(0, 0, 0);
     
     ofSetColor(255,255,255);
   
@@ -76,11 +78,13 @@ void testApp::draw()
         cout<<"The dimensions of the Image are: width = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth()<<" \t Height = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()<<"Max value is\t"<<max(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight(),ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())<<"Index is"<<imageDetails[cameraindex].imageNumber<<endl;;
 
 
+        cout<<"\nThe image score"<<imageDetails[cameraindex].imageScore;
+        
     if(animationMode)
     {
         if(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()>=ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())
-            camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,1.6*ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()));
-        else camera.setPosition(animate(cameraindex+1, cameraindex)+ofVec3f(0,0,ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()));
+            camera.setPosition(animate(cameraindex+1, cameraindex));
+        else camera.setPosition(animate(cameraindex+1, cameraindex));
           
     
         
@@ -93,7 +97,7 @@ void testApp::draw()
         if(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()>=ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())
         {
          camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.4*ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight())+wiggle());
-            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
+//            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
         }
         else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())+wiggle());
         
@@ -103,27 +107,14 @@ void testApp::draw()
         
     }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
-    
-    
-    
+
     
 #endif
+    
+
     camera.begin();
 
-//      drawStars();
-    
-//    for(int i=0;i<SpiralPoints.size();i++)
-//    {
-//     
-//        // ofSphere(SpiralPoints[i].x,SpiralPoints[i].y,SpiralPoints[i].z,0.4);
-////        if(i%330!=0)
-////            continue;
-//
-//       // ofRect(SpiralPoints[i].x-2,SpiralPoints[i].y-1,SpiralPoints[i].z,4,2);
-//
-//    }
-    
-//    ofLine(-100,0,100,0);
+
     
     ofPushMatrix();
     ofRotateX(180);
@@ -131,9 +122,14 @@ void testApp::draw()
 //    NostalgiaFont.drawString("NOSTALGIA", 0, 0);
     ofPopMatrix();
     drawImages();
+
     
     camera.end();
-  
+#ifdef BLUR
+    blur.draw();
+#endif;
+    
+ 
 
 }
 
@@ -161,6 +157,19 @@ void testApp::keyPressed(int key){
     animationMode=true;
       animationCounter=0;
     
+    }
+    
+    else
+    {
+#ifdef BLUR
+        ofImage imgSaver;
+        ofFbo tp=blur.returnbase();
+        tp.readToPixels(imgSaver.getPixelsRef());
+        
+        imgSaver.update();
+        
+        ofSaveImage(imgSaver,"blah.png",OF_IMAGE_QUALITY_BEST);
+#endif
     }
 #endif
 
@@ -282,7 +291,12 @@ void testApp::loadImagesFromDirectory()
     for(int i = 0; i < dir.numFiles(); i++){
         TempImage.loadImage(ofToString(path+ofToString(i+1)+".jpg")); // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
         TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
+        
+#ifndef BLUR
+        
+        
         TempImage.mirror(true,false);
+#endif
         ImageVector.push_back(TempImage);
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
@@ -316,13 +330,19 @@ void testApp::drawImages()
 //       cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
         
 //        ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
+#ifdef BLUR
+            blur.begin();
+#endif
         ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
          
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
-        
+            
       
         ImageVector[index].draw(-ImageVector[index].getWidth()/2,-ImageVector[index].getHeight()/2);
+#ifdef BLUR
+            blur.end();
+#endif
         ofPopMatrix();
         
         
@@ -337,7 +357,7 @@ void testApp::drawImages()
 ofVec3f testApp::animate(int pos1, int pos2)
 {
     
-    float smoothnessFactor=2400,timeInterval=500;
+    float smoothnessFactor=2400,timeInterval=5;
     
         if(animationCounter<=smoothnessFactor-timeInterval)
             { tweenvalue = (animationCounter) /smoothnessFactor;
@@ -346,12 +366,31 @@ ofVec3f testApp::animate(int pos1, int pos2)
     else {
         tweenvalue=0;
     animationMode=false;
-        return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
+        
+        if(ImageVector[imageDetails[pos2].imageNumber-1].getHeight()>=ImageVector[imageDetails[pos2].imageNumber-1].getWidth())
+          return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.4*ImageVector[imageDetails[pos2].imageNumber-1].getHeight())+wiggle());
+      
+        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,ImageVector[imageDetails[pos2].imageNumber-1].getWidth())+wiggle());
+
+//        return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
         
     }
     tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
     tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
-    tweenedCameraPosition.z=ofLerp(35*SpiralPoints[700*pos1].z,35*SpiralPoints[700*pos2].z,tweenvalue);
+    
+    
+    // Setting the Z value ..
+    
+    if(ImageVector[imageDetails[pos1].imageNumber-1].getHeight()>=ImageVector[imageDetails[pos1].imageNumber-1].getWidth())
+        position1_z=1.6*ImageVector[imageDetails[pos1].imageNumber-1].getHeight()+35*SpiralPoints[700*pos1].z;
+    else position1_z=ImageVector[imageDetails[pos1].imageNumber-1].getWidth()+35*SpiralPoints[700*pos1].z;
+    
+    if(ImageVector[imageDetails[pos2].imageNumber-1].getHeight()>=ImageVector[imageDetails[pos2].imageNumber-1].getWidth())
+        position2_z=1.6*ImageVector[imageDetails[pos2].imageNumber-1].getHeight()+35*SpiralPoints[700*pos2].z;
+    else position2_z=ImageVector[imageDetails[pos2].imageNumber-1].getWidth()+35*SpiralPoints[700*pos2].z;
+
+    
+    tweenedCameraPosition.z=ofLerp(position1_z,position2_z,tweenvalue);
     
     
 //     cout<<tweenvalue<<"\n";
@@ -363,7 +402,9 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z,timeInterval=smoothnessFactor/5000;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z;
+    //timeInterval=10000;
+    float timeInterval=smoothnessFactor/5000;
     
 //    cout<<"smoothness factor\n"<<smoothnessFactor;
     
@@ -412,11 +453,10 @@ void testApp::sortImages()
             for (int j=0;j<pictures_XML.getNumTags("Image");j++)
             {
                 pictures_XML.pushTag("Image",j);
-//                cout<<pictures_XML.getValue("Likes",0)<<endl;
                 int score;
                 if(pictures_XML.getValue("Tags",0)>15)
                     score=0;
-                else  { score=2*pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Tags",0)+3*pictures_XML.getValue("Comments",0);}
+                else  { score=2*pictures_XML.getValue("Likes",0)+3*pictures_XML.getValue("Comments",0);}
                 //cout<<score<<endl;
                 
                 
@@ -425,17 +465,18 @@ void testApp::sortImages()
                 
    /// THE NEW SORTING ALGORITHM ..
                 
-          
-                
-           
-                
                 imagedataObject.albumnumber= i;
                 imagedataObject.imageNumber=imageCounter;
                 
                 if(pictures_XML.getValue("Tags",0)>0)
                 {
-                    imagedataObject.imageScore=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Comments",0);;
+                    
                     imagedataObject.isTagged=true;
+                    
+                    if(pictures_XML.getValue("Tags",0)>10)
+                        imagedataObject.imageScore=0;
+                        else 
+                    imagedataObject.imageScore=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Comments",0);;
                     taggedImages.push_back(imagedataObject);
 
                 }
@@ -447,6 +488,9 @@ void testApp::sortImages()
                    imagedataObject.imageScore=0.5*pictures_XML.getValue("Likes",0)+pictures_XML.getValue("Comments",0);
                    untaggedImages.push_back(imagedataObject);
                 }
+                
+                cout<<"Image Number\t"<<imageCounter<<"\tLikes "<<pictures_XML.getValue("Likes",0)<<"Comments "<<pictures_XML.getValue("Comments",0)<<endl;
+
                 
 //                imageDetails.push_back(imagedataObject);
                 
