@@ -9,12 +9,12 @@ void testApp::setup()
     
     generateCircularSpiral();
     loadImagesFromDirectory();
+    ofSetLogLevel(OF_LOG_VERBOSE);
+    ofSetFrameRate(200);
     
 #ifdef DEBUGMODE
     camera.setDistance(200);
     camera.setFarClip(1000000);
-    
-
 #else 
     
     sortImages();
@@ -31,7 +31,7 @@ void testApp::setup()
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
 //    reorder();
-    newReorder();
+//    newReorder();
     complexReorder();
 //    assignStarPositions();
 #ifdef BLUR
@@ -47,14 +47,19 @@ void testApp::setup()
   
     cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
     ofSetBackgroundAuto(true);
-
-
     
+    startingMovieFinished=false;
+    startingMovie.loadMovie("Intro_new.mov", OF_QTKIT_DECODE_TEXTURE_ONLY);
+    startingMovie.setLoopState(OF_LOOP_NONE);
+    startingMovie.play();
+    cout<<startingMovie.getDuration()<<endl;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    startingMovie.update();
+    if(startingMovie.getIsMovieDone())
+        startingMovieFinished=true;
 }
 
 //--------------------------------------------------------------
@@ -63,10 +68,14 @@ void testApp::draw()
 
 //	ofBackground(0, 0, 0);
     
-    ofSetColor(255,255,255);
-  
+    
+  if(!startingMovieFinished)
+  startingMovie.draw(0, 0);
+    else
+    {
 #ifndef DEBUGMODE
-
+      ofBackground(0, 0, 0);
+ofSetColor(255,255,255);
     if(isstartingAnimationActive)
     {
         camera.setPosition(startAnimationCameraPosition());
@@ -127,10 +136,10 @@ void testApp::draw()
     camera.end();
 #ifdef BLUR
     blur.draw();
-#endif;
-    
- 
+#endif
 
+}
+ 
 }
 
 //--------------------------------------------------------------
@@ -289,7 +298,8 @@ void testApp::loadImagesFromDirectory()
     ofImage TempImage;
     
     for(int i = 0; i < dir.numFiles(); i++){
-        TempImage.loadImage(ofToString(path+ofToString(i+1)+".jpg")); // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
+        if(!TempImage.loadImage(ofToString(path+ofToString(i+1)+".jpg")))
+            continue; // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
         TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
         
 #ifndef BLUR
@@ -297,9 +307,13 @@ void testApp::loadImagesFromDirectory()
         
         TempImage.mirror(true,false);
 #endif
+
         ImageVector.push_back(TempImage);
+
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
+
+//        cout<<i<<endl;
 //        ofLogNotice(dir.getPath(i));
     }
    

@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		7A50825E166B5B4F00920C56 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A50825C166B5B4F00920C56 /* testApp.cpp */; };
 		7A50E51A170CD4380046263F /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A50E518170CD4380046263F /* ofxBlur.cpp */; };
-		7A5239E516ECD1CA00BE9DE4 /* libzxing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5239D816ECD1CA00BE9DE4 /* libzxing.a */; };
-		7A5239E616ECD1CA00BE9DE4 /* libzxing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5239DA16ECD1CA00BE9DE4 /* libzxing.a */; };
 		7A5239E716ECD1CA00BE9DE4 /* libzxing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5239DC16ECD1CA00BE9DE4 /* libzxing.a */; };
 		7A5239E816ECD1CA00BE9DE4 /* ofPixelsBitmapSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5239DF16ECD1CA00BE9DE4 /* ofPixelsBitmapSource.cpp */; };
 		7A5239E916ECD1CA00BE9DE4 /* ofxZxing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5239E116ECD1CA00BE9DE4 /* ofxZxing.cpp */; };
 		7A5239EA16ECD1CA00BE9DE4 /* Result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5239E316ECD1CA00BE9DE4 /* Result.cpp */; };
+		7AC46CFB170EA73B00D8CE6D /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC46CFA170EA73B00D8CE6D /* QTKit.framework */; };
+		7AC46CFD170EA79100D8CE6D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC46CFC170EA79100D8CE6D /* Accelerate.framework */; };
+		7AC46CFF170EA7B100D8CE6D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC46CFE170EA7B100D8CE6D /* CoreVideo.framework */; };
 		7AE1135016F0EC7B00DDDD8E /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AE1134916F0EC7B00DDDD8E /* tinyxml.cpp */; };
 		7AE1135116F0EC7B00DDDD8E /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AE1134B16F0EC7B00DDDD8E /* tinyxmlerror.cpp */; };
 		7AE1135216F0EC7B00DDDD8E /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AE1134C16F0EC7B00DDDD8E /* tinyxmlparser.cpp */; };
@@ -158,6 +159,9 @@
 		7A5239E216ECD1CA00BE9DE4 /* ofxZxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxZxing.h; sourceTree = "<group>"; };
 		7A5239E316ECD1CA00BE9DE4 /* Result.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Result.cpp; sourceTree = "<group>"; };
 		7A5239E416ECD1CA00BE9DE4 /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		7AC46CFA170EA73B00D8CE6D /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = ../../../../../../../System/Library/Frameworks/QTKit.framework; sourceTree = "<group>"; };
+		7AC46CFC170EA79100D8CE6D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
+		7AC46CFE170EA7B100D8CE6D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		7AE1134916F0EC7B00DDDD8E /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
 		7AE1134A16F0EC7B00DDDD8E /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		7AE1134B16F0EC7B00DDDD8E /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC46CFF170EA7B100D8CE6D /* CoreVideo.framework in Frameworks */,
+				7AC46CFD170EA79100D8CE6D /* Accelerate.framework in Frameworks */,
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
@@ -203,9 +209,8 @@
 				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
-				7A5239E516ECD1CA00BE9DE4 /* libzxing.a in Frameworks */,
-				7A5239E616ECD1CA00BE9DE4 /* libzxing.a in Frameworks */,
 				7A5239E716ECD1CA00BE9DE4 /* libzxing.a in Frameworks */,
+				7AC46CFB170EA73B00D8CE6D /* QTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +514,7 @@
 		BBAB23C913894ECA00AA2426 /* system frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AC46CFA170EA73B00D8CE6D /* QTKit.framework */,
 				E4C2424410CC5A17004149E2 /* AppKit.framework */,
 				E4C2424510CC5A17004149E2 /* Cocoa.framework */,
 				E4C2424610CC5A17004149E2 /* IOKit.framework */,
@@ -553,6 +559,8 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				7AC46CFE170EA7B100D8CE6D /* CoreVideo.framework */,
+				7AC46CFC170EA79100D8CE6D /* Accelerate.framework */,
 				7A1DF60E16EAE69F0089D93A /* .gitignore */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
@@ -848,7 +856,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Spiral_PrototypeDebug;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -949,7 +957,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Spiral_Prototype;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

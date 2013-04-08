@@ -146,4 +146,6 @@ public:
         vector<int>imageIndices;
 #endif
 
+        ofQTKitPlayer startingMovie;
+        bool startingMovieFinished;
 };
