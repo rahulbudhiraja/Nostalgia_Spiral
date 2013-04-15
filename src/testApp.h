@@ -4,6 +4,11 @@
 #include "ofxXmlSettings.h"
 #include <algorithm>  
 #include "ofxBlur.h"
+#include "ofMain.h"
+
+#include "ofxOsc.h"
+# define USEWII
+
 
 //#define DEBUGMODE
 
@@ -13,12 +18,25 @@
 
 //#define BLUR
 
+
+#define PORT 9000
+
+#define FINDRANGE
+
+
+#define EfficientReorder
+
 struct ImageData
 {
     float imageScore;
     int albumnumber;
     int imageNumber;
-    bool isTagged;
+    
+#ifdef EfficientReorder
+    ofImage theloadedimage;
+#else
+   bool isTagged;
+#endif
  
    bool operator()(const ImageData&l,const ImageData &m) {
         return (l.imageScore<m.imageScore);
@@ -105,6 +123,8 @@ public:
     
         vector<ImageData> imageDetails,taggedImages,untaggedImages;
     
+        vector<ImageData> untaggedImageObjects,taggedImageObjects,combinedImageObjects;
+    
     
     
         bool sortOnImageScore(ImageData l,ImageData r);
@@ -132,7 +152,17 @@ public:
         void drawImages();
         int blahblah;
     
+        void loadImagesandXMLData();
+        int lengthofImages;
+
+    
         ofTrueTypeFont NostalgiaFont;
+    
+        float timeSincePreviousAnimation;
+    
+        ofVec3f overshotCameraStartingPosition;
+        ofVec3f adjustoverShotCameraPosition();
+        bool startoverShotCameraAnimation;
     
     ///// Blur the Photos ....
     
@@ -148,4 +178,45 @@ public:
 
         ofQTKitPlayer startingMovie;
         bool startingMovieFinished;
+    
+    
+        ofSoundPlayer BluementhalMp3;
+    
+ 
+#ifdef USEWII
+    
+// Wii-Mote Variables ....
+    
+    float roll, yaw, pitch, accel, wiiX, wiiY;
+    
+    float accel_x,accel_y,accel_z;
+    float angular_velocity;
+    ofxOscReceiver receiver;
+    
+    string Message;
+      int w, h;
+    
+ 
+    
+#ifdef FINDRANGE
+    
+    float min,max;
+    float minAccel,maxAccel;
+    
+#endif
+    
+    ofTrueTypeFont font;
+    float u,s,t;
+    float Position,Amplitude;
+    string State;
+#endif
+    
+    float timeGap;
+    bool isturnCompleted;
+    float maxAccelinTurn;
+    float prevAngVel=0;
+    
+    
+    /// End of Wii-Mote Variables ..
+
 };

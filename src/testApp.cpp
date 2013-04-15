@@ -8,7 +8,10 @@ void testApp::setup()
     ofBackground(0, 0, 0);
     
     generateCircularSpiral();
-    loadImagesFromDirectory();
+    
+    loadImagesandXMLData();
+    
+//    loadImagesFromDirectory();
     ofSetLogLevel(OF_LOG_VERBOSE);
     ofSetFrameRate(200);
     
@@ -17,14 +20,20 @@ void testApp::setup()
     camera.setFarClip(1000000);
 #else 
     
-    sortImages();
+//    sortImages();
     camera.setFov(40);
     camera.setFarClip(10000000);
-    cameraindex=ImageVector.size()-1;
+    cameraindex=combinedImageObjects.size()-1;
+    
+    
     camera.setPosition(cameraStartPosition);
     animationMode=false;
     isstartingAnimationActive=true;
+    
+    startoverShotCameraAnimation=false;
+    
     animationStartingPosition=ofVec3f(0,0,0);
+    overshotCameraStartingPosition=ofVec3f(0,0,0);
     startAnimationCounter=0;
     zdistanceFactor=35;
     pushWigglePositions();
@@ -32,7 +41,7 @@ void testApp::setup()
     wiggleAnimationCounter=0;
 //    reorder();
 //    newReorder();
-    complexReorder();
+//    complexReorder();
 //    assignStarPositions();
 #ifdef BLUR
     blur.setup(ofGetScreenWidth(), ofGetScreenHeight(), 1, .05, 10);
@@ -40,12 +49,12 @@ void testApp::setup()
     #endif
 //    ofExit();
  
-    NostalgiaFont.loadFont("asyouwish.ttf", 300);
+//    NostalgiaFont.loadFont("asyouwish.ttf", 300);
 //    NostalgiaFont.setLetterSpacing(30);
     NostalgiaFont.setLineHeight(200);
     ofEnableAlphaBlending();
   
-    cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
+//     cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
     ofSetBackgroundAuto(true);
     
     startingMovieFinished=false;
@@ -53,6 +62,45 @@ void testApp::setup()
     startingMovie.setLoopState(OF_LOOP_NONE);
     startingMovie.play();
     cout<<startingMovie.getDuration()<<endl;
+    
+    
+    
+    lengthofImages=combinedImageObjects.size()-1;
+    
+    
+#ifdef USEWII
+    
+    cout << "listening for osc messages on port " << PORT << "\n";
+    receiver.setup( PORT );
+    
+    accel_x=accel_y=accel_z;
+    
+    Message="";
+    
+    // End of the wii-mote Variables .....
+    
+    
+#ifdef FINDRANGE
+    min=10000;
+    max=(-1000);
+    minAccel=1000;maxAccel=-1000;
+#endif
+    
+    u=s=t=0;
+    Position=0;
+    
+    Amplitude=100;
+    State="";
+
+      font.loadFont("Inconsolata.otf", 20);
+#endif
+    BluementhalMp3.loadSound("Blumenthal.flac");
+    BluementhalMp3.setVolume(1.0f);
+    BluementhalMp3.play();
+    
+    timeGap=6000;
+    ofSetFullscreen(true);
+    
 }
 
 //--------------------------------------------------------------
@@ -60,6 +108,78 @@ void testApp::update(){
     startingMovie.update();
     if(startingMovie.getIsMovieDone())
         startingMovieFinished=true;
+    ofSoundUpdate();
+    
+#ifdef USEWII
+    while( receiver.hasWaitingMessages() &&startingMovieFinished)
+    {
+        if(w == 0 || h == 0){
+            w = ofGetWidth();
+            h = ofGetHeight();
+        }
+        // get the next message
+        ofxOscMessage m;
+        float x,y;
+        receiver.getNextMessage( &m );
+        
+        if ( m.getAddress() == "/wii/2/ir/0" )
+        {
+            x = m.getArgAsFloat( 0 );
+            
+            wiiX = x * w;
+            cout << "x: " << wiiX << " y: " << wiiY << "\n";
+        }
+        else if ( m.getAddress() == "/wii/2/ir/1" )
+        {
+            y = 1 - m.getArgAsFloat( 0 );
+            wiiY = y * h;
+            cout << "x: " << wiiX << " y: " << wiiY << "\n";
+        }
+        else if (m.getAddress() == "/wii/1/accel/pry/1") {
+            roll = m.getArgAsFloat(0);
+            
+        } else if (m.getAddress() == "/wii/1/accel/pry/2") {
+            yaw = m.getArgAsFloat(0);
+        }
+        else if (m.getAddress() == "/wii/1/accel/pry/0") {
+            pitch = m.getArgAsFloat(0);
+            
+        } else if (m.getAddress() == "/wii/1/accel/pry/3") {
+            accel = m.getArgAsFloat(0);
+        }
+        
+        else if(m.getAddress()=="/wii/1/accel/xyz/0")
+        {
+            accel_x=m.getArgAsFloat(0);
+            
+        }
+        
+        else if(m.getAddress()=="/wii/1/accel/xyz/1")
+        {
+            accel_y=m.getArgAsFloat(0);
+        }
+        
+        else if(m.getAddress()=="/wii/1/accel/xyz/2")
+        {
+            accel_z=m.getArgAsFloat(0);
+        }
+        
+        else if(m.getAddress()=="/wii/1/motion/velo/0")
+            angular_velocity=m.getArgAsFloat(0);
+        
+        else
+        {
+#ifdef DEBUG
+            cout << "unrecognized message: " << m.getAddress() << "\n";
+#endif
+        }
+    }
+    
+    if(abs(angular_velocity*1000)<400)
+        prevAngVel=angular_velocity;
+    
+#endif
+
 }
 
 //--------------------------------------------------------------
@@ -68,7 +188,7 @@ void testApp::draw()
 
 //	ofBackground(0, 0, 0);
     
-    
+
   if(!startingMovieFinished)
   startingMovie.draw(0, 0);
     else
@@ -78,20 +198,41 @@ void testApp::draw()
 ofSetColor(255,255,255);
     if(isstartingAnimationActive)
     {
+        if(!startoverShotCameraAnimation)
         camera.setPosition(startAnimationCameraPosition());
+        else camera.setPosition(adjustoverShotCameraPosition());
+        timeSincePreviousAnimation=ofGetElapsedTimeMillis();
     }
     
     else
     {
+        if((ofGetElapsedTimeMillis()-timeSincePreviousAnimation)>timeGap&&cameraindex!=0&&!animationMode)
+        {
+            
+            
+            cameraindex--;
+            
+            //        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
+            animationMode=true;
+            animationCounter=0;
+            timeSincePreviousAnimation=ofGetElapsedTimeMillis();
+            
+        }
         
-        cout<<"The dimensions of the Image are: width = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth()<<" \t Height = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()<<"Max value is\t"<<max(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight(),ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())<<"Index is"<<imageDetails[cameraindex].imageNumber<<endl;;
-
-
-        cout<<"\nThe image score"<<imageDetails[cameraindex].imageScore;
+        else if(cameraindex==0)
+        {
+            startingMovieFinished=false;
+            startingMovie.setSpeed(-1);
+            startingMovie.play();
+        }
+//        cout<<"The dimensions of the Image are: width = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth()<<" \t Height = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()<<"Max value is\t"<<max(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight(),ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())<<"Index is"<<imageDetails[cameraindex].imageNumber<<endl;;
+//
+//
+//        cout<<"\nThe image score"<<imageDetails[cameraindex].imageScore;
         
     if(animationMode)
     {
-        if(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()>=ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())
+        if(combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())
             camera.setPosition(animate(cameraindex+1, cameraindex));
         else camera.setPosition(animate(cameraindex+1, cameraindex));
           
@@ -103,16 +244,18 @@ ofSetColor(255,255,255);
     {
 //        if(currentwiggleindex%2==0)
         
-        if(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()>=ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())
+       if(combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())
         {
-         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.4*ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight())+wiggle());
+         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight())+wiggle()+ofVec3f(0,0,prevAngVel*150));
 //            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
         }
-        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())+wiggle());
+        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150));
         
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
         
     }
+        
+        
         
     }
 //    cout<<cameraindex<<endl<<cameraEndPosition;
@@ -139,6 +282,98 @@ ofSetColor(255,255,255);
 #endif
 
 }
+
+#ifdef USEWII
+    
+    if(accel-0.2>0.008&&accel!=0)
+    { 
+        if(angular_velocity<=-0.03)
+        {
+            ofSetColor(255, 0, 0);
+            font.drawString("Back", ofGetWidth()/2,ofGetHeight()/2+50);
+           
+            if(State.compare("Front")==0)
+                isturnCompleted=true;
+            
+             State="Back";
+
+//            Position+=100*(accel-0.2);
+        }
+        
+        else if(angular_velocity>=0.03)
+        {
+            
+            ofSetColor(0,255, 0);
+            font.drawString("Front", ofGetWidth()/2,ofGetHeight()/2+50);
+            
+            if(State.compare("Back")==0)
+                isturnCompleted=true;
+            
+            State="Front";
+
+            
+       //            Position-=100*(accel-0.2);
+        }
+        
+#ifdef USEWII
+#ifdef FINDRANGE
+        
+        if(angular_velocity<min)
+            min=angular_velocity;
+        if(angular_velocity>max)
+            max=angular_velocity;
+        
+        if(accel<minAccel)
+            minAccel=accel;
+        if(accel>maxAccel&&accel*1000<400)
+            maxAccel=accel;
+        
+     
+        
+//    font.drawString(ofToString(isturnCompleted), ofGetWidth()/2+200, ofGetHeight()/2+50);
+        
+     if(isturnCompleted)
+      {
+//          cout<<"Completed";
+
+          // Adjust the time gap ...
+          maxAccel*=1000;
+          if(maxAccel>204&&maxAccel<=214)
+              timeGap=9000;
+          if(maxAccel>214&&maxAccel<=224)
+              timeGap=7500;
+          if(maxAccel>224&&maxAccel<=234)
+              timeGap=6000;
+          if(maxAccel>234&&maxAccel<=244)
+              timeGap=5000;
+          if(maxAccel>244&&maxAccel<=254)
+              timeGap=4000;
+          
+          
+          maxAccel=0;
+          isturnCompleted=false;
+      }
+        font.drawString(ofToString(timeGap), ofGetWidth()/2+200, ofGetHeight()/2+50);
+        
+        
+#endif
+        
+        
+#endif
+    }
+    
+    ofSetColor(255, 255, 255);
+    font.drawString("Acceleration "+ofToString(accel*1000), ofGetWidth()/2, ofGetHeight()/2+100);
+    font.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
+    font.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
+    font.drawString("Max Velocity "+ofToString(max*1000), ofGetWidth()/2, ofGetHeight()/2+350);
+    
+//     cout<<"Acceleration "<<accel*1000   <<"\n Max Acceleration "<<maxAccel*1000<<"\n\n Min Acceleration "<<minAccel<<endl;
+//    
+//    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<min<<endl;;
+    
+    
+#endif
  
 }
 
@@ -152,7 +387,7 @@ void testApp::keyPressed(int key){
     
 #ifndef DEBUGMODE    
     
-    else if(key==OF_KEY_UP&&cameraindex!=ImageVector.size()-1&&!animationMode)
+    else if(key==OF_KEY_UP&&cameraindex!=lengthofImages&&!animationMode)
     {
         cameraindex++;
         animationMode=true;
@@ -162,7 +397,7 @@ void testApp::keyPressed(int key){
     {
         
     cameraindex--;
-        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
+//        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
     animationMode=true;
       animationCounter=0;
     
@@ -259,7 +494,7 @@ void testApp::generateCircularSpiral()
     
 /// Conical Helix ..
     
-    float height=10000,radius=100,ang_freq=3;
+    float height=10000,radius=200,ang_freq=3.2;
     
 
             for(float angle=0;angle<=3600;angle+=0.01)
@@ -334,12 +569,14 @@ void testApp::drawImages()
 
 //    for(int i=0;i<imageData.size();i++)
 //    {
-        for(int i=0;i<imageDetails.size();i++)
+    
+    
+        for(int i=lengthofImages-1;i>=0;i--) // Draw images in reverse order ....
         {
     
         ofPushMatrix();
 //        int index=(*it).second-1;//ofRandom(30,70);
-        int index=imageDetails[i].imageNumber-1;
+//        int index=combinedImageObjects[i].imageNumber-1;
 //        SpiralPoints[i].z*=600;
 //       cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
         
@@ -347,19 +584,19 @@ void testApp::drawImages()
 #ifdef BLUR
             blur.begin();
 #endif
-        ofTranslate(35*SpiralPoints[700*i].x,35*SpiralPoints[700*i].y,35*SpiralPoints[700*i].z);
+        ofTranslate(35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].x,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].y,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].z);
          
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
             
       
-        ImageVector[index].draw(-ImageVector[index].getWidth()/2,-ImageVector[index].getHeight()/2);
+        combinedImageObjects[i].theloadedimage.draw(-combinedImageObjects[i].theloadedimage.getWidth()/2,-combinedImageObjects[i].theloadedimage.getHeight()/2);
 #ifdef BLUR
             blur.end();
 #endif
         ofPopMatrix();
         
-        
+         
 //        imageIterator++;
         //if(i>=1)
             ;// ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
@@ -371,7 +608,7 @@ void testApp::drawImages()
 ofVec3f testApp::animate(int pos1, int pos2)
 {
     
-    float smoothnessFactor=2400,timeInterval=5;
+    float smoothnessFactor=2400,timeInterval=10;
     
         if(animationCounter<=smoothnessFactor-timeInterval)
             { tweenvalue = (animationCounter) /smoothnessFactor;
@@ -381,10 +618,10 @@ ofVec3f testApp::animate(int pos1, int pos2)
         tweenvalue=0;
     animationMode=false;
         
-        if(ImageVector[imageDetails[pos2].imageNumber-1].getHeight()>=ImageVector[imageDetails[pos2].imageNumber-1].getWidth())
-          return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.4*ImageVector[imageDetails[pos2].imageNumber-1].getHeight())+wiggle());
+        if(combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth())
+          return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.6*combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight())+wiggle());
       
-        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,ImageVector[imageDetails[pos2].imageNumber-1].getWidth())+wiggle());
+        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth())+wiggle());
 
 //        return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
         
@@ -395,13 +632,13 @@ ofVec3f testApp::animate(int pos1, int pos2)
     
     // Setting the Z value ..
     
-    if(ImageVector[imageDetails[pos1].imageNumber-1].getHeight()>=ImageVector[imageDetails[pos1].imageNumber-1].getWidth())
-        position1_z=1.6*ImageVector[imageDetails[pos1].imageNumber-1].getHeight()+35*SpiralPoints[700*pos1].z;
-    else position1_z=ImageVector[imageDetails[pos1].imageNumber-1].getWidth()+35*SpiralPoints[700*pos1].z;
+    if(combinedImageObjects[lengthofImages-pos1].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-pos1].theloadedimage.getWidth())
+        position1_z=1.6*combinedImageObjects[lengthofImages-pos1].theloadedimage.getHeight()+35*SpiralPoints[700*pos1].z;
+    else position1_z=1.05*combinedImageObjects[lengthofImages-pos1].theloadedimage.getWidth()+35*SpiralPoints[700*pos1].z;
     
-    if(ImageVector[imageDetails[pos2].imageNumber-1].getHeight()>=ImageVector[imageDetails[pos2].imageNumber-1].getWidth())
-        position2_z=1.6*ImageVector[imageDetails[pos2].imageNumber-1].getHeight()+35*SpiralPoints[700*pos2].z;
-    else position2_z=ImageVector[imageDetails[pos2].imageNumber-1].getWidth()+35*SpiralPoints[700*pos2].z;
+    if(combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth())
+        position2_z=1.6*combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight()+35*SpiralPoints[700*pos2].z;
+    else position2_z=1.05*combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth()+35*SpiralPoints[700*pos2].z;
 
     
     tweenedCameraPosition.z=ofLerp(position1_z,position2_z,tweenvalue);
@@ -416,22 +653,35 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z;
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight();
     //timeInterval=10000;
-    float timeInterval=smoothnessFactor/5000;
+    float timeInterval=smoothnessFactor/1500;
     
 //    cout<<"smoothness factor\n"<<smoothnessFactor;
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
-    { tweenvalue = (startAnimationCounter) /smoothnessFactor;
+    {
+//        
+//        cout<<"\ndifference in the positions "<<tweenvalue;        
+//        cout<<"\nCamera Position"<< tweenedCameraPosition.z;
+        
+       
+        tweenvalue = (startAnimationCounter) /smoothnessFactor;
+       
+        if(tweenvalue<0.98)
         startAnimationCounter+=timeInterval;
+        else startAnimationCounter+=(timeInterval);
+        
+        overshotCameraStartingPosition=tweenedCameraPosition;
     }
     
-    else isstartingAnimationActive=false;
+    //else isstartingAnimationActive=false;
+    else {startAnimationCounter=0; startoverShotCameraAnimation=true;}
     
-    tweenedCameraPosition.x=ofLerp(0, 0, tweenvalue);
+    tweenedCameraPosition.x=ofLerp(0, 0 , tweenvalue);
     tweenedCameraPosition.y=ofLerp(0, 0, tweenvalue);
-    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +1000, tweenvalue);
+    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +21.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
+   
     //cout<<tweenedCameraPosition.z<<"\n";
 
     
@@ -484,9 +734,9 @@ void testApp::sortImages()
                 
                 if(pictures_XML.getValue("Tags",0)>0)
                 {
-                    
+                    #ifndef EfficientReorder
                     imagedataObject.isTagged=true;
-                    
+#endif
                     if(pictures_XML.getValue("Tags",0)>10)
                         imagedataObject.imageScore=0;
                         else 
@@ -498,7 +748,10 @@ void testApp::sortImages()
                 
                 else
                 {
+#ifndef EfficientReorder
+                    
                    imagedataObject.isTagged=false;
+#endif
                    imagedataObject.imageScore=0.5*pictures_XML.getValue("Likes",0)+pictures_XML.getValue("Comments",0);
                    untaggedImages.push_back(imagedataObject);
                 }
@@ -609,7 +862,7 @@ ofVec3f testApp::wiggle()
     {
         
     if(wiggleAnimationCounter<=maxValue)
-            wiggleAnimationCounter+=0.01;
+            wiggleAnimationCounter+=0.05;
         
     else {
         currentwiggleindex++;
@@ -624,7 +877,7 @@ ofVec3f testApp::wiggle()
         
                    
             if(wiggleAnimationCounter>=0)
-                wiggleAnimationCounter-=0.01 ;
+                wiggleAnimationCounter-=0.05 ;
             
             else {
                 currentwiggleindex++;
@@ -849,8 +1102,11 @@ void testApp::complexReorder()
         taggedImageCount++;
     }
     
+    #ifndef EfficientReorder
+    
     for(int i=0;i<imageDetails.size();i++)
         cout<<imageDetails[i].isTagged<<endl;
+#endif
     
     // Sorted Data Structures,How to re-order these so that the same album number isnt the problem ...
     
@@ -889,6 +1145,288 @@ void testApp::complexReorder()
 //    for(int i=0;i<imageDetails.size();i++)
 //        cout<<imageDetails[i].albumnumber<<endl;
 //
+}
+
+void testApp::loadImagesandXMLData()
+{
+    string untaggedDirpath="/Applications/MAMP/htdocs/NostalgiaRoom/"+ofToString(userid)+"/converted_files/untaggedImages/";
+    ofDirectory untaggeddir(untaggedDirpath);
+    untaggeddir.allowExt("png");
+    untaggeddir.allowExt("jpg");
+    untaggeddir.allowExt("gif");
     
+    cout<<untaggeddir.listDir();
+    
+    cout<<"NUMBER OF FILES"<<untaggeddir.numFiles()<<endl;
+    
+    ofImage TempImage;
+    
+       
+    //// Load all the Images in the Image Vector ....
+    
+//    for(int i = 0; i < untaggeddir.numFiles(); i++){
+//        if(!TempImage.loadImage(ofToString(untaggedDirpath+ofToString(i)+".jpg")))
+//            continue; // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
+//        TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
+//        
+//#ifndef BLUR
+//        
+//        
+//        TempImage.mirror(true,false);
+//#endif
+//        
+//        ImageVector.push_back(TempImage);
+//        
+//        // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
+//        TempImage.clear();
+//        
+//        //        cout<<i<<endl;
+//        //        ofLogNotice(dir.getPath(i));
+//    }
+//    
+    int imageCounter=0;
+    
+    
+    string xmlpath="/Applications/MAMP/htdocs/NostalgiaRoom/"+ofToString(userid)+"/imagedata.xml";
+    
+    ImageData imagedataObject;
+    
+    // Then Populate the ImageDetails Structure ..
+    
+    if(pictures_XML.loadFile(xmlpath))
+    {
+        
+        pictures_XML.pushTag("xml");
+        pictures_XML.pushTag("ImageList");
+        
+        if(pictures_XML.pushTag("Untagged"))
+            
+           {
+
+            for (int j=0;j<pictures_XML.getNumTags("Image");j++)
+            {
+                pictures_XML.pushTag("Image",j);
+                
+                imagedataObject.imageNumber=imageCounter;
+                imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
+                imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
+                imagedataObject.theloadedimage.loadImage(ofToString(untaggedDirpath+ofToString(j)+".jpg"));
+                
+                imagedataObject.theloadedimage.resize(imagedataObject.theloadedimage.getWidth(), imagedataObject.theloadedimage.getHeight());
+                
+                #ifndef BLUR
+                
+                
+                         imagedataObject.theloadedimage.mirror(true,false);
+                #endif
+                
+//                cout<<j<<endl;
+                
+                combinedImageObjects.push_back(imagedataObject);
+                
+                pictures_XML.popTag();
+                
+                imageCounter++;
+                
+            }
+               pictures_XML.popTag();   
+            
+           }
     
     }
+    
+    cout<<combinedImageObjects.size()<<"\t this was the size of untaggedImgeobjects";
+    
+    ImageVector.clear();
+    imageCounter=0;
+    
+    
+    
+    
+    string taggedDirpath="/Applications/MAMP/htdocs/NostalgiaRoom/"+ofToString(userid)+"/converted_files/taggedImages/";
+    ofDirectory taggeddir(taggedDirpath);
+    
+    taggeddir.allowExt("png");
+    taggeddir.allowExt("jpg");
+    taggeddir.allowExt("gif");
+    
+
+    
+//    for(int i = 0; i < taggeddir.numFiles(); i++){
+//        if(!TempImage.loadImage(ofToString(taggedDirpath+ofToString(i)+".jpg")))
+//            continue; // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
+//        TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
+//        
+//#ifndef BLUR
+//        
+//        
+//        TempImage.mirror(true,false);
+//#endif
+//        
+//        ImageVector.push_back(TempImage);
+//        
+//        // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
+//        TempImage.clear();
+//        
+//        //        cout<<i<<endl;
+//        //        ofLogNotice(dir.getPath(i));
+//    }
+    
+    
+    // Now all the Tagged images need to be linked and added to the data structure .
+    
+    
+    if(pictures_XML.pushTag("Tagged"))
+        
+    {
+        for (int j=0;j<pictures_XML.getNumTags("Image");j++)
+        {
+            pictures_XML.pushTag("Image",j);
+            
+            imagedataObject.imageNumber=imageCounter;
+            imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
+            imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
+//            imagedataObject.theloadedimage=ImageVector[j];
+            imagedataObject.theloadedimage.loadImage(ofToString(taggedDirpath+ofToString(j)+".jpg"));
+            #ifndef BLUR
+                    imagedataObject.theloadedimage.mirror(true,false);
+            #endif
+            
+            taggedImageObjects.push_back(imagedataObject);
+            
+            pictures_XML.popTag();
+            
+            imageCounter++;
+            
+        }
+    }
+    
+    
+    cout<<taggedImageObjects.size()<<"\t this was the size of taggedImgeobjects";
+    
+// Now combine the untagged and Tagged in the correct ratio ..
+    
+    int ratio= 3; // This ratio defines how many images should be taken from the untagged Images compared to the TaggedImages ....
+    // 2+1 ..
+    
+    
+    cout <<"Trying the complex reorder"<<endl;
+
+    int untaggedImageCount=0,taggedImageCount=0,i;
+    
+    int num_untaggedImages=combinedImageObjects.size(),num_taggedImages=taggedImageObjects.size();
+  
+    int taggedImgCount=0;
+    
+//    for(int i=0;i<taggedImageObjects.size();i++)
+//    {
+//        if(i%ratio==0&&i!=0&&taggedImgCount<num_taggedImages)
+//        { std::swap(untaggedImageObjects[i], untaggedImageObjects[num_untaggedImages-1+taggedImgCount]);
+//            taggedImgCount++;
+//        }
+//    }
+    
+    cout<<"Combining and shuffling the tagged and untagged images";
+    for(int i=0;i<combinedImageObjects.size();i++)
+    {
+        if(i%ratio==0&&i!=0&&taggedImgCount<num_taggedImages)
+            combinedImageObjects.insert(combinedImageObjects.begin()+i,taggedImageObjects[taggedImgCount++]);
+        
+    }
+
+    
+//    while(untaggedImageCount!=untaggedImageObjects.size())
+//    {
+//        
+//        if(i%ratio==0 && i!=0 && taggedImageCount<taggedImageObjects.size())
+//        {
+//            combinedImageObjects.push_back(taggedImageObjects[taggedImageCount]);
+//            taggedImageCount++;
+//        }
+//        else {
+//            combinedImageObjects.push_back(untaggedImageObjects[untaggedImageCount]);
+////            untaggedImageObjects.pop_back();
+//            
+//            untaggedImageCount++;
+//        }
+//        i++;
+//        
+//    }
+    
+    
+    
+
+    // Sorted Data Structures,How to re-order these so that the same album number isnt the problem ...
+    
+    int j,tempVal;
+    
+    for(int i=0;i<combinedImageObjects.size()-1;i++)
+    {
+        j=i+1;
+        
+        
+        if(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber)
+        {
+            cout<<"doing this when i= \t "<<combinedImageObjects[i].albumnumber<<"\t";
+            
+            while(j<combinedImageObjects.size()-1&&(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber) && (j-i)<8) // This is because j is
+            {
+                j++;
+            }
+            cout<<" and then j= \t"<<combinedImageObjects[j].albumnumber<<endl;
+            
+            std::swap(combinedImageObjects[i+1], combinedImageObjects[j]);
+            
+        }
+    }
+    
+    cout<<"Now checking the album numbers ,Size of the array = \t"<<combinedImageObjects.size()<<endl;
+   
+    
+    
+    
+    
+        for(int i=0;i<combinedImageObjects.size();i++)
+            cout<<"Album number:"<<combinedImageObjects[i].albumnumber<<"\t Score"<<combinedImageObjects[i].imageScore<<endl;
+    
+
+
+//    ofExit();
+    
+}
+
+ofVec3f testApp::adjustoverShotCameraPosition()
+{
+    
+            
+        float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight();
+    //timeInterval=10000;
+    float timeInterval=smoothnessFactor/500;
+    
+    //    cout<<"smoothness factor\n"<<smoothnessFactor;
+    
+    if(startAnimationCounter<=smoothnessFactor-timeInterval)
+    {
+        //
+        //        cout<<"\ndifference in the positions "<<tweenvalue;
+        cout<<"\nCamera Position"<< tweenedCameraPosition.z;
+        
+        
+        tweenvalue = (startAnimationCounter) /smoothnessFactor;
+        
+        if(tweenvalue<0.98)
+            startAnimationCounter+=timeInterval;
+        else startAnimationCounter+=(timeInterval);
+        
+    }
+
+        else isstartingAnimationActive=false;
+    
+    tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
+    tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
+    tweenedCameraPosition.z=ofLerp(overshotCameraStartingPosition.z, 35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
+    
+    return tweenedCameraPosition;
+
+}
+
