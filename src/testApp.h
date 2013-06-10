@@ -215,7 +215,16 @@ public:
     bool isturnCompleted;
     float maxAccelinTurn;
     float prevAngVel=0;
+    float currentVolume;
+    bool fadeAudio;
     
+    bool startInstallation;
+    bool checkforaccel;
+    
+    ofTrueTypeFont previewText;
+    string tempText;
+    
+    bool ending;
     
     /// End of Wii-Mote Variables ..
 

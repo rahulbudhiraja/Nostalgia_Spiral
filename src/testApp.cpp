@@ -4,11 +4,12 @@
 //--------------------------------------------------------------
 void testApp::setup()
 {
-
+    ofHideCursor();
     ofBackground(0, 0, 0);
     
     generateCircularSpiral();
     
+
     loadImagesandXMLData();
     
 //    loadImagesFromDirectory();
@@ -25,6 +26,7 @@ void testApp::setup()
     camera.setFarClip(10000000);
     cameraindex=combinedImageObjects.size()-1;
     
+    accel=0;
     
     camera.setPosition(cameraStartPosition);
     animationMode=false;
@@ -39,6 +41,7 @@ void testApp::setup()
     pushWigglePositions();
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
+    startInstallation=false;
 //    reorder();
 //    newReorder();
 //    complexReorder();
@@ -57,13 +60,7 @@ void testApp::setup()
 //     cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
     ofSetBackgroundAuto(true);
     
-    startingMovieFinished=false;
-    startingMovie.loadMovie("Intro_new.mov", OF_QTKIT_DECODE_TEXTURE_ONLY);
-    startingMovie.setLoopState(OF_LOOP_NONE);
-    startingMovie.play();
-    cout<<startingMovie.getDuration()<<endl;
-    
-    
+       
     
     lengthofImages=combinedImageObjects.size()-1;
     
@@ -96,22 +93,43 @@ void testApp::setup()
 #endif
     BluementhalMp3.loadSound("Blumenthal.flac");
     BluementhalMp3.setVolume(1.0f);
-    BluementhalMp3.play();
+ 
     
     timeGap=6000;
     ofSetFullscreen(true);
+    currentVolume=1;
+    fadeAudio=false;
+    
+    startingMovieFinished=false;
+    startingMovie.loadMovie("Intro_new.mov", OF_QTKIT_DECODE_TEXTURE_ONLY);
+    startingMovie.setLoopState(OF_LOOP_NONE);
+    checkforaccel=true;
+
+    cout<<startingMovie.getDuration()<<endl;
+    
+    cout<<startingMovie.getWidth()<<"    "<<startingMovie.getHeight();
+    
+    
+    previewText.loadFont("asyouwish.ttf",42);
+    ending=false;
     
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     startingMovie.update();
+cout<<startingMovie.getCurrentFrame()<<"\t";
     if(startingMovie.getIsMovieDone())
         startingMovieFinished=true;
+    
+    if(startingMovie.getCurrentFrame()==0&&ending)
+    {cout<<"ending"<<endl;
+        ofExit();
+    }
     ofSoundUpdate();
     
 #ifdef USEWII
-    while( receiver.hasWaitingMessages() &&startingMovieFinished)
+    while( receiver.hasWaitingMessages())
     {
         if(w == 0 || h == 0){
             w = ofGetWidth();
@@ -121,6 +139,7 @@ void testApp::update(){
         ofxOscMessage m;
         float x,y;
         receiver.getNextMessage( &m );
+        cout<<m.getArgAsFloat( 0 )<<endl;
         
         if ( m.getAddress() == "/wii/2/ir/0" )
         {
@@ -178,8 +197,20 @@ void testApp::update(){
     if(abs(angular_velocity*1000)<400)
         prevAngVel=angular_velocity;
     
+    if(abs(accel*1000)-200>2&&!startInstallation)
+    {
+       startInstallation=true;
+       BluementhalMp3.play();
+       startingMovie.play();
+    
+    }
+    cout<<"acceleration :"<<accel<<endl;
 #endif
-
+        
+    if(fadeAudio)
+        currentVolume-=0.001;
+    
+    BluementhalMp3.setVolume(currentVolume);
 }
 
 //--------------------------------------------------------------
@@ -188,9 +219,15 @@ void testApp::draw()
 
 //	ofBackground(0, 0, 0);
     
+  
+if(startInstallation)
+{
+    
+    if(!startingMovieFinished)
+    {
+     startingMovie.draw(0, 0);
 
-  if(!startingMovieFinished)
-  startingMovie.draw(0, 0);
+    }
     else
     {
 #ifndef DEBUGMODE
@@ -219,11 +256,14 @@ ofSetColor(255,255,255);
             
         }
         
-        else if(cameraindex==0)
+        else if(cameraindex==0||BluementhalMp3.getPosition()>0.92)
         {
             startingMovieFinished=false;
+            ending=true;
             startingMovie.setSpeed(-1);
             startingMovie.play();
+            fadeAudio=true;
+            
         }
 //        cout<<"The dimensions of the Image are: width = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth()<<" \t Height = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()<<"Max value is\t"<<max(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight(),ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())<<"Index is"<<imageDetails[cameraindex].imageNumber<<endl;;
 //
@@ -246,10 +286,12 @@ ofSetColor(255,255,255);
         
        if(combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())
         {
-         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight())+wiggle()+ofVec3f(0,0,prevAngVel*150));
+         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight())+wiggle());
 //            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
         }
-        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150));
+        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle());
+        
+//        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150)); // This is for the wii-mote
         
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
         
@@ -290,7 +332,7 @@ ofSetColor(255,255,255);
         if(angular_velocity<=-0.03)
         {
             ofSetColor(255, 0, 0);
-            font.drawString("Back", ofGetWidth()/2,ofGetHeight()/2+50);
+//            font.drawString("Back", ofGetWidth()/2,ofGetHeight()/2+50);
            
             if(State.compare("Front")==0)
                 isturnCompleted=true;
@@ -304,7 +346,7 @@ ofSetColor(255,255,255);
         {
             
             ofSetColor(0,255, 0);
-            font.drawString("Front", ofGetWidth()/2,ofGetHeight()/2+50);
+//            font.drawString("Front", ofGetWidth()/2,ofGetHeight()/2+50);
             
             if(State.compare("Back")==0)
                 isturnCompleted=true;
@@ -353,7 +395,7 @@ ofSetColor(255,255,255);
           maxAccel=0;
           isturnCompleted=false;
       }
-        font.drawString(ofToString(timeGap), ofGetWidth()/2+200, ofGetHeight()/2+50);
+//        font.drawString(ofToString(timeGap), ofGetWidth()/2+200, ofGetHeight()/2+50);
         
         
 #endif
@@ -363,18 +405,31 @@ ofSetColor(255,255,255);
     }
     
     ofSetColor(255, 255, 255);
-    font.drawString("Acceleration "+ofToString(accel*1000), ofGetWidth()/2, ofGetHeight()/2+100);
-    font.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
-    font.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
-    font.drawString("Max Velocity "+ofToString(max*1000), ofGetWidth()/2, ofGetHeight()/2+350);
-    
+//    font.drawString("Acceleration "+ofToString(accel*1000), ofGetWidth()/2, ofGetHeight()/2+100);
+//    font.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
+//    font.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
+//    font.drawString("Max Velocity "+ofToString(max*1000), ofGetWidth()/2, ofGetHeight()/2+350);
+}
 //     cout<<"Acceleration "<<accel*1000   <<"\n Max Acceleration "<<maxAccel*1000<<"\n\n Min Acceleration "<<minAccel<<endl;
 //    
 //    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<min<<endl;;
     
     
 #endif
- 
+else {
+    startingMovie.draw(0, 0);
+
+    ofSetColor(255, 255, 255);
+    
+    tempText="Start Swinging !";
+    
+//    for(int i=0;i<(ofGetElapsedTimeMillis()/1500)%5;i++)
+//        tempText+=" .";
+    previewText.drawString(tempText, 500, startingMovie.getHeight()-25);
+    
+    
+   
+}
 }
 
 //--------------------------------------------------------------
@@ -402,6 +457,14 @@ void testApp::keyPressed(int key){
       animationCounter=0;
     
     }
+    else if(key==OF_KEY_RETURN&&!startInstallation)
+    {
+            startInstallation=true;
+            BluementhalMp3.play();
+            startingMovie.play();
+            
+        
+    }
     
     else
     {
@@ -416,6 +479,8 @@ void testApp::keyPressed(int key){
 #endif
     }
 #endif
+    
+
 
 }
 
@@ -520,7 +585,7 @@ void testApp::loadImagesFromDirectory()
     
    // string path = "/Applications/MAMP/htdocs/25labs/100002627332238/";
 
-    string path="/Applications/MAMP/htdocs/25labs/"+ofToString(userid)+"/";
+    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/";
     ofDirectory dir(path);
     dir.allowExt("png");
     dir.allowExt("jpg");
@@ -696,7 +761,7 @@ void testApp::sortImages()
    // Create an unordered map ....
     
  //   string path = "/Applications/MAMP/htdocs/25labs/100002627332238/pictures.xml";
-    string path="/Applications/MAMP/htdocs/25labs/"+ofToString(userid)+"/pictures.xml";
+    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/pictures.xml";
     
     int imageCounter=1;
     int newScore;
@@ -1149,11 +1214,14 @@ void testApp::complexReorder()
 
 void testApp::loadImagesandXMLData()
 {
-    string untaggedDirpath="/Applications/MAMP/htdocs/NostalgiaRoom/"+ofToString(userid)+"/converted_files/untaggedImages/";
+    string untaggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/untaggedImages/";
     ofDirectory untaggeddir(untaggedDirpath);
     untaggeddir.allowExt("png");
     untaggeddir.allowExt("jpg");
     untaggeddir.allowExt("gif");
+    
+    if(untaggeddir.listDir()==0)
+    {cout<<"Nothing";   ofExit();}
     
     cout<<untaggeddir.listDir();
     
@@ -1187,7 +1255,7 @@ void testApp::loadImagesandXMLData()
     int imageCounter=0;
     
     
-    string xmlpath="/Applications/MAMP/htdocs/NostalgiaRoom/"+ofToString(userid)+"/imagedata.xml";
+    string xmlpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/imagedata.xml";
     
     ImageData imagedataObject;
     
@@ -1243,7 +1311,7 @@ void testApp::loadImagesandXMLData()
     
     
     
-    string taggedDirpath="/Applications/MAMP/htdocs/NostalgiaRoom/"+ofToString(userid)+"/converted_files/taggedImages/";
+    string taggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/taggedImages/";
     ofDirectory taggeddir(taggedDirpath);
     
     taggeddir.allowExt("png");
@@ -1363,7 +1431,7 @@ void testApp::loadImagesandXMLData()
     for(int i=0;i<combinedImageObjects.size()-1;i++)
     {
         j=i+1;
-        
+        cout<<i;
         
         if(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber)
         {
