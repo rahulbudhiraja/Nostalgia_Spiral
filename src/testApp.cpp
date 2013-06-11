@@ -33,10 +33,9 @@ void testApp::setup()
     
     startoverShotCameraAnimation=false;
     
-    animationStartingPosition=ofVec3f(0,0,0);
+    
     overshotCameraStartingPosition=ofVec3f(0,0,0);
     startAnimationCounter=0;
-    zdistanceFactor=35;
     pushWigglePositions();
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
@@ -46,8 +45,6 @@ void testApp::setup()
     blur.setup(ofGetScreenWidth(), ofGetScreenHeight(), 1, .05, 10);
 #endif
     #endif
-
-    NostalgiaFont.setLineHeight(200);
     
     ofEnableAlphaBlending();
   
@@ -284,7 +281,7 @@ ofSetColor(255,255,255);
         
 //        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150)); // This is for the wii-mote
         
-//        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // SO that the camera goes backward ..
+//        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // So that the camera goes backward ..
         
     }
         
@@ -297,8 +294,6 @@ ofSetColor(255,255,255);
 
     camera.begin();
 
-
-    
     ofPushMatrix();
     ofRotateX(180);
     ofPopMatrix();
@@ -504,23 +499,6 @@ void testApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void testApp::dragEvent(ofDragInfo dragInfo){ 
 
-}
-
-
-void testApp::generateSpiral()
-{
-    float h=1000,r=100,a=100;
-    float x,y,z;
-    
-    for(float R=1000;R>=1;R-=0.5)
-    {
-       x=((h-z)/h)*R*cos(a*z);
-       y=((h-z)/h)*R*sin(a*z);
-       z=R;
-       SpiralPoints.push_back(ofVec3f(x,y,z));
-        
-    }
-    
 }
 
 void testApp::generateCircularSpiral()
@@ -758,7 +736,7 @@ void testApp::sortImages()
                 imageScores.insert(std::pair<int,int>(score,imageCounter));
                 albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...
                 
-   /// THE NEW SORTING ALGORITHM ..
+   /// The New Sorting Algorithm 
                 
                 imagedataObject.albumnumber= i;
                 imagedataObject.imageNumber=imageCounter;
@@ -802,9 +780,11 @@ void testApp::sortImages()
     
     }
     
+    
+/* Debug Statements to check Scores */
+    
 //    cout<<"Size of Tagged Images"<<taggedimageScores.size()<<endl;
 //   cout<<"size of Untagged Images"<<untaggedimageScores.size()<<endl;
-    
 //    sort(imageDetails.begin(),imageDetails.end(),imagedataObject);
   
     sort(taggedImages.begin(),taggedImages.end(),imagedataObject);
@@ -1137,15 +1117,7 @@ void testApp::complexReorder()
                 j--;
             }
             cout<<" and then j= \t"<<imageDetails[j].albumnumber<<endl;
-            
-//            tempVal=imageDetails[i-1].albumnumber;
-//            imageDetails[i-1].albumnumber=imageDetails[j].albumnumber;
-//            imageDetails[j].albumnumber=tempVal;
-//            
-//            tempVal=imageDetails[i-1].albumnumber;
-//            imageDetails[i-1].albumnumber=imageDetails[j].albumnumber;
-//            imageDetails[j].albumnumber=tempVal;
-//            
+                      
             std::swap(imageDetails[i-1], imageDetails[j]);
             
         }
@@ -1205,7 +1177,7 @@ void testApp::loadImagesandXMLData()
     
     ImageData imagedataObject;
     
-    // Then Populate the ImageDetails Structure ..
+    // Then Populate the ImageDetails Structure 
     
     if(pictures_XML.loadFile(xmlpath))
     {
@@ -1300,7 +1272,6 @@ void testApp::loadImagesandXMLData()
             imagedataObject.imageNumber=imageCounter;
             imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
             imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
-//            imagedataObject.theloadedimage=ImageVector[j];
             imagedataObject.theloadedimage.loadImage(ofToString(taggedDirpath+ofToString(j)+".jpg"));
             #ifndef BLUR
                     imagedataObject.theloadedimage.mirror(true,false);

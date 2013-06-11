@@ -75,36 +75,51 @@ public:
 #endif
 #ifndef DEBUGMODE
     
-        ofCamera camera; // This is the camera variable that will move around the entire scene 
+        /* This is the camera variable that will move around the entire scene */
+        ofCamera camera;
+    
+        /* These variables will be useful if DEBUGMODE is defined */
         ofVec3f cameraStartPosition,cameraEndPosition;
     
         int cameraindex=0;
         bool animationMode;
     
-        ofVec3f animate(int,int); // Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp.
+        /* Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp */
+        ofVec3f animate(int,int);
     
         float tweenvalue,beginAnimationtime;
     
-        ofVec3f tweenedCameraPosition; // Stores the CameraPosition while tweening 
+        /* Stores the temporary CameraPosition while tweening(interpolating values while moving from 1 image/point to another) */
+        ofVec3f tweenedCameraPosition; 
     
         int animationCounter;
     
+        /* StartingAnimation is the first animation that zooms out of the spiral */
         void startAnimation();
-        bool isstartingAnimationActive; // StartingAnimation is the first animation that zooms out of the spiral ..
     
-        ofVec3f animationStartingPosition,animationEndPosition;
-        ofVec3f startAnimationCameraPosition(); // This function will return a Vector that will animate the camera to 
+        /* If set,this variable will start the Animation of the spiral zooming out */
+        bool isstartingAnimationActive;
+    
+        /* If the starting animation is active,this function will return a vector that has the startingCamera's tweened position */
+        ofVec3f startAnimationCameraPosition();
+    
+        /* During the Starting Animation,the StartAnimationCounter will help in changing the tweenvalue which in turn set the CameraPosition */
         int startAnimationCounter;
-        int zdistanceFactor;
     
+        /* This was an old function which was used to sort the images */
         void sortImages();
+    
+        /* A multimap is used because it is easier to store 2 elements(Image number and index) and then sort the whole array based on the score */
         multimap <int, int > imageScores;
     
+        /* To load the XML File that is downloaded by the NostalgiaRoom Website */
         ofxXmlSettings pictures_XML;
+    
+        /* The user's id that is passed at run-time.Only a long long int (max value 9223372036854775807) can support the range of the userids provided by Facebbok */
         long long int userid;
     
     
-    /* The Wiggling Stuff */
+         /* The Wiggling Stuff */   
     
         vector <ofVec3f> wigglePositions;
     
@@ -117,79 +132,82 @@ public:
         int currentwiggleindex; 
     
         float wiggleAnimationCounter;
+    
         void reorder();
     
         /* End of Wiggling stuff. */
     
+        /* Used with the old re-ordering */
     
         multimap <int, int > albumScores;
-    
-//        multimap<int,int>taggedimageScores;
-//        multimap<int,int>untaggedimageScores;
-//    
-//        multimap<int,int>taggedalbumScores;
-//        multimap<int,int>untaggedalbumScores;
-    
+        
         vector<ImageData> imageDetails,taggedImages,untaggedImages;
     
         vector<ImageData> untaggedImageObjects,taggedImageObjects,combinedImageObjects;
     
-    
-    
         bool sortOnImageScore(ImageData l,ImageData r);
     
         vector<ofVec3f> imageData;
+    
         void newReorder();
+    
         void complexReorder();
+    
+        /* Had tried drawing small dot stars in the background.Unfortunately,it was too memory intensive on my machine,including these functions if anyone is interested in trying them out .Just call assiginStarpositions() in the setup function and drawStars() in the draw function */
+    
         void assignStarPositions();
         void drawStars();
     
+        /* Stores the positions of the stars */
         vector<ofVec3f>StarPositions;
     
 #endif
     
+        /* These are Spiralpoints generated using the Conical Helix function */
         vector<ofVec3f> SpiralPoints;
-        void generateSpiral();
+    
+        /* Function that will generate the points on the Spiral */
         void generateCircularSpiral();
 
+        /* This funtion will load the images from the directory and push them into an ImageVector */
         void loadImagesFromDirectory();
 
+        /* Will store the loaded images from the directory in a Vector */
         vector<ofImage>ImageVector;
-        vector<ofVec3f>ImagePositions;
 
-        void AssignRandomPositions();
         void drawImages();
-        int blahblah;
     
         void loadImagesandXMLData();
-        int lengthofImages;
-
     
-        ofTrueTypeFont NostalgiaFont;
+        int lengthofImages;
     
         float timeSincePreviousAnimation;
     
         ofVec3f overshotCameraStartingPosition;
+    
         ofVec3f adjustoverShotCameraPosition();
+
         bool startoverShotCameraAnimation;
-    
-    ///// Blur the Photos ....
-    
+   
 #ifdef BLUR
+    /* Blur the Photos */
     ofxBlur blur;
 #endif
     
     float position1_z,position2_z;
 
 #ifdef REPETITION_TESTING
-        vector<int>imageIndices;
+    vector<int>imageIndices;
 #endif
 
-        ofQTKitPlayer startingMovie;
-        bool startingMovieFinished;
+    /* Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer */
+    ofQTKitPlayer startingMovie;
     
+    /* Variable determines if the startingMovie has finished playing or not (initially set to false ) */
+    bool startingMovieFinished;
     
-        ofSoundPlayer BluementhalMp3;
+    /* This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his/her pictures.It is */
+    ofSoundPlayer BluementhalMp3;
     
  
 #ifdef USEWII
@@ -210,6 +228,7 @@ public:
     ofxOscReceiver receiver;
     
     string Message;
+    
     int w, h;
     
     /* End of Wii-Mote Variables */

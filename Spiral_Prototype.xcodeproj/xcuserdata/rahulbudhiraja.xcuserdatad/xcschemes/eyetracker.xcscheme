@@ -80,11 +80,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "100002627332238"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "663321692"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "706963"
