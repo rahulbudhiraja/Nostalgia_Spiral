@@ -7,12 +7,11 @@ void testApp::setup()
     ofHideCursor();
     ofBackground(0, 0, 0);
     
+    
     generateCircularSpiral();
     
-
     loadImagesandXMLData();
     
-//    loadImagesFromDirectory();
     ofSetLogLevel(OF_LOG_VERBOSE);
     ofSetFrameRate(200);
     
@@ -21,7 +20,7 @@ void testApp::setup()
     camera.setFarClip(1000000);
 #else 
     
-//    sortImages();
+
     camera.setFov(40);
     camera.setFarClip(10000000);
     cameraindex=combinedImageObjects.size()-1;
@@ -42,30 +41,24 @@ void testApp::setup()
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
     startInstallation=false;
-//    reorder();
-//    newReorder();
-//    complexReorder();
-//    assignStarPositions();
+
 #ifdef BLUR
     blur.setup(ofGetScreenWidth(), ofGetScreenHeight(), 1, .05, 10);
 #endif
     #endif
-//    ofExit();
- 
-//    NostalgiaFont.loadFont("asyouwish.ttf", 300);
-//    NostalgiaFont.setLetterSpacing(30);
+
     NostalgiaFont.setLineHeight(200);
+    
     ofEnableAlphaBlending();
   
-//     cout<<imageData[cameraindex].y<<"\t Current Camera index \n";
     ofSetBackgroundAuto(true);
-    
-       
     
     lengthofImages=combinedImageObjects.size()-1;
     
     
 #ifdef USEWII
+    
+    // Wii-mote Variables ..
     
     cout << "listening for osc messages on port " << PORT << "\n";
     receiver.setup( PORT );
@@ -77,7 +70,7 @@ void testApp::setup()
     // End of the wii-mote Variables .....
     
     
-#ifdef FINDRANGE
+#ifdef ADJUSTTIMEGAP
     min=10000;
     max=(-1000);
     minAccel=1000;maxAccel=-1000;
@@ -89,11 +82,12 @@ void testApp::setup()
     Amplitude=100;
     State="";
 
-      font.loadFont("Inconsolata.otf", 20);
+    font.loadFont("Inconsolata.otf", 20);
+    
 #endif
+ 
     BluementhalMp3.loadSound("Blumenthal.flac");
     BluementhalMp3.setVolume(1.0f);
- 
     
     timeGap=6000;
     ofSetFullscreen(true);
@@ -109,7 +103,6 @@ void testApp::setup()
     
     cout<<startingMovie.getWidth()<<"    "<<startingMovie.getHeight();
     
-    
     previewText.loadFont("asyouwish.ttf",42);
     ending=false;
     
@@ -118,7 +111,7 @@ void testApp::setup()
 //--------------------------------------------------------------
 void testApp::update(){
     startingMovie.update();
-cout<<startingMovie.getCurrentFrame()<<"\t";
+
     if(startingMovie.getIsMovieDone())
         startingMovieFinished=true;
     
@@ -129,6 +122,7 @@ cout<<startingMovie.getCurrentFrame()<<"\t";
     ofSoundUpdate();
     
 #ifdef USEWII
+    
     while( receiver.hasWaitingMessages())
     {
         if(w == 0 || h == 0){
@@ -204,7 +198,7 @@ cout<<startingMovie.getCurrentFrame()<<"\t";
        startingMovie.play();
     
     }
-    cout<<"acceleration :"<<accel<<endl;
+    cout<<"Acceleration :"<<accel<<endl;
 #endif
         
     if(fadeAudio)
@@ -216,9 +210,6 @@ cout<<startingMovie.getCurrentFrame()<<"\t";
 //--------------------------------------------------------------
 void testApp::draw()
 {
-
-//	ofBackground(0, 0, 0);
-    
   
 if(startInstallation)
 {
@@ -280,9 +271,9 @@ ofSetColor(255,255,255);
         
     }
     else
-//    camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)+wigglePositions[rand()%wigglePositions.size()]);
+        
+
     {
-//        if(currentwiggleindex%2==0)
         
        if(combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())
         {
@@ -300,8 +291,6 @@ ofSetColor(255,255,255);
         
         
     }
-//    cout<<cameraindex<<endl<<cameraEndPosition;
-
     
 #endif
     
@@ -312,8 +301,6 @@ ofSetColor(255,255,255);
     
     ofPushMatrix();
     ofRotateX(180);
-//    ofScale(400,400,400);
-//    NostalgiaFont.drawString("NOSTALGIA", 0, 0);
     ofPopMatrix();
     drawImages();
 
@@ -332,14 +319,12 @@ ofSetColor(255,255,255);
         if(angular_velocity<=-0.03)
         {
             ofSetColor(255, 0, 0);
-//            font.drawString("Back", ofGetWidth()/2,ofGetHeight()/2+50);
            
             if(State.compare("Front")==0)
                 isturnCompleted=true;
             
              State="Back";
 
-//            Position+=100*(accel-0.2);
         }
         
         else if(angular_velocity>=0.03)
@@ -352,13 +337,10 @@ ofSetColor(255,255,255);
                 isturnCompleted=true;
             
             State="Front";
-
-            
-       //            Position-=100*(accel-0.2);
         }
         
 #ifdef USEWII
-#ifdef FINDRANGE
+#ifdef ADJUSTTIMEGAP
         
         if(angular_velocity<min)
             min=angular_velocity;
@@ -370,15 +352,12 @@ ofSetColor(255,255,255);
         if(accel>maxAccel&&accel*1000<400)
             maxAccel=accel;
         
-     
-        
-//    font.drawString(ofToString(isturnCompleted), ofGetWidth()/2+200, ofGetHeight()/2+50);
-        
      if(isturnCompleted)
       {
-//          cout<<"Completed";
+
 
           // Adjust the time gap ...
+          
           maxAccel*=1000;
           if(maxAccel>204&&maxAccel<=214)
               timeGap=9000;
@@ -405,6 +384,9 @@ ofSetColor(255,255,255);
     }
     
     ofSetColor(255, 255, 255);
+    
+/* Use these to get the Acceleration and Velocity values from the Wii-mote*/
+    
 //    font.drawString("Acceleration "+ofToString(accel*1000), ofGetWidth()/2, ofGetHeight()/2+100);
 //    font.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
 //    font.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
@@ -416,15 +398,15 @@ ofSetColor(255,255,255);
     
     
 #endif
+    
 else {
+    
     startingMovie.draw(0, 0);
 
     ofSetColor(255, 255, 255);
     
     tempText="Start Swinging !";
     
-//    for(int i=0;i<(ofGetElapsedTimeMillis()/1500)%5;i++)
-//        tempText+=" .";
     previewText.drawString(tempText, 500, startingMovie.getHeight()-25);
     
     
@@ -546,18 +528,18 @@ void testApp::generateCircularSpiral()
     int spreadDistance=30;
     
     
-    // Conical Concentric Circles .....
+    /* Conical Concentric Circles */    
     
 //    for(int r=0;r<200;r+=spreadDistance)
-    
 //    {
 //        for(float angle=0;angle<=360;angle+=4)
 //            SpiralPoints.push_back(ofVec3f(r*cos(ofDegToRad(angle)),r*sin(ofDegToRad(angle)),r));
 //    }    
 
+
     
+// Generating a Cylindrical Helix Structure ,equation adapted from http://www.mathematische-basteleien.de/spiral.htm .Few Tweaks have been made to get the right structure 
     
-/// Conical Helix ..
     
     float height=10000,radius=200,ang_freq=3.2;
     
@@ -565,7 +547,6 @@ void testApp::generateCircularSpiral()
             for(float angle=0;angle<=3600;angle+=0.01)
             {
 
-                //radius=angle;
                 float angle2=angle;
                 
                 SpiralPoints.push_back(ofVec3f(((height-angle2)/height)*radius*cos(ofDegToRad(ang_freq*angle2)),((height-angle2)/height)*radius*sin(ofDegToRad(ang_freq*angle2)),6*angle2));
@@ -583,9 +564,8 @@ void testApp::generateCircularSpiral()
 void testApp::loadImagesFromDirectory()
 {
     
-   // string path = "/Applications/MAMP/htdocs/25labs/100002627332238/";
-
-    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/";
+    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/"; // Change this path depending upon your directory 
+    
     ofDirectory dir(path);
     dir.allowExt("png");
     dir.allowExt("jpg");
@@ -593,18 +573,18 @@ void testApp::loadImagesFromDirectory()
     
     cout<<dir.listDir();
     
-    cout<<"NUMBER OF FILES"<<dir.numFiles()<<endl;
+    cout<<"NUMBER OF FILES"<<dir.numFiles()<<endl; // Debug Statement .
     
     ofImage TempImage;
     
     for(int i = 0; i < dir.numFiles(); i++){
         if(!TempImage.loadImage(ofToString(path+ofToString(i+1)+".jpg")))
-            continue; // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
+            continue; // OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
         TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
         
 #ifndef BLUR
         
-        
+      
         TempImage.mirror(true,false);
 #endif
 
@@ -613,8 +593,7 @@ void testApp::loadImagesFromDirectory()
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
 
-//        cout<<i<<endl;
-//        ofLogNotice(dir.getPath(i));
+
     }
    
 }
@@ -628,24 +607,11 @@ void testApp::drawImages()
     int imageIterator=0;
     
     
-//    cout<<"Starting";
-    
-//    for(it=imageScores.begin();it!=imageScores.end();++it)
-
-//    for(int i=0;i<imageData.size();i++)
-//    {
-    
-    
         for(int i=lengthofImages-1;i>=0;i--) // Draw images in reverse order ....
         {
     
         ofPushMatrix();
-//        int index=(*it).second-1;//ofRandom(30,70);
-//        int index=combinedImageObjects[i].imageNumber-1;
-//        SpiralPoints[i].z*=600;
-//       cout<<"Image Number"<<imageIterator<<"\t"<<index<<endl;
-        
-//        ofTranslate(35*SpiralPoints[700*imageIterator].x,35*SpiralPoints[700*imageIterator].y,35*SpiralPoints[700*imageIterator].z);
+
 #ifdef BLUR
             blur.begin();
 #endif
@@ -892,27 +858,7 @@ void testApp::pushWigglePositions()
     
     wigglePositions.push_back(ofVec3f(1,0,0));
     
-    
-//  new experiments ...
-    
-//    wigglePositions.push_back(ofVec3f(1,1,1));
-//    
-//    wigglePositions.push_back(ofVec3f(1,1,1));
-//    
-//    
-//    wigglePositions.push_back(ofVec3f(0,1,1));
-//    
-//    wigglePositions.push_back(ofVec3f(0,1,1));
-//    
-//    
-//    wigglePositions.push_back(ofVec3f(1,0,1));
-//    
-//    wigglePositions.push_back(ofVec3f(1,0,1));
-//    
-//    
-//    wigglePositions.push_back(ofVec3f(1,1,0));
-//    
-//    wigglePositions.push_back(ofVec3f(1,1,0));
+
 
 }
 
