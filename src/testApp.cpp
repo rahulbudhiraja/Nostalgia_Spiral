@@ -788,7 +788,6 @@ void testApp::sortImages()
     for(int i=0;i<taggedImages.size();i++)
             cout<<taggedImages[i].imageScore<<" \t"<<endl;
 
-    ////////////////////////////////////////////////////////////////////
      std::multimap<int,int>::iterator it;
      std::multimap<int,int>::iterator albumiterator=albumScores.begin();
     
@@ -857,6 +856,8 @@ ofVec3f testApp::wiggle()
         
         
     }
+    
+    
     
     else {
         
@@ -1037,8 +1038,7 @@ void testApp::assignStarPositions()
     
 }
 
-//bool testApp::sortOnImageScore(, )
-
+/* Unused */
 bool testApp::sortOnImageScore(ImageData l,ImageData r) {
     return l.imageScore<r.imageScore;
 }

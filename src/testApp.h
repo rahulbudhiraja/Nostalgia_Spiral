@@ -135,19 +135,25 @@ public:
         /* End of Wiggling stuff. */
     
         /* Used with the old re-ordering */
-    
         multimap <int, int > albumScores;
-        
+    
+        /* The below data structures were used with the early re-ordering algorithms */
         vector<ImageData> imageDetails,taggedImages,untaggedImages;
     
-        vector<ImageData> untaggedImageObjects,taggedImageObjects,combinedImageObjects;
+        /* Unused Data Structures that were used earlier ,when the XML file was different to rank the images */
+        vector<ImageData> untaggedImageObjects,taggedImageObjects;
     
+        /* The actual data structure that is used for storing the ImageData objects */
+        vector<ImageData> combinedImageObjects;
+    
+        /* Unused function that returns the lowest score of 2 imageData objects */
         bool sortOnImageScore(ImageData l,ImageData r);
     
+        /* Unused Data Structure */
         vector<ofVec3f> imageData;
     
+        /* The following are unused data structures */
         void newReorder();
-    
         void complexReorder();
     
         /* Had tried drawing small dot stars in the background.Unfortunately,it was too memory intensive on my machine,including these functions if anyone is interested in trying them out .Just call assiginStarpositions() in the setup function and drawStars() in the draw function */
