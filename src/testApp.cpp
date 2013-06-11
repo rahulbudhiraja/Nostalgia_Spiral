@@ -50,7 +50,7 @@ void testApp::setup()
   
     ofSetBackgroundAuto(true);
     
-    lengthofImages=combinedImageObjects.size()-1;
+    numberofImages=combinedImageObjects.size()-1;
     
     
 #ifdef USEWII
@@ -68,17 +68,12 @@ void testApp::setup()
     
     
 #ifdef ADJUSTTIMEGAP
-    min=10000;
-    max=(-1000);
+    minAngularVelocity=10000;
+    maxAngularVelocity=(-1000);
     minAccel=1000;maxAccel=-1000;
 #endif
     
-    u=s=t=0;
-    Position=0;
-    
-    Amplitude=100;
     State="";
-
     font.loadFont("Inconsolata.otf", 20);
     
 #endif
@@ -94,8 +89,7 @@ void testApp::setup()
     startingMovieFinished=false;
     startingMovie.loadMovie("Intro_new.mov", OF_QTKIT_DECODE_TEXTURE_ONLY);
     startingMovie.setLoopState(OF_LOOP_NONE);
-    checkforaccel=true;
-
+    
     cout<<startingMovie.getDuration()<<endl;
     
     cout<<startingMovie.getWidth()<<"    "<<startingMovie.getHeight();
@@ -122,9 +116,9 @@ void testApp::update(){
     
     while( receiver.hasWaitingMessages())
     {
-        if(w == 0 || h == 0){
-            w = ofGetWidth();
-            h = ofGetHeight();
+        if(windowWidth == 0 || windowHeight == 0){
+            windowWidth = ofGetWidth();
+            windowHeight = ofGetHeight();
         }
         // get the next message
         ofxOscMessage m;
@@ -136,13 +130,13 @@ void testApp::update(){
         {
             x = m.getArgAsFloat( 0 );
             
-            wiiX = x * w;
+            wiiX = x * windowWidth;
             cout << "x: " << wiiX << " y: " << wiiY << "\n";
         }
         else if ( m.getAddress() == "/wii/2/ir/1" )
         {
             y = 1 - m.getArgAsFloat( 0 );
-            wiiY = y * h;
+            wiiY = y * windowHeight;
             cout << "x: " << wiiX << " y: " << wiiY << "\n";
         }
         else if (m.getAddress() == "/wii/1/accel/pry/1") {
@@ -226,12 +220,12 @@ ofSetColor(255,255,255);
         if(!startoverShotCameraAnimation)
         camera.setPosition(startAnimationCameraPosition());
         else camera.setPosition(adjustoverShotCameraPosition());
-        timeSincePreviousAnimation=ofGetElapsedTimeMillis();
+        timesinceLastTransition=ofGetElapsedTimeMillis();
     }
     
     else
     {
-        if((ofGetElapsedTimeMillis()-timeSincePreviousAnimation)>timeGap&&cameraindex!=0&&!animationMode)
+        if((ofGetElapsedTimeMillis()-timesinceLastTransition)>timeGap&&cameraindex!=0&&!animationMode)
         {
             
             
@@ -240,7 +234,7 @@ ofSetColor(255,255,255);
             //        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
             animationMode=true;
             animationCounter=0;
-            timeSincePreviousAnimation=ofGetElapsedTimeMillis();
+            timesinceLastTransition=ofGetElapsedTimeMillis();
             
         }
         
@@ -260,7 +254,7 @@ ofSetColor(255,255,255);
         
     if(animationMode)
     {
-        if(combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())
+        if(combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())
             camera.setPosition(animate(cameraindex+1, cameraindex));
         else camera.setPosition(animate(cameraindex+1, cameraindex));
           
@@ -272,14 +266,14 @@ ofSetColor(255,255,255);
 
     {
         
-       if(combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())
+       if(combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())
         {
-         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight())+wiggle());
+         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight())+wiggle());
 //            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
         }
-        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle());
+        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())+wiggle());
         
-//        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150)); // This is for the wii-mote
+//        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150)); // This is for the wii-mote
         
 //        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // So that the camera goes backward ..
         
@@ -337,10 +331,10 @@ ofSetColor(255,255,255);
 #ifdef USEWII
 #ifdef ADJUSTTIMEGAP
         
-        if(angular_velocity<min)
-            min=angular_velocity;
-        if(angular_velocity>max)
-            max=angular_velocity;
+        if(angular_velocity<minAngularVelocity)
+            minAngularVelocity=angular_velocity;
+        if(angular_velocity>maxAngularVelocity)
+            maxAngularVelocity=angular_velocity;
         
         if(accel<minAccel)
             minAccel=accel;
@@ -389,7 +383,7 @@ ofSetColor(255,255,255);
 }
 //     cout<<"Acceleration "<<accel*1000   <<"\n Max Acceleration "<<maxAccel*1000<<"\n\n Min Acceleration "<<minAccel<<endl;
 //    
-//    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<min<<endl;;
+//    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<minAngularVelocity<<endl;;
     
     
 #endif
@@ -419,7 +413,7 @@ void testApp::keyPressed(int key){
     
 #ifndef DEBUGMODE    
     
-    else if(key==OF_KEY_UP&&cameraindex!=lengthofImages&&!animationMode)
+    else if(key==OF_KEY_UP&&cameraindex!=numberofImages&&!animationMode)
     {
         cameraindex++;
         animationMode=true;
@@ -585,7 +579,7 @@ void testApp::drawImages()
     int imageIterator=0;
     
     
-        for(int i=lengthofImages-1;i>=0;i--) // Draw images in reverse order ....
+        for(int i=numberofImages-1;i>=0;i--) // Draw images in reverse order ....
         {
     
         ofPushMatrix();
@@ -627,10 +621,10 @@ ofVec3f testApp::animate(int pos1, int pos2)
         tweenvalue=0;
     animationMode=false;
         
-        if(combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth())
-          return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.6*combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight())+wiggle());
+        if(combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())
+          return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.6*combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight())+wiggle());
       
-        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.05*combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth())+wiggle());
+        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())+wiggle());
 
 //        return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
         
@@ -641,13 +635,13 @@ ofVec3f testApp::animate(int pos1, int pos2)
     
     // Setting the Z value ..
     
-    if(combinedImageObjects[lengthofImages-pos1].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-pos1].theloadedimage.getWidth())
-        position1_z=1.6*combinedImageObjects[lengthofImages-pos1].theloadedimage.getHeight()+35*SpiralPoints[700*pos1].z;
-    else position1_z=1.05*combinedImageObjects[lengthofImages-pos1].theloadedimage.getWidth()+35*SpiralPoints[700*pos1].z;
+    if(combinedImageObjects[numberofImages-pos1].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos1].theloadedimage.getWidth())
+        position1_z=1.6*combinedImageObjects[numberofImages-pos1].theloadedimage.getHeight()+35*SpiralPoints[700*pos1].z;
+    else position1_z=1.05*combinedImageObjects[numberofImages-pos1].theloadedimage.getWidth()+35*SpiralPoints[700*pos1].z;
     
-    if(combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth())
-        position2_z=1.6*combinedImageObjects[lengthofImages-pos2].theloadedimage.getHeight()+35*SpiralPoints[700*pos2].z;
-    else position2_z=1.05*combinedImageObjects[lengthofImages-pos2].theloadedimage.getWidth()+35*SpiralPoints[700*pos2].z;
+    if(combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())
+        position2_z=1.6*combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()+35*SpiralPoints[700*pos2].z;
+    else position2_z=1.05*combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth()+35*SpiralPoints[700*pos2].z;
 
     
     tweenedCameraPosition.z=ofLerp(position1_z,position2_z,tweenvalue);
@@ -662,7 +656,7 @@ ofVec3f testApp::animate(int pos1, int pos2)
 ofVec3f testApp::startAnimationCameraPosition()
 {
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight();
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight();
     //timeInterval=10000;
     float timeInterval=smoothnessFactor/1500;
     
@@ -689,7 +683,7 @@ ofVec3f testApp::startAnimationCameraPosition()
     
     tweenedCameraPosition.x=ofLerp(0, 0 , tweenvalue);
     tweenedCameraPosition.y=ofLerp(0, 0, tweenvalue);
-    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +21.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
+    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +21.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
    
     //cout<<tweenedCameraPosition.z<<"\n";
 
@@ -1024,15 +1018,7 @@ void testApp::newReorder()
         }
     }
     
-//    
-//    for(int k=0;k<imageData.size();k++)
-//        ;imageIndices.push_back(imageData[k].y);
-   
-
-//    
-//    
-
-//    
+ 
 }
 
 void testApp::drawStars()
@@ -1384,7 +1370,7 @@ ofVec3f testApp::adjustoverShotCameraPosition()
 {
     
             
-        float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight();
+        float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight();
     //timeInterval=10000;
     float timeInterval=smoothnessFactor/500;
     
@@ -1409,7 +1395,7 @@ ofVec3f testApp::adjustoverShotCameraPosition()
     
     tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
     tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
-    tweenedCameraPosition.z=ofLerp(overshotCameraStartingPosition.z, 35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[lengthofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
+    tweenedCameraPosition.z=ofLerp(overshotCameraStartingPosition.z, 35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
     
     return tweenedCameraPosition;
 

@@ -20,7 +20,6 @@
 
 #define EfficientReorder
 
-
 //#define DEBUGMODE
 
 //#define Prototype1
@@ -47,8 +46,6 @@ struct ImageData
        }
      
 };
-
-# define REPETITION_TESTING
 
 class testApp : public ofBaseApp{
 	
@@ -169,24 +166,33 @@ public:
         /* Function that will generate the points on the Spiral */
         void generateCircularSpiral();
 
-        /* This funtion will load the images from the directory and push them into an ImageVector */
+        /* This funtion will load the images from the directory and push them into an ImageVector.UNUSED in the current version of the program */
         void loadImagesFromDirectory();
 
         /* Will store the loaded images from the directory in a Vector */
         vector<ofImage>ImageVector;
-
+    
+        /* This function will draw the images .Used in draw */
         void drawImages();
     
+        /* Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure  */
         void loadImagesandXMLData();
     
-        int lengthofImages;
+        /* Number of images loaded in the ImageVector data structure */
+        int numberofImages;
     
-        float timeSincePreviousAnimation;
+        /* Time since Previous Transition/Animation */
+        float timesinceLastTransition;
     
+        /* The whole starting Animation consists of a few Components.A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the OvershotCameraAnimation*/
+    
+        /* This vector will store the overshotCameraPosition and changes the cameraPosition during the start while tweening */
         ofVec3f overshotCameraStartingPosition;
     
+        /* Vector that will use the above vector and ofLerp to compute the exact cameraposition */
         ofVec3f adjustoverShotCameraPosition();
-
+    
+        /* When set,this will start the overshot camera animation */
         bool startoverShotCameraAnimation;
    
 #ifdef BLUR
@@ -194,11 +200,8 @@ public:
     ofxBlur blur;
 #endif
     
+    /* Intermediate values that are used while tweening/animation of the camera positions */
     float position1_z,position2_z;
-
-#ifdef REPETITION_TESTING
-    vector<int>imageIndices;
-#endif
 
     /* Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer */
     ofQTKitPlayer startingMovie;
@@ -227,22 +230,22 @@ public:
     /* OSCReceiver class that interfaces with the OSCulator and receives values from the wii-mote */
     ofxOscReceiver receiver;
     
+    /* The message received from OSCulator containing details of the wiimote values like angular velocity and acceleration */
     string Message;
     
-    int w, h;
+    int windowWidth,windowHeight;
     
     /* End of Wii-Mote Variables */
     
 #ifdef ADJUSTTIMEGAP
-    
-    float min,max;
+  
+    /* These are the wii-mote variables that are used to adjust the timegap between two images */
+    float minAngularVelocity,maxAngularVelocity;
     float minAccel,maxAccel;
     
 #endif
     
     ofTrueTypeFont font; 
-    float u,s,t;
-    float Position,Amplitude;
     string State;
 #endif
     
@@ -262,14 +265,10 @@ public:
     
     /* The current volume variable is generally set to 1 ,but if fadeAudio is enabled,it will reduce the audio by -0.001 every frame,this is used in the end along with the Corresponding video to reduce the volume of the music */
     float currentVolume;
-    
-  
-    
+      
     /* This variable is used to start the installation if the user is swinging on the wii-mote or if the enter key is pressed */
     bool startInstallation;
-    
-    bool checkforaccel;
-    
+      
     /* 
      * The below variables are used in the starting if the person is not swinging 
      */
