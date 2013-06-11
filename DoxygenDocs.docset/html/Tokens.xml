@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+  <Token>
+    <TokenIdentifier>
+      <Name>md_README</Name>
+      <APILanguage>markdown</APILanguage>
+    </TokenIdentifier>
+    <Path>md__r_e_a_d_m_e.html</Path>
+  </Token>
+</Tokens>

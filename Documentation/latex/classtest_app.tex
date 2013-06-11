@@ -1,0 +1,1058 @@
+\hypertarget{classtest_app}{\section{test\-App Class Reference}
+\label{classtest_app}\index{test\-App@{test\-App}}
+}
+
+
+{\ttfamily \#include $<$test\-App.\-h$>$}
+
+
+
+Inheritance diagram for test\-App\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{classtest_app__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for test\-App\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{classtest_app__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtest_app_a3d796120bccff4106a3ec028b9a81912}{test\-App} (long long int id)
+\item 
+void \hyperlink{classtest_app_ad431db15b6150b965cd52bcba8e16e11}{setup} ()
+\item 
+void \hyperlink{classtest_app_afb39d201aec71a295b7609876bf7d0c6}{update} ()
+\item 
+void \hyperlink{classtest_app_af869cba67b1dab8481f8d0e216d59dcd}{draw} ()
+\item 
+void \hyperlink{classtest_app_a904d147c7e532cb92656d5dd4895cd26}{key\-Pressed} (int key)
+\item 
+void \hyperlink{classtest_app_a1116a10088e4932f6d482efe723cd45e}{key\-Released} (int key)
+\item 
+void \hyperlink{classtest_app_a33541b19eff9f8285b2487bfc146d58b}{mouse\-Moved} (int x, int y)
+\item 
+void \hyperlink{classtest_app_a075bcc2be16fd8f3eaa9162fb40a0a1f}{mouse\-Dragged} (int x, int y, int button)
+\item 
+void \hyperlink{classtest_app_a3f200702ce91859cac2872a39302679d}{mouse\-Pressed} (int x, int y, int button)
+\item 
+void \hyperlink{classtest_app_aa3680ffc782b1e5c451289817f20c9c6}{mouse\-Released} (int x, int y, int button)
+\item 
+void \hyperlink{classtest_app_a428b7df9c64352d6e7cb234fc297e6c9}{window\-Resized} (int w, int h)
+\item 
+void \hyperlink{classtest_app_af15e9e9064fe5ccbe6c82cc401ae9e09}{drag\-Event} (of\-Drag\-Info drag\-Info)
+\item 
+void \hyperlink{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}{got\-Message} (of\-Message msg)
+\item 
+of\-Vec3f \hyperlink{classtest_app_a1facfe2200dae7ad147b8f9ab31f68c6}{animate} (int, int)
+\item 
+void \hyperlink{classtest_app_a79467453f6ea0dd63961a810dca9ac6a}{start\-Animation} ()
+\item 
+of\-Vec3f \hyperlink{classtest_app_a1a97063e992528dc79867e516d9365f0}{start\-Animation\-Camera\-Position} ()
+\item 
+void \hyperlink{classtest_app_a8a5d9dd51b5c7058ed88611b6ab2b57d}{sort\-Images} ()
+\item 
+void \hyperlink{classtest_app_aaa5c2175be1d5ca404c3c23a898d0cdd}{push\-Wiggle\-Positions} ()
+\item 
+of\-Vec3f \hyperlink{classtest_app_acd718eb54b9dc2b45e463414c24de6b9}{wiggle} ()
+\begin{DoxyCompactList}\small\item\em Pushing values ... \end{DoxyCompactList}\item 
+void \hyperlink{classtest_app_ab3aec1217fe6743f4ec9ed762148f627}{reorder} ()
+\item 
+bool \hyperlink{classtest_app_a81cf913142d9512f9d1063cb7e71199b}{sort\-On\-Image\-Score} (\hyperlink{struct_image_data}{Image\-Data} l, \hyperlink{struct_image_data}{Image\-Data} r)
+\item 
+void \hyperlink{classtest_app_a98baf4cdf9fa0f0a56056322b4e7f7e7}{new\-Reorder} ()
+\item 
+void \hyperlink{classtest_app_abaca61ce3e4c1b6ce726c907915acf80}{complex\-Reorder} ()
+\item 
+void \hyperlink{classtest_app_a57e6d61c73ba0244b9d7a8c227aec244}{assign\-Star\-Positions} ()
+\item 
+void \hyperlink{classtest_app_a3ea688a73ca9eb760a3f0a07fde0ac10}{draw\-Stars} ()
+\item 
+void \hyperlink{classtest_app_aa30f4f1db2d186466f97e6ca15169712}{generate\-Circular\-Spiral} ()
+\item 
+void \hyperlink{classtest_app_afcb51e1a0b9152b9f6e6b102959bab51}{load\-Images\-From\-Directory} ()
+\item 
+void \hyperlink{classtest_app_a6dbcb5f1e47c842dfd1ab6b188097677}{draw\-Images} ()
+\item 
+void \hyperlink{classtest_app_aa93380112b906e2aac2d8738309b2d17}{load\-Imagesand\-X\-M\-L\-Data} ()
+\item 
+of\-Vec3f \hyperlink{classtest_app_a2a792bfdf269fd69951cbf97d4f574af}{adjustover\-Shot\-Camera\-Position} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+of\-Camera \hyperlink{classtest_app_a0278ee237cbbd881252d6273b131bb55}{camera}
+\item 
+of\-Vec3f \hyperlink{classtest_app_ac01013264b9988207e7fd9e0a486ff2f}{camera\-Start\-Position}
+\item 
+of\-Vec3f \hyperlink{classtest_app_ad3319d9cd3cb00e898f4f602b879efad}{camera\-End\-Position}
+\item 
+int \hyperlink{classtest_app_a4ca3a51642dedbf37f2b9f6ef96510c7}{cameraindex} =0
+\item 
+bool \hyperlink{classtest_app_a2a5d49fd1f7f50f745f56095a1fa0099}{animation\-Mode}
+\item 
+float \hyperlink{classtest_app_add9ab1aa902948afbdf1c6db0dfde385}{tweenvalue}
+\item 
+float \hyperlink{classtest_app_adcaa52132409ab0ad077236f9e6fa180}{begin\-Animationtime}
+\item 
+of\-Vec3f \hyperlink{classtest_app_ae9f60797c1c5d9f1ac06e1d6a5259957}{tweened\-Camera\-Position}
+\item 
+int \hyperlink{classtest_app_a21b16bdba744425519597fcb925df43a}{animation\-Counter}
+\item 
+bool \hyperlink{classtest_app_ab8a277e1055730fb5d6786ce0c4804b2}{isstarting\-Animation\-Active}
+\item 
+int \hyperlink{classtest_app_a577bf117cf10109de967ea0d3ca17f1f}{start\-Animation\-Counter}
+\item 
+multimap$<$ int, int $>$ \hyperlink{classtest_app_a9ced1a64554a911109fe8a975b95b590}{image\-Scores}
+\item 
+ofx\-Xml\-Settings \hyperlink{classtest_app_a85133f49103cfa002f39d882f7168236}{pictures\-\_\-\-X\-M\-L}
+\item 
+long long int \hyperlink{classtest_app_a6ae76dc97fbeee00755f4a6cd6b87e19}{userid}
+\item 
+vector$<$ of\-Vec3f $>$ \hyperlink{classtest_app_a5495d37f44bb3e3b00a04ad5910e0a6b}{wiggle\-Positions}
+\item 
+of\-Vec3f \hyperlink{classtest_app_af81358868ae15faab1974ec074b1509f}{currentwiggle\-Position}
+\item 
+int \hyperlink{classtest_app_a6b9af0b1ae4a2c0530eb6a8cf8340751}{currentwiggleindex}
+\item 
+float \hyperlink{classtest_app_a6073b33be7847d675ec089a1d514c506}{wiggle\-Animation\-Counter}
+\item 
+multimap$<$ int, int $>$ \hyperlink{classtest_app_aa16e3bba73f9adb3c6363ac429e5a472}{album\-Scores}
+\item 
+vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_adcd4c3dfc7257326a79e6a3fc8b33406}{image\-Details}
+\item 
+vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_a7f7226fc54fdb7d06366ed0fa3ab7ee3}{tagged\-Images}
+\item 
+vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_a9cb9aa0700c4c8b316329a86c4e650ec}{untagged\-Images}
+\item 
+vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_ae31cc868f554f62b4c6e4e9db3b4155b}{untagged\-Image\-Objects}
+\item 
+vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}{tagged\-Image\-Objects}
+\item 
+vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_aced9b8a8419c8465877c2c9cd43f8934}{combined\-Image\-Objects}
+\item 
+vector$<$ of\-Vec3f $>$ \hyperlink{classtest_app_a500cd1228b3364bf30c8fb185e375688}{image\-Data}
+\item 
+vector$<$ of\-Vec3f $>$ \hyperlink{classtest_app_a68d0d30cea64a9d39a1b2deef16677ad}{Star\-Positions}
+\item 
+vector$<$ of\-Vec3f $>$ \hyperlink{classtest_app_af0dd2f3e3aabdb43bee49d74c156dc05}{Spiral\-Points}
+\item 
+vector$<$ of\-Image $>$ \hyperlink{classtest_app_ad4de5d6e6e8f3b8bb7424e62792deb1f}{Image\-Vector}
+\item 
+int \hyperlink{classtest_app_a957cf7fdb3ea964a88ca1be13e4d68fc}{numberof\-Images}
+\item 
+float \hyperlink{classtest_app_acb60fb8a89e9ec5d461630a20b11ceda}{timesince\-Last\-Transition}
+\item 
+of\-Vec3f \hyperlink{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}{overshot\-Camera\-Starting\-Position}
+\item 
+bool \hyperlink{classtest_app_ad2fca6ce5e37462cd820afc48633324d}{startover\-Shot\-Camera\-Animation}
+\item 
+float \hyperlink{classtest_app_a808376783cdf510335cd1b37026e9bb3}{position1\-\_\-z}
+\item 
+float \hyperlink{classtest_app_a0720011cfaade6388109232ea4927c19}{position2\-\_\-z}
+\item 
+of\-Q\-T\-Kit\-Player \hyperlink{classtest_app_a9bfe7793fa0689a991ff64174745c38f}{starting\-Movie}
+\item 
+bool \hyperlink{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}{starting\-Movie\-Finished}
+\item 
+of\-Sound\-Player \hyperlink{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}{Bluementhal\-Mp3}
+\item 
+float \hyperlink{classtest_app_a020730abb55e6ae6d0a28edee19050e0}{roll}
+\item 
+float \hyperlink{classtest_app_a865985f78dd5def3ed20c87b9fc772b6}{yaw}
+\item 
+float \hyperlink{classtest_app_aabbebeb113838374f659e86a0355b260}{pitch}
+\item 
+float \hyperlink{classtest_app_a8e560e923c82d421857538e4a5927542}{accel}
+\item 
+float \hyperlink{classtest_app_a7a77e8633c3a94e3e409a33a5cd9ae3f}{wii\-X}
+\item 
+float \hyperlink{classtest_app_a5ae41896388ae16ee530beca5333e02a}{wii\-Y}
+\item 
+float \hyperlink{classtest_app_ad1738ff98d225f80b853a9ddc9f5a116}{accel\-\_\-x}
+\item 
+float \hyperlink{classtest_app_a204bcb2412a70a65ebea6008ee8c4eb0}{accel\-\_\-y}
+\item 
+float \hyperlink{classtest_app_a61dbdd5c0b868568dde40a52f6e56054}{accel\-\_\-z}
+\item 
+float \hyperlink{classtest_app_a98e05c3206ff95fccfebfc9df5317598}{angular\-\_\-velocity}
+\item 
+ofx\-Osc\-Receiver \hyperlink{classtest_app_a034c44ff60fa1e5f021e90d5410ba657}{receiver}
+\item 
+string \hyperlink{classtest_app_a0124035d0454fb6bd9152f8a87c40677}{Message}
+\item 
+int \hyperlink{classtest_app_a9ed611377cd46f5148a3a3d538e96484}{window\-Width}
+\item 
+int \hyperlink{classtest_app_a4e8884eeef5b2657b62278969d4e3dcf}{window\-Height}
+\item 
+float \hyperlink{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{min\-Angular\-Velocity}
+\item 
+float \hyperlink{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}{max\-Angular\-Velocity}
+\item 
+float \hyperlink{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}{min\-Accel}
+\item 
+float \hyperlink{classtest_app_a34e834a5e4d359700147a74eece8eed1}{max\-Accel}
+\item 
+of\-True\-Type\-Font \hyperlink{classtest_app_a0fdf83c29e178256ee0c1a5b9ee81653}{font}
+\item 
+string \hyperlink{classtest_app_a8ce5505df4526abed238956b65956edd}{State}
+\item 
+float \hyperlink{classtest_app_a944f2713019239a4b49241a5cc9a00c9}{time\-Gap}
+\item 
+bool \hyperlink{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}{isturn\-Completed}
+\item 
+float \hyperlink{classtest_app_a8a2b9b9cf76097e20f148b616297029b}{prev\-Ang\-Vel} =0
+\item 
+bool \hyperlink{classtest_app_a918c09b5a4389a8402cfacb25d390226}{fade\-Audio}
+\item 
+float \hyperlink{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}{current\-Volume}
+\item 
+bool \hyperlink{classtest_app_a8a65a6d1a473417cec1c2ac2e6116aae}{start\-Installation}
+\item 
+of\-True\-Type\-Font \hyperlink{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}{preview\-Text}
+\item 
+string \hyperlink{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}{temp\-Text}
+\item 
+bool \hyperlink{classtest_app_acf09303bc452d2a38098f6bf94655408}{ending}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 50 of file test\-App.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtest_app_a3d796120bccff4106a3ec028b9a81912}{\index{test\-App@{test\-App}!test\-App@{test\-App}}
+\index{test\-App@{test\-App}!testApp@{test\-App}}
+\subsubsection[{test\-App}]{\setlength{\rightskip}{0pt plus 5cm}test\-App\-::test\-App (
+\begin{DoxyParamCaption}
+\item[{long long int}]{id}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a3d796120bccff4106a3ec028b9a81912}
+
+
+Definition at line 810 of file test\-App.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtest_app_a2a792bfdf269fd69951cbf97d4f574af}{\index{test\-App@{test\-App}!adjustover\-Shot\-Camera\-Position@{adjustover\-Shot\-Camera\-Position}}
+\index{adjustover\-Shot\-Camera\-Position@{adjustover\-Shot\-Camera\-Position}!testApp@{test\-App}}
+\subsubsection[{adjustover\-Shot\-Camera\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::adjustover\-Shot\-Camera\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a2a792bfdf269fd69951cbf97d4f574af}
+
+
+Definition at line 1367 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a1facfe2200dae7ad147b8f9ab31f68c6}{\index{test\-App@{test\-App}!animate@{animate}}
+\index{animate@{animate}!testApp@{test\-App}}
+\subsubsection[{animate}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::animate (
+\begin{DoxyParamCaption}
+\item[{int}]{pos1, }
+\item[{int}]{pos2}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a1facfe2200dae7ad147b8f9ab31f68c6}
+
+
+Definition at line 611 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a57e6d61c73ba0244b9d7a8c227aec244}{\index{test\-App@{test\-App}!assign\-Star\-Positions@{assign\-Star\-Positions}}
+\index{assign\-Star\-Positions@{assign\-Star\-Positions}!testApp@{test\-App}}
+\subsubsection[{assign\-Star\-Positions}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::assign\-Star\-Positions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a57e6d61c73ba0244b9d7a8c227aec244}
+
+
+Definition at line 1032 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_abaca61ce3e4c1b6ce726c907915acf80}{\index{test\-App@{test\-App}!complex\-Reorder@{complex\-Reorder}}
+\index{complex\-Reorder@{complex\-Reorder}!testApp@{test\-App}}
+\subsubsection[{complex\-Reorder}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::complex\-Reorder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_abaca61ce3e4c1b6ce726c907915acf80}
+
+
+Definition at line 1045 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_af15e9e9064fe5ccbe6c82cc401ae9e09}{\index{test\-App@{test\-App}!drag\-Event@{drag\-Event}}
+\index{drag\-Event@{drag\-Event}!testApp@{test\-App}}
+\subsubsection[{drag\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::drag\-Event (
+\begin{DoxyParamCaption}
+\item[{of\-Drag\-Info}]{drag\-Info}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_af15e9e9064fe5ccbe6c82cc401ae9e09}
+
+
+Definition at line 494 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_af869cba67b1dab8481f8d0e216d59dcd}{\index{test\-App@{test\-App}!draw@{draw}}
+\index{draw@{draw}!testApp@{test\-App}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_af869cba67b1dab8481f8d0e216d59dcd}
+
+
+Definition at line 202 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a6dbcb5f1e47c842dfd1ab6b188097677}{\index{test\-App@{test\-App}!draw\-Images@{draw\-Images}}
+\index{draw\-Images@{draw\-Images}!testApp@{test\-App}}
+\subsubsection[{draw\-Images}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::draw\-Images (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a6dbcb5f1e47c842dfd1ab6b188097677}
+
+
+Definition at line 575 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a3ea688a73ca9eb760a3f0a07fde0ac10}{\index{test\-App@{test\-App}!draw\-Stars@{draw\-Stars}}
+\index{draw\-Stars@{draw\-Stars}!testApp@{test\-App}}
+\subsubsection[{draw\-Stars}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::draw\-Stars (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a3ea688a73ca9eb760a3f0a07fde0ac10}
+
+
+Definition at line 1023 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_aa30f4f1db2d186466f97e6ca15169712}{\index{test\-App@{test\-App}!generate\-Circular\-Spiral@{generate\-Circular\-Spiral}}
+\index{generate\-Circular\-Spiral@{generate\-Circular\-Spiral}!testApp@{test\-App}}
+\subsubsection[{generate\-Circular\-Spiral}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::generate\-Circular\-Spiral (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_aa30f4f1db2d186466f97e6ca15169712}
+
+
+Definition at line 498 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}{\index{test\-App@{test\-App}!got\-Message@{got\-Message}}
+\index{got\-Message@{got\-Message}!testApp@{test\-App}}
+\subsubsection[{got\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::got\-Message (
+\begin{DoxyParamCaption}
+\item[{of\-Message}]{msg}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}
+
+
+Definition at line 489 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a904d147c7e532cb92656d5dd4895cd26}{\index{test\-App@{test\-App}!key\-Pressed@{key\-Pressed}}
+\index{key\-Pressed@{key\-Pressed}!testApp@{test\-App}}
+\subsubsection[{key\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::key\-Pressed (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a904d147c7e532cb92656d5dd4895cd26}
+
+
+Definition at line 407 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a1116a10088e4932f6d482efe723cd45e}{\index{test\-App@{test\-App}!key\-Released@{key\-Released}}
+\index{key\-Released@{key\-Released}!testApp@{test\-App}}
+\subsubsection[{key\-Released}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::key\-Released (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a1116a10088e4932f6d482efe723cd45e}
+
+
+Definition at line 459 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_aa93380112b906e2aac2d8738309b2d17}{\index{test\-App@{test\-App}!load\-Imagesand\-X\-M\-L\-Data@{load\-Imagesand\-X\-M\-L\-Data}}
+\index{load\-Imagesand\-X\-M\-L\-Data@{load\-Imagesand\-X\-M\-L\-Data}!testApp@{test\-App}}
+\subsubsection[{load\-Imagesand\-X\-M\-L\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::load\-Imagesand\-X\-M\-L\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_aa93380112b906e2aac2d8738309b2d17}
+
+
+Definition at line 1117 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_afcb51e1a0b9152b9f6e6b102959bab51}{\index{test\-App@{test\-App}!load\-Images\-From\-Directory@{load\-Images\-From\-Directory}}
+\index{load\-Images\-From\-Directory@{load\-Images\-From\-Directory}!testApp@{test\-App}}
+\subsubsection[{load\-Images\-From\-Directory}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::load\-Images\-From\-Directory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_afcb51e1a0b9152b9f6e6b102959bab51}
+
+
+Definition at line 536 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a075bcc2be16fd8f3eaa9162fb40a0a1f}{\index{test\-App@{test\-App}!mouse\-Dragged@{mouse\-Dragged}}
+\index{mouse\-Dragged@{mouse\-Dragged}!testApp@{test\-App}}
+\subsubsection[{mouse\-Dragged}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Dragged (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{button}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a075bcc2be16fd8f3eaa9162fb40a0a1f}
+
+
+Definition at line 469 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a33541b19eff9f8285b2487bfc146d58b}{\index{test\-App@{test\-App}!mouse\-Moved@{mouse\-Moved}}
+\index{mouse\-Moved@{mouse\-Moved}!testApp@{test\-App}}
+\subsubsection[{mouse\-Moved}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Moved (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a33541b19eff9f8285b2487bfc146d58b}
+
+
+Definition at line 464 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a3f200702ce91859cac2872a39302679d}{\index{test\-App@{test\-App}!mouse\-Pressed@{mouse\-Pressed}}
+\index{mouse\-Pressed@{mouse\-Pressed}!testApp@{test\-App}}
+\subsubsection[{mouse\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Pressed (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{button}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a3f200702ce91859cac2872a39302679d}
+
+
+Definition at line 474 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_aa3680ffc782b1e5c451289817f20c9c6}{\index{test\-App@{test\-App}!mouse\-Released@{mouse\-Released}}
+\index{mouse\-Released@{mouse\-Released}!testApp@{test\-App}}
+\subsubsection[{mouse\-Released}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Released (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{button}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_aa3680ffc782b1e5c451289817f20c9c6}
+
+
+Definition at line 479 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a98baf4cdf9fa0f0a56056322b4e7f7e7}{\index{test\-App@{test\-App}!new\-Reorder@{new\-Reorder}}
+\index{new\-Reorder@{new\-Reorder}!testApp@{test\-App}}
+\subsubsection[{new\-Reorder}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::new\-Reorder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a98baf4cdf9fa0f0a56056322b4e7f7e7}
+
+
+Definition at line 964 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_aaa5c2175be1d5ca404c3c23a898d0cdd}{\index{test\-App@{test\-App}!push\-Wiggle\-Positions@{push\-Wiggle\-Positions}}
+\index{push\-Wiggle\-Positions@{push\-Wiggle\-Positions}!testApp@{test\-App}}
+\subsubsection[{push\-Wiggle\-Positions}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::push\-Wiggle\-Positions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_aaa5c2175be1d5ca404c3c23a898d0cdd}
+
+
+Definition at line 816 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_ab3aec1217fe6743f4ec9ed762148f627}{\index{test\-App@{test\-App}!reorder@{reorder}}
+\index{reorder@{reorder}!testApp@{test\-App}}
+\subsubsection[{reorder}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::reorder (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_ab3aec1217fe6743f4ec9ed762148f627}
+
+
+Definition at line 892 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_ad431db15b6150b965cd52bcba8e16e11}{\index{test\-App@{test\-App}!setup@{setup}}
+\index{setup@{setup}!testApp@{test\-App}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::setup (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_ad431db15b6150b965cd52bcba8e16e11}
+
+
+Definition at line 5 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a8a5d9dd51b5c7058ed88611b6ab2b57d}{\index{test\-App@{test\-App}!sort\-Images@{sort\-Images}}
+\index{sort\-Images@{sort\-Images}!testApp@{test\-App}}
+\subsubsection[{sort\-Images}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::sort\-Images (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a8a5d9dd51b5c7058ed88611b6ab2b57d}
+The New Sorting Algorithm 
+
+Definition at line 697 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a81cf913142d9512f9d1063cb7e71199b}{\index{test\-App@{test\-App}!sort\-On\-Image\-Score@{sort\-On\-Image\-Score}}
+\index{sort\-On\-Image\-Score@{sort\-On\-Image\-Score}!testApp@{test\-App}}
+\subsubsection[{sort\-On\-Image\-Score}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::sort\-On\-Image\-Score (
+\begin{DoxyParamCaption}
+\item[{{\bf Image\-Data}}]{l, }
+\item[{{\bf Image\-Data}}]{r}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a81cf913142d9512f9d1063cb7e71199b}
+
+
+Definition at line 1040 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a79467453f6ea0dd63961a810dca9ac6a}{\index{test\-App@{test\-App}!start\-Animation@{start\-Animation}}
+\index{start\-Animation@{start\-Animation}!testApp@{test\-App}}
+\subsubsection[{start\-Animation}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::start\-Animation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a79467453f6ea0dd63961a810dca9ac6a}
+\hypertarget{classtest_app_a1a97063e992528dc79867e516d9365f0}{\index{test\-App@{test\-App}!start\-Animation\-Camera\-Position@{start\-Animation\-Camera\-Position}}
+\index{start\-Animation\-Camera\-Position@{start\-Animation\-Camera\-Position}!testApp@{test\-App}}
+\subsubsection[{start\-Animation\-Camera\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::start\-Animation\-Camera\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a1a97063e992528dc79867e516d9365f0}
+
+
+Definition at line 656 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_afb39d201aec71a295b7609876bf7d0c6}{\index{test\-App@{test\-App}!update@{update}}
+\index{update@{update}!testApp@{test\-App}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_afb39d201aec71a295b7609876bf7d0c6}
+
+
+Definition at line 103 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_acd718eb54b9dc2b45e463414c24de6b9}{\index{test\-App@{test\-App}!wiggle@{wiggle}}
+\index{wiggle@{wiggle}!testApp@{test\-App}}
+\subsubsection[{wiggle}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::wiggle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_acd718eb54b9dc2b45e463414c24de6b9}
+
+
+Pushing values ... 
+
+
+
+Definition at line 838 of file test\-App.\-cpp.
+
+\hypertarget{classtest_app_a428b7df9c64352d6e7cb234fc297e6c9}{\index{test\-App@{test\-App}!window\-Resized@{window\-Resized}}
+\index{window\-Resized@{window\-Resized}!testApp@{test\-App}}
+\subsubsection[{window\-Resized}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::window\-Resized (
+\begin{DoxyParamCaption}
+\item[{int}]{w, }
+\item[{int}]{h}
+\end{DoxyParamCaption}
+)}}\label{classtest_app_a428b7df9c64352d6e7cb234fc297e6c9}
+
+
+Definition at line 484 of file test\-App.\-cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classtest_app_a8e560e923c82d421857538e4a5927542}{\index{test\-App@{test\-App}!accel@{accel}}
+\index{accel@{accel}!testApp@{test\-App}}
+\subsubsection[{accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::accel}}\label{classtest_app_a8e560e923c82d421857538e4a5927542}
+
+
+Definition at line 228 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ad1738ff98d225f80b853a9ddc9f5a116}{\index{test\-App@{test\-App}!accel\-\_\-x@{accel\-\_\-x}}
+\index{accel\-\_\-x@{accel\-\_\-x}!testApp@{test\-App}}
+\subsubsection[{accel\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::accel\-\_\-x}}\label{classtest_app_ad1738ff98d225f80b853a9ddc9f5a116}
+
+
+Definition at line 231 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a204bcb2412a70a65ebea6008ee8c4eb0}{\index{test\-App@{test\-App}!accel\-\_\-y@{accel\-\_\-y}}
+\index{accel\-\_\-y@{accel\-\_\-y}!testApp@{test\-App}}
+\subsubsection[{accel\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::accel\-\_\-y}}\label{classtest_app_a204bcb2412a70a65ebea6008ee8c4eb0}
+
+
+Definition at line 231 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a61dbdd5c0b868568dde40a52f6e56054}{\index{test\-App@{test\-App}!accel\-\_\-z@{accel\-\_\-z}}
+\index{accel\-\_\-z@{accel\-\_\-z}!testApp@{test\-App}}
+\subsubsection[{accel\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::accel\-\_\-z}}\label{classtest_app_a61dbdd5c0b868568dde40a52f6e56054}
+
+
+Definition at line 231 of file test\-App.\-h.
+
+\hypertarget{classtest_app_aa16e3bba73f9adb3c6363ac429e5a472}{\index{test\-App@{test\-App}!album\-Scores@{album\-Scores}}
+\index{album\-Scores@{album\-Scores}!testApp@{test\-App}}
+\subsubsection[{album\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}multimap$<$int, int $>$ test\-App\-::album\-Scores}}\label{classtest_app_aa16e3bba73f9adb3c6363ac429e5a472}
+
+
+Definition at line 138 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a98e05c3206ff95fccfebfc9df5317598}{\index{test\-App@{test\-App}!angular\-\_\-velocity@{angular\-\_\-velocity}}
+\index{angular\-\_\-velocity@{angular\-\_\-velocity}!testApp@{test\-App}}
+\subsubsection[{angular\-\_\-velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::angular\-\_\-velocity}}\label{classtest_app_a98e05c3206ff95fccfebfc9df5317598}
+
+
+Definition at line 234 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a21b16bdba744425519597fcb925df43a}{\index{test\-App@{test\-App}!animation\-Counter@{animation\-Counter}}
+\index{animation\-Counter@{animation\-Counter}!testApp@{test\-App}}
+\subsubsection[{animation\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::animation\-Counter}}\label{classtest_app_a21b16bdba744425519597fcb925df43a}
+
+
+Definition at line 92 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a2a5d49fd1f7f50f745f56095a1fa0099}{\index{test\-App@{test\-App}!animation\-Mode@{animation\-Mode}}
+\index{animation\-Mode@{animation\-Mode}!testApp@{test\-App}}
+\subsubsection[{animation\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::animation\-Mode}}\label{classtest_app_a2a5d49fd1f7f50f745f56095a1fa0099}
+
+
+Definition at line 82 of file test\-App.\-h.
+
+\hypertarget{classtest_app_adcaa52132409ab0ad077236f9e6fa180}{\index{test\-App@{test\-App}!begin\-Animationtime@{begin\-Animationtime}}
+\index{begin\-Animationtime@{begin\-Animationtime}!testApp@{test\-App}}
+\subsubsection[{begin\-Animationtime}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::begin\-Animationtime}}\label{classtest_app_adcaa52132409ab0ad077236f9e6fa180}
+
+
+Definition at line 87 of file test\-App.\-h.
+
+\hypertarget{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}{\index{test\-App@{test\-App}!Bluementhal\-Mp3@{Bluementhal\-Mp3}}
+\index{Bluementhal\-Mp3@{Bluementhal\-Mp3}!testApp@{test\-App}}
+\subsubsection[{Bluementhal\-Mp3}]{\setlength{\rightskip}{0pt plus 5cm}of\-Sound\-Player test\-App\-::\-Bluementhal\-Mp3}}\label{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}
+
+
+Definition at line 219 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a0278ee237cbbd881252d6273b131bb55}{\index{test\-App@{test\-App}!camera@{camera}}
+\index{camera@{camera}!testApp@{test\-App}}
+\subsubsection[{camera}]{\setlength{\rightskip}{0pt plus 5cm}of\-Camera test\-App\-::camera}}\label{classtest_app_a0278ee237cbbd881252d6273b131bb55}
+
+
+Definition at line 76 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ad3319d9cd3cb00e898f4f602b879efad}{\index{test\-App@{test\-App}!camera\-End\-Position@{camera\-End\-Position}}
+\index{camera\-End\-Position@{camera\-End\-Position}!testApp@{test\-App}}
+\subsubsection[{camera\-End\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::camera\-End\-Position}}\label{classtest_app_ad3319d9cd3cb00e898f4f602b879efad}
+
+
+Definition at line 79 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a4ca3a51642dedbf37f2b9f6ef96510c7}{\index{test\-App@{test\-App}!cameraindex@{cameraindex}}
+\index{cameraindex@{cameraindex}!testApp@{test\-App}}
+\subsubsection[{cameraindex}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::cameraindex =0}}\label{classtest_app_a4ca3a51642dedbf37f2b9f6ef96510c7}
+
+
+Definition at line 81 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ac01013264b9988207e7fd9e0a486ff2f}{\index{test\-App@{test\-App}!camera\-Start\-Position@{camera\-Start\-Position}}
+\index{camera\-Start\-Position@{camera\-Start\-Position}!testApp@{test\-App}}
+\subsubsection[{camera\-Start\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::camera\-Start\-Position}}\label{classtest_app_ac01013264b9988207e7fd9e0a486ff2f}
+
+
+Definition at line 79 of file test\-App.\-h.
+
+\hypertarget{classtest_app_aced9b8a8419c8465877c2c9cd43f8934}{\index{test\-App@{test\-App}!combined\-Image\-Objects@{combined\-Image\-Objects}}
+\index{combined\-Image\-Objects@{combined\-Image\-Objects}!testApp@{test\-App}}
+\subsubsection[{combined\-Image\-Objects}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::combined\-Image\-Objects}}\label{classtest_app_aced9b8a8419c8465877c2c9cd43f8934}
+
+
+Definition at line 147 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}{\index{test\-App@{test\-App}!current\-Volume@{current\-Volume}}
+\index{current\-Volume@{current\-Volume}!testApp@{test\-App}}
+\subsubsection[{current\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::current\-Volume}}\label{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}
+
+
+Definition at line 273 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a6b9af0b1ae4a2c0530eb6a8cf8340751}{\index{test\-App@{test\-App}!currentwiggleindex@{currentwiggleindex}}
+\index{currentwiggleindex@{currentwiggleindex}!testApp@{test\-App}}
+\subsubsection[{currentwiggleindex}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::currentwiggleindex}}\label{classtest_app_a6b9af0b1ae4a2c0530eb6a8cf8340751}
+
+
+Definition at line 129 of file test\-App.\-h.
+
+\hypertarget{classtest_app_af81358868ae15faab1974ec074b1509f}{\index{test\-App@{test\-App}!currentwiggle\-Position@{currentwiggle\-Position}}
+\index{currentwiggle\-Position@{currentwiggle\-Position}!testApp@{test\-App}}
+\subsubsection[{currentwiggle\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::currentwiggle\-Position}}\label{classtest_app_af81358868ae15faab1974ec074b1509f}
+
+
+Definition at line 127 of file test\-App.\-h.
+
+\hypertarget{classtest_app_acf09303bc452d2a38098f6bf94655408}{\index{test\-App@{test\-App}!ending@{ending}}
+\index{ending@{ending}!testApp@{test\-App}}
+\subsubsection[{ending}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::ending}}\label{classtest_app_acf09303bc452d2a38098f6bf94655408}
+
+
+Definition at line 289 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a918c09b5a4389a8402cfacb25d390226}{\index{test\-App@{test\-App}!fade\-Audio@{fade\-Audio}}
+\index{fade\-Audio@{fade\-Audio}!testApp@{test\-App}}
+\subsubsection[{fade\-Audio}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::fade\-Audio}}\label{classtest_app_a918c09b5a4389a8402cfacb25d390226}
+
+
+Definition at line 270 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a0fdf83c29e178256ee0c1a5b9ee81653}{\index{test\-App@{test\-App}!font@{font}}
+\index{font@{font}!testApp@{test\-App}}
+\subsubsection[{font}]{\setlength{\rightskip}{0pt plus 5cm}of\-True\-Type\-Font test\-App\-::font}}\label{classtest_app_a0fdf83c29e178256ee0c1a5b9ee81653}
+
+
+Definition at line 254 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a500cd1228b3364bf30c8fb185e375688}{\index{test\-App@{test\-App}!image\-Data@{image\-Data}}
+\index{image\-Data@{image\-Data}!testApp@{test\-App}}
+\subsubsection[{image\-Data}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of\-Vec3f$>$ test\-App\-::image\-Data}}\label{classtest_app_a500cd1228b3364bf30c8fb185e375688}
+
+
+Definition at line 153 of file test\-App.\-h.
+
+\hypertarget{classtest_app_adcd4c3dfc7257326a79e6a3fc8b33406}{\index{test\-App@{test\-App}!image\-Details@{image\-Details}}
+\index{image\-Details@{image\-Details}!testApp@{test\-App}}
+\subsubsection[{image\-Details}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::image\-Details}}\label{classtest_app_adcd4c3dfc7257326a79e6a3fc8b33406}
+
+
+Definition at line 141 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a9ced1a64554a911109fe8a975b95b590}{\index{test\-App@{test\-App}!image\-Scores@{image\-Scores}}
+\index{image\-Scores@{image\-Scores}!testApp@{test\-App}}
+\subsubsection[{image\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}multimap$<$int, int $>$ test\-App\-::image\-Scores}}\label{classtest_app_a9ced1a64554a911109fe8a975b95b590}
+
+
+Definition at line 110 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ad4de5d6e6e8f3b8bb7424e62792deb1f}{\index{test\-App@{test\-App}!Image\-Vector@{Image\-Vector}}
+\index{Image\-Vector@{Image\-Vector}!testApp@{test\-App}}
+\subsubsection[{Image\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of\-Image$>$ test\-App\-::\-Image\-Vector}}\label{classtest_app_ad4de5d6e6e8f3b8bb7424e62792deb1f}
+
+
+Definition at line 179 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ab8a277e1055730fb5d6786ce0c4804b2}{\index{test\-App@{test\-App}!isstarting\-Animation\-Active@{isstarting\-Animation\-Active}}
+\index{isstarting\-Animation\-Active@{isstarting\-Animation\-Active}!testApp@{test\-App}}
+\subsubsection[{isstarting\-Animation\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::isstarting\-Animation\-Active}}\label{classtest_app_ab8a277e1055730fb5d6786ce0c4804b2}
+
+
+Definition at line 98 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}{\index{test\-App@{test\-App}!isturn\-Completed@{isturn\-Completed}}
+\index{isturn\-Completed@{isturn\-Completed}!testApp@{test\-App}}
+\subsubsection[{isturn\-Completed}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::isturn\-Completed}}\label{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}
+
+
+Definition at line 263 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a34e834a5e4d359700147a74eece8eed1}{\index{test\-App@{test\-App}!max\-Accel@{max\-Accel}}
+\index{max\-Accel@{max\-Accel}!testApp@{test\-App}}
+\subsubsection[{max\-Accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::max\-Accel}}\label{classtest_app_a34e834a5e4d359700147a74eece8eed1}
+
+
+Definition at line 250 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}{\index{test\-App@{test\-App}!max\-Angular\-Velocity@{max\-Angular\-Velocity}}
+\index{max\-Angular\-Velocity@{max\-Angular\-Velocity}!testApp@{test\-App}}
+\subsubsection[{max\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::max\-Angular\-Velocity}}\label{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}
+
+
+Definition at line 249 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a0124035d0454fb6bd9152f8a87c40677}{\index{test\-App@{test\-App}!Message@{Message}}
+\index{Message@{Message}!testApp@{test\-App}}
+\subsubsection[{Message}]{\setlength{\rightskip}{0pt plus 5cm}string test\-App\-::\-Message}}\label{classtest_app_a0124035d0454fb6bd9152f8a87c40677}
+
+
+Definition at line 240 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}{\index{test\-App@{test\-App}!min\-Accel@{min\-Accel}}
+\index{min\-Accel@{min\-Accel}!testApp@{test\-App}}
+\subsubsection[{min\-Accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::min\-Accel}}\label{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}
+
+
+Definition at line 250 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{\index{test\-App@{test\-App}!min\-Angular\-Velocity@{min\-Angular\-Velocity}}
+\index{min\-Angular\-Velocity@{min\-Angular\-Velocity}!testApp@{test\-App}}
+\subsubsection[{min\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::min\-Angular\-Velocity}}\label{classtest_app_ac559756a01e0b98378bc29dfba9fac79}
+
+
+Definition at line 249 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a957cf7fdb3ea964a88ca1be13e4d68fc}{\index{test\-App@{test\-App}!numberof\-Images@{numberof\-Images}}
+\index{numberof\-Images@{numberof\-Images}!testApp@{test\-App}}
+\subsubsection[{numberof\-Images}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::numberof\-Images}}\label{classtest_app_a957cf7fdb3ea964a88ca1be13e4d68fc}
+
+
+Definition at line 188 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}{\index{test\-App@{test\-App}!overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}}
+\index{overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}!testApp@{test\-App}}
+\subsubsection[{overshot\-Camera\-Starting\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::overshot\-Camera\-Starting\-Position}}\label{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}
+
+
+Definition at line 196 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a85133f49103cfa002f39d882f7168236}{\index{test\-App@{test\-App}!pictures\-\_\-\-X\-M\-L@{pictures\-\_\-\-X\-M\-L}}
+\index{pictures\-\_\-\-X\-M\-L@{pictures\-\_\-\-X\-M\-L}!testApp@{test\-App}}
+\subsubsection[{pictures\-\_\-\-X\-M\-L}]{\setlength{\rightskip}{0pt plus 5cm}ofx\-Xml\-Settings test\-App\-::pictures\-\_\-\-X\-M\-L}}\label{classtest_app_a85133f49103cfa002f39d882f7168236}
+
+
+Definition at line 113 of file test\-App.\-h.
+
+\hypertarget{classtest_app_aabbebeb113838374f659e86a0355b260}{\index{test\-App@{test\-App}!pitch@{pitch}}
+\index{pitch@{pitch}!testApp@{test\-App}}
+\subsubsection[{pitch}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::pitch}}\label{classtest_app_aabbebeb113838374f659e86a0355b260}
+
+
+Definition at line 228 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a808376783cdf510335cd1b37026e9bb3}{\index{test\-App@{test\-App}!position1\-\_\-z@{position1\-\_\-z}}
+\index{position1\-\_\-z@{position1\-\_\-z}!testApp@{test\-App}}
+\subsubsection[{position1\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::position1\-\_\-z}}\label{classtest_app_a808376783cdf510335cd1b37026e9bb3}
+
+
+Definition at line 210 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a0720011cfaade6388109232ea4927c19}{\index{test\-App@{test\-App}!position2\-\_\-z@{position2\-\_\-z}}
+\index{position2\-\_\-z@{position2\-\_\-z}!testApp@{test\-App}}
+\subsubsection[{position2\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::position2\-\_\-z}}\label{classtest_app_a0720011cfaade6388109232ea4927c19}
+
+
+Definition at line 210 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a8a2b9b9cf76097e20f148b616297029b}{\index{test\-App@{test\-App}!prev\-Ang\-Vel@{prev\-Ang\-Vel}}
+\index{prev\-Ang\-Vel@{prev\-Ang\-Vel}!testApp@{test\-App}}
+\subsubsection[{prev\-Ang\-Vel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::prev\-Ang\-Vel =0}}\label{classtest_app_a8a2b9b9cf76097e20f148b616297029b}
+
+
+Definition at line 266 of file test\-App.\-h.
+
+\hypertarget{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}{\index{test\-App@{test\-App}!preview\-Text@{preview\-Text}}
+\index{preview\-Text@{preview\-Text}!testApp@{test\-App}}
+\subsubsection[{preview\-Text}]{\setlength{\rightskip}{0pt plus 5cm}of\-True\-Type\-Font test\-App\-::preview\-Text}}\label{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}
+
+
+Definition at line 283 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a034c44ff60fa1e5f021e90d5410ba657}{\index{test\-App@{test\-App}!receiver@{receiver}}
+\index{receiver@{receiver}!testApp@{test\-App}}
+\subsubsection[{receiver}]{\setlength{\rightskip}{0pt plus 5cm}ofx\-Osc\-Receiver test\-App\-::receiver}}\label{classtest_app_a034c44ff60fa1e5f021e90d5410ba657}
+
+
+Definition at line 237 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a020730abb55e6ae6d0a28edee19050e0}{\index{test\-App@{test\-App}!roll@{roll}}
+\index{roll@{roll}!testApp@{test\-App}}
+\subsubsection[{roll}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::roll}}\label{classtest_app_a020730abb55e6ae6d0a28edee19050e0}
+
+
+Definition at line 228 of file test\-App.\-h.
+
+\hypertarget{classtest_app_af0dd2f3e3aabdb43bee49d74c156dc05}{\index{test\-App@{test\-App}!Spiral\-Points@{Spiral\-Points}}
+\index{Spiral\-Points@{Spiral\-Points}!testApp@{test\-App}}
+\subsubsection[{Spiral\-Points}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of\-Vec3f$>$ test\-App\-::\-Spiral\-Points}}\label{classtest_app_af0dd2f3e3aabdb43bee49d74c156dc05}
+
+
+Definition at line 170 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a68d0d30cea64a9d39a1b2deef16677ad}{\index{test\-App@{test\-App}!Star\-Positions@{Star\-Positions}}
+\index{Star\-Positions@{Star\-Positions}!testApp@{test\-App}}
+\subsubsection[{Star\-Positions}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of\-Vec3f$>$ test\-App\-::\-Star\-Positions}}\label{classtest_app_a68d0d30cea64a9d39a1b2deef16677ad}
+
+
+Definition at line 165 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a577bf117cf10109de967ea0d3ca17f1f}{\index{test\-App@{test\-App}!start\-Animation\-Counter@{start\-Animation\-Counter}}
+\index{start\-Animation\-Counter@{start\-Animation\-Counter}!testApp@{test\-App}}
+\subsubsection[{start\-Animation\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::start\-Animation\-Counter}}\label{classtest_app_a577bf117cf10109de967ea0d3ca17f1f}
+
+
+Definition at line 104 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a9bfe7793fa0689a991ff64174745c38f}{\index{test\-App@{test\-App}!starting\-Movie@{starting\-Movie}}
+\index{starting\-Movie@{starting\-Movie}!testApp@{test\-App}}
+\subsubsection[{starting\-Movie}]{\setlength{\rightskip}{0pt plus 5cm}of\-Q\-T\-Kit\-Player test\-App\-::starting\-Movie}}\label{classtest_app_a9bfe7793fa0689a991ff64174745c38f}
+
+
+Definition at line 213 of file test\-App.\-h.
+
+\hypertarget{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}{\index{test\-App@{test\-App}!starting\-Movie\-Finished@{starting\-Movie\-Finished}}
+\index{starting\-Movie\-Finished@{starting\-Movie\-Finished}!testApp@{test\-App}}
+\subsubsection[{starting\-Movie\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::starting\-Movie\-Finished}}\label{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}
+
+
+Definition at line 216 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a8a65a6d1a473417cec1c2ac2e6116aae}{\index{test\-App@{test\-App}!start\-Installation@{start\-Installation}}
+\index{start\-Installation@{start\-Installation}!testApp@{test\-App}}
+\subsubsection[{start\-Installation}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::start\-Installation}}\label{classtest_app_a8a65a6d1a473417cec1c2ac2e6116aae}
+
+
+Definition at line 276 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ad2fca6ce5e37462cd820afc48633324d}{\index{test\-App@{test\-App}!startover\-Shot\-Camera\-Animation@{startover\-Shot\-Camera\-Animation}}
+\index{startover\-Shot\-Camera\-Animation@{startover\-Shot\-Camera\-Animation}!testApp@{test\-App}}
+\subsubsection[{startover\-Shot\-Camera\-Animation}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::startover\-Shot\-Camera\-Animation}}\label{classtest_app_ad2fca6ce5e37462cd820afc48633324d}
+
+
+Definition at line 202 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a8ce5505df4526abed238956b65956edd}{\index{test\-App@{test\-App}!State@{State}}
+\index{State@{State}!testApp@{test\-App}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}string test\-App\-::\-State}}\label{classtest_app_a8ce5505df4526abed238956b65956edd}
+
+
+Definition at line 255 of file test\-App.\-h.
+
+\hypertarget{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}{\index{test\-App@{test\-App}!tagged\-Image\-Objects@{tagged\-Image\-Objects}}
+\index{tagged\-Image\-Objects@{tagged\-Image\-Objects}!testApp@{test\-App}}
+\subsubsection[{tagged\-Image\-Objects}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::tagged\-Image\-Objects}}\label{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}
+
+
+Definition at line 144 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a7f7226fc54fdb7d06366ed0fa3ab7ee3}{\index{test\-App@{test\-App}!tagged\-Images@{tagged\-Images}}
+\index{tagged\-Images@{tagged\-Images}!testApp@{test\-App}}
+\subsubsection[{tagged\-Images}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::tagged\-Images}}\label{classtest_app_a7f7226fc54fdb7d06366ed0fa3ab7ee3}
+
+
+Definition at line 141 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}{\index{test\-App@{test\-App}!temp\-Text@{temp\-Text}}
+\index{temp\-Text@{temp\-Text}!testApp@{test\-App}}
+\subsubsection[{temp\-Text}]{\setlength{\rightskip}{0pt plus 5cm}string test\-App\-::temp\-Text}}\label{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}
+
+
+Definition at line 286 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a944f2713019239a4b49241a5cc9a00c9}{\index{test\-App@{test\-App}!time\-Gap@{time\-Gap}}
+\index{time\-Gap@{time\-Gap}!testApp@{test\-App}}
+\subsubsection[{time\-Gap}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::time\-Gap}}\label{classtest_app_a944f2713019239a4b49241a5cc9a00c9}
+
+
+Definition at line 259 of file test\-App.\-h.
+
+\hypertarget{classtest_app_acb60fb8a89e9ec5d461630a20b11ceda}{\index{test\-App@{test\-App}!timesince\-Last\-Transition@{timesince\-Last\-Transition}}
+\index{timesince\-Last\-Transition@{timesince\-Last\-Transition}!testApp@{test\-App}}
+\subsubsection[{timesince\-Last\-Transition}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::timesince\-Last\-Transition}}\label{classtest_app_acb60fb8a89e9ec5d461630a20b11ceda}
+
+
+Definition at line 191 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ae9f60797c1c5d9f1ac06e1d6a5259957}{\index{test\-App@{test\-App}!tweened\-Camera\-Position@{tweened\-Camera\-Position}}
+\index{tweened\-Camera\-Position@{tweened\-Camera\-Position}!testApp@{test\-App}}
+\subsubsection[{tweened\-Camera\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::tweened\-Camera\-Position}}\label{classtest_app_ae9f60797c1c5d9f1ac06e1d6a5259957}
+
+
+Definition at line 90 of file test\-App.\-h.
+
+\hypertarget{classtest_app_add9ab1aa902948afbdf1c6db0dfde385}{\index{test\-App@{test\-App}!tweenvalue@{tweenvalue}}
+\index{tweenvalue@{tweenvalue}!testApp@{test\-App}}
+\subsubsection[{tweenvalue}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::tweenvalue}}\label{classtest_app_add9ab1aa902948afbdf1c6db0dfde385}
+
+
+Definition at line 87 of file test\-App.\-h.
+
+\hypertarget{classtest_app_ae31cc868f554f62b4c6e4e9db3b4155b}{\index{test\-App@{test\-App}!untagged\-Image\-Objects@{untagged\-Image\-Objects}}
+\index{untagged\-Image\-Objects@{untagged\-Image\-Objects}!testApp@{test\-App}}
+\subsubsection[{untagged\-Image\-Objects}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::untagged\-Image\-Objects}}\label{classtest_app_ae31cc868f554f62b4c6e4e9db3b4155b}
+
+
+Definition at line 144 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a9cb9aa0700c4c8b316329a86c4e650ec}{\index{test\-App@{test\-App}!untagged\-Images@{untagged\-Images}}
+\index{untagged\-Images@{untagged\-Images}!testApp@{test\-App}}
+\subsubsection[{untagged\-Images}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::untagged\-Images}}\label{classtest_app_a9cb9aa0700c4c8b316329a86c4e650ec}
+
+
+Definition at line 141 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a6ae76dc97fbeee00755f4a6cd6b87e19}{\index{test\-App@{test\-App}!userid@{userid}}
+\index{userid@{userid}!testApp@{test\-App}}
+\subsubsection[{userid}]{\setlength{\rightskip}{0pt plus 5cm}long long int test\-App\-::userid}}\label{classtest_app_a6ae76dc97fbeee00755f4a6cd6b87e19}
+
+
+Definition at line 116 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a6073b33be7847d675ec089a1d514c506}{\index{test\-App@{test\-App}!wiggle\-Animation\-Counter@{wiggle\-Animation\-Counter}}
+\index{wiggle\-Animation\-Counter@{wiggle\-Animation\-Counter}!testApp@{test\-App}}
+\subsubsection[{wiggle\-Animation\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::wiggle\-Animation\-Counter}}\label{classtest_app_a6073b33be7847d675ec089a1d514c506}
+
+
+Definition at line 131 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a5495d37f44bb3e3b00a04ad5910e0a6b}{\index{test\-App@{test\-App}!wiggle\-Positions@{wiggle\-Positions}}
+\index{wiggle\-Positions@{wiggle\-Positions}!testApp@{test\-App}}
+\subsubsection[{wiggle\-Positions}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of\-Vec3f$>$ test\-App\-::wiggle\-Positions}}\label{classtest_app_a5495d37f44bb3e3b00a04ad5910e0a6b}
+
+
+Definition at line 121 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a7a77e8633c3a94e3e409a33a5cd9ae3f}{\index{test\-App@{test\-App}!wii\-X@{wii\-X}}
+\index{wii\-X@{wii\-X}!testApp@{test\-App}}
+\subsubsection[{wii\-X}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::wii\-X}}\label{classtest_app_a7a77e8633c3a94e3e409a33a5cd9ae3f}
+
+
+Definition at line 228 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a5ae41896388ae16ee530beca5333e02a}{\index{test\-App@{test\-App}!wii\-Y@{wii\-Y}}
+\index{wii\-Y@{wii\-Y}!testApp@{test\-App}}
+\subsubsection[{wii\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::wii\-Y}}\label{classtest_app_a5ae41896388ae16ee530beca5333e02a}
+
+
+Definition at line 228 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a4e8884eeef5b2657b62278969d4e3dcf}{\index{test\-App@{test\-App}!window\-Height@{window\-Height}}
+\index{window\-Height@{window\-Height}!testApp@{test\-App}}
+\subsubsection[{window\-Height}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::window\-Height}}\label{classtest_app_a4e8884eeef5b2657b62278969d4e3dcf}
+
+
+Definition at line 242 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a9ed611377cd46f5148a3a3d538e96484}{\index{test\-App@{test\-App}!window\-Width@{window\-Width}}
+\index{window\-Width@{window\-Width}!testApp@{test\-App}}
+\subsubsection[{window\-Width}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::window\-Width}}\label{classtest_app_a9ed611377cd46f5148a3a3d538e96484}
+
+
+Definition at line 242 of file test\-App.\-h.
+
+\hypertarget{classtest_app_a865985f78dd5def3ed20c87b9fc772b6}{\index{test\-App@{test\-App}!yaw@{yaw}}
+\index{yaw@{yaw}!testApp@{test\-App}}
+\subsubsection[{yaw}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::yaw}}\label{classtest_app_a865985f78dd5def3ed20c87b9fc772b6}
+
+
+Definition at line 228 of file test\-App.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/\-Users/rahulbudhiraja/\-Work/of\-\_\-v0073\-\_\-osx\-\_\-release/apps/my\-Apps/\-Nostalgia\-\_\-\-Spiral/src/\hyperlink{test_app_8h}{test\-App.\-h}\item 
+/\-Users/rahulbudhiraja/\-Work/of\-\_\-v0073\-\_\-osx\-\_\-release/apps/my\-Apps/\-Nostalgia\-\_\-\-Spiral/src/\hyperlink{test_app_8cpp}{test\-App.\-cpp}\end{DoxyCompactItemize}

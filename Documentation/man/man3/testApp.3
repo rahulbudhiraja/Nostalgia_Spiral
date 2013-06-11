@@ -1,0 +1,713 @@
+.TH "testApp" 3 "Tue Jun 11 2013" "Version 1.0" "NostalgiaRoom" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+testApp \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <testApp\&.h>\fP
+.PP
+Inherits ofBaseApp\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtestApp\fP (long long int id)"
+.br
+.ti -1c
+.RI "void \fBsetup\fP ()"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw\fP ()"
+.br
+.ti -1c
+.RI "void \fBkeyPressed\fP (int key)"
+.br
+.ti -1c
+.RI "void \fBkeyReleased\fP (int key)"
+.br
+.ti -1c
+.RI "void \fBmouseMoved\fP (int x, int y)"
+.br
+.ti -1c
+.RI "void \fBmouseDragged\fP (int x, int y, int button)"
+.br
+.ti -1c
+.RI "void \fBmousePressed\fP (int x, int y, int button)"
+.br
+.ti -1c
+.RI "void \fBmouseReleased\fP (int x, int y, int button)"
+.br
+.ti -1c
+.RI "void \fBwindowResized\fP (int w, int h)"
+.br
+.ti -1c
+.RI "void \fBdragEvent\fP (ofDragInfo dragInfo)"
+.br
+.ti -1c
+.RI "void \fBgotMessage\fP (ofMessage msg)"
+.br
+.ti -1c
+.RI "ofVec3f \fBanimate\fP (int, int)"
+.br
+.ti -1c
+.RI "void \fBstartAnimation\fP ()"
+.br
+.ti -1c
+.RI "ofVec3f \fBstartAnimationCameraPosition\fP ()"
+.br
+.ti -1c
+.RI "void \fBsortImages\fP ()"
+.br
+.ti -1c
+.RI "void \fBpushWigglePositions\fP ()"
+.br
+.ti -1c
+.RI "ofVec3f \fBwiggle\fP ()"
+.br
+.RI "\fIPushing values \&.\&.\&. \fP"
+.ti -1c
+.RI "void \fBreorder\fP ()"
+.br
+.ti -1c
+.RI "bool \fBsortOnImageScore\fP (\fBImageData\fP l, \fBImageData\fP r)"
+.br
+.ti -1c
+.RI "void \fBnewReorder\fP ()"
+.br
+.ti -1c
+.RI "void \fBcomplexReorder\fP ()"
+.br
+.ti -1c
+.RI "void \fBassignStarPositions\fP ()"
+.br
+.ti -1c
+.RI "void \fBdrawStars\fP ()"
+.br
+.ti -1c
+.RI "void \fBgenerateCircularSpiral\fP ()"
+.br
+.ti -1c
+.RI "void \fBloadImagesFromDirectory\fP ()"
+.br
+.ti -1c
+.RI "void \fBdrawImages\fP ()"
+.br
+.ti -1c
+.RI "void \fBloadImagesandXMLData\fP ()"
+.br
+.ti -1c
+.RI "ofVec3f \fBadjustoverShotCameraPosition\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "ofCamera \fBcamera\fP"
+.br
+.ti -1c
+.RI "ofVec3f \fBcameraStartPosition\fP"
+.br
+.ti -1c
+.RI "ofVec3f \fBcameraEndPosition\fP"
+.br
+.ti -1c
+.RI "int \fBcameraindex\fP =0"
+.br
+.ti -1c
+.RI "bool \fBanimationMode\fP"
+.br
+.ti -1c
+.RI "float \fBtweenvalue\fP"
+.br
+.ti -1c
+.RI "float \fBbeginAnimationtime\fP"
+.br
+.ti -1c
+.RI "ofVec3f \fBtweenedCameraPosition\fP"
+.br
+.ti -1c
+.RI "int \fBanimationCounter\fP"
+.br
+.ti -1c
+.RI "bool \fBisstartingAnimationActive\fP"
+.br
+.ti -1c
+.RI "int \fBstartAnimationCounter\fP"
+.br
+.ti -1c
+.RI "multimap< int, int > \fBimageScores\fP"
+.br
+.ti -1c
+.RI "ofxXmlSettings \fBpictures_XML\fP"
+.br
+.ti -1c
+.RI "long long int \fBuserid\fP"
+.br
+.ti -1c
+.RI "vector< ofVec3f > \fBwigglePositions\fP"
+.br
+.ti -1c
+.RI "ofVec3f \fBcurrentwigglePosition\fP"
+.br
+.ti -1c
+.RI "int \fBcurrentwiggleindex\fP"
+.br
+.ti -1c
+.RI "float \fBwiggleAnimationCounter\fP"
+.br
+.ti -1c
+.RI "multimap< int, int > \fBalbumScores\fP"
+.br
+.ti -1c
+.RI "vector< \fBImageData\fP > \fBimageDetails\fP"
+.br
+.ti -1c
+.RI "vector< \fBImageData\fP > \fBtaggedImages\fP"
+.br
+.ti -1c
+.RI "vector< \fBImageData\fP > \fBuntaggedImages\fP"
+.br
+.ti -1c
+.RI "vector< \fBImageData\fP > \fBuntaggedImageObjects\fP"
+.br
+.ti -1c
+.RI "vector< \fBImageData\fP > \fBtaggedImageObjects\fP"
+.br
+.ti -1c
+.RI "vector< \fBImageData\fP > \fBcombinedImageObjects\fP"
+.br
+.ti -1c
+.RI "vector< ofVec3f > \fBimageData\fP"
+.br
+.ti -1c
+.RI "vector< ofVec3f > \fBStarPositions\fP"
+.br
+.ti -1c
+.RI "vector< ofVec3f > \fBSpiralPoints\fP"
+.br
+.ti -1c
+.RI "vector< ofImage > \fBImageVector\fP"
+.br
+.ti -1c
+.RI "int \fBnumberofImages\fP"
+.br
+.ti -1c
+.RI "float \fBtimesinceLastTransition\fP"
+.br
+.ti -1c
+.RI "ofVec3f \fBovershotCameraStartingPosition\fP"
+.br
+.ti -1c
+.RI "bool \fBstartoverShotCameraAnimation\fP"
+.br
+.ti -1c
+.RI "float \fBposition1_z\fP"
+.br
+.ti -1c
+.RI "float \fBposition2_z\fP"
+.br
+.ti -1c
+.RI "ofQTKitPlayer \fBstartingMovie\fP"
+.br
+.ti -1c
+.RI "bool \fBstartingMovieFinished\fP"
+.br
+.ti -1c
+.RI "ofSoundPlayer \fBBluementhalMp3\fP"
+.br
+.ti -1c
+.RI "float \fBroll\fP"
+.br
+.ti -1c
+.RI "float \fByaw\fP"
+.br
+.ti -1c
+.RI "float \fBpitch\fP"
+.br
+.ti -1c
+.RI "float \fBaccel\fP"
+.br
+.ti -1c
+.RI "float \fBwiiX\fP"
+.br
+.ti -1c
+.RI "float \fBwiiY\fP"
+.br
+.ti -1c
+.RI "float \fBaccel_x\fP"
+.br
+.ti -1c
+.RI "float \fBaccel_y\fP"
+.br
+.ti -1c
+.RI "float \fBaccel_z\fP"
+.br
+.ti -1c
+.RI "float \fBangular_velocity\fP"
+.br
+.ti -1c
+.RI "ofxOscReceiver \fBreceiver\fP"
+.br
+.ti -1c
+.RI "string \fBMessage\fP"
+.br
+.ti -1c
+.RI "int \fBwindowWidth\fP"
+.br
+.ti -1c
+.RI "int \fBwindowHeight\fP"
+.br
+.ti -1c
+.RI "float \fBminAngularVelocity\fP"
+.br
+.ti -1c
+.RI "float \fBmaxAngularVelocity\fP"
+.br
+.ti -1c
+.RI "float \fBminAccel\fP"
+.br
+.ti -1c
+.RI "float \fBmaxAccel\fP"
+.br
+.ti -1c
+.RI "ofTrueTypeFont \fBfont\fP"
+.br
+.ti -1c
+.RI "string \fBState\fP"
+.br
+.ti -1c
+.RI "float \fBtimeGap\fP"
+.br
+.ti -1c
+.RI "bool \fBisturnCompleted\fP"
+.br
+.ti -1c
+.RI "float \fBprevAngVel\fP =0"
+.br
+.ti -1c
+.RI "bool \fBfadeAudio\fP"
+.br
+.ti -1c
+.RI "float \fBcurrentVolume\fP"
+.br
+.ti -1c
+.RI "bool \fBstartInstallation\fP"
+.br
+.ti -1c
+.RI "ofTrueTypeFont \fBpreviewText\fP"
+.br
+.ti -1c
+.RI "string \fBtempText\fP"
+.br
+.ti -1c
+.RI "bool \fBending\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 50 of file testApp\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "testApp::testApp (long long intid)"
+
+.PP
+Definition at line 810 of file testApp\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "ofVec3f testApp::adjustoverShotCameraPosition ()"
+
+.PP
+Definition at line 1367 of file testApp\&.cpp\&.
+.SS "ofVec3f testApp::animate (intpos1, intpos2)"
+
+.PP
+Definition at line 611 of file testApp\&.cpp\&.
+.SS "void testApp::assignStarPositions ()"
+
+.PP
+Definition at line 1032 of file testApp\&.cpp\&.
+.SS "void testApp::complexReorder ()"
+
+.PP
+Definition at line 1045 of file testApp\&.cpp\&.
+.SS "void testApp::dragEvent (ofDragInfodragInfo)"
+
+.PP
+Definition at line 494 of file testApp\&.cpp\&.
+.SS "void testApp::draw ()"
+
+.PP
+Definition at line 202 of file testApp\&.cpp\&.
+.SS "void testApp::drawImages ()"
+
+.PP
+Definition at line 575 of file testApp\&.cpp\&.
+.SS "void testApp::drawStars ()"
+
+.PP
+Definition at line 1023 of file testApp\&.cpp\&.
+.SS "void testApp::generateCircularSpiral ()"
+
+.PP
+Definition at line 498 of file testApp\&.cpp\&.
+.SS "void testApp::gotMessage (ofMessagemsg)"
+
+.PP
+Definition at line 489 of file testApp\&.cpp\&.
+.SS "void testApp::keyPressed (intkey)"
+
+.PP
+Definition at line 407 of file testApp\&.cpp\&.
+.SS "void testApp::keyReleased (intkey)"
+
+.PP
+Definition at line 459 of file testApp\&.cpp\&.
+.SS "void testApp::loadImagesandXMLData ()"
+
+.PP
+Definition at line 1117 of file testApp\&.cpp\&.
+.SS "void testApp::loadImagesFromDirectory ()"
+
+.PP
+Definition at line 536 of file testApp\&.cpp\&.
+.SS "void testApp::mouseDragged (intx, inty, intbutton)"
+
+.PP
+Definition at line 469 of file testApp\&.cpp\&.
+.SS "void testApp::mouseMoved (intx, inty)"
+
+.PP
+Definition at line 464 of file testApp\&.cpp\&.
+.SS "void testApp::mousePressed (intx, inty, intbutton)"
+
+.PP
+Definition at line 474 of file testApp\&.cpp\&.
+.SS "void testApp::mouseReleased (intx, inty, intbutton)"
+
+.PP
+Definition at line 479 of file testApp\&.cpp\&.
+.SS "void testApp::newReorder ()"
+
+.PP
+Definition at line 964 of file testApp\&.cpp\&.
+.SS "void testApp::pushWigglePositions ()"
+
+.PP
+Definition at line 816 of file testApp\&.cpp\&.
+.SS "void testApp::reorder ()"
+
+.PP
+Definition at line 892 of file testApp\&.cpp\&.
+.SS "void testApp::setup ()"
+
+.PP
+Definition at line 5 of file testApp\&.cpp\&.
+.SS "void testApp::sortImages ()"
+The New Sorting Algorithm 
+.PP
+Definition at line 697 of file testApp\&.cpp\&.
+.SS "bool testApp::sortOnImageScore (\fBImageData\fPl, \fBImageData\fPr)"
+
+.PP
+Definition at line 1040 of file testApp\&.cpp\&.
+.SS "void testApp::startAnimation ()"
+
+.SS "ofVec3f testApp::startAnimationCameraPosition ()"
+
+.PP
+Definition at line 656 of file testApp\&.cpp\&.
+.SS "void testApp::update ()"
+
+.PP
+Definition at line 103 of file testApp\&.cpp\&.
+.SS "ofVec3f testApp::wiggle ()"
+
+.PP
+Pushing values \&.\&.\&. 
+.PP
+Definition at line 838 of file testApp\&.cpp\&.
+.SS "void testApp::windowResized (intw, inth)"
+
+.PP
+Definition at line 484 of file testApp\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "float testApp::accel"
+
+.PP
+Definition at line 228 of file testApp\&.h\&.
+.SS "float testApp::accel_x"
+
+.PP
+Definition at line 231 of file testApp\&.h\&.
+.SS "float testApp::accel_y"
+
+.PP
+Definition at line 231 of file testApp\&.h\&.
+.SS "float testApp::accel_z"
+
+.PP
+Definition at line 231 of file testApp\&.h\&.
+.SS "multimap<int, int > testApp::albumScores"
+
+.PP
+Definition at line 138 of file testApp\&.h\&.
+.SS "float testApp::angular_velocity"
+
+.PP
+Definition at line 234 of file testApp\&.h\&.
+.SS "int testApp::animationCounter"
+
+.PP
+Definition at line 92 of file testApp\&.h\&.
+.SS "bool testApp::animationMode"
+
+.PP
+Definition at line 82 of file testApp\&.h\&.
+.SS "float testApp::beginAnimationtime"
+
+.PP
+Definition at line 87 of file testApp\&.h\&.
+.SS "ofSoundPlayer testApp::BluementhalMp3"
+
+.PP
+Definition at line 219 of file testApp\&.h\&.
+.SS "ofCamera testApp::camera"
+
+.PP
+Definition at line 76 of file testApp\&.h\&.
+.SS "ofVec3f testApp::cameraEndPosition"
+
+.PP
+Definition at line 79 of file testApp\&.h\&.
+.SS "int testApp::cameraindex =0"
+
+.PP
+Definition at line 81 of file testApp\&.h\&.
+.SS "ofVec3f testApp::cameraStartPosition"
+
+.PP
+Definition at line 79 of file testApp\&.h\&.
+.SS "vector<\fBImageData\fP> testApp::combinedImageObjects"
+
+.PP
+Definition at line 147 of file testApp\&.h\&.
+.SS "float testApp::currentVolume"
+
+.PP
+Definition at line 273 of file testApp\&.h\&.
+.SS "int testApp::currentwiggleindex"
+
+.PP
+Definition at line 129 of file testApp\&.h\&.
+.SS "ofVec3f testApp::currentwigglePosition"
+
+.PP
+Definition at line 127 of file testApp\&.h\&.
+.SS "bool testApp::ending"
+
+.PP
+Definition at line 289 of file testApp\&.h\&.
+.SS "bool testApp::fadeAudio"
+
+.PP
+Definition at line 270 of file testApp\&.h\&.
+.SS "ofTrueTypeFont testApp::font"
+
+.PP
+Definition at line 254 of file testApp\&.h\&.
+.SS "vector<ofVec3f> testApp::imageData"
+
+.PP
+Definition at line 153 of file testApp\&.h\&.
+.SS "vector<\fBImageData\fP> testApp::imageDetails"
+
+.PP
+Definition at line 141 of file testApp\&.h\&.
+.SS "multimap<int, int > testApp::imageScores"
+
+.PP
+Definition at line 110 of file testApp\&.h\&.
+.SS "vector<ofImage> testApp::ImageVector"
+
+.PP
+Definition at line 179 of file testApp\&.h\&.
+.SS "bool testApp::isstartingAnimationActive"
+
+.PP
+Definition at line 98 of file testApp\&.h\&.
+.SS "bool testApp::isturnCompleted"
+
+.PP
+Definition at line 263 of file testApp\&.h\&.
+.SS "float testApp::maxAccel"
+
+.PP
+Definition at line 250 of file testApp\&.h\&.
+.SS "float testApp::maxAngularVelocity"
+
+.PP
+Definition at line 249 of file testApp\&.h\&.
+.SS "string testApp::Message"
+
+.PP
+Definition at line 240 of file testApp\&.h\&.
+.SS "float testApp::minAccel"
+
+.PP
+Definition at line 250 of file testApp\&.h\&.
+.SS "float testApp::minAngularVelocity"
+
+.PP
+Definition at line 249 of file testApp\&.h\&.
+.SS "int testApp::numberofImages"
+
+.PP
+Definition at line 188 of file testApp\&.h\&.
+.SS "ofVec3f testApp::overshotCameraStartingPosition"
+
+.PP
+Definition at line 196 of file testApp\&.h\&.
+.SS "ofxXmlSettings testApp::pictures_XML"
+
+.PP
+Definition at line 113 of file testApp\&.h\&.
+.SS "float testApp::pitch"
+
+.PP
+Definition at line 228 of file testApp\&.h\&.
+.SS "float testApp::position1_z"
+
+.PP
+Definition at line 210 of file testApp\&.h\&.
+.SS "float testApp::position2_z"
+
+.PP
+Definition at line 210 of file testApp\&.h\&.
+.SS "float testApp::prevAngVel =0"
+
+.PP
+Definition at line 266 of file testApp\&.h\&.
+.SS "ofTrueTypeFont testApp::previewText"
+
+.PP
+Definition at line 283 of file testApp\&.h\&.
+.SS "ofxOscReceiver testApp::receiver"
+
+.PP
+Definition at line 237 of file testApp\&.h\&.
+.SS "float testApp::roll"
+
+.PP
+Definition at line 228 of file testApp\&.h\&.
+.SS "vector<ofVec3f> testApp::SpiralPoints"
+
+.PP
+Definition at line 170 of file testApp\&.h\&.
+.SS "vector<ofVec3f> testApp::StarPositions"
+
+.PP
+Definition at line 165 of file testApp\&.h\&.
+.SS "int testApp::startAnimationCounter"
+
+.PP
+Definition at line 104 of file testApp\&.h\&.
+.SS "ofQTKitPlayer testApp::startingMovie"
+
+.PP
+Definition at line 213 of file testApp\&.h\&.
+.SS "bool testApp::startingMovieFinished"
+
+.PP
+Definition at line 216 of file testApp\&.h\&.
+.SS "bool testApp::startInstallation"
+
+.PP
+Definition at line 276 of file testApp\&.h\&.
+.SS "bool testApp::startoverShotCameraAnimation"
+
+.PP
+Definition at line 202 of file testApp\&.h\&.
+.SS "string testApp::State"
+
+.PP
+Definition at line 255 of file testApp\&.h\&.
+.SS "vector<\fBImageData\fP> testApp::taggedImageObjects"
+
+.PP
+Definition at line 144 of file testApp\&.h\&.
+.SS "vector<\fBImageData\fP> testApp::taggedImages"
+
+.PP
+Definition at line 141 of file testApp\&.h\&.
+.SS "string testApp::tempText"
+
+.PP
+Definition at line 286 of file testApp\&.h\&.
+.SS "float testApp::timeGap"
+
+.PP
+Definition at line 259 of file testApp\&.h\&.
+.SS "float testApp::timesinceLastTransition"
+
+.PP
+Definition at line 191 of file testApp\&.h\&.
+.SS "ofVec3f testApp::tweenedCameraPosition"
+
+.PP
+Definition at line 90 of file testApp\&.h\&.
+.SS "float testApp::tweenvalue"
+
+.PP
+Definition at line 87 of file testApp\&.h\&.
+.SS "vector<\fBImageData\fP> testApp::untaggedImageObjects"
+
+.PP
+Definition at line 144 of file testApp\&.h\&.
+.SS "vector<\fBImageData\fP> testApp::untaggedImages"
+
+.PP
+Definition at line 141 of file testApp\&.h\&.
+.SS "long long int testApp::userid"
+
+.PP
+Definition at line 116 of file testApp\&.h\&.
+.SS "float testApp::wiggleAnimationCounter"
+
+.PP
+Definition at line 131 of file testApp\&.h\&.
+.SS "vector<ofVec3f> testApp::wigglePositions"
+
+.PP
+Definition at line 121 of file testApp\&.h\&.
+.SS "float testApp::wiiX"
+
+.PP
+Definition at line 228 of file testApp\&.h\&.
+.SS "float testApp::wiiY"
+
+.PP
+Definition at line 228 of file testApp\&.h\&.
+.SS "int testApp::windowHeight"
+
+.PP
+Definition at line 242 of file testApp\&.h\&.
+.SS "int testApp::windowWidth"
+
+.PP
+Definition at line 242 of file testApp\&.h\&.
+.SS "float testApp::yaw"
+
+.PP
+Definition at line 228 of file testApp\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for NostalgiaRoom from the source code\&.
