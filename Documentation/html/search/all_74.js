@@ -9,6 +9,6 @@ var searchData=
   ['theloadedimage',['theloadedimage',['../struct_image_data.html#acf1bde00dd79a0960269618d9b885f61',1,'ImageData']]],
   ['timegap',['timeGap',['../classtest_app.html#a944f2713019239a4b49241a5cc9a00c9',1,'testApp']]],
   ['timesincelasttransition',['timesinceLastTransition',['../classtest_app.html#acb60fb8a89e9ec5d461630a20b11ceda',1,'testApp']]],
-  ['tweenedcameraposition',['tweenedCameraPosition',['../classtest_app.html#ae9f60797c1c5d9f1ac06e1d6a5259957',1,'testApp']]],
-  ['tweenvalue',['tweenvalue',['../classtest_app.html#add9ab1aa902948afbdf1c6db0dfde385',1,'testApp']]]
+  ['tweenedcameraposition',['tweenedCameraPosition',['../group___camera_animation.html#gae9f60797c1c5d9f1ac06e1d6a5259957',1,'testApp']]],
+  ['tweenvalue',['tweenvalue',['../group___camera_animation.html#gadd9ab1aa902948afbdf1c6db0dfde385',1,'testApp']]]
 ];

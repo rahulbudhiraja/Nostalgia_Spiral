@@ -7,9 +7,7 @@ void testApp::setup()
     ofHideCursor();
     ofBackground(0, 0, 0);
     
-    
     generateCircularSpiral();
-    
     loadImagesandXMLData();
     
     ofSetLogLevel(OF_LOG_VERBOSE);
@@ -18,10 +16,11 @@ void testApp::setup()
 #ifdef DEBUGMODE
     camera.setDistance(200);
     camera.setFarClip(1000000);
-#else 
+#else
     
-
     camera.setFov(40);
+    
+    /// Setting a very large far clip
     camera.setFarClip(10000000);
     cameraindex=combinedImageObjects.size()-1;
     
@@ -33,18 +32,17 @@ void testApp::setup()
     
     startoverShotCameraAnimation=false;
     
-    
     overshotCameraStartingPosition=ofVec3f(0,0,0);
     startAnimationCounter=0;
     pushWigglePositions();
     currentwiggleindex=0;
     wiggleAnimationCounter=0;
     startInstallation=false;
-
-    #endif
+    
+#endif
     
     ofEnableAlphaBlending();
-  
+    
     ofSetBackgroundAuto(true);
     
     numberofImages=combinedImageObjects.size()-1;
@@ -52,17 +50,13 @@ void testApp::setup()
     
 #ifdef USEWII
     
-    // Wii-mote Variables ..
-    
-    cout << "listening for osc messages on port " << PORT << "\n";
+    // For debug purposes
+    //cout << "listening for osc messages on port " << PORT << "\n";
     receiver.setup( PORT );
     
     accel_x=accel_y=accel_z;
     
     Message="";
-    
-    // End of the wii-mote Variables .....
-    
     
 #ifdef ADJUSTTIMEGAP
     minAngularVelocity=10000;
@@ -71,14 +65,15 @@ void testApp::setup()
 #endif
     
     State="";
-    font.loadFont("Inconsolata.otf", 20);
+    fonttodisplayWiimoteValues.loadFont("Inconsolata.otf", 20);
     
 #endif
- 
+    
     BluementhalMp3.loadSound("Blumenthal.flac");
     BluementhalMp3.setVolume(1.0f);
     
-    timeGap=6000;
+    timeGap=6000; // This is the default timeGap .Can be easily changed.
+    
     ofSetFullscreen(true);
     currentVolume=1;
     fadeAudio=false;
@@ -98,8 +93,10 @@ void testApp::setup()
 
 //--------------------------------------------------------------
 void testApp::update(){
+    
+    // Update the frame
     startingMovie.update();
-
+    
     if(startingMovie.getIsMovieDone())
         startingMovieFinished=true;
     
@@ -111,17 +108,22 @@ void testApp::update(){
     
 #ifdef USEWII
     
+    // Check if there are any pending messages to be received from OSCulator 
+    
     while( receiver.hasWaitingMessages())
     {
         if(windowWidth == 0 || windowHeight == 0){
             windowWidth = ofGetWidth();
             windowHeight = ofGetHeight();
         }
-        // get the next message
+        
+    // Get the next message
         ofxOscMessage m;
         float x,y;
         receiver.getNextMessage( &m );
-        cout<<m.getArgAsFloat( 0 )<<endl;
+        
+    // For Debugging Purposes
+    // cout<<m.getArgAsFloat( 0 )<<endl;
         
         if ( m.getAddress() == "/wii/2/ir/0" )
         {
@@ -152,7 +154,6 @@ void testApp::update(){
         else if(m.getAddress()=="/wii/1/accel/xyz/0")
         {
             accel_x=m.getArgAsFloat(0);
-            
         }
         
         else if(m.getAddress()=="/wii/1/accel/xyz/1")
@@ -181,14 +182,13 @@ void testApp::update(){
     
     if(abs(accel*1000)-200>2&&!startInstallation)
     {
-       startInstallation=true;
-       BluementhalMp3.play();
-       startingMovie.play();
-    
+        startInstallation=true;
+        BluementhalMp3.play();
+        startingMovie.play();
     }
     cout<<"Acceleration :"<<accel<<endl;
 #endif
-        
+    
     if(fadeAudio)
         currentVolume-=0.001;
     
@@ -198,283 +198,273 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw()
 {
-  
-if(startInstallation)
-{
     
-    if(!startingMovieFinished)
-    {
-     startingMovie.draw(0, 0);
+    // Only if the wii-mote accelerates a bit i.e the swing moves or if the user presses "Enter"
 
-    }
-    else
+    if(startInstallation)
     {
+        // Play the Movie first
+        
+        if(!startingMovieFinished)
+        {
+            startingMovie.draw(0, 0);
+        }
+        
+        else
+        {
 #ifndef DEBUGMODE
-      ofBackground(0, 0, 0);
-ofSetColor(255,255,255);
-    if(isstartingAnimationActive)
-    {
-        if(!startoverShotCameraAnimation)
-        camera.setPosition(startAnimationCameraPosition());
-        else camera.setPosition(adjustoverShotCameraPosition());
-        timesinceLastTransition=ofGetElapsedTimeMillis();
-    }
-    
-    else
-    {
-        if((ofGetElapsedTimeMillis()-timesinceLastTransition)>timeGap&&cameraindex!=0&&!animationMode)
-        {
+            ofBackground(0, 0, 0);
+            ofSetColor(255,255,255);
             
+            // If startinganimation is active,have the startingCameraAnimation or the overshotCameraPosition
+            if(isstartingAnimationActive)
+            {
+                if(!startoverShotCameraAnimation)
+                    camera.setPosition(startAnimationCameraPosition());
+                else camera.setPosition(adjustoverShotCameraPosition());
+                
+                timesinceLastTransition=ofGetElapsedTimeMillis();
+                animationMode=true;
+            }
             
-            cameraindex--;
-            
-            //        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
-            animationMode=true;
-            animationCounter=0;
-            timesinceLastTransition=ofGetElapsedTimeMillis();
-            
-        }
-        
-        else if(cameraindex==0||BluementhalMp3.getPosition()>0.92)
-        {
-            startingMovieFinished=false;
-            ending=true;
-            startingMovie.setSpeed(-1);
-            startingMovie.play();
-            fadeAudio=true;
-            
-        }
-//        cout<<"The dimensions of the Image are: width = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth()<<" \t Height = "<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()<<"Max value is\t"<<max(ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight(),ImageVector[imageDetails[cameraindex].imageNumber-1].getWidth())<<"Index is"<<imageDetails[cameraindex].imageNumber<<endl;;
-//
-//
-//        cout<<"\nThe image score"<<imageDetails[cameraindex].imageScore;
-        
-    if(animationMode)
-    {
-        if(combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())
-            camera.setPosition(animate(cameraindex+1, cameraindex));
-        else camera.setPosition(animate(cameraindex+1, cameraindex));
-          
-    
-        
-    }
-    else
-        
+            else
+            {
+                if((ofGetElapsedTimeMillis()-timesinceLastTransition)>timeGap&&cameraindex!=0&&!animationMode)
+                {
+                 
+                    cameraindex--;
+                    
+                    //        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
+                    animationMode=true;
+                    animationCounter=0;
+                    timesinceLastTransition=ofGetElapsedTimeMillis();
+                    
+                }
+                
+                // If we are at the last image,or if the song is almost towards the end . End the experience by playing the startingMovie in reverse.
+                else if(cameraindex==0||BluementhalMp3.getPosition()>0.92)
+                {
+                    startingMovieFinished=false;
+                    ending=true;
+                    startingMovie.setSpeed(-1);
+                    startingMovie.play();
+                    fadeAudio=true;
+                    
+                }
+                
+                if(animationMode)
+                {
+                    // Animate the camera from one index to another ..
+                    if(combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())
+                        camera.setPosition(animate(cameraindex+1, cameraindex));
+                    else camera.setPosition(animate(cameraindex+1, cameraindex));
+                }
+                
+                else
+                {
+                    // Depending on whether the image is more wide or tall,we set the camera's position to be at a fixed position from the image and also wiggle the position of the camera.
+                    
+                    if(combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())
+                    {
+                        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight())+wiggle());
 
-    {
-        
-       if(combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())
-        {
-         camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight())+wiggle());
-//            cout<<ImageVector[imageDetails[cameraindex].imageNumber-1].getHeight()/tan(ofDegToRad(20))<<"\t";
-        }
-        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())+wiggle());
-        
-//        camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())+wiggle()+ofVec3f(0,0,prevAngVel*150)); // This is for the wii-mote
-        
-//        else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1000)-wiggle()); // So that the camera goes backward ..
-        
-    }
-        
-        
-        
-    }
-    
+                    }
+                    else camera.setPosition(35*SpiralPoints[700*cameraindex]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getWidth())+wiggle());
+                    
+                }
+                
+            }
+            
 #endif
-    
-
-    camera.begin();
-
-    ofPushMatrix();
-    ofRotateX(180);
-    ofPopMatrix();
-    drawImages();
-
-    
-    camera.end();
-
-}
-
+            
+            camera.begin();
+            
+            ofPushMatrix();
+            ofRotateX(180);
+            ofPopMatrix();
+            drawImages();
+                        
+            camera.end();
+            
+        }
+        
 #ifdef USEWII
-    
-    if(accel-0.2>0.008&&accel!=0)
-    { 
-        if(angular_velocity<=-0.03)
-        {
-            ofSetColor(255, 0, 0);
-           
-            if(State.compare("Front")==0)
-                isturnCompleted=true;
-            
-             State="Back";
-
-        }
         
-        else if(angular_velocity>=0.03)
-        {
-            
-            ofSetColor(0,255, 0);
-//            font.drawString("Front", ofGetWidth()/2,ofGetHeight()/2+50);
-            
-            if(State.compare("Back")==0)
-                isturnCompleted=true;
-            
-            State="Front";
-        }
+        // If acceleration is greater than a particular value ,Adjust the timegap or see if it is going backward or forward 
         
+        if(accel-0.2>0.008&&accel!=0)
+        {
+            if(angular_velocity<=-0.03)
+            {
+                ofSetColor(255, 0, 0);
+                
+                if(State.compare("Front")==0)
+                    isturnCompleted=true;
+                
+                State="Back";
+                
+            }
+            
+            else if(angular_velocity>=0.03)
+            {
+                
+                ofSetColor(0,255, 0);
+                // fonttodisplayWiimoteValues.drawString("Front", ofGetWidth()/2,ofGetHeight()/2+50);
+                
+                if(State.compare("Back")==0)
+                    isturnCompleted=true;
+                
+                State="Front";
+            }
+            
 #ifdef USEWII
 #ifdef ADJUSTTIMEGAP
-        
-        if(angular_velocity<minAngularVelocity)
-            minAngularVelocity=angular_velocity;
-        if(angular_velocity>maxAngularVelocity)
-            maxAngularVelocity=angular_velocity;
-        
-        if(accel<minAccel)
-            minAccel=accel;
-        if(accel>maxAccel&&accel*1000<400)
-            maxAccel=accel;
-        
-     if(isturnCompleted)
-      {
-
-
-          // Adjust the time gap ...
-          
-          maxAccel*=1000;
-          if(maxAccel>204&&maxAccel<=214)
-              timeGap=9000;
-          if(maxAccel>214&&maxAccel<=224)
-              timeGap=7500;
-          if(maxAccel>224&&maxAccel<=234)
-              timeGap=6000;
-          if(maxAccel>234&&maxAccel<=244)
-              timeGap=5000;
-          if(maxAccel>244&&maxAccel<=254)
-              timeGap=4000;
-          
-          
-          maxAccel=0;
-          isturnCompleted=false;
-      }
-//        font.drawString(ofToString(timeGap), ofGetWidth()/2+200, ofGetHeight()/2+50);
-        
-        
+            
+            if(angular_velocity<minAngularVelocity)
+                minAngularVelocity=angular_velocity;
+            if(angular_velocity>maxAngularVelocity)
+                maxAngularVelocity=angular_velocity;
+            
+            if(accel<minAccel)
+                minAccel=accel;
+            if(accel>maxAccel&&accel*1000<400)
+                maxAccel=accel;
+            
+            if(isturnCompleted)
+            {
+                
+                // Adjust the time gap between 2 images.Depending upon the acceleration we adjust the timegap between 2 which 2 images are seen .
+                
+                maxAccel*=1000;
+                if(maxAccel>204&&maxAccel<=214)
+                    timeGap=9000;
+                if(maxAccel>214&&maxAccel<=224)
+                    timeGap=7500;
+                if(maxAccel>224&&maxAccel<=234)
+                    timeGap=6000;
+                if(maxAccel>234&&maxAccel<=244)
+                    timeGap=5000;
+                if(maxAccel>244&&maxAccel<=254)
+                    timeGap=4000;
+                
+                
+                maxAccel=0;
+                isturnCompleted=false;
+            }
+            //        fonttodisplayWiimoteValues.drawString(ofToString(timeGap), ofGetWidth()/2+200, ofGetHeight()/2+50);
+            
+            
 #endif
-        
-        
+            
+            
 #endif
+        }
+        
+        ofSetColor(255, 255, 255);
+        
+        /* Use these to get the Acceleration and Velocity values from the Wii-mote*/
+        
+        //    fonttodisplayWiimoteValues.drawString("Acceleration "+ofToString(accel*1000), ofGetWidth()/2, ofGetHeight()/2+100);
+        //    fonttodisplayWiimoteValues.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
+        //   fonttodisplayWiimoteValues.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
+        //    fonttodisplayWiimoteValues.drawString("Max Velocity "+ofToString(max*1000), ofGetWidth()/2, ofGetHeight()/2+350);
     }
-    
-    ofSetColor(255, 255, 255);
-    
-/* Use these to get the Acceleration and Velocity values from the Wii-mote*/
-    
-//    font.drawString("Acceleration "+ofToString(accel*1000), ofGetWidth()/2, ofGetHeight()/2+100);
-//    font.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
-//    font.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
-//    font.drawString("Max Velocity "+ofToString(max*1000), ofGetWidth()/2, ofGetHeight()/2+350);
-}
-//     cout<<"Acceleration "<<accel*1000   <<"\n Max Acceleration "<<maxAccel*1000<<"\n\n Min Acceleration "<<minAccel<<endl;
-//    
-//    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<minAngularVelocity<<endl;;
+    //     cout<<"Acceleration "<<accel*1000   <<"\n Max Acceleration "<<maxAccel*1000<<"\n\n Min Acceleration "<<minAccel<<endl;
+    //
+    //    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<minAngularVelocity<<endl;;
     
     
 #endif
     
-else {
-    
-    startingMovie.draw(0, 0);
-
-    ofSetColor(255, 255, 255);
-    
-    tempText="Start Swinging !";
-    
-    previewText.drawString(tempText, 500, startingMovie.getHeight()-25);
-    
-    
-   
-}
+    else {
+        
+        startingMovie.draw(0, 0);
+        
+        ofSetColor(255, 255, 255);
+        
+        tempText="Start Swinging !";
+        
+        previewText.drawString(tempText, 500, startingMovie.getHeight()-25);
+        
+        
+        
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
+    
     if(key=='f'||key=='F')
     {
         ofToggleFullscreen();
     }
     
-#ifndef DEBUGMODE    
+#ifndef DEBUGMODE
     
     else if(key==OF_KEY_UP&&cameraindex!=numberofImages&&!animationMode)
     {
         cameraindex++;
         animationMode=true;
-    
+        
     }
     else if(key==OF_KEY_DOWN&&cameraindex!=0&&!animationMode)
     {
         
-    cameraindex--;
-//        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
-    animationMode=true;
-      animationCounter=0;
-    
+        cameraindex--;
+        //        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
+        animationMode=true;
+        animationCounter=0;
+        
     }
     else if(key==OF_KEY_RETURN&&!startInstallation)
     {
-            startInstallation=true;
-            BluementhalMp3.play();
-            startingMovie.play();
-            
-        
+        startInstallation=true;
+        BluementhalMp3.play();
+        startingMovie.play();
     }
     
 #endif
-    
-
-
+        
 }
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::gotMessage(ofMessage msg){
-
+    
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
-
+void testApp::dragEvent(ofDragInfo dragInfo){
+    
 }
 
 void testApp::generateCircularSpiral()
@@ -482,43 +472,417 @@ void testApp::generateCircularSpiral()
     int spreadDistance=30;
     
     
-    /* Conical Concentric Circles */    
+    /* Conical Concentric Circles */
     
-//    for(int r=0;r<200;r+=spreadDistance)
-//    {
-//        for(float angle=0;angle<=360;angle+=4)
-//            SpiralPoints.push_back(ofVec3f(r*cos(ofDegToRad(angle)),r*sin(ofDegToRad(angle)),r));
-//    }    
-
-
+    //    for(int r=0;r<200;r+=spreadDistance)
+    //    {
+    //        for(float angle=0;angle<=360;angle+=4)
+    //            SpiralPoints.push_back(ofVec3f(r*cos(ofDegToRad(angle)),r*sin(ofDegToRad(angle)),r));
+    //    }
     
-// Generating a Cylindrical Helix Structure ,equation adapted from http://www.mathematische-basteleien.de/spiral.htm .Few Tweaks have been made to get the right structure 
+    // Generating a Cylindrical Helix Structure ,equation adapted from http://www.mathematische-basteleien.de/spiral.htm .Few Tweaks have been made to get the right structure
     
     
     float height=10000,radius=200,ang_freq=3.2;
     
-
-            for(float angle=0;angle<=3600;angle+=0.01)
-            {
-
-                float angle2=angle;
-                
-                SpiralPoints.push_back(ofVec3f(((height-angle2)/height)*radius*cos(ofDegToRad(ang_freq*angle2)),((height-angle2)/height)*radius*sin(ofDegToRad(ang_freq*angle2)),6*angle2));
-                
-            }
+    
+    for(float angle=0;angle<=3600;angle+=0.01)
+    {
         
+        float angle2=angle;
+        
+        SpiralPoints.push_back(ofVec3f(((height-angle2)/height)*radius*cos(ofDegToRad(ang_freq*angle2)),((height-angle2)/height)*radius*sin(ofDegToRad(ang_freq*angle2)),6*angle2));
+        
+    }
+    
 #ifndef DEBUGMODE
     cameraStartPosition=SpiralPoints.back();
     cameraEndPosition=SpiralPoints.front();
 #endif
-
+    
 }
 
+void testApp::drawImages()
+{
+    
+    std::multimap<int,int>::iterator it;
+    int imageIterator=0;
+    
+    
+    for(int i=numberofImages-1;i>=0;i--) // Draw images in reverse order ....
+    {
+        
+        ofPushMatrix();
+        
+        ofTranslate(35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].x,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].y,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].z); // 35 gives good results .You can use a higher number for more spread ,but you have to change this number throughout this file.
+
+        combinedImageObjects[i].theloadedimage.draw(-combinedImageObjects[i].theloadedimage.getWidth()/2,-combinedImageObjects[i].theloadedimage.getHeight()/2);
+        
+        ofPopMatrix();
+        
+    }
+}
+
+#ifndef DEBUGMODE
+
+// This function will animate the camera from one point in the spiral to another point 
+
+ofVec3f testApp::animate(int pos1, int pos2)
+{
+    
+    float smoothnessFactor=2400,timeInterval=10;
+    
+    if(animationCounter<=smoothnessFactor-timeInterval)
+    { tweenvalue = (animationCounter) /smoothnessFactor;
+        animationCounter+=timeInterval;
+    }
+    else {
+        tweenvalue=0;
+        animationMode=false;
+        
+        if(combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())
+            return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.6*combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight())+wiggle());
+        
+        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())+wiggle());
+        
+    }
+    tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
+    tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
+    
+    
+    // Setting the Z value ..
+    
+    if(combinedImageObjects[numberofImages-pos1].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos1].theloadedimage.getWidth())
+        position1_z=1.6*combinedImageObjects[numberofImages-pos1].theloadedimage.getHeight()+35*SpiralPoints[700*pos1].z;
+    else position1_z=1.05*combinedImageObjects[numberofImages-pos1].theloadedimage.getWidth()+35*SpiralPoints[700*pos1].z;
+    
+    if(combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())
+        position2_z=1.6*combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()+35*SpiralPoints[700*pos2].z;
+    else position2_z=1.05*combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth()+35*SpiralPoints[700*pos2].z;
+    
+    
+    tweenedCameraPosition.z=ofLerp(position1_z,position2_z,tweenvalue);
+    
+    return tweenedCameraPosition;
+    
+}
+
+ofVec3f testApp::startAnimationCameraPosition()
+{
+    
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight();
+    
+    float timeInterval=smoothnessFactor/1500;
+    
+    if(startAnimationCounter<=smoothnessFactor-timeInterval)
+    {
+        tweenvalue = (startAnimationCounter) /smoothnessFactor;
+        
+        if(tweenvalue<0.98)
+            startAnimationCounter+=timeInterval;
+        else startAnimationCounter+=(timeInterval);
+        
+        overshotCameraStartingPosition=tweenedCameraPosition;
+    }
+    
+    //else isstartingAnimationActive=false;
+    else {startAnimationCounter=0; startoverShotCameraAnimation=true;
+    }
+    
+    tweenedCameraPosition.x=ofLerp(0, 0 , tweenvalue);
+    tweenedCameraPosition.y=ofLerp(0, 0, tweenvalue);
+    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +21.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
+    
+    return tweenedCameraPosition;
+    
+}
+
+#endif
+
+testApp::testApp(long long int id)
+{
+    userid=id;
+    cout<<"\n User ID:"<<id<<endl;
+}
+
+void testApp::pushWigglePositions()
+{
+    
+    // wigglePositions.push_back(ofVec3f(0,0,0));
+    
+    wigglePositions.push_back(ofVec3f(1,1,0));
+    wigglePositions.push_back(ofVec3f(1,1,0));
+    wigglePositions.push_back(ofVec3f(0,1,0));
+    wigglePositions.push_back(ofVec3f(0,1,0));
+    wigglePositions.push_back(ofVec3f(1,0,0));
+    wigglePositions.push_back(ofVec3f(1,0,0));
+    
+}
+
+ofVec3f testApp::wiggle()
+{
+    
+    int maxValue=20; // Change this for adjusting the maximum Value of Wiggling .
+    
+    // For every even value of currentwiggleindex,we move to the right, or down or bottom right. and move in left,up or top left for every odd index .
+    // To change the wiggle motion Just change the wigglePositions points.	
+    
+    if(currentwiggleindex%2==0)
+    {
+        
+        if(wiggleAnimationCounter<=maxValue) 
+            wiggleAnimationCounter+=0.05; // Increase the wiggleAnimationCounter till it reaches 20 
+        
+        else { // Once it reaches 20,advance the wiggleindex,The Image will wiggle to another direction 
+            currentwiggleindex++;
+            currentwiggleindex=currentwiggleindex%wigglePositions.size();
+            wiggleAnimationCounter=maxValue;
+        }
+    }
+    
+    else
+    {
+        
+        if(wiggleAnimationCounter>=0)
+            wiggleAnimationCounter-=0.05 ;
+        
+        else {
+            currentwiggleindex++;
+            currentwiggleindex=currentwiggleindex%wigglePositions.size();
+            wiggleAnimationCounter=0;
+        }
+    }
+    
+    
+    currentwigglePosition.x=wigglePositions[currentwiggleindex].x*wiggleAnimationCounter;
+    currentwigglePosition.y=wigglePositions[currentwiggleindex].y*wiggleAnimationCounter;
+    currentwigglePosition.z=wigglePositions[currentwiggleindex].z*wiggleAnimationCounter;
+    
+    return currentwigglePosition;
+}
+
+void testApp::drawStars()
+{
+    ofSetColor(255, 255, 255);
+    
+    for(int i=0;i<StarPositions.size();i++)
+        ofSphere(StarPositions[i], 1);
+    
+}
+
+void testApp::assignStarPositions()
+{
+    for(int i=0;i<10000;i++)
+        StarPositions.push_back(ofVec3f(ofRandom(100000), ofRandom(10000),ofRandom(10000)));
+    
+}
+
+
+void testApp::loadImagesandXMLData()
+{
+    // Change this to your Directory Path 
+    string untaggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/untaggedImages/";
+    
+    ofDirectory untaggeddir(untaggedDirpath);
+    untaggeddir.allowExt("png");
+    untaggeddir.allowExt("jpg");
+    untaggeddir.allowExt("gif");
+    
+    if(untaggeddir.listDir()==0)
+    {
+    
+    // Debug Statements 
+    cout<<"Nothing";   ofExit();
+    }
+    
+    cout<<untaggeddir.listDir();
+    cout<<"NUMBER OF FILES"<<untaggeddir.numFiles()<<endl;
+    
+    ofImage TempImage;
+    
+    int imageCounter=0;
+    
+    string xmlpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/imagedata.xml";
+    
+    // Just a temporary ImageData object 
+    ImageData imagedataObject;
+    
+    // Parse the XML,Load all the UntaggedImages into the combinedImageObjects data structure .These images will be already sorted in descending order of their scores .
+    
+    if(pictures_XML.loadFile(xmlpath))
+    {
+        
+        pictures_XML.pushTag("xml");
+        pictures_XML.pushTag("ImageList");
+        
+        if(pictures_XML.pushTag("Untagged"))
+        {
+            
+            for (int j=0;j<pictures_XML.getNumTags("Image");j++)
+            {
+                pictures_XML.pushTag("Image",j);
+                
+                imagedataObject.imageNumber=imageCounter;
+                imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
+                imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
+                imagedataObject.theloadedimage.loadImage(ofToString(untaggedDirpath+ofToString(j)+".jpg"));
+                
+                imagedataObject.theloadedimage.resize(imagedataObject.theloadedimage.getWidth(), imagedataObject.theloadedimage.getHeight());
+                
+#ifndef BLUR
+               
+                imagedataObject.theloadedimage.mirror(true,false);
+#endif
+          
+                combinedImageObjects.push_back(imagedataObject);
+                
+                pictures_XML.popTag();
+                
+                imageCounter++;
+                
+            }
+            pictures_XML.popTag();    
+        }
+    }
+    
+    // Debug statement 
+    
+    cout<<combinedImageObjects.size()<<"\t this was the size of untaggedIamgeobjects";
+    
+    ImageVector.clear();
+    imageCounter=0;
+    
+    
+    
+    
+    string taggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/taggedImages/";
+    ofDirectory taggeddir(taggedDirpath);
+    
+    taggeddir.allowExt("png");
+    taggeddir.allowExt("jpg");
+    taggeddir.allowExt("gif");
+    
+    // Now all the Tagged images need to be linked and added to the data structure .
+        
+    if(pictures_XML.pushTag("Tagged"))
+        
+    {
+        for (int j=0;j<pictures_XML.getNumTags("Image");j++)
+        {
+            pictures_XML.pushTag("Image",j);
+            
+            imagedataObject.imageNumber=imageCounter;
+            imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
+            imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
+            imagedataObject.theloadedimage.loadImage(ofToString(taggedDirpath+ofToString(j)+".jpg"));
+#ifndef BLUR
+            imagedataObject.theloadedimage.mirror(true,false);
+#endif
+            
+            taggedImageObjects.push_back(imagedataObject);
+            
+            pictures_XML.popTag();
+            
+            imageCounter++;
+            
+        }
+    }
+    
+    
+    cout<<taggedImageObjects.size()<<"\t this was the size of taggedImgeobjects";
+    
+    // Now combine the untagged and Tagged in the correct ratio ..
+    
+    int ratio= 3; // This ratio defines how many images should be taken from the untagged Images compared to the TaggedImages .For every 2 untaggedimages,1 taggedimage is displayed.This usually strikes a nice balance based on our experience with 50 + users.However,it could be modified .    
+    
+    int untaggedImageCount=0,taggedImageCount=0,i;
+    int num_untaggedImages=combinedImageObjects.size(),num_taggedImages=taggedImageObjects.size();
+    int taggedImgCount=0;
+    
+    cout<<"Combining and shuffling the tagged and untagged images";
+    
+    // The below loop shuffles the images so that the structure based on the defined ratio
+    
+    for(int i=0;i<combinedImageObjects.size();i++)
+    {
+        if(i%ratio==0&&i!=0&&taggedImgCount<num_taggedImages)
+            combinedImageObjects.insert(combinedImageObjects.begin()+i,taggedImageObjects[taggedImgCount++]);
+        
+    }
+    
+    //  Parse the data structure again,to make sure that no 2 images having the same albumnumber are next to each other.This is done so that different images are shown.This can be experimented with.Images from alternate albums have worked for us.
+    
+    int j,tempVal;
+    
+    for(int i=0;i<combinedImageObjects.size()-1;i++)
+    {
+        j=i+1;
+        cout<<i;
+        
+        if(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber)
+        {
+            cout<<"doing this when i= \t "<<combinedImageObjects[i].albumnumber<<"\t";
+            
+            while(j<combinedImageObjects.size()-1&&(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber) && (j-i)<8) // This is because j is
+            {
+                j++;
+            }
+            cout<<" and then j= \t"<<combinedImageObjects[j].albumnumber<<endl;
+            
+            std::swap(combinedImageObjects[i+1], combinedImageObjects[j]);
+            
+        }
+    }
+    
+    cout<<"Now checking the album numbers ,Size of the array = \t"<<combinedImageObjects.size()<<endl;
+    
+    for(int i=0;i<combinedImageObjects.size();i++)
+        cout<<"Album number:"<<combinedImageObjects[i].albumnumber<<"\t Score"<<combinedImageObjects[i].imageScore<<endl;
+       
+}
+
+/* This function will bring the cameraposition to the starting image once it has 'overshot' while zooming out of the spiral */
+
+ofVec3f testApp::adjustoverShotCameraPosition()
+{
+    
+    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight();
+
+    float timeInterval=smoothnessFactor/500;
+    
+    //    cout<<"smoothness factor\n"<<smoothnessFactor;
+    
+    if(startAnimationCounter<=smoothnessFactor-timeInterval)
+    {
+        
+        cout<<"\nCamera Position"<< tweenedCameraPosition.z;
+        
+        tweenvalue = (startAnimationCounter) /smoothnessFactor;
+        
+        if(tweenvalue<0.98)
+            startAnimationCounter+=timeInterval;
+        else startAnimationCounter+=(timeInterval);
+        
+    }
+    
+    else {isstartingAnimationActive=false;animationMode=false;}
+    
+    tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
+    tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
+    tweenedCameraPosition.z=ofLerp(overshotCameraStartingPosition.z, 35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
+    
+    return tweenedCameraPosition;
+    
+}
+
+
+
+///// Unused ...
 
 void testApp::loadImagesFromDirectory()
 {
     
-    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/"; // Change this path depending upon your directory 
+    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/"; // Change this path depending upon your directory
     
     ofDirectory dir(path);
     dir.allowExt("png");
@@ -538,427 +902,30 @@ void testApp::loadImagesFromDirectory()
         
 #ifndef BLUR
         
-      
+        
         TempImage.mirror(true,false);
 #endif
-
+        
         ImageVector.push_back(TempImage);
-
+        
         // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
         TempImage.clear();
-
-
-    }
-   
-}
-
-
-
-void testApp::drawImages()
-{
-    
-    std::multimap<int,int>::iterator it;
-    int imageIterator=0;
-    
-    
-        for(int i=numberofImages-1;i>=0;i--) // Draw images in reverse order ....
-        {
-    
-        ofPushMatrix();
-
-        ofTranslate(35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].x,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].y,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].z);
-         
-        ; //cout<<35*SpiralPoints[700*i]<<"\t";
         
-            
-      
-        combinedImageObjects[i].theloadedimage.draw(-combinedImageObjects[i].theloadedimage.getWidth()/2,-combinedImageObjects[i].theloadedimage.getHeight()/2);
-
-        ofPopMatrix();
         
     }
-}
-
-#ifndef DEBUGMODE
-
-ofVec3f testApp::animate(int pos1, int pos2)
-{
-    
-    float smoothnessFactor=2400,timeInterval=10;
-    
-        if(animationCounter<=smoothnessFactor-timeInterval)
-            { tweenvalue = (animationCounter) /smoothnessFactor;
-                    animationCounter+=timeInterval;
-            }
-    else {
-        tweenvalue=0;
-    animationMode=false;
-        
-        if(combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())
-          return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.6*combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight())+wiggle());
-      
-        else return ofVec3f(35*SpiralPoints[700*pos2]+ofVec3f(0,0,1.05*combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())+wiggle());
-
-//        return ofVec3f(35*SpiralPoints[700*pos2].x,35*SpiralPoints[700*pos2].y,35*SpiralPoints[700*pos2].z);
-        
-    }
-    tweenedCameraPosition.x=ofLerp(35*SpiralPoints[700*pos1].x,35*SpiralPoints[700*pos2].x,tweenvalue);
-    tweenedCameraPosition.y=ofLerp(35*SpiralPoints[700*pos1].y,35*SpiralPoints[700*pos2].y,tweenvalue);
-    
-    
-    // Setting the Z value ..
-    
-    if(combinedImageObjects[numberofImages-pos1].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos1].theloadedimage.getWidth())
-        position1_z=1.6*combinedImageObjects[numberofImages-pos1].theloadedimage.getHeight()+35*SpiralPoints[700*pos1].z;
-    else position1_z=1.05*combinedImageObjects[numberofImages-pos1].theloadedimage.getWidth()+35*SpiralPoints[700*pos1].z;
-    
-    if(combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()>=combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth())
-        position2_z=1.6*combinedImageObjects[numberofImages-pos2].theloadedimage.getHeight()+35*SpiralPoints[700*pos2].z;
-    else position2_z=1.05*combinedImageObjects[numberofImages-pos2].theloadedimage.getWidth()+35*SpiralPoints[700*pos2].z;
-
-    
-    tweenedCameraPosition.z=ofLerp(position1_z,position2_z,tweenvalue);
-    
-    
-//     cout<<tweenvalue<<"\n";
-    
-    return tweenedCameraPosition;
     
 }
 
-ofVec3f testApp::startAnimationCameraPosition()
-{
+/* Unused */
 
-    float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight();
-    //timeInterval=10000;
-    float timeInterval=smoothnessFactor/1500;
-    
-//    cout<<"smoothness factor\n"<<smoothnessFactor;
-    
-    if(startAnimationCounter<=smoothnessFactor-timeInterval)
-    {
-//        
-//        cout<<"\ndifference in the positions "<<tweenvalue;        
-//        cout<<"\nCamera Position"<< tweenedCameraPosition.z;
-        
-       
-        tweenvalue = (startAnimationCounter) /smoothnessFactor;
-       
-        if(tweenvalue<0.98)
-        startAnimationCounter+=timeInterval;
-        else startAnimationCounter+=(timeInterval);
-        
-        overshotCameraStartingPosition=tweenedCameraPosition;
-    }
-    
-    //else isstartingAnimationActive=false;
-    else {startAnimationCounter=0; startoverShotCameraAnimation=true;}
-    
-    tweenedCameraPosition.x=ofLerp(0, 0 , tweenvalue);
-    tweenedCameraPosition.y=ofLerp(0, 0, tweenvalue);
-    tweenedCameraPosition.z=ofLerp(0, 35*SpiralPoints[700*cameraindex].z +21.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
-   
-    //cout<<tweenedCameraPosition.z<<"\n";
-
-    
-//    cout<<35*SpiralPoints[700*cameraindex].z<<endl;
-    
-    return tweenedCameraPosition;
-
-}
-
-void testApp::sortImages()
-{
-   // Create an unordered map ....
-    
- //   string path = "/Applications/MAMP/htdocs/25labs/100002627332238/pictures.xml";
-    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/pictures.xml";
-    
-    int imageCounter=1;
-    int newScore;
-    ImageData imagedataObject;
-    
-    if(pictures_XML.loadFile(path))
-    {
-    
-        pictures_XML.pushTag("xml");
-        pictures_XML.pushTag("ImageList");
-        
-        for(int i=0;i<pictures_XML.getNumTags("Album");i++)
-        {
-            pictures_XML.pushTag("Album",i);
-//            cout<<pictures_XML.getNumTags("Image")<<endl;;
-            
-            
-            for (int j=0;j<pictures_XML.getNumTags("Image");j++)
-            {
-                pictures_XML.pushTag("Image",j);
-                int score;
-                if(pictures_XML.getValue("Tags",0)>15)
-                    score=0;
-                else  { score=2*pictures_XML.getValue("Likes",0)+3*pictures_XML.getValue("Comments",0);}
-                //cout<<score<<endl;
-                
-                
-                imageScores.insert(std::pair<int,int>(score,imageCounter));
-                albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...
-                
-   /// The New Sorting Algorithm 
-                
-                imagedataObject.albumnumber= i;
-                imagedataObject.imageNumber=imageCounter;
-                
-                if(pictures_XML.getValue("Tags",0)>0)
-                {
-                    #ifndef EfficientReorder
-                    imagedataObject.isTagged=true;
-#endif
-                    if(pictures_XML.getValue("Tags",0)>10)
-                        imagedataObject.imageScore=0;
-                        else 
-                    imagedataObject.imageScore=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Comments",0);;
-                    taggedImages.push_back(imagedataObject);
-
-                }
-                
-                
-                else
-                {
-#ifndef EfficientReorder
-                    
-                   imagedataObject.isTagged=false;
-#endif
-                   imagedataObject.imageScore=0.5*pictures_XML.getValue("Likes",0)+pictures_XML.getValue("Comments",0);
-                   untaggedImages.push_back(imagedataObject);
-                }
-                
-                cout<<"Image Number\t"<<imageCounter<<"\tLikes "<<pictures_XML.getValue("Likes",0)<<"Comments "<<pictures_XML.getValue("Comments",0)<<endl;
-
-                
-//                imageDetails.push_back(imagedataObject);
-                
-                pictures_XML.popTag();
-                imageCounter++;
-                
-            }
-            pictures_XML.popTag();
-        }
-        
-    
-    }
-    
-    
-/* Debug Statements to check Scores */
-    
-//    cout<<"Size of Tagged Images"<<taggedimageScores.size()<<endl;
-//   cout<<"size of Untagged Images"<<untaggedimageScores.size()<<endl;
-//    sort(imageDetails.begin(),imageDetails.end(),imagedataObject);
-  
-    sort(taggedImages.begin(),taggedImages.end(),imagedataObject);
-    sort(untaggedImages.begin(),untaggedImages.end(),imagedataObject);
-    
-    cout<<"checking .....\n";
-    for(int i=0;i<taggedImages.size();i++)
-            cout<<taggedImages[i].imageScore<<" \t"<<endl;
-
-     std::multimap<int,int>::iterator it;
-     std::multimap<int,int>::iterator albumiterator=albumScores.begin();
-    
-    for(it=imageScores.begin();it!=imageScores.end();++it)
-    {
-        cout<<(*it).first<<"  "<<(*it).second<<endl;
-        imageData.push_back(ofVec3f((*it).first,(*it).second,(*albumiterator).second));
-        albumiterator++;
-    
-    }
-    
-    for(int i=0;i<imageData.size();i++)
-        cout<<imageData[i]<<endl;
-    
-//      cout<<imageCounter<<endl;
-}
-
-#endif
-
-testApp::testApp(long long int id)
-{
-    userid=id;
-    cout<<"\n User ID:"<<id<<endl;
-}
-
-void testApp::pushWigglePositions()
-{
-    
-//    wigglePositions.push_back(ofVec3f(0,0,0));
-    
-    wigglePositions.push_back(ofVec3f(1,1,0));
-    
-    wigglePositions.push_back(ofVec3f(1,1,0));
-    
-    
-    wigglePositions.push_back(ofVec3f(0,1,0));
-    
-    wigglePositions.push_back(ofVec3f(0,1,0));
-    
-    wigglePositions.push_back(ofVec3f(1,0,0));
-    
-    wigglePositions.push_back(ofVec3f(1,0,0));
-    
-
-
-}
-
-ofVec3f testApp::wiggle()
-{
-    //Check if wiggling ...
-    
-    int maxValue=20; // Change this for adjusting the Maximum Value of the Wiggling ....
-    
-    
-    if(currentwiggleindex%2==0)
-    {
-        
-    if(wiggleAnimationCounter<=maxValue)
-            wiggleAnimationCounter+=0.05;
-        
-    else {
-        currentwiggleindex++;
-        currentwiggleindex=currentwiggleindex%wigglePositions.size();
-        wiggleAnimationCounter=maxValue;
-    }
-        
-        
-    }
-    
-    
-    else {
-        
-            if(wiggleAnimationCounter>=0)
-                wiggleAnimationCounter-=0.05 ;
-            
-            else {
-                currentwiggleindex++;
-                currentwiggleindex=currentwiggleindex%wigglePositions.size();
-                wiggleAnimationCounter=0;
-            }
-        
-        
-    }
-
-    
-    currentwigglePosition.x=wigglePositions[currentwiggleindex].x*wiggleAnimationCounter;
-    currentwigglePosition.y=wigglePositions[currentwiggleindex].y*wiggleAnimationCounter;
-    currentwigglePosition.z=wigglePositions[currentwiggleindex].z*wiggleAnimationCounter;
-
-//    cout<<currentwigglePosition<<endl;
-    
-    // If not wiggling ..change the index ....
-    
-    
-    //If wiggling ,advance the lerp ....
-    
-    return currentwigglePosition;
-}
-
-void testApp::reorder()
-{
-    std::multimap<int,int>::iterator it;
-    std::multimap<int,int>::iterator tempIterator;
-    std::multimap<int,int>::iterator thirdtempIterator;
-    
-    
-    //
-    std::multimap<int,int>::iterator firstAlbumIterator;
-    std::multimap<int,int>::iterator secondAlbumIterator;
-    
-    
-    int imageIterator=0;
-    
-    cout<<"*************************\n";
-    cout<<"Reordering***************\n";
-    cout<<endl;
-    int albumnumber,tempPicIndex;
-    
-    firstAlbumIterator=imageScores.begin();
-    
-    for(it=albumScores.begin();it!=albumScores.end();++it)
-    {
-        tempIterator=++it;
-
-        it--;
-
-              
-        if((tempIterator)==albumScores.end())
-            break;
-
-        //tempIterator--;
-        
-        secondAlbumIterator=++firstAlbumIterator;
-        firstAlbumIterator--;
-        
-        if((*it).second==(*tempIterator).second)
-        {
-            thirdtempIterator=++tempIterator;
-            tempIterator--;
-            
-            while((*it).second==(*tempIterator).second||(*tempIterator).second==(*thirdtempIterator).second)
-            {
-                
-            tempIterator++;
-                secondAlbumIterator++;
-//                cout<<"reassigning\n";
-                thirdtempIterator++;
-            }
-            
-            cout<<"swapping values "<<(*it).second<<"   "<<(*tempIterator).second;
-                
-//            tempPicIndex=(*it).second;
-//            (*it).second=(*tempIterator).second;
-//            (*tempIterator).second=tempPicIndex;
-            
-//            cout<<"swapping values "<<(*it).second<<"   "<<(*tempIterator).second;
-
-            tempPicIndex=(*firstAlbumIterator).second;
-            (*firstAlbumIterator).second=(*secondAlbumIterator).second;
-            (*secondAlbumIterator).second=tempPicIndex;
-        }
-        
-        
-        cout<<(*it).second<<"::"<<(*tempIterator).second<<endl;
-        firstAlbumIterator++;
-        //Perform a swap ...
-           
-    }
-
+bool testApp::sortOnImageScore(ImageData l,ImageData r) {
+    return l.imageScore<r.imageScore;
 }
 
 void testApp::newReorder()
 {
     int j,tempVal;
     
-//    for(int i=0;i<imageData.size()-3;i++)
-//    {
-//        j=i+1;
-//        
-//        if(imageData[i].z==imageData[j].z)
-//        {
-//            
-//            while(imageData[i].z==imageData[j].z||imageData[i].z==imageData[j+1].z)
-//            {
-////                cout<<"passing"<<endl;
-//                j++;// this will help us to find the index so that we can swap the element ..
-//
-//            }
-//            
-//            tempVal=imageData[i].z;
-//            imageData[i].z=imageData[j].z;
-//            imageData[j].z=tempVal;
-//            
-//
-//        }
-//        cout<<imageData[i]<<endl;
-//    }
-
     cout<<"reordering";
     
     for(int i=imageData.size()-1;i>1;i--)
@@ -971,52 +938,30 @@ void testApp::newReorder()
             cout<<"doing this when i= \t "<<imageData[i].z<<"\t";
             
             while(j>0&&(imageData[i].z==imageData[j].z))
-               {
-                   j--;
-               }
+            {
+                j--;
+            }
             cout<<" and then j= \t"<<imageData[j].z<<endl;
-         
+            
             tempVal=imageData[i-1].z;
             imageData[i-1].z=imageData[j].z;
             imageData[j].z=tempVal;
-          
+            
             tempVal=imageData[i-1].y;
             imageData[i-1].y=imageData[j].y;
             imageData[j].y=tempVal;
-
+            
             
         }
     }
     
- 
-}
-
-void testApp::drawStars()
-{
-    ofSetColor(255, 255, 255);
-    
-    for(int i=0;i<StarPositions.size();i++)
-        ofSphere(StarPositions[i], 1);
     
 }
-
-void testApp::assignStarPositions()
-{
-    for(int i=0;i<10000;i++)
-        StarPositions.push_back(ofVec3f(ofRandom(100000), ofRandom(10000),ofRandom(10000)));
-    
-}
-
-/* Unused */
-bool testApp::sortOnImageScore(ImageData l,ImageData r) {
-    return l.imageScore<r.imageScore;
-}
-
 
 void testApp::complexReorder()
 {
     int ratio= 3; // This ratio defines how many images should be taken from the untagged Images compared to the TaggedImages ....
-                  // 2+1 ..
+    // 2+1 ..
     
     imageData.clear();
     
@@ -1048,7 +993,7 @@ void testApp::complexReorder()
         taggedImageCount++;
     }
     
-    #ifndef EfficientReorder
+#ifndef EfficientReorder
     
     for(int i=0;i<imageDetails.size();i++)
         cout<<imageDetails[i].isTagged<<endl;
@@ -1057,7 +1002,7 @@ void testApp::complexReorder()
     // Sorted Data Structures,How to re-order these so that the same album number isnt the problem ...
     
     int j,tempVal;
-     
+    
     for(int i=imageDetails.size()-1;i>=1;i--)
     {
         j=i-1;
@@ -1072,302 +1017,188 @@ void testApp::complexReorder()
                 j--;
             }
             cout<<" and then j= \t"<<imageDetails[j].albumnumber<<endl;
-                      
+            
             std::swap(imageDetails[i-1], imageDetails[j]);
             
         }
     }
     
     cout<<"Now checking the album numbers .";
-//
-//    for(int i=0;i<imageDetails.size();i++)
-//        cout<<imageDetails[i].albumnumber<<endl;
-//
+ 
 }
 
-void testApp::loadImagesandXMLData()
+void testApp::sortImages()
 {
-    string untaggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/untaggedImages/";
-    ofDirectory untaggeddir(untaggedDirpath);
-    untaggeddir.allowExt("png");
-    untaggeddir.allowExt("jpg");
-    untaggeddir.allowExt("gif");
+    // Create an unordered map ....
     
-    if(untaggeddir.listDir()==0)
-    {cout<<"Nothing";   ofExit();}
+    //   string path = "/Applications/MAMP/htdocs/25labs/100002627332238/pictures.xml";
+    string path="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/pictures.xml";
     
-    cout<<untaggeddir.listDir();
-    
-    cout<<"NUMBER OF FILES"<<untaggeddir.numFiles()<<endl;
-    
-    ofImage TempImage;
-    
-       
-    //// Load all the Images in the Image Vector ....
-    
-//    for(int i = 0; i < untaggeddir.numFiles(); i++){
-//        if(!TempImage.loadImage(ofToString(untaggedDirpath+ofToString(i)+".jpg")))
-//            continue; // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
-//        TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
-//        
-//#ifndef BLUR
-//        
-//        
-//        TempImage.mirror(true,false);
-//#endif
-//        
-//        ImageVector.push_back(TempImage);
-//        
-//        // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
-//        TempImage.clear();
-//        
-//        //        cout<<i<<endl;
-//        //        ofLogNotice(dir.getPath(i));
-//    }
-//    
-    int imageCounter=0;
-    
-    
-    string xmlpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/imagedata.xml";
-    
+    int imageCounter=1;
+    int newScore;
     ImageData imagedataObject;
     
-    // Then Populate the ImageDetails Structure 
-    
-    if(pictures_XML.loadFile(xmlpath))
+    if(pictures_XML.loadFile(path))
     {
         
         pictures_XML.pushTag("xml");
         pictures_XML.pushTag("ImageList");
         
-        if(pictures_XML.pushTag("Untagged"))
+        for(int i=0;i<pictures_XML.getNumTags("Album");i++)
+        {
+            pictures_XML.pushTag("Album",i);
+            //            cout<<pictures_XML.getNumTags("Image")<<endl;;
             
-           {
-
+            
             for (int j=0;j<pictures_XML.getNumTags("Image");j++)
             {
                 pictures_XML.pushTag("Image",j);
+                int score;
+                if(pictures_XML.getValue("Tags",0)>15)
+                    score=0;
+                else  { score=2*pictures_XML.getValue("Likes",0)+3*pictures_XML.getValue("Comments",0);}
+                //cout<<score<<endl;
                 
+                
+                imageScores.insert(std::pair<int,int>(score,imageCounter));
+                albumScores.insert(std::pair<int,int>(score,i)); // Storing the Album Number ...
+                
+                /// The New Sorting Algorithm
+                
+                imagedataObject.albumnumber= i;
                 imagedataObject.imageNumber=imageCounter;
-                imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
-                imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
-                imagedataObject.theloadedimage.loadImage(ofToString(untaggedDirpath+ofToString(j)+".jpg"));
                 
-                imagedataObject.theloadedimage.resize(imagedataObject.theloadedimage.getWidth(), imagedataObject.theloadedimage.getHeight());
+                if(pictures_XML.getValue("Tags",0)>0)
+                {
+#ifndef EfficientReorder
+                    imagedataObject.isTagged=true;
+#endif
+                    if(pictures_XML.getValue("Tags",0)>10)
+                        imagedataObject.imageScore=0;
+                    else
+                        imagedataObject.imageScore=pictures_XML.getValue("Likes",0)+2*pictures_XML.getValue("Comments",0);;
+                    taggedImages.push_back(imagedataObject);
+                    
+                }
                 
-                #ifndef BLUR
+                
+                else
+                {
+#ifndef EfficientReorder
+                    
+                    imagedataObject.isTagged=false;
+#endif
+                    imagedataObject.imageScore=0.5*pictures_XML.getValue("Likes",0)+pictures_XML.getValue("Comments",0);
+                    untaggedImages.push_back(imagedataObject);
+                }
+                
+                cout<<"Image Number\t"<<imageCounter<<"\tLikes "<<pictures_XML.getValue("Likes",0)<<"Comments "<<pictures_XML.getValue("Comments",0)<<endl;
                 
                 
-                         imagedataObject.theloadedimage.mirror(true,false);
-                #endif
-                
-//                cout<<j<<endl;
-                
-                combinedImageObjects.push_back(imagedataObject);
+                //                imageDetails.push_back(imagedataObject);
                 
                 pictures_XML.popTag();
-                
                 imageCounter++;
                 
             }
-               pictures_XML.popTag();   
-            
-           }
-    
-    }
-    
-    cout<<combinedImageObjects.size()<<"\t this was the size of untaggedImgeobjects";
-    
-    ImageVector.clear();
-    imageCounter=0;
-    
-    
-    
-    
-    string taggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/taggedImages/";
-    ofDirectory taggeddir(taggedDirpath);
-    
-    taggeddir.allowExt("png");
-    taggeddir.allowExt("jpg");
-    taggeddir.allowExt("gif");
-    
-
-    
-//    for(int i = 0; i < taggeddir.numFiles(); i++){
-//        if(!TempImage.loadImage(ofToString(taggedDirpath+ofToString(i)+".jpg")))
-//            continue; // WTF Openframeworks ...OSX indexing .. and i+1 is because there is nothing called 0.jpg .....
-//        TempImage.resize(TempImage.getWidth(), TempImage.getHeight());
-//        
-//#ifndef BLUR
-//        
-//        
-//        TempImage.mirror(true,false);
-//#endif
-//        
-//        ImageVector.push_back(TempImage);
-//        
-//        // cout<<TempImage.getWidth()<<"\t\t"<<TempImage.getHeight()<<"\n\n";
-//        TempImage.clear();
-//        
-//        //        cout<<i<<endl;
-//        //        ofLogNotice(dir.getPath(i));
-//    }
-    
-    
-    // Now all the Tagged images need to be linked and added to the data structure .
-    
-    
-    if(pictures_XML.pushTag("Tagged"))
-        
-    {
-        for (int j=0;j<pictures_XML.getNumTags("Image");j++)
-        {
-            pictures_XML.pushTag("Image",j);
-            
-            imagedataObject.imageNumber=imageCounter;
-            imagedataObject.imageScore=pictures_XML.getValue("Score",0.0);
-            imagedataObject.albumnumber=pictures_XML.getValue("AlbumNumber",0);
-            imagedataObject.theloadedimage.loadImage(ofToString(taggedDirpath+ofToString(j)+".jpg"));
-            #ifndef BLUR
-                    imagedataObject.theloadedimage.mirror(true,false);
-            #endif
-            
-            taggedImageObjects.push_back(imagedataObject);
-            
             pictures_XML.popTag();
-            
-            imageCounter++;
-            
         }
-    }
-    
-    
-    cout<<taggedImageObjects.size()<<"\t this was the size of taggedImgeobjects";
-    
-// Now combine the untagged and Tagged in the correct ratio ..
-    
-    int ratio= 3; // This ratio defines how many images should be taken from the untagged Images compared to the TaggedImages ....
-    // 2+1 ..
-    
-    
-    cout <<"Trying the complex reorder"<<endl;
-
-    int untaggedImageCount=0,taggedImageCount=0,i;
-    
-    int num_untaggedImages=combinedImageObjects.size(),num_taggedImages=taggedImageObjects.size();
-  
-    int taggedImgCount=0;
-    
-//    for(int i=0;i<taggedImageObjects.size();i++)
-//    {
-//        if(i%ratio==0&&i!=0&&taggedImgCount<num_taggedImages)
-//        { std::swap(untaggedImageObjects[i], untaggedImageObjects[num_untaggedImages-1+taggedImgCount]);
-//            taggedImgCount++;
-//        }
-//    }
-    
-    cout<<"Combining and shuffling the tagged and untagged images";
-    for(int i=0;i<combinedImageObjects.size();i++)
-    {
-        if(i%ratio==0&&i!=0&&taggedImgCount<num_taggedImages)
-            combinedImageObjects.insert(combinedImageObjects.begin()+i,taggedImageObjects[taggedImgCount++]);
+        
         
     }
-
-    
-//    while(untaggedImageCount!=untaggedImageObjects.size())
-//    {
-//        
-//        if(i%ratio==0 && i!=0 && taggedImageCount<taggedImageObjects.size())
-//        {
-//            combinedImageObjects.push_back(taggedImageObjects[taggedImageCount]);
-//            taggedImageCount++;
-//        }
-//        else {
-//            combinedImageObjects.push_back(untaggedImageObjects[untaggedImageCount]);
-////            untaggedImageObjects.pop_back();
-//            
-//            untaggedImageCount++;
-//        }
-//        i++;
-//        
-//    }
     
     
+    /* Debug Statements to check Scores */
     
-
-    // Sorted Data Structures,How to re-order these so that the same album number isnt the problem ...
+    //    cout<<"Size of Tagged Images"<<taggedimageScores.size()<<endl;
+    //   cout<<"size of Untagged Images"<<untaggedimageScores.size()<<endl;
+    //    sort(imageDetails.begin(),imageDetails.end(),imagedataObject);
     
-    int j,tempVal;
+    sort(taggedImages.begin(),taggedImages.end(),imagedataObject);
+    sort(untaggedImages.begin(),untaggedImages.end(),imagedataObject);
     
-    for(int i=0;i<combinedImageObjects.size()-1;i++)
+    cout<<"checking .....\n";
+    for(int i=0;i<taggedImages.size();i++)
+        cout<<taggedImages[i].imageScore<<" \t"<<endl;
+    
+    std::multimap<int,int>::iterator it;
+    std::multimap<int,int>::iterator albumiterator=albumScores.begin();
+    
+    for(it=imageScores.begin();it!=imageScores.end();++it)
     {
-        j=i+1;
-        cout<<i;
+        cout<<(*it).first<<"  "<<(*it).second<<endl;
+        imageData.push_back(ofVec3f((*it).first,(*it).second,(*albumiterator).second));
+        albumiterator++;
         
-        if(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber)
-        {
-            cout<<"doing this when i= \t "<<combinedImageObjects[i].albumnumber<<"\t";
-            
-            while(j<combinedImageObjects.size()-1&&(combinedImageObjects[i].albumnumber==combinedImageObjects[j].albumnumber) && (j-i)<8) // This is because j is
-            {
-                j++;
-            }
-            cout<<" and then j= \t"<<combinedImageObjects[j].albumnumber<<endl;
-            
-            std::swap(combinedImageObjects[i+1], combinedImageObjects[j]);
-            
-        }
     }
     
-    cout<<"Now checking the album numbers ,Size of the array = \t"<<combinedImageObjects.size()<<endl;
-   
+    for(int i=0;i<imageData.size();i++)
+        cout<<imageData[i]<<endl;
     
-    
-    
-    
-        for(int i=0;i<combinedImageObjects.size();i++)
-            cout<<"Album number:"<<combinedImageObjects[i].albumnumber<<"\t Score"<<combinedImageObjects[i].imageScore<<endl;
-    
-
-
-//    ofExit();
-    
+    //      cout<<imageCounter<<endl;
 }
 
-ofVec3f testApp::adjustoverShotCameraPosition()
+void testApp::reorder()
 {
+    std::multimap<int,int>::iterator it;
+    std::multimap<int,int>::iterator tempIterator;
+    std::multimap<int,int>::iterator thirdtempIterator;
     
-            
-        float smoothnessFactor=35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight();
-    //timeInterval=10000;
-    float timeInterval=smoothnessFactor/500;
     
-    //    cout<<"smoothness factor\n"<<smoothnessFactor;
+    //
+    std::multimap<int,int>::iterator firstAlbumIterator;
+    std::multimap<int,int>::iterator secondAlbumIterator;
     
-    if(startAnimationCounter<=smoothnessFactor-timeInterval)
+    
+    int imageIterator=0;
+    
+    cout<<"*************************\n";
+    cout<<"Reordering***************\n";
+    cout<<endl;
+    int albumnumber,tempPicIndex;
+    
+    firstAlbumIterator=imageScores.begin();
+    
+    for(it=albumScores.begin();it!=albumScores.end();++it)
     {
+        tempIterator=++it;
         
-        //
-        //        cout<<"\ndifference in the positions "<<tweenvalue;
-        cout<<"\nCamera Position"<< tweenedCameraPosition.z;
+        it--;
         
         
-        tweenvalue = (startAnimationCounter) /smoothnessFactor;
+        if((tempIterator)==albumScores.end())
+            break;
         
-        if(tweenvalue<0.98)
-            startAnimationCounter+=timeInterval;
-        else startAnimationCounter+=(timeInterval);
+        //tempIterator--;
+        
+        secondAlbumIterator=++firstAlbumIterator;
+        firstAlbumIterator--;
+        
+        if((*it).second==(*tempIterator).second)
+        {
+            thirdtempIterator=++tempIterator;
+            tempIterator--;
+            
+            while((*it).second==(*tempIterator).second||(*tempIterator).second==(*thirdtempIterator).second)
+            {
+                
+                tempIterator++;
+                secondAlbumIterator++;
+                thirdtempIterator++;
+            }
+            
+            cout<<"swapping values "<<(*it).second<<"   "<<(*tempIterator).second;
+            
+            tempPicIndex=(*firstAlbumIterator).second;
+            (*firstAlbumIterator).second=(*secondAlbumIterator).second;
+            (*secondAlbumIterator).second=tempPicIndex;
+        }
+        
+        cout<<(*it).second<<"::"<<(*tempIterator).second<<endl;
+        firstAlbumIterator++;
+        //Perform a swap ...
         
     }
-
-        else isstartingAnimationActive=false;
     
-    tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
-    tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);
-    tweenedCameraPosition.z=ofLerp(overshotCameraStartingPosition.z, 35*SpiralPoints[700*cameraindex].z +1.6*combinedImageObjects[numberofImages-cameraindex].theloadedimage.getHeight(), tweenvalue);
-    
-    return tweenedCameraPosition;
-
 }
 

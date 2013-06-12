@@ -68,7 +68,12 @@ public:
 #endif
 #ifndef DEBUGMODE
     
-        /** \brief This is the camera variable that will move around the entire scene */
+        /** 
+         * @addtogroup Camera
+         * \brief This is the camera variable that will move around the entire scene 
+         *
+         * @{
+         */
         ofCamera camera;
     
         /** \brief These variables will be useful if DEBUGMODE is defined */
@@ -77,6 +82,13 @@ public:
         /** \brief The Cameraindex value,this make the camera go from one image/position to another */
         int cameraindex=0;
     
+        /** @} */
+    
+        /**
+         * @addtogroup CameraAnimation
+         * \brief This are the variables that are used for animating the camera
+         * @{ */
+
         /** \brief checks whether the camera is currently transitioning to another picture or if it is stationary a.k.a animationMode */
         bool animationMode;
     
@@ -95,14 +107,19 @@ public:
         /** \brief During the starting animation,the StartAnimationCounter will change the tweenvalue which in turn sets the CameraPosition */
         int startAnimationCounter;
     
+        /** @} */
+    
+    
         /** \brief To load the XML File that is downloaded by the NostalgiaRoom Website  */
         ofxXmlSettings pictures_XML;
     
         /** \brief The user's id that is passed at run-time.Only a long long int (max value 9223372036854775807) can support the range of the userids provided by Facebbok  */
         long long int userid;
-    
-    
-         /* The Wiggling Stuff */   
+        
+        /**
+         * @addtogroup Wiggle 
+         * 
+         *@{ */
     
         vector <ofVec3f> wigglePositions;
     
@@ -112,6 +129,8 @@ public:
         int currentwiggleindex;
     
         float wiggleAnimationCounter;
+    
+        /** @} */
     
         /* End of Wiggling stuff. */
     
@@ -161,8 +180,11 @@ public:
      
     #ifdef USEWII
         
-        /** \brief Wii-Mote Variables */
-        
+        /** @addtogroup WiiMote
+         * 
+         * These variables are used for receiving values from the wiimote
+         * @{ 
+         */
         
         /** \brief Roll,Yaw and Pitch as sent by OSCulator */
         float roll, yaw, pitch, accel, wiiX, wiiY;
@@ -180,8 +202,9 @@ public:
         string Message;
         
         int windowWidth,windowHeight;
-        
-        /* End of Wii-Mote Variables */
+    
+        /** @} */ 
+    
         
     #ifdef ADJUSTTIMEGAP
       
@@ -190,8 +213,10 @@ public:
         float minAccel,maxAccel;
         
     #endif
-        
-        ofTrueTypeFont font; 
+        /** \brief Font to display the wiimote values on screen for debugging*/
+        ofTrueTypeFont fonttodisplayWiimoteValues;
+    
+        /** \brief Swing's current state i.e  */
         string State;
     #endif
         
@@ -223,20 +248,20 @@ public:
         
         /** \brief If true,the ending variable will trigger the backward playing of the starting video and provides a nice smooth ending */
         bool ending;
-        
-        
-        
+                
         /// Unused 
-        
-        
-        /* A multimap is used because it is easier to store 2 elements(Image number and index) and then sort the whole array based on the score .Unused */
+                
+        /** \brief A multimap is used because it is easier to store 2 elements(Image number and index) and then sort the whole array based on the score .Unused */
         multimap <int, int > imageScores;
 
-        /* Unused Data Structures that were used earlier ,when the XML file was different to rank the images */
+        /** \brief Unused Data Structures that were used earlier ,when the XML file was different to rank the images */
         vector<ImageData> untaggedImageObjects,taggedImageObjects;
         
-        /* Unused Data Structure */
+        /** \brief Unused Data Structure */
         vector<ofVec3f> imageData;
+    
+    
+    
         
         // UNUSED
         float prevAngVel=0;
@@ -248,64 +273,85 @@ public:
         vector<ImageData> imageDetails,taggedImages,untaggedImages;
 
     
-    
-    
-    
-    
-    
-        //// Functions ...............
-        
-        
-        
-        
-        
-        /* Vector that will use the above vector and ofLerp to compute the exact cameraposition */
+        /** @addtogroup CameraAnimation
+         *
+         * @{
+         Vector that will use the above vector and ofLerp to compute the exact cameraposition
+         @returns ofVec3f
+         */
         ofVec3f adjustoverShotCameraPosition();
         
-        /* Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp */
-        
+
+        /**
+         Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp
+         @param pos1 is the position from which we will animateFrom,pos2 
+         @returns ofVec3f
+         */
         ofVec3f animate(int,int);
         
-        /* StartingAnimation is the first animation that zooms out of the spiral */
+        /**
+         This function plays the starting animation which zooms out of the spiral
+        */
         void startAnimation();
 
-        /* If the starting animation is active,this function will return a vector that has the startingCamera's tweened position */
+        /** If the starting animation is active,this function will return a vector that has the startingCamera's intermediate tweened position
+         @returns ofVec3f*/
         ofVec3f startAnimationCameraPosition();
+    
+        /** @} */
 
-        void pushWigglePositions(); /// Pushing values ...
-        
-        ofVec3f wiggle(); // Actual wiggle code ...similar to the ofLerp for the animations ...
-        
-        /* This was an old function which was used to sort the images */
-        void sortImages();
-        
-        /* Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure  */
+        /** @addtogroup Wiggle
+         * @{
+         *
+         */
+    
+        /** Pushing values */
+        void pushWigglePositions();
+    
+        /**
+         Actual code that does wiggling.
+         @returns ofVec3f
+         */
+        ofVec3f wiggle();
+    
+        /** @} */
+    
+        /** Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure  */
         void loadImagesandXMLData();
+    
         
-        void reorder();
-        
-        /* This function will draw the images .Used in draw */
+        /** This function will draw the images.Used in draw */
         void drawImages();
         
-        
-        /* Function that will generate the points on the Spiral */
+        /** Function that will generate the points on the Spiral */
         void generateCircularSpiral();
-        
-        /* This funtion will load the images from the directory and push them into an ImageVector.UNUSED in the current version of the program */
-        void loadImagesFromDirectory();
-        
-        /* Had tried drawing small dot stars in the background.Unfortunately,it was too memory intensive on my machine,including these functions if anyone is interested in trying them out .Just call assiginStarpositions() in the setup function and drawStars() in the draw function */
-        
+           
+        /** @addtogroup DrawingStars
+          *
+         * Drawing small dot stars in the background was attempted.Unfortunately,its too memory intensive ,nevertheless these functions are included if anyone is interested in trying them out.Just call assignStarPositions() in the setup function and drawStars() in the draw function 
+         * @{
+         */
         void assignStarPositions();
         void drawStars();
+    
+        /** @} */
         
+    
+        /// Unused
+    
+        /* This funtion will load the images from the directory and push them into an ImageVector.UNUSED in the current version of the program */
+        void loadImagesFromDirectory();
+    
         /* The following are unused data structures */
         void newReorder();
         void complexReorder();
         
         /* Unused function that returns the lowest score of 2 imageData objects */
         bool sortOnImageScore(ImageData l,ImageData r);
-
-        
+        /** This was an old function which was used to sort the images */
+        void sortImages();
     
+    
+        /** Unused */
+        void reorder();
 };

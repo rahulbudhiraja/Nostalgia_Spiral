@@ -8,46 +8,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/testApp.cpp"
-         timestampString = "392678020.111235"
+         timestampString = "392718596.262659"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "831"
-         endingLineNumber = "831"
+         startingLineNumber = "617"
+         endingLineNumber = "617"
          landmarkName = "testApp::pushWigglePositions()"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/testApp.cpp"
-         timestampString = "392678020.111235"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1048"
-         endingLineNumber = "1048"
-         landmarkName = "testApp::complexReorder()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/testApp.cpp"
-         timestampString = "392673924.317787"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
-         landmarkName = "testApp::draw()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/testApp.cpp"
-         timestampString = "392673924.317787"
+         timestampString = "392718596.262659"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "276"
@@ -56,42 +30,16 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/testApp.cpp"
-         timestampString = "392678020.111235"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1090"
-         endingLineNumber = "1090"
-         landmarkName = "testApp::complexReorder()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/testApp.cpp"
-         timestampString = "392673924.317787"
+         timestampString = "392718596.262659"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "550"
-         endingLineNumber = "550"
-         landmarkName = "testApp::loadImagesFromDirectory()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/testApp.cpp"
-         timestampString = "392678020.111235"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1099"
-         endingLineNumber = "1099"
-         landmarkName = "testApp::complexReorder()"
+         startingLineNumber = "271"
+         endingLineNumber = "271"
+         landmarkName = "testApp::draw()"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,6 +52,19 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "5"
          endingLineNumber = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/testApp.h"
+         timestampString = "392718596.262659"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "290"
+         endingLineNumber = "290"
+         landmarkName = "class testApp"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
