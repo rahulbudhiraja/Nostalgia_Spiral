@@ -858,10 +858,8 @@ ofVec3f testApp::wiggle()
     }
     
     
-    
     else {
         
-                   
             if(wiggleAnimationCounter>=0)
                 wiggleAnimationCounter-=0.05 ;
             
@@ -870,8 +868,6 @@ ofVec3f testApp::wiggle()
                 currentwiggleindex=currentwiggleindex%wigglePositions.size();
                 wiggleAnimationCounter=0;
             }
-            
-            
         
         
     }
@@ -1378,6 +1374,7 @@ ofVec3f testApp::adjustoverShotCameraPosition()
     
     if(startAnimationCounter<=smoothnessFactor-timeInterval)
     {
+        
         //
         //        cout<<"\ndifference in the positions "<<tweenvalue;
         cout<<"\nCamera Position"<< tweenedCameraPosition.z;

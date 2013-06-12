@@ -72,24 +72,28 @@ public:
 #endif
 #ifndef DEBUGMODE
     
-        /* This is the camera variable that will move around the entire scene */
+        /** \brief This is the camera variable that will move around the entire scene */
         ofCamera camera;
     
-        /* These variables will be useful if DEBUGMODE is defined */
+        /** \brief These variables will be useful if DEBUGMODE is defined */
         ofVec3f cameraStartPosition,cameraEndPosition;
     
+        /** \brief The Cameraindex value,this make the camera go from one image/position to another */
         int cameraindex=0;
-        bool animationMode;
     
-        /* Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp */
-        ofVec3f animate(int,int);
+        /** \brief checks whether the camera is currently transitioning to another picture or if it is stationary a.k.a animationMode */
+        bool animationMode;
     
         float tweenvalue,beginAnimationtime;
     
         /* Stores the temporary CameraPosition while tweening(interpolating values while moving from 1 image/point to another) */
-        ofVec3f tweenedCameraPosition; 
+        ofVec3f tweenedCameraPosition;
     
         int animationCounter;
+    
+        /* Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp */
+    
+        ofVec3f animate(int,int);
     
         /* StartingAnimation is the first animation that zooms out of the spiral */
         void startAnimation();
