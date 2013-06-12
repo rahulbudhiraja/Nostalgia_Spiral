@@ -134,21 +134,21 @@ int \hyperlink{classtest_app_a957cf7fdb3ea964a88ca1be13e4d68fc}{numberof\-Images
 float \hyperlink{classtest_app_acb60fb8a89e9ec5d461630a20b11ceda}{timesince\-Last\-Transition}
 \begin{DoxyCompactList}\small\item\em Time since Previous Transition/\-Animation. \end{DoxyCompactList}\item 
 of\-Vec3f \hyperlink{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}{overshot\-Camera\-Starting\-Position}
-\item 
+\begin{DoxyCompactList}\small\item\em The whole starting Animation consists of a few Components.\-A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the Overshot\-Camera\-Animation. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_ad2fca6ce5e37462cd820afc48633324d}{startover\-Shot\-Camera\-Animation}
 \begin{DoxyCompactList}\small\item\em When set,this will start the overshot camera animation. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_a808376783cdf510335cd1b37026e9bb3}{position1\-\_\-z}
-\item 
+\begin{DoxyCompactList}\small\item\em Intermediate values that are used while tweening/animation of the camera positions. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_a0720011cfaade6388109232ea4927c19}{position2\-\_\-z}
 \item 
 of\-Q\-T\-Kit\-Player \hyperlink{classtest_app_a9bfe7793fa0689a991ff64174745c38f}{starting\-Movie}
-\item 
+\begin{DoxyCompactList}\small\item\em Apparently,the of\-Q\-T\-Kit\-Player plays H\-D Video better than of\-Video\-Player. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}{starting\-Movie\-Finished}
-\item 
+\begin{DoxyCompactList}\small\item\em Variable determines if the starting\-Movie has finished playing or not (initially set to false ) \end{DoxyCompactList}\item 
 of\-Sound\-Player \hyperlink{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}{Bluementhal\-Mp3}
-\item 
+\begin{DoxyCompactList}\small\item\em This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his/her pictures.\-It is. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_a020730abb55e6ae6d0a28edee19050e0}{roll}
-\item 
+\begin{DoxyCompactList}\small\item\em Wii-\/\-Mote Variables. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_a865985f78dd5def3ed20c87b9fc772b6}{yaw}
 \item 
 float \hyperlink{classtest_app_aabbebeb113838374f659e86a0355b260}{pitch}
@@ -160,23 +160,23 @@ float \hyperlink{classtest_app_a7a77e8633c3a94e3e409a33a5cd9ae3f}{wii\-X}
 float \hyperlink{classtest_app_a5ae41896388ae16ee530beca5333e02a}{wii\-Y}
 \item 
 float \hyperlink{classtest_app_ad1738ff98d225f80b853a9ddc9f5a116}{accel\-\_\-x}
-\item 
+\begin{DoxyCompactList}\small\item\em Acceleration in x,y and z. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_a204bcb2412a70a65ebea6008ee8c4eb0}{accel\-\_\-y}
 \item 
 float \hyperlink{classtest_app_a61dbdd5c0b868568dde40a52f6e56054}{accel\-\_\-z}
 \item 
 float \hyperlink{classtest_app_a98e05c3206ff95fccfebfc9df5317598}{angular\-\_\-velocity}
-\item 
+\begin{DoxyCompactList}\small\item\em Angular Velocity as received from O\-S\-Culator ,this variable is helpful to predict if the swing is going forwards or backward .A +ve value means the swing is going front and a -\/ve value indicates the person is swinging backwards. \end{DoxyCompactList}\item 
 ofx\-Osc\-Receiver \hyperlink{classtest_app_a034c44ff60fa1e5f021e90d5410ba657}{receiver}
-\item 
+\begin{DoxyCompactList}\small\item\em O\-S\-C\-Receiver class that interfaces with the O\-S\-Culator and receives values from the wii-\/mote. \end{DoxyCompactList}\item 
 string \hyperlink{classtest_app_a0124035d0454fb6bd9152f8a87c40677}{Message}
-\item 
+\begin{DoxyCompactList}\small\item\em The message received from O\-S\-Culator containing details of the wiimote values like angular velocity and acceleration. \end{DoxyCompactList}\item 
 int \hyperlink{classtest_app_a9ed611377cd46f5148a3a3d538e96484}{window\-Width}
 \item 
 int \hyperlink{classtest_app_a4e8884eeef5b2657b62278969d4e3dcf}{window\-Height}
 \item 
 float \hyperlink{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{min\-Angular\-Velocity}
-\item 
+\begin{DoxyCompactList}\small\item\em These are the wii-\/mote variables that are used to adjust the timegap between two images. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}{max\-Angular\-Velocity}
 \item 
 float \hyperlink{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}{min\-Accel}
@@ -188,17 +188,17 @@ of\-True\-Type\-Font \hyperlink{classtest_app_a0fdf83c29e178256ee0c1a5b9ee81653}
 string \hyperlink{classtest_app_a8ce5505df4526abed238956b65956edd}{State}
 \item 
 float \hyperlink{classtest_app_a944f2713019239a4b49241a5cc9a00c9}{time\-Gap}
-\item 
+\begin{DoxyCompactList}\small\item\em Time that an image will be shown on the screen,this is controlled by the wii-\/motes acceleration. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}{isturn\-Completed}
-\item 
+\begin{DoxyCompactList}\small\item\em This variable is used to check if a half-\/swing is completed ,that is from back to front or from front to back. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_a918c09b5a4389a8402cfacb25d390226}{fade\-Audio}
-\item 
+\begin{DoxyCompactList}\small\item\em If set,this variable will cause the current\-Volume variable to fade. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}{current\-Volume}
-\item 
+\begin{DoxyCompactList}\small\item\em The current volume variable is generally set to 1 ,but if fade\-Audio is enabled,it will reduce the audio by -\/0.\-001 every frame,this is used in the end along with the Corresponding video to reduce the volume of the music. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_a8a65a6d1a473417cec1c2ac2e6116aae}{start\-Installation}
 \begin{DoxyCompactList}\small\item\em This variable is used to start the installation if the user is swinging on the wii-\/mote or if the enter key is pressed. \end{DoxyCompactList}\item 
 of\-True\-Type\-Font \hyperlink{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}{preview\-Text}
-\item 
+\begin{DoxyCompactList}\small\item\em preview\-Text is used for loading the font Asyouwish.\-ttf \end{DoxyCompactList}\item 
 string \hyperlink{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}{temp\-Text}
 \begin{DoxyCompactList}\small\item\em This string will display \char`\"{}\-Start Swinging !\char`\"{} at the start. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_acf09303bc452d2a38098f6bf94655408}{ending}
@@ -589,6 +589,10 @@ Definition at line 177 of file test\-App.\-h.
 \subsubsection[{accel\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::accel\-\_\-x}}\label{classtest_app_ad1738ff98d225f80b853a9ddc9f5a116}
 
 
+Acceleration in x,y and z. 
+
+
+
 Definition at line 180 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a204bcb2412a70a65ebea6008ee8c4eb0}{\index{test\-App@{test\-App}!accel\-\_\-y@{accel\-\_\-y}}
@@ -615,6 +619,10 @@ Definition at line 254 of file test\-App.\-h.
 \hypertarget{classtest_app_a98e05c3206ff95fccfebfc9df5317598}{\index{test\-App@{test\-App}!angular\-\_\-velocity@{angular\-\_\-velocity}}
 \index{angular\-\_\-velocity@{angular\-\_\-velocity}!testApp@{test\-App}}
 \subsubsection[{angular\-\_\-velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::angular\-\_\-velocity}}\label{classtest_app_a98e05c3206ff95fccfebfc9df5317598}
+
+
+Angular Velocity as received from O\-S\-Culator ,this variable is helpful to predict if the swing is going forwards or backward .A +ve value means the swing is going front and a -\/ve value indicates the person is swinging backwards. 
+
 
 
 Definition at line 183 of file test\-App.\-h.
@@ -644,6 +652,10 @@ Definition at line 85 of file test\-App.\-h.
 \hypertarget{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}{\index{test\-App@{test\-App}!Bluementhal\-Mp3@{Bluementhal\-Mp3}}
 \index{Bluementhal\-Mp3@{Bluementhal\-Mp3}!testApp@{test\-App}}
 \subsubsection[{Bluementhal\-Mp3}]{\setlength{\rightskip}{0pt plus 5cm}of\-Sound\-Player test\-App\-::\-Bluementhal\-Mp3}}\label{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}
+
+
+This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his/her pictures.\-It is. 
+
 
 
 Definition at line 168 of file test\-App.\-h.
@@ -704,6 +716,10 @@ Definition at line 123 of file test\-App.\-h.
 \subsubsection[{current\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::current\-Volume}}\label{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}
 
 
+The current volume variable is generally set to 1 ,but if fade\-Audio is enabled,it will reduce the audio by -\/0.\-001 every frame,this is used in the end along with the Corresponding video to reduce the volume of the music. 
+
+
+
 Definition at line 218 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a6b9af0b1ae4a2c0530eb6a8cf8340751}{\index{test\-App@{test\-App}!currentwiggleindex@{currentwiggleindex}}
@@ -738,6 +754,10 @@ Definition at line 234 of file test\-App.\-h.
 \hypertarget{classtest_app_a918c09b5a4389a8402cfacb25d390226}{\index{test\-App@{test\-App}!fade\-Audio@{fade\-Audio}}
 \index{fade\-Audio@{fade\-Audio}!testApp@{test\-App}}
 \subsubsection[{fade\-Audio}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::fade\-Audio}}\label{classtest_app_a918c09b5a4389a8402cfacb25d390226}
+
+
+If set,this variable will cause the current\-Volume variable to fade. 
+
 
 
 Definition at line 215 of file test\-App.\-h.
@@ -801,6 +821,10 @@ Definition at line 97 of file test\-App.\-h.
 \subsubsection[{isturn\-Completed}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::isturn\-Completed}}\label{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}
 
 
+This variable is used to check if a half-\/swing is completed ,that is from back to front or from front to back. 
+
+
+
 Definition at line 212 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a34e834a5e4d359700147a74eece8eed1}{\index{test\-App@{test\-App}!max\-Accel@{max\-Accel}}
@@ -822,6 +846,10 @@ Definition at line 198 of file test\-App.\-h.
 \subsubsection[{Message}]{\setlength{\rightskip}{0pt plus 5cm}string test\-App\-::\-Message}}\label{classtest_app_a0124035d0454fb6bd9152f8a87c40677}
 
 
+The message received from O\-S\-Culator containing details of the wiimote values like angular velocity and acceleration. 
+
+
+
 Definition at line 189 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}{\index{test\-App@{test\-App}!min\-Accel@{min\-Accel}}
@@ -834,6 +862,10 @@ Definition at line 199 of file test\-App.\-h.
 \hypertarget{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{\index{test\-App@{test\-App}!min\-Angular\-Velocity@{min\-Angular\-Velocity}}
 \index{min\-Angular\-Velocity@{min\-Angular\-Velocity}!testApp@{test\-App}}
 \subsubsection[{min\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::min\-Angular\-Velocity}}\label{classtest_app_ac559756a01e0b98378bc29dfba9fac79}
+
+
+These are the wii-\/mote variables that are used to adjust the timegap between two images. 
+
 
 
 Definition at line 198 of file test\-App.\-h.
@@ -853,6 +885,10 @@ Definition at line 138 of file test\-App.\-h.
 \index{overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}!testApp@{test\-App}}
 \subsubsection[{overshot\-Camera\-Starting\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::overshot\-Camera\-Starting\-Position}}\label{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}
 
+
+The whole starting Animation consists of a few Components.\-A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the Overshot\-Camera\-Animation. 
+
+This vector will store the overshot\-Camera\-Position and changes the camera\-Position during the start while tweening 
 
 Definition at line 146 of file test\-App.\-h.
 
@@ -879,6 +915,10 @@ Definition at line 177 of file test\-App.\-h.
 \subsubsection[{position1\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::position1\-\_\-z}}\label{classtest_app_a808376783cdf510335cd1b37026e9bb3}
 
 
+Intermediate values that are used while tweening/animation of the camera positions. 
+
+
+
 Definition at line 159 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a0720011cfaade6388109232ea4927c19}{\index{test\-App@{test\-App}!position2\-\_\-z@{position2\-\_\-z}}
@@ -900,11 +940,19 @@ Definition at line 251 of file test\-App.\-h.
 \subsubsection[{preview\-Text}]{\setlength{\rightskip}{0pt plus 5cm}of\-True\-Type\-Font test\-App\-::preview\-Text}}\label{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}
 
 
+preview\-Text is used for loading the font Asyouwish.\-ttf 
+
+
+
 Definition at line 228 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a034c44ff60fa1e5f021e90d5410ba657}{\index{test\-App@{test\-App}!receiver@{receiver}}
 \index{receiver@{receiver}!testApp@{test\-App}}
 \subsubsection[{receiver}]{\setlength{\rightskip}{0pt plus 5cm}ofx\-Osc\-Receiver test\-App\-::receiver}}\label{classtest_app_a034c44ff60fa1e5f021e90d5410ba657}
+
+
+O\-S\-C\-Receiver class that interfaces with the O\-S\-Culator and receives values from the wii-\/mote. 
+
 
 
 Definition at line 186 of file test\-App.\-h.
@@ -913,6 +961,10 @@ Definition at line 186 of file test\-App.\-h.
 \index{roll@{roll}!testApp@{test\-App}}
 \subsubsection[{roll}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::roll}}\label{classtest_app_a020730abb55e6ae6d0a28edee19050e0}
 
+
+Wii-\/\-Mote Variables. 
+
+Roll,Yaw and Pitch as sent by O\-S\-Culator 
 
 Definition at line 177 of file test\-App.\-h.
 
@@ -954,11 +1006,19 @@ Definition at line 100 of file test\-App.\-h.
 \subsubsection[{starting\-Movie}]{\setlength{\rightskip}{0pt plus 5cm}of\-Q\-T\-Kit\-Player test\-App\-::starting\-Movie}}\label{classtest_app_a9bfe7793fa0689a991ff64174745c38f}
 
 
+Apparently,the of\-Q\-T\-Kit\-Player plays H\-D Video better than of\-Video\-Player. 
+
+
+
 Definition at line 162 of file test\-App.\-h.
 
 \hypertarget{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}{\index{test\-App@{test\-App}!starting\-Movie\-Finished@{starting\-Movie\-Finished}}
 \index{starting\-Movie\-Finished@{starting\-Movie\-Finished}!testApp@{test\-App}}
 \subsubsection[{starting\-Movie\-Finished}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::starting\-Movie\-Finished}}\label{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}
+
+
+Variable determines if the starting\-Movie has finished playing or not (initially set to false ) 
+
 
 
 Definition at line 165 of file test\-App.\-h.
@@ -1020,6 +1080,10 @@ Definition at line 231 of file test\-App.\-h.
 \hypertarget{classtest_app_a944f2713019239a4b49241a5cc9a00c9}{\index{test\-App@{test\-App}!time\-Gap@{time\-Gap}}
 \index{time\-Gap@{time\-Gap}!testApp@{test\-App}}
 \subsubsection[{time\-Gap}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::time\-Gap}}\label{classtest_app_a944f2713019239a4b49241a5cc9a00c9}
+
+
+Time that an image will be shown on the screen,this is controlled by the wii-\/motes acceleration. 
+
 
 
 Definition at line 208 of file test\-App.\-h.

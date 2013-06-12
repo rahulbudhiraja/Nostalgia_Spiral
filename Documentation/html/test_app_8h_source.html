@@ -214,10 +214,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
 <div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="classtest_app.html#acb60fb8a89e9ec5d461630a20b11ceda">  141</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#acb60fb8a89e9ec5d461630a20b11ceda" title="Time since Previous Transition/Animation. ">timesinceLastTransition</a>;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="comment">/* The whole starting Animation consists of a few Components.A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the OvershotCameraAnimation*/</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="comment">/* This vector will store the overshotCameraPosition and changes the cameraPosition during the start while tweening */</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="code" href="classtest_app.html#a846feea7c2c4d4b1929bb72c546b3e19">  146</a></span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a846feea7c2c4d4b1929bb72c546b3e19">overshotCameraStartingPosition</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="code" href="classtest_app.html#a846feea7c2c4d4b1929bb72c546b3e19">  146</a></span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a846feea7c2c4d4b1929bb72c546b3e19" title="The whole starting Animation consists of a few Components.A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the OvershotCameraAnimation. ">overshotCameraStartingPosition</a>;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
@@ -228,38 +225,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        ofxBlur blur;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span>    </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="comment">/* Intermediate values that are used while tweening/animation of the camera positions */</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="code" href="classtest_app.html#a0720011cfaade6388109232ea4927c19">  159</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a808376783cdf510335cd1b37026e9bb3">position1_z</a>,<a class="code" href="classtest_app.html#a0720011cfaade6388109232ea4927c19">position2_z</a>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="code" href="classtest_app.html#a0720011cfaade6388109232ea4927c19">  159</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a808376783cdf510335cd1b37026e9bb3" title="Intermediate values that are used while tweening/animation of the camera positions. ">position1_z</a>,<a class="code" href="classtest_app.html#a0720011cfaade6388109232ea4927c19">position2_z</a>;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="comment">/* Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer */</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="code" href="classtest_app.html#a9bfe7793fa0689a991ff64174745c38f">  162</a></span>&#160;        ofQTKitPlayer <a class="code" href="classtest_app.html#a9bfe7793fa0689a991ff64174745c38f">startingMovie</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="code" href="classtest_app.html#a9bfe7793fa0689a991ff64174745c38f">  162</a></span>&#160;        ofQTKitPlayer <a class="code" href="classtest_app.html#a9bfe7793fa0689a991ff64174745c38f" title="Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer. ">startingMovie</a>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="comment">/* Variable determines if the startingMovie has finished playing or not (initially set to false ) */</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classtest_app.html#aea3cb9f5f0061a42a4953d6b6c949036">  165</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#aea3cb9f5f0061a42a4953d6b6c949036">startingMovieFinished</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classtest_app.html#aea3cb9f5f0061a42a4953d6b6c949036">  165</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#aea3cb9f5f0061a42a4953d6b6c949036" title="Variable determines if the startingMovie has finished playing or not (initially set to false ) ...">startingMovieFinished</a>;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">/* This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his/her pictures.It is */</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="code" href="classtest_app.html#af696fd13ee9ecb38ac0ba0b72543ce06">  168</a></span>&#160;        ofSoundPlayer <a class="code" href="classtest_app.html#af696fd13ee9ecb38ac0ba0b72543ce06">BluementhalMp3</a>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="code" href="classtest_app.html#af696fd13ee9ecb38ac0ba0b72543ce06">  168</a></span>&#160;        ofSoundPlayer <a class="code" href="classtest_app.html#af696fd13ee9ecb38ac0ba0b72543ce06" title="This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his...">BluementhalMp3</a>;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        </div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;     </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">    #ifdef USEWII</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor"></span>        </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">/* Wii-Mote Variables */</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="comment">/* Roll,Yaw and Pitch as sent by OSCulator */</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="code" href="classtest_app.html#a865985f78dd5def3ed20c87b9fc772b6">  177</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a020730abb55e6ae6d0a28edee19050e0">roll</a>, <a class="code" href="classtest_app.html#a865985f78dd5def3ed20c87b9fc772b6">yaw</a>, <a class="code" href="classtest_app.html#aabbebeb113838374f659e86a0355b260">pitch</a>, <a class="code" href="classtest_app.html#a8e560e923c82d421857538e4a5927542">accel</a>, <a class="code" href="classtest_app.html#a7a77e8633c3a94e3e409a33a5cd9ae3f">wiiX</a>, <a class="code" href="classtest_app.html#a5ae41896388ae16ee530beca5333e02a">wiiY</a>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="code" href="classtest_app.html#a865985f78dd5def3ed20c87b9fc772b6">  177</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a020730abb55e6ae6d0a28edee19050e0" title="Wii-Mote Variables. ">roll</a>, <a class="code" href="classtest_app.html#a865985f78dd5def3ed20c87b9fc772b6">yaw</a>, <a class="code" href="classtest_app.html#aabbebeb113838374f659e86a0355b260">pitch</a>, <a class="code" href="classtest_app.html#a8e560e923c82d421857538e4a5927542">accel</a>, <a class="code" href="classtest_app.html#a7a77e8633c3a94e3e409a33a5cd9ae3f">wiiX</a>, <a class="code" href="classtest_app.html#a5ae41896388ae16ee530beca5333e02a">wiiY</a>;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="comment">/* Acceleration in x,y and z*/</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno"><a class="code" href="classtest_app.html#a61dbdd5c0b868568dde40a52f6e56054">  180</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#ad1738ff98d225f80b853a9ddc9f5a116">accel_x</a>,<a class="code" href="classtest_app.html#a204bcb2412a70a65ebea6008ee8c4eb0">accel_y</a>,<a class="code" href="classtest_app.html#a61dbdd5c0b868568dde40a52f6e56054">accel_z</a>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="code" href="classtest_app.html#a61dbdd5c0b868568dde40a52f6e56054">  180</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#ad1738ff98d225f80b853a9ddc9f5a116" title="Acceleration in x,y and z. ">accel_x</a>,<a class="code" href="classtest_app.html#a204bcb2412a70a65ebea6008ee8c4eb0">accel_y</a>,<a class="code" href="classtest_app.html#a61dbdd5c0b868568dde40a52f6e56054">accel_z</a>;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="comment">/* Angular Velocity as received from OSCulator ,this variable is helpful to predict if the swing is going forwards or backward .A +ve value means the swing is going front and a -ve value indicates the person is swinging backwards */</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="code" href="classtest_app.html#a98e05c3206ff95fccfebfc9df5317598">  183</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a98e05c3206ff95fccfebfc9df5317598">angular_velocity</a>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="code" href="classtest_app.html#a98e05c3206ff95fccfebfc9df5317598">  183</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a98e05c3206ff95fccfebfc9df5317598" title="Angular Velocity as received from OSCulator ,this variable is helpful to predict if the swing is goin...">angular_velocity</a>;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="comment">/* OSCReceiver class that interfaces with the OSCulator and receives values from the wii-mote */</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="code" href="classtest_app.html#a034c44ff60fa1e5f021e90d5410ba657">  186</a></span>&#160;        ofxOscReceiver <a class="code" href="classtest_app.html#a034c44ff60fa1e5f021e90d5410ba657">receiver</a>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="code" href="classtest_app.html#a034c44ff60fa1e5f021e90d5410ba657">  186</a></span>&#160;        ofxOscReceiver <a class="code" href="classtest_app.html#a034c44ff60fa1e5f021e90d5410ba657" title="OSCReceiver class that interfaces with the OSCulator and receives values from the wii-mote...">receiver</a>;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="comment">/* The message received from OSCulator containing details of the wiimote values like angular velocity and acceleration */</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="code" href="classtest_app.html#a0124035d0454fb6bd9152f8a87c40677">  189</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classtest_app.html#a0124035d0454fb6bd9152f8a87c40677">Message</a>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="code" href="classtest_app.html#a0124035d0454fb6bd9152f8a87c40677">  189</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classtest_app.html#a0124035d0454fb6bd9152f8a87c40677" title="The message received from OSCulator containing details of the wiimote values like angular velocity an...">Message</a>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        </div>
 <div class="line"><a name="l00191"></a><span class="lineno"><a class="code" href="classtest_app.html#a9ed611377cd46f5148a3a3d538e96484">  191</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classtest_app.html#a9ed611377cd46f5148a3a3d538e96484">windowWidth</a>,<a class="code" href="classtest_app.html#a4e8884eeef5b2657b62278969d4e3dcf">windowHeight</a>;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        </div>
@@ -267,8 +252,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        </div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">    #ifdef ADJUSTTIMEGAP</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor"></span>      </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="comment">/* These are the wii-mote variables that are used to adjust the timegap between two images */</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno"><a class="code" href="classtest_app.html#ac559756a01e0b98378bc29dfba9fac79">  198</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#ac559756a01e0b98378bc29dfba9fac79">minAngularVelocity</a>,<a class="code" href="classtest_app.html#ab9565e8e6dc748ef68e6845f5f94cae9">maxAngularVelocity</a>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="code" href="classtest_app.html#ac559756a01e0b98378bc29dfba9fac79">  198</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#ac559756a01e0b98378bc29dfba9fac79" title="These are the wii-mote variables that are used to adjust the timegap between two images. ">minAngularVelocity</a>,<a class="code" href="classtest_app.html#ab9565e8e6dc748ef68e6845f5f94cae9">maxAngularVelocity</a>;</div>
 <div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="classtest_app.html#ab007edbc20b09d607f8010e2dbafdb97">  199</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#ab007edbc20b09d607f8010e2dbafdb97">minAccel</a>,<a class="code" href="classtest_app.html#a34e834a5e4d359700147a74eece8eed1">maxAccel</a>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        </div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">    #endif</span></div>
@@ -277,18 +261,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00204"></a><span class="lineno"><a class="code" href="classtest_app.html#a8ce5505df4526abed238956b65956edd">  204</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classtest_app.html#a8ce5505df4526abed238956b65956edd">State</a>;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor"></span>        </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="comment">/* Time that an image will be shown on the screen,this is controlled by the wii-motes acceleration */</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno"><a class="code" href="classtest_app.html#a944f2713019239a4b49241a5cc9a00c9">  208</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a944f2713019239a4b49241a5cc9a00c9">timeGap</a>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="code" href="classtest_app.html#a944f2713019239a4b49241a5cc9a00c9">  208</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a944f2713019239a4b49241a5cc9a00c9" title="Time that an image will be shown on the screen,this is controlled by the wii-motes acceleration...">timeGap</a>;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        </div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="comment">/* This variable is used to check if a half-swing is completed ,that is from back to front or from front to back */</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="code" href="classtest_app.html#a42478a80a90ce9f663c04bcdaea5c5bd">  212</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a42478a80a90ce9f663c04bcdaea5c5bd">isturnCompleted</a>;</div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="code" href="classtest_app.html#a42478a80a90ce9f663c04bcdaea5c5bd">  212</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a42478a80a90ce9f663c04bcdaea5c5bd" title="This variable is used to check if a half-swing is completed ,that is from back to front or from front...">isturnCompleted</a>;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="comment">/* If set,this variable will cause the currentVolume variable to fade */</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno"><a class="code" href="classtest_app.html#a918c09b5a4389a8402cfacb25d390226">  215</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a918c09b5a4389a8402cfacb25d390226">fadeAudio</a>;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="code" href="classtest_app.html#a918c09b5a4389a8402cfacb25d390226">  215</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a918c09b5a4389a8402cfacb25d390226" title="If set,this variable will cause the currentVolume variable to fade. ">fadeAudio</a>;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="comment">/* The current volume variable is generally set to 1 ,but if fadeAudio is enabled,it will reduce the audio by -0.001 every frame,this is used in the end along with the Corresponding video to reduce the volume of the music */</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno"><a class="code" href="classtest_app.html#a51c20c5432d9f6b06f719526d9a34ee6">  218</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a51c20c5432d9f6b06f719526d9a34ee6">currentVolume</a>;</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="code" href="classtest_app.html#a51c20c5432d9f6b06f719526d9a34ee6">  218</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classtest_app.html#a51c20c5432d9f6b06f719526d9a34ee6" title="The current volume variable is generally set to 1 ,but if fadeAudio is enabled,it will reduce the aud...">currentVolume</a>;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00221"></a><span class="lineno"><a class="code" href="classtest_app.html#a8a65a6d1a473417cec1c2ac2e6116aae">  221</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a8a65a6d1a473417cec1c2ac2e6116aae" title="This variable is used to start the installation if the user is swinging on the wii-mote or if the ent...">startInstallation</a>;</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          </div>
@@ -296,8 +276,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">         * The below variables are used in the starting if the person is not swinging </span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">         */</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="comment">/* previewText is used for loading the font Asyouwish.ttf */</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno"><a class="code" href="classtest_app.html#af5b1af55af2256ef3751de075fc7a9cc">  228</a></span>&#160;        ofTrueTypeFont <a class="code" href="classtest_app.html#af5b1af55af2256ef3751de075fc7a9cc">previewText</a>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="code" href="classtest_app.html#af5b1af55af2256ef3751de075fc7a9cc">  228</a></span>&#160;        ofTrueTypeFont <a class="code" href="classtest_app.html#af5b1af55af2256ef3751de075fc7a9cc" title="previewText is used for loading the font Asyouwish.ttf ">previewText</a>;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        </div>
 <div class="line"><a name="l00231"></a><span class="lineno"><a class="code" href="classtest_app.html#ad9a4beab6f2e0f13d32b00b502e89bdc">  231</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classtest_app.html#ad9a4beab6f2e0f13d32b00b502e89bdc" title="This string will display &quot;Start Swinging !&quot; at the start. ">tempText</a>;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        </div>
@@ -325,66 +304,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="comment">/* The below data structures were used with the early re-ordering algorithms */</span></div>
 <div class="line"><a name="l00257"></a><span class="lineno"><a class="code" href="classtest_app.html#a9cb9aa0700c4c8b316329a86c4e650ec">  257</a></span>&#160;        vector&lt;ImageData&gt; <a class="code" href="classtest_app.html#adcd4c3dfc7257326a79e6a3fc8b33406">imageDetails</a>,<a class="code" href="classtest_app.html#a7f7226fc54fdb7d06366ed0fa3ab7ee3">taggedImages</a>,<a class="code" href="classtest_app.html#a9cb9aa0700c4c8b316329a86c4e650ec">untaggedImages</a>;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="comment">/* Vector that will use the above vector and ofLerp to compute the exact cameraposition */</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a2a792bfdf269fd69951cbf97d4f574af">adjustoverShotCameraPosition</a>();</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="comment">/* Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp */</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        </div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a1facfe2200dae7ad147b8f9ab31f68c6">animate</a>(<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="comment">/* StartingAnimation is the first animation that zooms out of the spiral */</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a79467453f6ea0dd63961a810dca9ac6a">startAnimation</a>();</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="comment">/* If the starting animation is active,this function will return a vector that has the startingCamera&#39;s tweened position */</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a1a97063e992528dc79867e516d9365f0">startAnimationCameraPosition</a>();</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aaa5c2175be1d5ca404c3c23a898d0cdd">pushWigglePositions</a>(); </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#acd718eb54b9dc2b45e463414c24de6b9" title="Pushing values ... ">wiggle</a>(); <span class="comment">// Actual wiggle code ...similar to the ofLerp for the animations ...</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="comment">/* This was an old function which was used to sort the images */</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a8a5d9dd51b5c7058ed88611b6ab2b57d">sortImages</a>();</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="comment">/* Vector that will use the above vector and ofLerp to compute the exact cameraposition */</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a2a792bfdf269fd69951cbf97d4f574af">adjustoverShotCameraPosition</a>();</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="comment">/* Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp */</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a1facfe2200dae7ad147b8f9ab31f68c6">animate</a>(<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="comment">/* StartingAnimation is the first animation that zooms out of the spiral */</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a79467453f6ea0dd63961a810dca9ac6a">startAnimation</a>();</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="comment">/* If the starting animation is active,this function will return a vector that has the startingCamera&#39;s tweened position */</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#a1a97063e992528dc79867e516d9365f0">startAnimationCameraPosition</a>();</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aaa5c2175be1d5ca404c3c23a898d0cdd">pushWigglePositions</a>(); </div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="comment">/* Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure  */</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa93380112b906e2aac2d8738309b2d17">loadImagesandXMLData</a>();</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#ab3aec1217fe6743f4ec9ed762148f627">reorder</a>();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        ofVec3f <a class="code" href="classtest_app.html#acd718eb54b9dc2b45e463414c24de6b9" title="Pushing values ... ">wiggle</a>(); <span class="comment">// Actual wiggle code ...similar to the ofLerp for the animations ...</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="comment">/* This was an old function which was used to sort the images */</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a8a5d9dd51b5c7058ed88611b6ab2b57d">sortImages</a>();</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="comment">/* This function will draw the images .Used in draw */</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a6dbcb5f1e47c842dfd1ab6b188097677">drawImages</a>();</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="comment">/* Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure  */</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa93380112b906e2aac2d8738309b2d17">loadImagesandXMLData</a>();</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        </div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="comment">/* Function that will generate the points on the Spiral */</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa30f4f1db2d186466f97e6ca15169712">generateCircularSpiral</a>();</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="comment">/* This funtion will load the images from the directory and push them into an ImageVector.UNUSED in the current version of the program */</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#afcb51e1a0b9152b9f6e6b102959bab51">loadImagesFromDirectory</a>();</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="comment">/* Had tried drawing small dot stars in the background.Unfortunately,it was too memory intensive on my machine,including these functions if anyone is interested in trying them out .Just call assiginStarpositions() in the setup function and drawStars() in the draw function */</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#ab3aec1217fe6743f4ec9ed762148f627">reorder</a>();</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="comment">/* This function will draw the images .Used in draw */</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a6dbcb5f1e47c842dfd1ab6b188097677">drawImages</a>();</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="comment">/* Function that will generate the points on the Spiral */</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa30f4f1db2d186466f97e6ca15169712">generateCircularSpiral</a>();</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a57e6d61c73ba0244b9d7a8c227aec244">assignStarPositions</a>();</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a3ea688a73ca9eb760a3f0a07fde0ac10">drawStars</a>();</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="comment">/* This funtion will load the images from the directory and push them into an ImageVector.UNUSED in the current version of the program */</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#afcb51e1a0b9152b9f6e6b102959bab51">loadImagesFromDirectory</a>();</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="comment">/* The following are unused data structures */</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a98baf4cdf9fa0f0a56056322b4e7f7e7">newReorder</a>();</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#abaca61ce3e4c1b6ce726c907915acf80">complexReorder</a>();</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="comment">/* Unused function that returns the lowest score of 2 imageData objects */</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a81cf913142d9512f9d1063cb7e71199b">sortOnImageScore</a>(<a class="code" href="struct_image_data.html">ImageData</a> l,<a class="code" href="struct_image_data.html">ImageData</a> r);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;};</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="comment">/* Had tried drawing small dot stars in the background.Unfortunately,it was too memory intensive on my machine,including these functions if anyone is interested in trying them out .Just call assiginStarpositions() in the setup function and drawStars() in the draw function */</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        </div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a57e6d61c73ba0244b9d7a8c227aec244">assignStarPositions</a>();</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a3ea688a73ca9eb760a3f0a07fde0ac10">drawStars</a>();</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="comment">/* The following are unused data structures */</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a98baf4cdf9fa0f0a56056322b4e7f7e7">newReorder</a>();</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#abaca61ce3e4c1b6ce726c907915acf80">complexReorder</a>();</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="comment">/* Unused function that returns the lowest score of 2 imageData objects */</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classtest_app.html#a81cf913142d9512f9d1063cb7e71199b">sortOnImageScore</a>(<a class="code" href="struct_image_data.html">ImageData</a> l,<a class="code" href="struct_image_data.html">ImageData</a> r);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 11 2013 22:35:23 for NostalgiaRoom by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 11 2013 22:49:49 for NostalgiaRoom by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

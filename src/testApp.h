@@ -2,8 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
-#include <algorithm>  
-#include "ofxBlur.h"
+#include <algorithm>
 #include "ofMain.h"
 
 #include "ofxOsc.h"
@@ -25,9 +24,6 @@
 //#define Prototype1
 //
 //#define Prototype2
-
-//#define BLUR
-
 
 struct ImageData
 {
@@ -149,11 +145,6 @@ public:
     
         /** \brief When set,this will start the overshot camera animation */
         bool startoverShotCameraAnimation;
-   
-#ifdef BLUR
-        /* Blur the Photos */
-        ofxBlur blur;
-#endif
     
         /** \brief Intermediate values that are used while tweening/animation of the camera positions */
         float position1_z,position2_z;
@@ -256,7 +247,6 @@ public:
         /* The below data structures were used with the early re-ordering algorithms */
         vector<ImageData> imageDetails,taggedImages,untaggedImages;
 
-    
     
     
     

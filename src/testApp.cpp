@@ -41,9 +41,6 @@ void testApp::setup()
     wiggleAnimationCounter=0;
     startInstallation=false;
 
-#ifdef BLUR
-    blur.setup(ofGetScreenWidth(), ofGetScreenHeight(), 1, .05, 10);
-#endif
     #endif
     
     ofEnableAlphaBlending();
@@ -295,9 +292,6 @@ ofSetColor(255,255,255);
 
     
     camera.end();
-#ifdef BLUR
-    blur.draw();
-#endif
 
 }
 
@@ -437,18 +431,6 @@ void testApp::keyPressed(int key){
         
     }
     
-    else
-    {
-#ifdef BLUR
-        ofImage imgSaver;
-        ofFbo tp=blur.returnbase();
-        tp.readToPixels(imgSaver.getPixelsRef());
-        
-        imgSaver.update();
-        
-        ofSaveImage(imgSaver,"blah.png",OF_IMAGE_QUALITY_BEST);
-#endif
-    }
 #endif
     
 
@@ -584,9 +566,6 @@ void testApp::drawImages()
     
         ofPushMatrix();
 
-#ifdef BLUR
-            blur.begin();
-#endif
         ofTranslate(35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].x,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].y,35*SpiralPoints[700*(combinedImageObjects.size()-1-i)].z);
          
         ; //cout<<35*SpiralPoints[700*i]<<"\t";
@@ -594,15 +573,9 @@ void testApp::drawImages()
             
       
         combinedImageObjects[i].theloadedimage.draw(-combinedImageObjects[i].theloadedimage.getWidth()/2,-combinedImageObjects[i].theloadedimage.getHeight()/2);
-#ifdef BLUR
-            blur.end();
-#endif
+
         ofPopMatrix();
         
-         
-//        imageIterator++;
-        //if(i>=1)
-            ;// ofLine(35*SpiralPoints[700*i],35*SpiralPoints[700*(i-1)]);
     }
 }
 

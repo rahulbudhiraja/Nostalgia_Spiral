@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7A50825E166B5B4F00920C56 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A50825C166B5B4F00920C56 /* testApp.cpp */; };
-		7A50E51A170CD4380046263F /* ofxBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A50E518170CD4380046263F /* ofxBlur.cpp */; };
 		7A5239E716ECD1CA00BE9DE4 /* libzxing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5239DC16ECD1CA00BE9DE4 /* libzxing.a */; };
 		7A5239E816ECD1CA00BE9DE4 /* ofPixelsBitmapSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5239DF16ECD1CA00BE9DE4 /* ofPixelsBitmapSource.cpp */; };
 		7A5239E916ECD1CA00BE9DE4 /* ofxZxing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A5239E116ECD1CA00BE9DE4 /* ofxZxing.cpp */; };
@@ -88,10 +87,6 @@
 		7A1DF60E16EAE69F0089D93A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A50825C166B5B4F00920C56 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		7A50825D166B5B4F00920C56 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
-		7A50E515170CD4380046263F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		7A50E516170CD4380046263F /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
-		7A50E518170CD4380046263F /* ofxBlur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxBlur.cpp; sourceTree = "<group>"; };
-		7A50E519170CD4380046263F /* ofxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxBlur.h; sourceTree = "<group>"; };
 		7A52398116ECD1C900BE9DE4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A52398416ECD1C900BE9DE4 /* BarcodeFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeFormat.h; sourceTree = "<group>"; };
 		7A52398516ECD1C900BE9DE4 /* Binarizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Binarizer.h; sourceTree = "<group>"; };
@@ -282,26 +277,6 @@
 				7A0B87A31767C83B00CE96EA /* ContentInfo.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7A50E514170CD4380046263F /* ofxBlur */ = {
-			isa = PBXGroup;
-			children = (
-				7A50E515170CD4380046263F /* .gitignore */,
-				7A50E516170CD4380046263F /* readme.md */,
-				7A50E517170CD4380046263F /* src */,
-			);
-			name = ofxBlur;
-			path = ../../../addons/ofxBlur;
-			sourceTree = "<group>";
-		};
-		7A50E517170CD4380046263F /* src */ = {
-			isa = PBXGroup;
-			children = (
-				7A50E518170CD4380046263F /* ofxBlur.cpp */,
-				7A50E519170CD4380046263F /* ofxBlur.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		7A52398016ECD1C900BE9DE4 /* ofxZxing */ = {
@@ -697,7 +672,6 @@
 			children = (
 				7ADB4981171A84BE00D1233F /* ofxOsc */,
 				7ADB49AB171A84BE00D1233F /* ofxWiiOSC */,
-				7A50E514170CD4380046263F /* ofxBlur */,
 				7AE1134716F0EC7B00DDDD8E /* ofxXmlSettings */,
 				7A52398016ECD1C900BE9DE4 /* ofxZxing */,
 			);
@@ -892,7 +866,6 @@
 				7AE1135116F0EC7B00DDDD8E /* tinyxmlerror.cpp in Sources */,
 				7AE1135216F0EC7B00DDDD8E /* tinyxmlparser.cpp in Sources */,
 				7AE1135316F0EC7B00DDDD8E /* ofxXmlSettings.cpp in Sources */,
-				7A50E51A170CD4380046263F /* ofxBlur.cpp in Sources */,
 				7ADB49B0171A84BE00D1233F /* IpEndpointName.cpp in Sources */,
 				7ADB49B1171A84BE00D1233F /* NetworkingUtils.cpp in Sources */,
 				7ADB49B2171A84BE00D1233F /* UdpSocket.cpp in Sources */,
