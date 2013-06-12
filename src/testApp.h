@@ -46,9 +46,11 @@ struct ImageData
 class testApp : public ofBaseApp{
     
 public:
-    testApp(long long int id);
-    
-    
+       
+    /**
+     * @addtogroup OpenframeworksDefaults
+     * @{
+     */
         void setup();
         void update();
         void draw();
@@ -61,7 +63,12 @@ public:
         void mouseReleased(int x, int y, int button);
         void windowResized(int w, int h);
         void dragEvent(ofDragInfo dragInfo);
+     /** @} */
+    
+    
         void gotMessage(ofMessage msg);
+        testApp(long long int id1);
+    
     
 #ifdef DEBUGMODE
        ofEasyCam camera;
@@ -337,21 +344,4 @@ public:
         /** @} */
         
     
-        /// Unused
-    
-        /* This funtion will load the images from the directory and push them into an ImageVector.UNUSED in the current version of the program */
-        void loadImagesFromDirectory();
-    
-        /* The following are unused data structures */
-        void newReorder();
-        void complexReorder();
-        
-        /* Unused function that returns the lowest score of 2 imageData objects */
-        bool sortOnImageScore(ImageData l,ImageData r);
-        /** This was an old function which was used to sort the images */
-        void sortImages();
-    
-    
-        /** Unused */
-        void reorder();
 };
