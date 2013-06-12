@@ -7,19 +7,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "src/testApp.h"
-         timestampString = "392675421.688506"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
-         landmarkName = "class testApp"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "src/testApp.cpp"
          timestampString = "392678020.111235"
          startingColumnNumber = "9223372036854775807"
@@ -106,19 +93,6 @@
          endingLineNumber = "1099"
          landmarkName = "testApp::complexReorder()"
          landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/testApp.h"
-         timestampString = "392673329.915227"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "219"
-         endingLineNumber = "219"
-         landmarkName = "class testApp"
-         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
