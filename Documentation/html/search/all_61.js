@@ -7,7 +7,6 @@ var searchData=
   ['adjustovershotcameraposition',['adjustoverShotCameraPosition',['../group___camera_animation.html#ga2a792bfdf269fd69951cbf97d4f574af',1,'testApp']]],
   ['adjusttimegap',['ADJUSTTIMEGAP',['../test_app_8h.html#a6bf1c6f7b9de7bc6e0b374881492bbcc',1,'testApp.h']]],
   ['albumnumber',['albumnumber',['../struct_image_data.html#a372655668350953b85fda1f07cd3ffe1',1,'ImageData']]],
-  ['albumscores',['albumScores',['../classtest_app.html#aa16e3bba73f9adb3c6363ac429e5a472',1,'testApp']]],
   ['angular_5fvelocity',['angular_velocity',['../group___wii_mote.html#ga98e05c3206ff95fccfebfc9df5317598',1,'testApp']]],
   ['animate',['animate',['../group___camera_animation.html#ga1facfe2200dae7ad147b8f9ab31f68c6',1,'testApp']]],
   ['animationcounter',['animationCounter',['../group___camera_animation.html#ga21b16bdba744425519597fcb925df43a',1,'testApp']]],

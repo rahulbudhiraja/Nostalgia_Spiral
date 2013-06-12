@@ -21,9 +21,8 @@
 
 //#define DEBUGMODE
 
-//#define Prototype1
-//
-//#define Prototype2
+#define PathToImageFolder "/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"
+
 
 struct ImageData
 {
@@ -63,11 +62,15 @@ public:
         void mouseReleased(int x, int y, int button);
         void windowResized(int w, int h);
         void dragEvent(ofDragInfo dragInfo);
-     /** @} */
-    
-    
         void gotMessage(ofMessage msg);
-        testApp(long long int id1);
+    /** @} */
+    
+    
+    /**
+     The Constructor takes the facebook userid and looks for that particular uid in the Images folder
+     @param a long long it
+     */
+        testApp(long long int uid);
     
     
 #ifdef DEBUGMODE
@@ -75,7 +78,7 @@ public:
 #endif
 #ifndef DEBUGMODE
     
-        /** 
+        /**
          * @addtogroup Camera
          * \brief This is the camera variable that will move around the entire scene 
          *
@@ -133,8 +136,10 @@ public:
         /** \brief Current Wiggle POsition */
         ofVec3f currentwigglePosition;
     
+        /** \brief The current active index of the WigglePositions vector.The index determines the direction in which the image will move */
         int currentwiggleindex;
     
+        /** \brief A seperate animation counter for wiggling */
         float wiggleAnimationCounter;
     
         /** @} */
@@ -210,7 +215,10 @@ public:
         
         int windowWidth,windowHeight;
     
-        /** @} */ 
+        /** Unused with current version but could be used if you want to make the camera position go front and back with wii-mote.See code for further details */
+        float prevAngVel=0;
+    
+        /** @} */
     
         
     #ifdef ADJUSTTIMEGAP
@@ -258,27 +266,9 @@ public:
                 
         /// Unused 
                 
-        /** \brief A multimap is used because it is easier to store 2 elements(Image number and index) and then sort the whole array based on the score .Unused */
-        multimap <int, int > imageScores;
-
-        /** \brief Unused Data Structures that were used earlier ,when the XML file was different to rank the images */
-        vector<ImageData> untaggedImageObjects,taggedImageObjects;
+        /** \brief Datastructure used to store details and images of the user's tagged images */
+        vector<ImageData> taggedImageObjects;
         
-        /** \brief Unused Data Structure */
-        vector<ofVec3f> imageData;
-    
-    
-    
-        
-        // UNUSED
-        float prevAngVel=0;
-        
-        /* Used with the old re-ordering */
-        multimap <int, int > albumScores;
-        
-        /* The below data structures were used with the early re-ordering algorithms */
-        vector<ImageData> imageDetails,taggedImages,untaggedImages;
-
     
         /** @addtogroup CameraAnimation
          *

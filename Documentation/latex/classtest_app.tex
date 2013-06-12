@@ -26,31 +26,31 @@ Collaboration diagram for test\-App\-:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classtest_app_a3d796120bccff4106a3ec028b9a81912}{test\-App} (long long int id)
+void \hyperlink{group___openframeworks_defaults_gad431db15b6150b965cd52bcba8e16e11}{setup} ()
 \item 
-void \hyperlink{classtest_app_ad431db15b6150b965cd52bcba8e16e11}{setup} ()
+void \hyperlink{group___openframeworks_defaults_gafb39d201aec71a295b7609876bf7d0c6}{update} ()
 \item 
-void \hyperlink{classtest_app_afb39d201aec71a295b7609876bf7d0c6}{update} ()
+void \hyperlink{group___openframeworks_defaults_gaf869cba67b1dab8481f8d0e216d59dcd}{draw} ()
 \item 
-void \hyperlink{classtest_app_af869cba67b1dab8481f8d0e216d59dcd}{draw} ()
+void \hyperlink{group___openframeworks_defaults_ga904d147c7e532cb92656d5dd4895cd26}{key\-Pressed} (int key)
 \item 
-void \hyperlink{classtest_app_a904d147c7e532cb92656d5dd4895cd26}{key\-Pressed} (int key)
+void \hyperlink{group___openframeworks_defaults_ga1116a10088e4932f6d482efe723cd45e}{key\-Released} (int key)
 \item 
-void \hyperlink{classtest_app_a1116a10088e4932f6d482efe723cd45e}{key\-Released} (int key)
+void \hyperlink{group___openframeworks_defaults_ga33541b19eff9f8285b2487bfc146d58b}{mouse\-Moved} (int x, int y)
 \item 
-void \hyperlink{classtest_app_a33541b19eff9f8285b2487bfc146d58b}{mouse\-Moved} (int x, int y)
+void \hyperlink{group___openframeworks_defaults_ga075bcc2be16fd8f3eaa9162fb40a0a1f}{mouse\-Dragged} (int x, int y, int button)
 \item 
-void \hyperlink{classtest_app_a075bcc2be16fd8f3eaa9162fb40a0a1f}{mouse\-Dragged} (int x, int y, int button)
+void \hyperlink{group___openframeworks_defaults_ga3f200702ce91859cac2872a39302679d}{mouse\-Pressed} (int x, int y, int button)
 \item 
-void \hyperlink{classtest_app_a3f200702ce91859cac2872a39302679d}{mouse\-Pressed} (int x, int y, int button)
+void \hyperlink{group___openframeworks_defaults_gaa3680ffc782b1e5c451289817f20c9c6}{mouse\-Released} (int x, int y, int button)
 \item 
-void \hyperlink{classtest_app_aa3680ffc782b1e5c451289817f20c9c6}{mouse\-Released} (int x, int y, int button)
+void \hyperlink{group___openframeworks_defaults_ga428b7df9c64352d6e7cb234fc297e6c9}{window\-Resized} (int w, int h)
 \item 
-void \hyperlink{classtest_app_a428b7df9c64352d6e7cb234fc297e6c9}{window\-Resized} (int w, int h)
-\item 
-void \hyperlink{classtest_app_af15e9e9064fe5ccbe6c82cc401ae9e09}{drag\-Event} (of\-Drag\-Info drag\-Info)
+void \hyperlink{group___openframeworks_defaults_gaf15e9e9064fe5ccbe6c82cc401ae9e09}{drag\-Event} (of\-Drag\-Info drag\-Info)
 \item 
 void \hyperlink{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}{got\-Message} (of\-Message msg)
+\item 
+\hyperlink{classtest_app_a43cbf11b718251f1fff8fbbe4a24d517}{test\-App} (long long int id1)
 \item 
 of\-Vec3f \hyperlink{group___camera_animation_ga2a792bfdf269fd69951cbf97d4f574af}{adjustover\-Shot\-Camera\-Position} ()
 \item 
@@ -73,18 +73,6 @@ void \hyperlink{classtest_app_aa30f4f1db2d186466f97e6ca15169712}{generate\-Circu
 void \hyperlink{group___drawing_stars_ga57e6d61c73ba0244b9d7a8c227aec244}{assign\-Star\-Positions} ()
 \item 
 void \hyperlink{group___drawing_stars_ga3ea688a73ca9eb760a3f0a07fde0ac10}{draw\-Stars} ()
-\item 
-void \hyperlink{classtest_app_afcb51e1a0b9152b9f6e6b102959bab51}{load\-Images\-From\-Directory} ()
-\begin{DoxyCompactList}\small\item\em Unused. \end{DoxyCompactList}\item 
-void \hyperlink{classtest_app_a98baf4cdf9fa0f0a56056322b4e7f7e7}{new\-Reorder} ()
-\item 
-void \hyperlink{classtest_app_abaca61ce3e4c1b6ce726c907915acf80}{complex\-Reorder} ()
-\item 
-bool \hyperlink{classtest_app_a81cf913142d9512f9d1063cb7e71199b}{sort\-On\-Image\-Score} (\hyperlink{struct_image_data}{Image\-Data} l, \hyperlink{struct_image_data}{Image\-Data} r)
-\item 
-void \hyperlink{classtest_app_a8a5d9dd51b5c7058ed88611b6ab2b57d}{sort\-Images} ()
-\item 
-void \hyperlink{classtest_app_ab3aec1217fe6743f4ec9ed762148f627}{reorder} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -175,6 +163,8 @@ int \hyperlink{group___wii_mote_ga9ed611377cd46f5148a3a3d538e96484}{window\-Widt
 \item 
 int \hyperlink{group___wii_mote_ga4e8884eeef5b2657b62278969d4e3dcf}{window\-Height}
 \item 
+float \hyperlink{group___wii_mote_ga8a2b9b9cf76097e20f148b616297029b}{prev\-Ang\-Vel} =0
+\item 
 float \hyperlink{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{min\-Angular\-Velocity}
 \begin{DoxyCompactList}\small\item\em These are the wii-\/mote variables that are used to adjust the timegap between two images. \end{DoxyCompactList}\item 
 float \hyperlink{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}{max\-Angular\-Velocity}
@@ -203,81 +193,32 @@ string \hyperlink{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}{temp\-Text}
 \begin{DoxyCompactList}\small\item\em This string will display \char`\"{}\-Start Swinging !\char`\"{} at the start. \end{DoxyCompactList}\item 
 bool \hyperlink{classtest_app_acf09303bc452d2a38098f6bf94655408}{ending}
 \begin{DoxyCompactList}\small\item\em If true,the ending variable will trigger the backward playing of the starting video and provides a nice smooth ending. \end{DoxyCompactList}\item 
-multimap$<$ int, int $>$ \hyperlink{classtest_app_a9ced1a64554a911109fe8a975b95b590}{image\-Scores}
-\begin{DoxyCompactList}\small\item\em Unused. \end{DoxyCompactList}\item 
-vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_ae31cc868f554f62b4c6e4e9db3b4155b}{untagged\-Image\-Objects}
-\begin{DoxyCompactList}\small\item\em Unused Data Structures that were used earlier ,when the X\-M\-L file was different to rank the images. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}{tagged\-Image\-Objects}
-\item 
-vector$<$ of\-Vec3f $>$ \hyperlink{classtest_app_a500cd1228b3364bf30c8fb185e375688}{image\-Data}
-\begin{DoxyCompactList}\small\item\em Unused Data Structure. \end{DoxyCompactList}\item 
-float \hyperlink{classtest_app_a8a2b9b9cf76097e20f148b616297029b}{prev\-Ang\-Vel} =0
-\item 
-multimap$<$ int, int $>$ \hyperlink{classtest_app_aa16e3bba73f9adb3c6363ac429e5a472}{album\-Scores}
-\item 
-vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_adcd4c3dfc7257326a79e6a3fc8b33406}{image\-Details}
-\item 
-vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_a7f7226fc54fdb7d06366ed0fa3ab7ee3}{tagged\-Images}
-\item 
-vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_a9cb9aa0700c4c8b316329a86c4e650ec}{untagged\-Images}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unused. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
-Definition at line 46 of file test\-App.\-h.
+Definition at line 45 of file test\-App.\-h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classtest_app_a3d796120bccff4106a3ec028b9a81912}{\index{test\-App@{test\-App}!test\-App@{test\-App}}
+\hypertarget{classtest_app_a43cbf11b718251f1fff8fbbe4a24d517}{\index{test\-App@{test\-App}!test\-App@{test\-App}}
 \index{test\-App@{test\-App}!testApp@{test\-App}}
 \subsubsection[{test\-App}]{\setlength{\rightskip}{0pt plus 5cm}test\-App\-::test\-App (
 \begin{DoxyParamCaption}
-\item[{long long int}]{id}
+\item[{long long int}]{id1}
 \end{DoxyParamCaption}
-)}}\label{classtest_app_a3d796120bccff4106a3ec028b9a81912}
+)}}\label{classtest_app_a43cbf11b718251f1fff8fbbe4a24d517}
 
 
-Definition at line 636 of file test\-App.\-cpp.
+Definition at line 602 of file test\-App.\-cpp.
 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classtest_app_abaca61ce3e4c1b6ce726c907915acf80}{\index{test\-App@{test\-App}!complex\-Reorder@{complex\-Reorder}}
-\index{complex\-Reorder@{complex\-Reorder}!testApp@{test\-App}}
-\subsubsection[{complex\-Reorder}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::complex\-Reorder (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_abaca61ce3e4c1b6ce726c907915acf80}
-
-
-Definition at line 1079 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_af15e9e9064fe5ccbe6c82cc401ae9e09}{\index{test\-App@{test\-App}!drag\-Event@{drag\-Event}}
-\index{drag\-Event@{drag\-Event}!testApp@{test\-App}}
-\subsubsection[{drag\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::drag\-Event (
-\begin{DoxyParamCaption}
-\item[{of\-Drag\-Info}]{drag\-Info}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_af15e9e9064fe5ccbe6c82cc401ae9e09}
-
-
-Definition at line 476 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_af869cba67b1dab8481f8d0e216d59dcd}{\index{test\-App@{test\-App}!draw@{draw}}
-\index{draw@{draw}!testApp@{test\-App}}
-\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::draw (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_af869cba67b1dab8481f8d0e216d59dcd}
-
-
-Definition at line 199 of file test\-App.\-cpp.
-
 \hypertarget{classtest_app_a6dbcb5f1e47c842dfd1ab6b188097677}{\index{test\-App@{test\-App}!draw\-Images@{draw\-Images}}
 \index{draw\-Images@{draw\-Images}!testApp@{test\-App}}
 \subsubsection[{draw\-Images}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::draw\-Images (
@@ -287,7 +228,7 @@ Definition at line 199 of file test\-App.\-cpp.
 )}}\label{classtest_app_a6dbcb5f1e47c842dfd1ab6b188097677}
 This function will draw the images.\-Used in draw 
 
-Definition at line 521 of file test\-App.\-cpp.
+Definition at line 505 of file test\-App.\-cpp.
 
 \hypertarget{classtest_app_aa30f4f1db2d186466f97e6ca15169712}{\index{test\-App@{test\-App}!generate\-Circular\-Spiral@{generate\-Circular\-Spiral}}
 \index{generate\-Circular\-Spiral@{generate\-Circular\-Spiral}!testApp@{test\-App}}
@@ -298,7 +239,7 @@ Definition at line 521 of file test\-App.\-cpp.
 )}}\label{classtest_app_aa30f4f1db2d186466f97e6ca15169712}
 Function that will generate the points on the Spiral 
 
-Definition at line 480 of file test\-App.\-cpp.
+Definition at line 470 of file test\-App.\-cpp.
 
 \hypertarget{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}{\index{test\-App@{test\-App}!got\-Message@{got\-Message}}
 \index{got\-Message@{got\-Message}!testApp@{test\-App}}
@@ -309,29 +250,7 @@ Definition at line 480 of file test\-App.\-cpp.
 )}}\label{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}
 
 
-Definition at line 471 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a904d147c7e532cb92656d5dd4895cd26}{\index{test\-App@{test\-App}!key\-Pressed@{key\-Pressed}}
-\index{key\-Pressed@{key\-Pressed}!testApp@{test\-App}}
-\subsubsection[{key\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::key\-Pressed (
-\begin{DoxyParamCaption}
-\item[{int}]{key}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a904d147c7e532cb92656d5dd4895cd26}
-
-
-Definition at line 401 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a1116a10088e4932f6d482efe723cd45e}{\index{test\-App@{test\-App}!key\-Released@{key\-Released}}
-\index{key\-Released@{key\-Released}!testApp@{test\-App}}
-\subsubsection[{key\-Released}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::key\-Released (
-\begin{DoxyParamCaption}
-\item[{int}]{key}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a1116a10088e4932f6d482efe723cd45e}
-
-
-Definition at line 441 of file test\-App.\-cpp.
+Definition at line 461 of file test\-App.\-cpp.
 
 \hypertarget{classtest_app_aa93380112b906e2aac2d8738309b2d17}{\index{test\-App@{test\-App}!load\-Imagesand\-X\-M\-L\-Data@{load\-Imagesand\-X\-M\-L\-Data}}
 \index{load\-Imagesand\-X\-M\-L\-Data@{load\-Imagesand\-X\-M\-L\-Data}!testApp@{test\-App}}
@@ -342,163 +261,11 @@ Definition at line 441 of file test\-App.\-cpp.
 )}}\label{classtest_app_aa93380112b906e2aac2d8738309b2d17}
 Load the Images and X\-M\-L Data.\-This function will load the images from the directory and then parse the xml to get the score and album number.\-Once that is done ,we combine the untagged and tagged images to get a combined Data Structure 
 
-Definition at line 732 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_afcb51e1a0b9152b9f6e6b102959bab51}{\index{test\-App@{test\-App}!load\-Images\-From\-Directory@{load\-Images\-From\-Directory}}
-\index{load\-Images\-From\-Directory@{load\-Images\-From\-Directory}!testApp@{test\-App}}
-\subsubsection[{load\-Images\-From\-Directory}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::load\-Images\-From\-Directory (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_afcb51e1a0b9152b9f6e6b102959bab51}
-
-
-Unused. 
-
-
-
-Definition at line 1001 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a075bcc2be16fd8f3eaa9162fb40a0a1f}{\index{test\-App@{test\-App}!mouse\-Dragged@{mouse\-Dragged}}
-\index{mouse\-Dragged@{mouse\-Dragged}!testApp@{test\-App}}
-\subsubsection[{mouse\-Dragged}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Dragged (
-\begin{DoxyParamCaption}
-\item[{int}]{x, }
-\item[{int}]{y, }
-\item[{int}]{button}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a075bcc2be16fd8f3eaa9162fb40a0a1f}
-
-
-Definition at line 451 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a33541b19eff9f8285b2487bfc146d58b}{\index{test\-App@{test\-App}!mouse\-Moved@{mouse\-Moved}}
-\index{mouse\-Moved@{mouse\-Moved}!testApp@{test\-App}}
-\subsubsection[{mouse\-Moved}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Moved (
-\begin{DoxyParamCaption}
-\item[{int}]{x, }
-\item[{int}]{y}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a33541b19eff9f8285b2487bfc146d58b}
-
-
-Definition at line 446 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a3f200702ce91859cac2872a39302679d}{\index{test\-App@{test\-App}!mouse\-Pressed@{mouse\-Pressed}}
-\index{mouse\-Pressed@{mouse\-Pressed}!testApp@{test\-App}}
-\subsubsection[{mouse\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Pressed (
-\begin{DoxyParamCaption}
-\item[{int}]{x, }
-\item[{int}]{y, }
-\item[{int}]{button}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a3f200702ce91859cac2872a39302679d}
-
-
-Definition at line 456 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_aa3680ffc782b1e5c451289817f20c9c6}{\index{test\-App@{test\-App}!mouse\-Released@{mouse\-Released}}
-\index{mouse\-Released@{mouse\-Released}!testApp@{test\-App}}
-\subsubsection[{mouse\-Released}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::mouse\-Released (
-\begin{DoxyParamCaption}
-\item[{int}]{x, }
-\item[{int}]{y, }
-\item[{int}]{button}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_aa3680ffc782b1e5c451289817f20c9c6}
-
-
-Definition at line 461 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a98baf4cdf9fa0f0a56056322b4e7f7e7}{\index{test\-App@{test\-App}!new\-Reorder@{new\-Reorder}}
-\index{new\-Reorder@{new\-Reorder}!testApp@{test\-App}}
-\subsubsection[{new\-Reorder}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::new\-Reorder (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a98baf4cdf9fa0f0a56056322b4e7f7e7}
-
-
-Definition at line 1043 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_ab3aec1217fe6743f4ec9ed762148f627}{\index{test\-App@{test\-App}!reorder@{reorder}}
-\index{reorder@{reorder}!testApp@{test\-App}}
-\subsubsection[{reorder}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::reorder (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_ab3aec1217fe6743f4ec9ed762148f627}
-Unused 
-
-Definition at line 1262 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_ad431db15b6150b965cd52bcba8e16e11}{\index{test\-App@{test\-App}!setup@{setup}}
-\index{setup@{setup}!testApp@{test\-App}}
-\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::setup (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_ad431db15b6150b965cd52bcba8e16e11}
-
-
-Definition at line 5 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a8a5d9dd51b5c7058ed88611b6ab2b57d}{\index{test\-App@{test\-App}!sort\-Images@{sort\-Images}}
-\index{sort\-Images@{sort\-Images}!testApp@{test\-App}}
-\subsubsection[{sort\-Images}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::sort\-Images (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a8a5d9dd51b5c7058ed88611b6ab2b57d}
-This was an old function which was used to sort the images The New Sorting Algorithm 
-
-Definition at line 1151 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a81cf913142d9512f9d1063cb7e71199b}{\index{test\-App@{test\-App}!sort\-On\-Image\-Score@{sort\-On\-Image\-Score}}
-\index{sort\-On\-Image\-Score@{sort\-On\-Image\-Score}!testApp@{test\-App}}
-\subsubsection[{sort\-On\-Image\-Score}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::sort\-On\-Image\-Score (
-\begin{DoxyParamCaption}
-\item[{{\bf Image\-Data}}]{l, }
-\item[{{\bf Image\-Data}}]{r}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a81cf913142d9512f9d1063cb7e71199b}
-
-
-Definition at line 1039 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_afb39d201aec71a295b7609876bf7d0c6}{\index{test\-App@{test\-App}!update@{update}}
-\index{update@{update}!testApp@{test\-App}}
-\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::update (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_afb39d201aec71a295b7609876bf7d0c6}
-
-
-Definition at line 100 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a428b7df9c64352d6e7cb234fc297e6c9}{\index{test\-App@{test\-App}!window\-Resized@{window\-Resized}}
-\index{window\-Resized@{window\-Resized}!testApp@{test\-App}}
-\subsubsection[{window\-Resized}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::window\-Resized (
-\begin{DoxyParamCaption}
-\item[{int}]{w, }
-\item[{int}]{h}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a428b7df9c64352d6e7cb234fc297e6c9}
-
-
-Definition at line 466 of file test\-App.\-cpp.
+Definition at line 681 of file test\-App.\-cpp.
 
 
 
 \subsection{Member Data Documentation}
-\hypertarget{classtest_app_aa16e3bba73f9adb3c6363ac429e5a472}{\index{test\-App@{test\-App}!album\-Scores@{album\-Scores}}
-\index{album\-Scores@{album\-Scores}!testApp@{test\-App}}
-\subsubsection[{album\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}multimap$<$int, int $>$ test\-App\-::album\-Scores}}\label{classtest_app_aa16e3bba73f9adb3c6363ac429e5a472}
-
-
-Definition at line 270 of file test\-App.\-h.
-
 \hypertarget{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}{\index{test\-App@{test\-App}!Bluementhal\-Mp3@{Bluementhal\-Mp3}}
 \index{Bluementhal\-Mp3@{Bluementhal\-Mp3}!testApp@{test\-App}}
 \subsubsection[{Bluementhal\-Mp3}]{\setlength{\rightskip}{0pt plus 5cm}of\-Sound\-Player test\-App\-::\-Bluementhal\-Mp3}}\label{classtest_app_af696fd13ee9ecb38ac0ba0b72543ce06}
@@ -508,7 +275,7 @@ This class plays the Bluementhal song by Ulrich Schnauss in the background while
 
 
 
-Definition at line 178 of file test\-App.\-h.
+Definition at line 184 of file test\-App.\-h.
 
 \hypertarget{classtest_app_aced9b8a8419c8465877c2c9cd43f8934}{\index{test\-App@{test\-App}!combined\-Image\-Objects@{combined\-Image\-Objects}}
 \index{combined\-Image\-Objects@{combined\-Image\-Objects}!testApp@{test\-App}}
@@ -519,7 +286,7 @@ The actual data structure that is used for storing the \hyperlink{struct_image_d
 
 
 
-Definition at line 138 of file test\-App.\-h.
+Definition at line 144 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}{\index{test\-App@{test\-App}!current\-Volume@{current\-Volume}}
 \index{current\-Volume@{current\-Volume}!testApp@{test\-App}}
@@ -530,7 +297,7 @@ The current volume variable is generally set to 1 ,but if fade\-Audio is enabled
 
 
 
-Definition at line 234 of file test\-App.\-h.
+Definition at line 243 of file test\-App.\-h.
 
 \hypertarget{classtest_app_acf09303bc452d2a38098f6bf94655408}{\index{test\-App@{test\-App}!ending@{ending}}
 \index{ending@{ending}!testApp@{test\-App}}
@@ -541,7 +308,7 @@ If true,the ending variable will trigger the backward playing of the starting vi
 
 
 
-Definition at line 250 of file test\-App.\-h.
+Definition at line 259 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a918c09b5a4389a8402cfacb25d390226}{\index{test\-App@{test\-App}!fade\-Audio@{fade\-Audio}}
 \index{fade\-Audio@{fade\-Audio}!testApp@{test\-App}}
@@ -552,7 +319,7 @@ If set,this variable will cause the current\-Volume variable to fade.
 
 
 
-Definition at line 231 of file test\-App.\-h.
+Definition at line 240 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab336e228840f001d15f9b1eb3a30972f}{\index{test\-App@{test\-App}!fonttodisplay\-Wiimote\-Values@{fonttodisplay\-Wiimote\-Values}}
 \index{fonttodisplay\-Wiimote\-Values@{fonttodisplay\-Wiimote\-Values}!testApp@{test\-App}}
@@ -563,36 +330,7 @@ Font to display the wiimote values on screen for debugging.
 
 
 
-Definition at line 217 of file test\-App.\-h.
-
-\hypertarget{classtest_app_a500cd1228b3364bf30c8fb185e375688}{\index{test\-App@{test\-App}!image\-Data@{image\-Data}}
-\index{image\-Data@{image\-Data}!testApp@{test\-App}}
-\subsubsection[{image\-Data}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$of\-Vec3f$>$ test\-App\-::image\-Data}}\label{classtest_app_a500cd1228b3364bf30c8fb185e375688}
-
-
-Unused Data Structure. 
-
-
-
-Definition at line 261 of file test\-App.\-h.
-
-\hypertarget{classtest_app_adcd4c3dfc7257326a79e6a3fc8b33406}{\index{test\-App@{test\-App}!image\-Details@{image\-Details}}
-\index{image\-Details@{image\-Details}!testApp@{test\-App}}
-\subsubsection[{image\-Details}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::image\-Details}}\label{classtest_app_adcd4c3dfc7257326a79e6a3fc8b33406}
-
-
-Definition at line 273 of file test\-App.\-h.
-
-\hypertarget{classtest_app_a9ced1a64554a911109fe8a975b95b590}{\index{test\-App@{test\-App}!image\-Scores@{image\-Scores}}
-\index{image\-Scores@{image\-Scores}!testApp@{test\-App}}
-\subsubsection[{image\-Scores}]{\setlength{\rightskip}{0pt plus 5cm}multimap$<$int, int $>$ test\-App\-::image\-Scores}}\label{classtest_app_a9ced1a64554a911109fe8a975b95b590}
-
-
-Unused. 
-
-A multimap is used because it is easier to store 2 elements(\-Image number and index) and then sort the whole array based on the score .Unused 
-
-Definition at line 255 of file test\-App.\-h.
+Definition at line 226 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ad4de5d6e6e8f3b8bb7424e62792deb1f}{\index{test\-App@{test\-App}!Image\-Vector@{Image\-Vector}}
 \index{Image\-Vector@{Image\-Vector}!testApp@{test\-App}}
@@ -603,7 +341,7 @@ Will store the loaded images from the directory in a Vector.
 
 
 
-Definition at line 150 of file test\-App.\-h.
+Definition at line 156 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}{\index{test\-App@{test\-App}!isturn\-Completed@{isturn\-Completed}}
 \index{isturn\-Completed@{isturn\-Completed}!testApp@{test\-App}}
@@ -614,28 +352,28 @@ This variable is used to check if a half-\/swing is completed ,that is from back
 
 
 
-Definition at line 228 of file test\-App.\-h.
+Definition at line 237 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a34e834a5e4d359700147a74eece8eed1}{\index{test\-App@{test\-App}!max\-Accel@{max\-Accel}}
 \index{max\-Accel@{max\-Accel}!testApp@{test\-App}}
 \subsubsection[{max\-Accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::max\-Accel}}\label{classtest_app_a34e834a5e4d359700147a74eece8eed1}
 
 
-Definition at line 213 of file test\-App.\-h.
+Definition at line 222 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}{\index{test\-App@{test\-App}!max\-Angular\-Velocity@{max\-Angular\-Velocity}}
 \index{max\-Angular\-Velocity@{max\-Angular\-Velocity}!testApp@{test\-App}}
 \subsubsection[{max\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::max\-Angular\-Velocity}}\label{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}
 
 
-Definition at line 212 of file test\-App.\-h.
+Definition at line 221 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}{\index{test\-App@{test\-App}!min\-Accel@{min\-Accel}}
 \index{min\-Accel@{min\-Accel}!testApp@{test\-App}}
 \subsubsection[{min\-Accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::min\-Accel}}\label{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}
 
 
-Definition at line 213 of file test\-App.\-h.
+Definition at line 222 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{\index{test\-App@{test\-App}!min\-Angular\-Velocity@{min\-Angular\-Velocity}}
 \index{min\-Angular\-Velocity@{min\-Angular\-Velocity}!testApp@{test\-App}}
@@ -646,7 +384,7 @@ These are the wii-\/mote variables that are used to adjust the timegap between t
 
 
 
-Definition at line 212 of file test\-App.\-h.
+Definition at line 221 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a957cf7fdb3ea964a88ca1be13e4d68fc}{\index{test\-App@{test\-App}!numberof\-Images@{numberof\-Images}}
 \index{numberof\-Images@{numberof\-Images}!testApp@{test\-App}}
@@ -657,7 +395,7 @@ Number of images loaded in the Image\-Vector data structure.
 
 
 
-Definition at line 153 of file test\-App.\-h.
+Definition at line 159 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}{\index{test\-App@{test\-App}!overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}}
 \index{overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}!testApp@{test\-App}}
@@ -668,7 +406,7 @@ The whole starting Animation consists of a few Components.\-A video played at th
 
 This vector will store the overshot\-Camera\-Position and changes the camera\-Position during the start while tweening 
 
-Definition at line 161 of file test\-App.\-h.
+Definition at line 167 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a85133f49103cfa002f39d882f7168236}{\index{test\-App@{test\-App}!pictures\-\_\-\-X\-M\-L@{pictures\-\_\-\-X\-M\-L}}
 \index{pictures\-\_\-\-X\-M\-L@{pictures\-\_\-\-X\-M\-L}!testApp@{test\-App}}
@@ -679,7 +417,7 @@ To load the X\-M\-L File that is downloaded by the Nostalgia\-Room Website.
 
 
 
-Definition at line 114 of file test\-App.\-h.
+Definition at line 120 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a808376783cdf510335cd1b37026e9bb3}{\index{test\-App@{test\-App}!position1\-\_\-z@{position1\-\_\-z}}
 \index{position1\-\_\-z@{position1\-\_\-z}!testApp@{test\-App}}
@@ -690,21 +428,14 @@ Intermediate values that are used while tweening/animation of the camera positio
 
 
 
-Definition at line 169 of file test\-App.\-h.
+Definition at line 175 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a0720011cfaade6388109232ea4927c19}{\index{test\-App@{test\-App}!position2\-\_\-z@{position2\-\_\-z}}
 \index{position2\-\_\-z@{position2\-\_\-z}!testApp@{test\-App}}
 \subsubsection[{position2\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::position2\-\_\-z}}\label{classtest_app_a0720011cfaade6388109232ea4927c19}
 
 
-Definition at line 169 of file test\-App.\-h.
-
-\hypertarget{classtest_app_a8a2b9b9cf76097e20f148b616297029b}{\index{test\-App@{test\-App}!prev\-Ang\-Vel@{prev\-Ang\-Vel}}
-\index{prev\-Ang\-Vel@{prev\-Ang\-Vel}!testApp@{test\-App}}
-\subsubsection[{prev\-Ang\-Vel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::prev\-Ang\-Vel =0}}\label{classtest_app_a8a2b9b9cf76097e20f148b616297029b}
-
-
-Definition at line 267 of file test\-App.\-h.
+Definition at line 175 of file test\-App.\-h.
 
 \hypertarget{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}{\index{test\-App@{test\-App}!preview\-Text@{preview\-Text}}
 \index{preview\-Text@{preview\-Text}!testApp@{test\-App}}
@@ -715,7 +446,7 @@ preview\-Text is used for loading the font Asyouwish.\-ttf
 
 
 
-Definition at line 244 of file test\-App.\-h.
+Definition at line 253 of file test\-App.\-h.
 
 \hypertarget{classtest_app_af0dd2f3e3aabdb43bee49d74c156dc05}{\index{test\-App@{test\-App}!Spiral\-Points@{Spiral\-Points}}
 \index{Spiral\-Points@{Spiral\-Points}!testApp@{test\-App}}
@@ -726,7 +457,7 @@ These are Spiralpoints generated using the Conical Helix function.
 
 
 
-Definition at line 146 of file test\-App.\-h.
+Definition at line 152 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a68d0d30cea64a9d39a1b2deef16677ad}{\index{test\-App@{test\-App}!Star\-Positions@{Star\-Positions}}
 \index{Star\-Positions@{Star\-Positions}!testApp@{test\-App}}
@@ -737,7 +468,7 @@ Stores the positions of the stars.
 
 
 
-Definition at line 141 of file test\-App.\-h.
+Definition at line 147 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a9bfe7793fa0689a991ff64174745c38f}{\index{test\-App@{test\-App}!starting\-Movie@{starting\-Movie}}
 \index{starting\-Movie@{starting\-Movie}!testApp@{test\-App}}
@@ -748,7 +479,7 @@ Apparently,the of\-Q\-T\-Kit\-Player plays H\-D Video better than of\-Video\-Pla
 
 
 
-Definition at line 172 of file test\-App.\-h.
+Definition at line 178 of file test\-App.\-h.
 
 \hypertarget{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}{\index{test\-App@{test\-App}!starting\-Movie\-Finished@{starting\-Movie\-Finished}}
 \index{starting\-Movie\-Finished@{starting\-Movie\-Finished}!testApp@{test\-App}}
@@ -759,7 +490,7 @@ Variable determines if the starting\-Movie has finished playing or not (initiall
 
 
 
-Definition at line 175 of file test\-App.\-h.
+Definition at line 181 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a8a65a6d1a473417cec1c2ac2e6116aae}{\index{test\-App@{test\-App}!start\-Installation@{start\-Installation}}
 \index{start\-Installation@{start\-Installation}!testApp@{test\-App}}
@@ -770,7 +501,7 @@ This variable is used to start the installation if the user is swinging on the w
 
 
 
-Definition at line 237 of file test\-App.\-h.
+Definition at line 246 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ad2fca6ce5e37462cd820afc48633324d}{\index{test\-App@{test\-App}!startover\-Shot\-Camera\-Animation@{startover\-Shot\-Camera\-Animation}}
 \index{startover\-Shot\-Camera\-Animation@{startover\-Shot\-Camera\-Animation}!testApp@{test\-App}}
@@ -781,7 +512,7 @@ When set,this will start the overshot camera animation.
 
 
 
-Definition at line 166 of file test\-App.\-h.
+Definition at line 172 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a8ce5505df4526abed238956b65956edd}{\index{test\-App@{test\-App}!State@{State}}
 \index{State@{State}!testApp@{test\-App}}
@@ -792,21 +523,18 @@ Swing's current state i.\-e.
 
 
 
-Definition at line 220 of file test\-App.\-h.
+Definition at line 229 of file test\-App.\-h.
 
 \hypertarget{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}{\index{test\-App@{test\-App}!tagged\-Image\-Objects@{tagged\-Image\-Objects}}
 \index{tagged\-Image\-Objects@{tagged\-Image\-Objects}!testApp@{test\-App}}
 \subsubsection[{tagged\-Image\-Objects}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::tagged\-Image\-Objects}}\label{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}
 
 
-Definition at line 258 of file test\-App.\-h.
+Unused. 
 
-\hypertarget{classtest_app_a7f7226fc54fdb7d06366ed0fa3ab7ee3}{\index{test\-App@{test\-App}!tagged\-Images@{tagged\-Images}}
-\index{tagged\-Images@{tagged\-Images}!testApp@{test\-App}}
-\subsubsection[{tagged\-Images}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::tagged\-Images}}\label{classtest_app_a7f7226fc54fdb7d06366ed0fa3ab7ee3}
+Datastructure used to store details and images of the user's tagged images 
 
-
-Definition at line 273 of file test\-App.\-h.
+Definition at line 264 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}{\index{test\-App@{test\-App}!temp\-Text@{temp\-Text}}
 \index{temp\-Text@{temp\-Text}!testApp@{test\-App}}
@@ -817,7 +545,7 @@ This string will display \char`\"{}\-Start Swinging !\char`\"{} at the start.
 
 
 
-Definition at line 247 of file test\-App.\-h.
+Definition at line 256 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a944f2713019239a4b49241a5cc9a00c9}{\index{test\-App@{test\-App}!time\-Gap@{time\-Gap}}
 \index{time\-Gap@{time\-Gap}!testApp@{test\-App}}
@@ -828,7 +556,7 @@ Time that an image will be shown on the screen,this is controlled by the wii-\/m
 
 
 
-Definition at line 224 of file test\-App.\-h.
+Definition at line 233 of file test\-App.\-h.
 
 \hypertarget{classtest_app_acb60fb8a89e9ec5d461630a20b11ceda}{\index{test\-App@{test\-App}!timesince\-Last\-Transition@{timesince\-Last\-Transition}}
 \index{timesince\-Last\-Transition@{timesince\-Last\-Transition}!testApp@{test\-App}}
@@ -839,25 +567,7 @@ Time since Previous Transition/\-Animation.
 
 
 
-Definition at line 156 of file test\-App.\-h.
-
-\hypertarget{classtest_app_ae31cc868f554f62b4c6e4e9db3b4155b}{\index{test\-App@{test\-App}!untagged\-Image\-Objects@{untagged\-Image\-Objects}}
-\index{untagged\-Image\-Objects@{untagged\-Image\-Objects}!testApp@{test\-App}}
-\subsubsection[{untagged\-Image\-Objects}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::untagged\-Image\-Objects}}\label{classtest_app_ae31cc868f554f62b4c6e4e9db3b4155b}
-
-
-Unused Data Structures that were used earlier ,when the X\-M\-L file was different to rank the images. 
-
-
-
-Definition at line 258 of file test\-App.\-h.
-
-\hypertarget{classtest_app_a9cb9aa0700c4c8b316329a86c4e650ec}{\index{test\-App@{test\-App}!untagged\-Images@{untagged\-Images}}
-\index{untagged\-Images@{untagged\-Images}!testApp@{test\-App}}
-\subsubsection[{untagged\-Images}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Image\-Data}$>$ test\-App\-::untagged\-Images}}\label{classtest_app_a9cb9aa0700c4c8b316329a86c4e650ec}
-
-
-Definition at line 273 of file test\-App.\-h.
+Definition at line 162 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a6ae76dc97fbeee00755f4a6cd6b87e19}{\index{test\-App@{test\-App}!userid@{userid}}
 \index{userid@{userid}!testApp@{test\-App}}
@@ -868,7 +578,7 @@ The user's id that is passed at run-\/time.\-Only a long long int (max value 922
 
 
 
-Definition at line 117 of file test\-App.\-h.
+Definition at line 123 of file test\-App.\-h.
 
 
 

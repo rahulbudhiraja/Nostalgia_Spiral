@@ -1,9 +1,8 @@
 var searchData=
 [
   ['taggedimageobjects',['taggedImageObjects',['../classtest_app.html#af65c8dc2f4620bfe7fdf6a39043cb48d',1,'testApp']]],
-  ['taggedimages',['taggedImages',['../classtest_app.html#a7f7226fc54fdb7d06366ed0fa3ab7ee3',1,'testApp']]],
   ['temptext',['tempText',['../classtest_app.html#ad9a4beab6f2e0f13d32b00b502e89bdc',1,'testApp']]],
-  ['testapp',['testApp',['../classtest_app.html',1,'testApp'],['../classtest_app.html#a3d796120bccff4106a3ec028b9a81912',1,'testApp::testApp()']]],
+  ['testapp',['testApp',['../classtest_app.html',1,'testApp'],['../classtest_app.html#a43cbf11b718251f1fff8fbbe4a24d517',1,'testApp::testApp()']]],
   ['testapp_2ecpp',['testApp.cpp',['../test_app_8cpp.html',1,'']]],
   ['testapp_2eh',['testApp.h',['../test_app_8h.html',1,'']]],
   ['theloadedimage',['theloadedimage',['../struct_image_data.html#acf1bde00dd79a0960269618d9b885f61',1,'ImageData']]],

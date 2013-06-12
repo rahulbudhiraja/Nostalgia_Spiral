@@ -681,7 +681,7 @@ void testApp::assignStarPositions()
 void testApp::loadImagesandXMLData()
 {
     // Change this to your Directory Path 
-    string untaggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/untaggedImages/";
+    string untaggedDirpath=PathToImageFolder+ofToString(userid)+"/untaggedImages/";
     
     ofDirectory untaggeddir(untaggedDirpath);
     untaggeddir.allowExt("png");
@@ -702,7 +702,7 @@ void testApp::loadImagesandXMLData()
     
     int imageCounter=0;
     
-    string xmlpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/imagedata.xml";
+    string xmlpath=PathToImageFolder+ofToString(userid)+"/imagedata.xml";
     
     // Just a temporary ImageData object 
     ImageData imagedataObject;
@@ -755,7 +755,7 @@ void testApp::loadImagesandXMLData()
     
     
     
-    string taggedDirpath="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"+ofToString(userid)+"/taggedImages/";
+    string taggedDirpath=PathToImageFolder+ofToString(userid)+"/taggedImages/";
     ofDirectory taggeddir(taggedDirpath);
     
     taggeddir.allowExt("png");
@@ -874,11 +874,3 @@ ofVec3f testApp::adjustoverShotCameraPosition()
     return tweenedCameraPosition;
     
 }
-
-
-
-///// Unused ...
-
-
-
-

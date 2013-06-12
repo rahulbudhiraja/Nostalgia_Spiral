@@ -7,6 +7,6 @@ var searchData=
   ['wiix',['wiiX',['../group___wii_mote.html#ga7a77e8633c3a94e3e409a33a5cd9ae3f',1,'testApp']]],
   ['wiiy',['wiiY',['../group___wii_mote.html#ga5ae41896388ae16ee530beca5333e02a',1,'testApp']]],
   ['windowheight',['windowHeight',['../group___wii_mote.html#ga4e8884eeef5b2657b62278969d4e3dcf',1,'testApp']]],
-  ['windowresized',['windowResized',['../classtest_app.html#a428b7df9c64352d6e7cb234fc297e6c9',1,'testApp']]],
+  ['windowresized',['windowResized',['../group___openframeworks_defaults.html#ga428b7df9c64352d6e7cb234fc297e6c9',1,'testApp']]],
   ['windowwidth',['windowWidth',['../group___wii_mote.html#ga9ed611377cd46f5148a3a3d538e96484',1,'testApp']]]
 ];
