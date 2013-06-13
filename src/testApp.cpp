@@ -24,8 +24,6 @@ void testApp::setup()
     camera.setFarClip(10000000);
     cameraindex=combinedImageObjects.size()-1;
     
-   
-    
     camera.setPosition(cameraStartPosition);
     animationMode=false;
     isstartingAnimationActive=true;
@@ -193,7 +191,7 @@ void testApp::update(){
 #ifndef USEWII
     if(startInstallation)
     {
-    BluementhalMp3.play();
+    //BluementhalMp3.play();
     startingMovie.play();
 }
 #endif

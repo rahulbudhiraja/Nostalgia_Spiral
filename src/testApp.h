@@ -9,10 +9,10 @@
 #include "ofxOsc.h"
 
 /** \brief Comment USEWII to disable input from the wiimote */
-# define USEWII
+//# define USEWII
 
 /** \brief Comment ADJUSTTIMEGAP to ignore input from the wiimote and keep a standard time for which the image will be shown on the screen */
-# define ADJUSTTIMEGAP
+//# define ADJUSTTIMEGAP
 
 /** \brief The ofxWiiOSC addon will listen to messages on this port */
 
