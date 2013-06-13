@@ -1,7 +1,5 @@
 #include "testApp.h"
 
-
-//--------------------------------------------------------------
 void testApp::setup()
 {
     ofHideCursor();
@@ -39,12 +37,9 @@ void testApp::setup()
     
 #endif
     
-    ofEnableAlphaBlending();
-    
-    ofSetBackgroundAuto(true);
-    
+    ofEnableAlphaBlending();    
+    ofSetBackgroundAuto(true);    
     numberofImages=combinedImageObjects.size()-1;
-    
     
 #ifdef USEWII
     
@@ -82,7 +77,6 @@ void testApp::setup()
     startingMovie.setLoopState(OF_LOOP_NONE);
     
     cout<<startingMovie.getDuration()<<endl;
-    
     cout<<startingMovie.getWidth()<<"    "<<startingMovie.getHeight();
     
     previewText.loadFont("asyouwish.ttf",42);
