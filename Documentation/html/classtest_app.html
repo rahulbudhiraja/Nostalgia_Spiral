@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,10 +128,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ga428b7df9c64352d6e7cb234fc297e6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf15e9e9064fe5ccbe6c82cc401ae9e09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___openframeworks_defaults.html#gaf15e9e9064fe5ccbe6c82cc401ae9e09">dragEvent</a> (ofDragInfo dragInfo)</td></tr>
 <tr class="separator:gaf15e9e9064fe5ccbe6c82cc401ae9e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66dbc8c5c2d4e20febebe9fd42b8c851"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_app.html#a66dbc8c5c2d4e20febebe9fd42b8c851">gotMessage</a> (ofMessage msg)</td></tr>
-<tr class="separator:a66dbc8c5c2d4e20febebe9fd42b8c851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43cbf11b718251f1fff8fbbe4a24d517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_app.html#a43cbf11b718251f1fff8fbbe4a24d517">testApp</a> (long long int id1)</td></tr>
-<tr class="separator:a43cbf11b718251f1fff8fbbe4a24d517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66dbc8c5c2d4e20febebe9fd42b8c851"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___openframeworks_defaults.html#ga66dbc8c5c2d4e20febebe9fd42b8c851">gotMessage</a> (ofMessage msg)</td></tr>
+<tr class="separator:ga66dbc8c5c2d4e20febebe9fd42b8c851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4619d5025758886b4de4162c389dc7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_app.html#ad4619d5025758886b4de4162c389dc7a">testApp</a> (long long int uid)</td></tr>
+<tr class="separator:ad4619d5025758886b4de4162c389dc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2a792bfdf269fd69951cbf97d4f574af"><td class="memItemLeft" align="right" valign="top">ofVec3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___camera_animation.html#ga2a792bfdf269fd69951cbf97d4f574af">adjustoverShotCameraPosition</a> ()</td></tr>
 <tr class="separator:ga2a792bfdf269fd69951cbf97d4f574af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1facfe2200dae7ad147b8f9ab31f68c6"><td class="memItemLeft" align="right" valign="top">ofVec3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___camera_animation.html#ga1facfe2200dae7ad147b8f9ab31f68c6">animate</a> (int, int)</td></tr>
@@ -192,13 +192,16 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a6ae76dc97fbeee00755f4a6cd6b87e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">The user's id that is passed at run-time.Only a long long int (max value 9223372036854775807) can support the range of the userids provided by Facebbok.  <a href="#a6ae76dc97fbeee00755f4a6cd6b87e19">More...</a><br/></td></tr>
 <tr class="separator:a6ae76dc97fbeee00755f4a6cd6b87e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5495d37f44bb3e3b00a04ad5910e0a6b"><td class="memItemLeft" align="right" valign="top">vector&lt; ofVec3f &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___wiggle.html#ga5495d37f44bb3e3b00a04ad5910e0a6b">wigglePositions</a></td></tr>
+<tr class="memdesc:ga5495d37f44bb3e3b00a04ad5910e0a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Different wiggle Positions/Directions .Look at the <a class="el" href="group___wiggle.html#gacd718eb54b9dc2b45e463414c24de6b9">wiggle()</a> function for more details.  <a href="group___wiggle.html#ga5495d37f44bb3e3b00a04ad5910e0a6b">More...</a><br/></td></tr>
 <tr class="separator:ga5495d37f44bb3e3b00a04ad5910e0a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf81358868ae15faab1974ec074b1509f"><td class="memItemLeft" align="right" valign="top">ofVec3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___wiggle.html#gaf81358868ae15faab1974ec074b1509f">currentwigglePosition</a></td></tr>
 <tr class="memdesc:gaf81358868ae15faab1974ec074b1509f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current Wiggle POsition.  <a href="group___wiggle.html#gaf81358868ae15faab1974ec074b1509f">More...</a><br/></td></tr>
 <tr class="separator:gaf81358868ae15faab1974ec074b1509f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6b9af0b1ae4a2c0530eb6a8cf8340751"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___wiggle.html#ga6b9af0b1ae4a2c0530eb6a8cf8340751">currentwiggleindex</a></td></tr>
+<tr class="memdesc:ga6b9af0b1ae4a2c0530eb6a8cf8340751"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current active index of the WigglePositions vector.The index determines the direction in which the image will move.  <a href="group___wiggle.html#ga6b9af0b1ae4a2c0530eb6a8cf8340751">More...</a><br/></td></tr>
 <tr class="separator:ga6b9af0b1ae4a2c0530eb6a8cf8340751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6073b33be7847d675ec089a1d514c506"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___wiggle.html#ga6073b33be7847d675ec089a1d514c506">wiggleAnimationCounter</a></td></tr>
+<tr class="memdesc:ga6073b33be7847d675ec089a1d514c506"><td class="mdescLeft">&#160;</td><td class="mdescRight">A seperate animation counter for wiggling.  <a href="group___wiggle.html#ga6073b33be7847d675ec089a1d514c506">More...</a><br/></td></tr>
 <tr class="separator:ga6073b33be7847d675ec089a1d514c506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aced9b8a8419c8465877c2c9cd43f8934"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_image_data.html">ImageData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_app.html#aced9b8a8419c8465877c2c9cd43f8934">combinedImageObjects</a></td></tr>
 <tr class="memdesc:aced9b8a8419c8465877c2c9cd43f8934"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual data structure that is used for storing the <a class="el" href="struct_image_data.html">ImageData</a> objects.  <a href="#aced9b8a8419c8465877c2c9cd43f8934">More...</a><br/></td></tr>
@@ -318,9 +321,9 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00045">45</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00050">50</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a43cbf11b718251f1fff8fbbe4a24d517"></a>
+<a class="anchor" id="ad4619d5025758886b4de4162c389dc7a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -328,13 +331,20 @@ Public Attributes</h2></td></tr>
           <td class="memname">testApp::testApp </td>
           <td>(</td>
           <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>id1</em>)</td><td></td>
+          <td class="paramname"><em>uid</em>)</td><td></td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The Constructor takes the facebook userid and looks for that particular uid in the Images folder </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>long long it </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00602">602</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00611">611</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -353,7 +363,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This function will draw the images.Used in draw </p>
 
-<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00505">505</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00514">514</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -371,25 +381,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Function that will generate the points on the Spiral </p>
 
-<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00470">470</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a66dbc8c5c2d4e20febebe9fd42b8c851"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void testApp::gotMessage </td>
-          <td>(</td>
-          <td class="paramtype">ofMessage&#160;</td>
-          <td class="paramname"><em>msg</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00461">461</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00479">479</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -407,7 +399,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure </p>
 
-<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00681">681</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8cpp_source.html#l00690">690</a> of file <a class="el" href="test_app_8cpp_source.html">testApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -424,7 +416,7 @@ Public Attributes</h2></td></tr>
 
 <p>This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his/her pictures.It is. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00184">184</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00194">194</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -440,7 +432,7 @@ Public Attributes</h2></td></tr>
 
 <p>The actual data structure that is used for storing the <a class="el" href="struct_image_data.html">ImageData</a> objects. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00144">144</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00156">156</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -456,7 +448,7 @@ Public Attributes</h2></td></tr>
 
 <p>The current volume variable is generally set to 1 ,but if fadeAudio is enabled,it will reduce the audio by -0.001 every frame,this is used in the end along with the Corresponding video to reduce the volume of the music. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00243">243</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00253">253</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -472,7 +464,7 @@ Public Attributes</h2></td></tr>
 
 <p>If true,the ending variable will trigger the backward playing of the starting video and provides a nice smooth ending. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00259">259</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00269">269</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -488,7 +480,7 @@ Public Attributes</h2></td></tr>
 
 <p>If set,this variable will cause the currentVolume variable to fade. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00240">240</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00250">250</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +496,7 @@ Public Attributes</h2></td></tr>
 
 <p>Font to display the wiimote values on screen for debugging. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00226">226</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00236">236</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -520,7 +512,7 @@ Public Attributes</h2></td></tr>
 
 <p>Will store the loaded images from the directory in a Vector. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00156">156</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00168">168</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -536,7 +528,7 @@ Public Attributes</h2></td></tr>
 
 <p>This variable is used to check if a half-swing is completed ,that is from back to front or from front to back. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00237">237</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00247">247</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -550,7 +542,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00222">222</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00232">232</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -564,7 +556,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00221">221</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00231">231</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -578,7 +570,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00222">222</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00232">232</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -594,7 +586,7 @@ Public Attributes</h2></td></tr>
 
 <p>These are the wii-mote variables that are used to adjust the timegap between two images. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00221">221</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00231">231</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -610,7 +602,7 @@ Public Attributes</h2></td></tr>
 
 <p>Number of images loaded in the ImageVector data structure. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00159">159</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00171">171</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -627,7 +619,7 @@ Public Attributes</h2></td></tr>
 <p>The whole starting Animation consists of a few Components.A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the OvershotCameraAnimation. </p>
 <p>This vector will store the overshotCameraPosition and changes the cameraPosition during the start while tweening </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00167">167</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00179">179</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -643,7 +635,7 @@ Public Attributes</h2></td></tr>
 
 <p>To load the XML File that is downloaded by the NostalgiaRoom Website. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00120">120</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00129">129</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -659,7 +651,7 @@ Public Attributes</h2></td></tr>
 
 <p>Intermediate values that are used while tweening/animation of the camera positions. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00175">175</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00185">185</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -673,7 +665,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00175">175</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00185">185</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -689,7 +681,7 @@ Public Attributes</h2></td></tr>
 
 <p>previewText is used for loading the font Asyouwish.ttf </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00253">253</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00263">263</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -705,7 +697,7 @@ Public Attributes</h2></td></tr>
 
 <p>These are Spiralpoints generated using the Conical Helix function. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00152">152</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00164">164</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -721,7 +713,7 @@ Public Attributes</h2></td></tr>
 
 <p>Stores the positions of the stars. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00147">147</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00159">159</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -737,7 +729,7 @@ Public Attributes</h2></td></tr>
 
 <p>Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00178">178</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00188">188</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -753,7 +745,7 @@ Public Attributes</h2></td></tr>
 
 <p>Variable determines if the startingMovie has finished playing or not (initially set to false ) </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00181">181</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00191">191</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -769,7 +761,7 @@ Public Attributes</h2></td></tr>
 
 <p>This variable is used to start the installation if the user is swinging on the wii-mote or if the enter key is pressed. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00246">246</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00256">256</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -785,7 +777,7 @@ Public Attributes</h2></td></tr>
 
 <p>When set,this will start the overshot camera animation. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00172">172</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00182">182</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -801,7 +793,7 @@ Public Attributes</h2></td></tr>
 
 <p>Swing's current state i.e. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00229">229</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00239">239</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -818,7 +810,7 @@ Public Attributes</h2></td></tr>
 <p>Unused. </p>
 <p>Datastructure used to store details and images of the user's tagged images </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00264">264</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00274">274</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -834,7 +826,7 @@ Public Attributes</h2></td></tr>
 
 <p>This string will display "Start Swinging !" at the start. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00256">256</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00266">266</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -850,7 +842,7 @@ Public Attributes</h2></td></tr>
 
 <p>Time that an image will be shown on the screen,this is controlled by the wii-motes acceleration. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00233">233</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00243">243</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -866,7 +858,7 @@ Public Attributes</h2></td></tr>
 
 <p>Time since Previous Transition/Animation. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00162">162</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00174">174</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
@@ -882,18 +874,18 @@ Public Attributes</h2></td></tr>
 
 <p>The user's id that is passed at run-time.Only a long long int (max value 9223372036854775807) can support the range of the userids provided by Facebbok. </p>
 
-<p>Definition at line <a class="el" href="test_app_8h_source.html#l00123">123</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
+<p>Definition at line <a class="el" href="test_app_8h_source.html#l00132">132</a> of file <a class="el" href="test_app_8h_source.html">testApp.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/<a class="el" href="test_app_8h_source.html">testApp.h</a></li>
-<li>/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/<a class="el" href="test_app_8cpp_source.html">testApp.cpp</a></li>
+<li><a class="el" href="test_app_8h_source.html">testApp.h</a></li>
+<li><a class="el" href="test_app_8cpp_source.html">testApp.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 12 2013 19:08:27 for NostalgiaRoom docs by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 12 2013 22:20:52 for NostalgiaRoom docs by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

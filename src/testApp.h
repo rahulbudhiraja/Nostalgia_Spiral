@@ -1,21 +1,25 @@
+/** @file */
+
 #pragma once
 
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
 #include <algorithm>
 #include "ofMain.h"
-
 #include "ofxOsc.h"
 
+/** \brief Comment USEWII to disable input from the wiimote */
 # define USEWII
 
-// The ofxWiiOSC addon will listen to messages on this port
+/** \brief Comment ADJUSTTIMEGAP to ignore input from the wiimote and keep a standard time for which the image will be shown on the screen */
+# define ADJUSTTIMEGAP
+
+/** \brief The ofxWiiOSC addon will listen to messages on this port */
 
 #define PORT 9000
 
 // If the below parameter is defined,the timegap between two images will be adjusted .If the acceleration of the wii-mote is large,the user is swinging faster and the timegap is made small.If the user slows down,it means he would like to look at the image for more time,so the timegap is made large.
 
-#define ADJUSTTIMEGAP
 
 #define EfficientReorder
 
@@ -131,6 +135,7 @@ public:
          * 
          *@{ */
     
+        /** \brief Different wiggle Positions/Directions .Look at the wiggle() function for more details */
         vector <ofVec3f> wigglePositions;
     
         /** \brief Current Wiggle POsition */
@@ -171,8 +176,6 @@ public:
     
         /** \brief This vector will store the overshotCameraPosition and changes the cameraPosition during the start while tweening */
         ofVec3f overshotCameraStartingPosition;
-    
-        
     
         /** \brief When set,this will start the overshot camera animation */
         bool startoverShotCameraAnimation;

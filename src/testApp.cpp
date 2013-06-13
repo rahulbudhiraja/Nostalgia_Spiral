@@ -24,7 +24,7 @@ void testApp::setup()
     camera.setFarClip(10000000);
     cameraindex=combinedImageObjects.size()-1;
     
-    accel=0;
+   
     
     camera.setPosition(cameraStartPosition);
     animationMode=false;
@@ -57,6 +57,7 @@ void testApp::setup()
     accel_x=accel_y=accel_z;
     
     Message="";
+     accel=0;
     
 #ifdef ADJUSTTIMEGAP
     minAngularVelocity=10000;
@@ -69,7 +70,7 @@ void testApp::setup()
     
 #endif
     
-    BluementhalMp3.loadSound("Blumenthal.flac");
+    BluementhalMp3.loadSound("Blumenthal.mp3");
     BluementhalMp3.setVolume(1.0f);
     
     timeGap=6000; // This is the default timeGap .Can be easily changed.
@@ -189,6 +190,15 @@ void testApp::update(){
     cout<<"Acceleration :"<<accel<<endl;
 #endif
     
+#ifndef USEWII
+    if(startInstallation)
+    {
+    BluementhalMp3.play();
+    startingMovie.play();
+}
+#endif
+
+
     if(fadeAudio)
         currentVolume-=0.001;
     
@@ -224,7 +234,7 @@ void testApp::draw()
                 else camera.setPosition(adjustoverShotCameraPosition());
                 
                 timesinceLastTransition=ofGetElapsedTimeMillis();
-                animationMode=true;
+                //animationMode=true;
             }
             
             else
@@ -246,7 +256,7 @@ void testApp::draw()
                 {
                     startingMovieFinished=false;
                     ending=true;
-                    startingMovie.setSpeed(-1);
+                    startingMovie.setSpeed(-1); // Reverse the video being played
                     startingMovie.play();
                     fadeAudio=true;
                     
@@ -317,7 +327,6 @@ void testApp::draw()
                 State="Front";
             }
             
-#ifdef USEWII
 #ifdef ADJUSTTIMEGAP
             
             if(angular_velocity<minAngularVelocity)
@@ -356,8 +365,6 @@ void testApp::draw()
             
 #endif
             
-            
-#endif
         }
         
         ofSetColor(255, 255, 255);
@@ -368,15 +375,16 @@ void testApp::draw()
         //    fonttodisplayWiimoteValues.drawString("Velocity "+ofToString(angular_velocity*1000), ofGetWidth()/2, ofGetHeight()/2+200);
         //   fonttodisplayWiimoteValues.drawString("Max Acceleration "+ofToString(maxAccel*1000), ofGetWidth()/2, ofGetHeight()/2+250);
         //    fonttodisplayWiimoteValues.drawString("Max Velocity "+ofToString(max*1000), ofGetWidth()/2, ofGetHeight()/2+350);
-    }
+    
     //     cout<<"Acceleration "<<accel*1000   <<"\n Max Acceleration "<<maxAccel*1000<<"\n\n Min Acceleration "<<minAccel<<endl;
     //
     //    cout<<"\nAngular Velocity "<<angular_velocity<<"\n Max Velocity "<<max*1000<<"\n\n Min Velocity "<<minAngularVelocity<<endl;;
     
     
 #endif
-    
-    else {
+        
+}
+    else{
         
         startingMovie.draw(0, 0);
         
@@ -407,9 +415,9 @@ void testApp::keyPressed(int key){
         animationMode=true;
         
     }
-    else if(key==OF_KEY_DOWN&&cameraindex!=0&&!animationMode)
+   
+    else if(key==OF_KEY_DOWN&&cameraindex!=0&&!animationMode&&!isstartingAnimationActive&&!startoverShotCameraAnimation)
     {
-        
         cameraindex--;
         //        cout<<"The current camera index value is "<<imageData[cameraindex].y<<endl;
         animationMode=true;
@@ -423,6 +431,7 @@ void testApp::keyPressed(int key){
         startingMovie.play();
     }
     
+     cout <<startingMovieFinished<<"     "<<startoverShotCameraAnimation;
 #endif
         
 }
@@ -865,7 +874,7 @@ ofVec3f testApp::adjustoverShotCameraPosition()
         
     }
     
-    else {isstartingAnimationActive=false;animationMode=false;}
+    else {isstartingAnimationActive=false;startoverShotCameraAnimation=false;}
     
     tweenedCameraPosition.x=ofLerp(0, 35*SpiralPoints[700*cameraindex].x, tweenvalue);
     tweenedCameraPosition.y=ofLerp(0, 35*SpiralPoints[700*cameraindex].y, tweenvalue);

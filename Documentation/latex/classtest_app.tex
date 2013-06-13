@@ -48,9 +48,9 @@ void \hyperlink{group___openframeworks_defaults_ga428b7df9c64352d6e7cb234fc297e6
 \item 
 void \hyperlink{group___openframeworks_defaults_gaf15e9e9064fe5ccbe6c82cc401ae9e09}{drag\-Event} (of\-Drag\-Info drag\-Info)
 \item 
-void \hyperlink{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}{got\-Message} (of\-Message msg)
+void \hyperlink{group___openframeworks_defaults_ga66dbc8c5c2d4e20febebe9fd42b8c851}{got\-Message} (of\-Message msg)
 \item 
-\hyperlink{classtest_app_a43cbf11b718251f1fff8fbbe4a24d517}{test\-App} (long long int id1)
+\hyperlink{classtest_app_ad4619d5025758886b4de4162c389dc7a}{test\-App} (long long int uid)
 \item 
 of\-Vec3f \hyperlink{group___camera_animation_ga2a792bfdf269fd69951cbf97d4f574af}{adjustover\-Shot\-Camera\-Position} ()
 \item 
@@ -102,13 +102,13 @@ ofx\-Xml\-Settings \hyperlink{classtest_app_a85133f49103cfa002f39d882f7168236}{p
 long long int \hyperlink{classtest_app_a6ae76dc97fbeee00755f4a6cd6b87e19}{userid}
 \begin{DoxyCompactList}\small\item\em The user's id that is passed at run-\/time.\-Only a long long int (max value 9223372036854775807) can support the range of the userids provided by Facebbok. \end{DoxyCompactList}\item 
 vector$<$ of\-Vec3f $>$ \hyperlink{group___wiggle_ga5495d37f44bb3e3b00a04ad5910e0a6b}{wiggle\-Positions}
-\item 
+\begin{DoxyCompactList}\small\item\em Different wiggle Positions/\-Directions .Look at the \hyperlink{group___wiggle_gacd718eb54b9dc2b45e463414c24de6b9}{wiggle()} function for more details. \end{DoxyCompactList}\item 
 of\-Vec3f \hyperlink{group___wiggle_gaf81358868ae15faab1974ec074b1509f}{currentwiggle\-Position}
 \begin{DoxyCompactList}\small\item\em Current Wiggle P\-Osition. \end{DoxyCompactList}\item 
 int \hyperlink{group___wiggle_ga6b9af0b1ae4a2c0530eb6a8cf8340751}{currentwiggleindex}
-\item 
+\begin{DoxyCompactList}\small\item\em The current active index of the Wiggle\-Positions vector.\-The index determines the direction in which the image will move. \end{DoxyCompactList}\item 
 float \hyperlink{group___wiggle_ga6073b33be7847d675ec089a1d514c506}{wiggle\-Animation\-Counter}
-\item 
+\begin{DoxyCompactList}\small\item\em A seperate animation counter for wiggling. \end{DoxyCompactList}\item 
 vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_app_aced9b8a8419c8465877c2c9cd43f8934}{combined\-Image\-Objects}
 \begin{DoxyCompactList}\small\item\em The actual data structure that is used for storing the \hyperlink{struct_image_data}{Image\-Data} objects. \end{DoxyCompactList}\item 
 vector$<$ of\-Vec3f $>$ \hyperlink{classtest_app_a68d0d30cea64a9d39a1b2deef16677ad}{Star\-Positions}
@@ -200,21 +200,26 @@ vector$<$ \hyperlink{struct_image_data}{Image\-Data} $>$ \hyperlink{classtest_ap
 \subsection{Detailed Description}
 
 
-Definition at line 45 of file test\-App.\-h.
+Definition at line 50 of file test\-App.\-h.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classtest_app_a43cbf11b718251f1fff8fbbe4a24d517}{\index{test\-App@{test\-App}!test\-App@{test\-App}}
+\hypertarget{classtest_app_ad4619d5025758886b4de4162c389dc7a}{\index{test\-App@{test\-App}!test\-App@{test\-App}}
 \index{test\-App@{test\-App}!testApp@{test\-App}}
 \subsubsection[{test\-App}]{\setlength{\rightskip}{0pt plus 5cm}test\-App\-::test\-App (
 \begin{DoxyParamCaption}
-\item[{long long int}]{id1}
+\item[{long long int}]{uid}
 \end{DoxyParamCaption}
-)}}\label{classtest_app_a43cbf11b718251f1fff8fbbe4a24d517}
+)}}\label{classtest_app_ad4619d5025758886b4de4162c389dc7a}
+The Constructor takes the facebook userid and looks for that particular uid in the Images folder 
+\begin{DoxyParams}{Parameters}
+{\em a} & long long it \\
+\hline
+\end{DoxyParams}
 
 
-Definition at line 602 of file test\-App.\-cpp.
+Definition at line 611 of file test\-App.\-cpp.
 
 
 
@@ -228,7 +233,7 @@ Definition at line 602 of file test\-App.\-cpp.
 )}}\label{classtest_app_a6dbcb5f1e47c842dfd1ab6b188097677}
 This function will draw the images.\-Used in draw 
 
-Definition at line 505 of file test\-App.\-cpp.
+Definition at line 514 of file test\-App.\-cpp.
 
 \hypertarget{classtest_app_aa30f4f1db2d186466f97e6ca15169712}{\index{test\-App@{test\-App}!generate\-Circular\-Spiral@{generate\-Circular\-Spiral}}
 \index{generate\-Circular\-Spiral@{generate\-Circular\-Spiral}!testApp@{test\-App}}
@@ -239,18 +244,7 @@ Definition at line 505 of file test\-App.\-cpp.
 )}}\label{classtest_app_aa30f4f1db2d186466f97e6ca15169712}
 Function that will generate the points on the Spiral 
 
-Definition at line 470 of file test\-App.\-cpp.
-
-\hypertarget{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}{\index{test\-App@{test\-App}!got\-Message@{got\-Message}}
-\index{got\-Message@{got\-Message}!testApp@{test\-App}}
-\subsubsection[{got\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::got\-Message (
-\begin{DoxyParamCaption}
-\item[{of\-Message}]{msg}
-\end{DoxyParamCaption}
-)}}\label{classtest_app_a66dbc8c5c2d4e20febebe9fd42b8c851}
-
-
-Definition at line 461 of file test\-App.\-cpp.
+Definition at line 479 of file test\-App.\-cpp.
 
 \hypertarget{classtest_app_aa93380112b906e2aac2d8738309b2d17}{\index{test\-App@{test\-App}!load\-Imagesand\-X\-M\-L\-Data@{load\-Imagesand\-X\-M\-L\-Data}}
 \index{load\-Imagesand\-X\-M\-L\-Data@{load\-Imagesand\-X\-M\-L\-Data}!testApp@{test\-App}}
@@ -261,7 +255,7 @@ Definition at line 461 of file test\-App.\-cpp.
 )}}\label{classtest_app_aa93380112b906e2aac2d8738309b2d17}
 Load the Images and X\-M\-L Data.\-This function will load the images from the directory and then parse the xml to get the score and album number.\-Once that is done ,we combine the untagged and tagged images to get a combined Data Structure 
 
-Definition at line 681 of file test\-App.\-cpp.
+Definition at line 690 of file test\-App.\-cpp.
 
 
 
@@ -275,7 +269,7 @@ This class plays the Bluementhal song by Ulrich Schnauss in the background while
 
 
 
-Definition at line 184 of file test\-App.\-h.
+Definition at line 194 of file test\-App.\-h.
 
 \hypertarget{classtest_app_aced9b8a8419c8465877c2c9cd43f8934}{\index{test\-App@{test\-App}!combined\-Image\-Objects@{combined\-Image\-Objects}}
 \index{combined\-Image\-Objects@{combined\-Image\-Objects}!testApp@{test\-App}}
@@ -286,7 +280,7 @@ The actual data structure that is used for storing the \hyperlink{struct_image_d
 
 
 
-Definition at line 144 of file test\-App.\-h.
+Definition at line 156 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a51c20c5432d9f6b06f719526d9a34ee6}{\index{test\-App@{test\-App}!current\-Volume@{current\-Volume}}
 \index{current\-Volume@{current\-Volume}!testApp@{test\-App}}
@@ -297,7 +291,7 @@ The current volume variable is generally set to 1 ,but if fade\-Audio is enabled
 
 
 
-Definition at line 243 of file test\-App.\-h.
+Definition at line 253 of file test\-App.\-h.
 
 \hypertarget{classtest_app_acf09303bc452d2a38098f6bf94655408}{\index{test\-App@{test\-App}!ending@{ending}}
 \index{ending@{ending}!testApp@{test\-App}}
@@ -308,7 +302,7 @@ If true,the ending variable will trigger the backward playing of the starting vi
 
 
 
-Definition at line 259 of file test\-App.\-h.
+Definition at line 269 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a918c09b5a4389a8402cfacb25d390226}{\index{test\-App@{test\-App}!fade\-Audio@{fade\-Audio}}
 \index{fade\-Audio@{fade\-Audio}!testApp@{test\-App}}
@@ -319,7 +313,7 @@ If set,this variable will cause the current\-Volume variable to fade.
 
 
 
-Definition at line 240 of file test\-App.\-h.
+Definition at line 250 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab336e228840f001d15f9b1eb3a30972f}{\index{test\-App@{test\-App}!fonttodisplay\-Wiimote\-Values@{fonttodisplay\-Wiimote\-Values}}
 \index{fonttodisplay\-Wiimote\-Values@{fonttodisplay\-Wiimote\-Values}!testApp@{test\-App}}
@@ -330,7 +324,7 @@ Font to display the wiimote values on screen for debugging.
 
 
 
-Definition at line 226 of file test\-App.\-h.
+Definition at line 236 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ad4de5d6e6e8f3b8bb7424e62792deb1f}{\index{test\-App@{test\-App}!Image\-Vector@{Image\-Vector}}
 \index{Image\-Vector@{Image\-Vector}!testApp@{test\-App}}
@@ -341,7 +335,7 @@ Will store the loaded images from the directory in a Vector.
 
 
 
-Definition at line 156 of file test\-App.\-h.
+Definition at line 168 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a42478a80a90ce9f663c04bcdaea5c5bd}{\index{test\-App@{test\-App}!isturn\-Completed@{isturn\-Completed}}
 \index{isturn\-Completed@{isturn\-Completed}!testApp@{test\-App}}
@@ -352,28 +346,28 @@ This variable is used to check if a half-\/swing is completed ,that is from back
 
 
 
-Definition at line 237 of file test\-App.\-h.
+Definition at line 247 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a34e834a5e4d359700147a74eece8eed1}{\index{test\-App@{test\-App}!max\-Accel@{max\-Accel}}
 \index{max\-Accel@{max\-Accel}!testApp@{test\-App}}
 \subsubsection[{max\-Accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::max\-Accel}}\label{classtest_app_a34e834a5e4d359700147a74eece8eed1}
 
 
-Definition at line 222 of file test\-App.\-h.
+Definition at line 232 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}{\index{test\-App@{test\-App}!max\-Angular\-Velocity@{max\-Angular\-Velocity}}
 \index{max\-Angular\-Velocity@{max\-Angular\-Velocity}!testApp@{test\-App}}
 \subsubsection[{max\-Angular\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::max\-Angular\-Velocity}}\label{classtest_app_ab9565e8e6dc748ef68e6845f5f94cae9}
 
 
-Definition at line 221 of file test\-App.\-h.
+Definition at line 231 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}{\index{test\-App@{test\-App}!min\-Accel@{min\-Accel}}
 \index{min\-Accel@{min\-Accel}!testApp@{test\-App}}
 \subsubsection[{min\-Accel}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::min\-Accel}}\label{classtest_app_ab007edbc20b09d607f8010e2dbafdb97}
 
 
-Definition at line 222 of file test\-App.\-h.
+Definition at line 232 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ac559756a01e0b98378bc29dfba9fac79}{\index{test\-App@{test\-App}!min\-Angular\-Velocity@{min\-Angular\-Velocity}}
 \index{min\-Angular\-Velocity@{min\-Angular\-Velocity}!testApp@{test\-App}}
@@ -384,7 +378,7 @@ These are the wii-\/mote variables that are used to adjust the timegap between t
 
 
 
-Definition at line 221 of file test\-App.\-h.
+Definition at line 231 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a957cf7fdb3ea964a88ca1be13e4d68fc}{\index{test\-App@{test\-App}!numberof\-Images@{numberof\-Images}}
 \index{numberof\-Images@{numberof\-Images}!testApp@{test\-App}}
@@ -395,7 +389,7 @@ Number of images loaded in the Image\-Vector data structure.
 
 
 
-Definition at line 159 of file test\-App.\-h.
+Definition at line 171 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a846feea7c2c4d4b1929bb72c546b3e19}{\index{test\-App@{test\-App}!overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}}
 \index{overshot\-Camera\-Starting\-Position@{overshot\-Camera\-Starting\-Position}!testApp@{test\-App}}
@@ -406,7 +400,7 @@ The whole starting Animation consists of a few Components.\-A video played at th
 
 This vector will store the overshot\-Camera\-Position and changes the camera\-Position during the start while tweening 
 
-Definition at line 167 of file test\-App.\-h.
+Definition at line 179 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a85133f49103cfa002f39d882f7168236}{\index{test\-App@{test\-App}!pictures\-\_\-\-X\-M\-L@{pictures\-\_\-\-X\-M\-L}}
 \index{pictures\-\_\-\-X\-M\-L@{pictures\-\_\-\-X\-M\-L}!testApp@{test\-App}}
@@ -417,7 +411,7 @@ To load the X\-M\-L File that is downloaded by the Nostalgia\-Room Website.
 
 
 
-Definition at line 120 of file test\-App.\-h.
+Definition at line 129 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a808376783cdf510335cd1b37026e9bb3}{\index{test\-App@{test\-App}!position1\-\_\-z@{position1\-\_\-z}}
 \index{position1\-\_\-z@{position1\-\_\-z}!testApp@{test\-App}}
@@ -428,14 +422,14 @@ Intermediate values that are used while tweening/animation of the camera positio
 
 
 
-Definition at line 175 of file test\-App.\-h.
+Definition at line 185 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a0720011cfaade6388109232ea4927c19}{\index{test\-App@{test\-App}!position2\-\_\-z@{position2\-\_\-z}}
 \index{position2\-\_\-z@{position2\-\_\-z}!testApp@{test\-App}}
 \subsubsection[{position2\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::position2\-\_\-z}}\label{classtest_app_a0720011cfaade6388109232ea4927c19}
 
 
-Definition at line 175 of file test\-App.\-h.
+Definition at line 185 of file test\-App.\-h.
 
 \hypertarget{classtest_app_af5b1af55af2256ef3751de075fc7a9cc}{\index{test\-App@{test\-App}!preview\-Text@{preview\-Text}}
 \index{preview\-Text@{preview\-Text}!testApp@{test\-App}}
@@ -446,7 +440,7 @@ preview\-Text is used for loading the font Asyouwish.\-ttf
 
 
 
-Definition at line 253 of file test\-App.\-h.
+Definition at line 263 of file test\-App.\-h.
 
 \hypertarget{classtest_app_af0dd2f3e3aabdb43bee49d74c156dc05}{\index{test\-App@{test\-App}!Spiral\-Points@{Spiral\-Points}}
 \index{Spiral\-Points@{Spiral\-Points}!testApp@{test\-App}}
@@ -457,7 +451,7 @@ These are Spiralpoints generated using the Conical Helix function.
 
 
 
-Definition at line 152 of file test\-App.\-h.
+Definition at line 164 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a68d0d30cea64a9d39a1b2deef16677ad}{\index{test\-App@{test\-App}!Star\-Positions@{Star\-Positions}}
 \index{Star\-Positions@{Star\-Positions}!testApp@{test\-App}}
@@ -468,7 +462,7 @@ Stores the positions of the stars.
 
 
 
-Definition at line 147 of file test\-App.\-h.
+Definition at line 159 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a9bfe7793fa0689a991ff64174745c38f}{\index{test\-App@{test\-App}!starting\-Movie@{starting\-Movie}}
 \index{starting\-Movie@{starting\-Movie}!testApp@{test\-App}}
@@ -479,7 +473,7 @@ Apparently,the of\-Q\-T\-Kit\-Player plays H\-D Video better than of\-Video\-Pla
 
 
 
-Definition at line 178 of file test\-App.\-h.
+Definition at line 188 of file test\-App.\-h.
 
 \hypertarget{classtest_app_aea3cb9f5f0061a42a4953d6b6c949036}{\index{test\-App@{test\-App}!starting\-Movie\-Finished@{starting\-Movie\-Finished}}
 \index{starting\-Movie\-Finished@{starting\-Movie\-Finished}!testApp@{test\-App}}
@@ -490,7 +484,7 @@ Variable determines if the starting\-Movie has finished playing or not (initiall
 
 
 
-Definition at line 181 of file test\-App.\-h.
+Definition at line 191 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a8a65a6d1a473417cec1c2ac2e6116aae}{\index{test\-App@{test\-App}!start\-Installation@{start\-Installation}}
 \index{start\-Installation@{start\-Installation}!testApp@{test\-App}}
@@ -501,7 +495,7 @@ This variable is used to start the installation if the user is swinging on the w
 
 
 
-Definition at line 246 of file test\-App.\-h.
+Definition at line 256 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ad2fca6ce5e37462cd820afc48633324d}{\index{test\-App@{test\-App}!startover\-Shot\-Camera\-Animation@{startover\-Shot\-Camera\-Animation}}
 \index{startover\-Shot\-Camera\-Animation@{startover\-Shot\-Camera\-Animation}!testApp@{test\-App}}
@@ -512,7 +506,7 @@ When set,this will start the overshot camera animation.
 
 
 
-Definition at line 172 of file test\-App.\-h.
+Definition at line 182 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a8ce5505df4526abed238956b65956edd}{\index{test\-App@{test\-App}!State@{State}}
 \index{State@{State}!testApp@{test\-App}}
@@ -523,7 +517,7 @@ Swing's current state i.\-e.
 
 
 
-Definition at line 229 of file test\-App.\-h.
+Definition at line 239 of file test\-App.\-h.
 
 \hypertarget{classtest_app_af65c8dc2f4620bfe7fdf6a39043cb48d}{\index{test\-App@{test\-App}!tagged\-Image\-Objects@{tagged\-Image\-Objects}}
 \index{tagged\-Image\-Objects@{tagged\-Image\-Objects}!testApp@{test\-App}}
@@ -534,7 +528,7 @@ Unused.
 
 Datastructure used to store details and images of the user's tagged images 
 
-Definition at line 264 of file test\-App.\-h.
+Definition at line 274 of file test\-App.\-h.
 
 \hypertarget{classtest_app_ad9a4beab6f2e0f13d32b00b502e89bdc}{\index{test\-App@{test\-App}!temp\-Text@{temp\-Text}}
 \index{temp\-Text@{temp\-Text}!testApp@{test\-App}}
@@ -545,7 +539,7 @@ This string will display \char`\"{}\-Start Swinging !\char`\"{} at the start.
 
 
 
-Definition at line 256 of file test\-App.\-h.
+Definition at line 266 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a944f2713019239a4b49241a5cc9a00c9}{\index{test\-App@{test\-App}!time\-Gap@{time\-Gap}}
 \index{time\-Gap@{time\-Gap}!testApp@{test\-App}}
@@ -556,7 +550,7 @@ Time that an image will be shown on the screen,this is controlled by the wii-\/m
 
 
 
-Definition at line 233 of file test\-App.\-h.
+Definition at line 243 of file test\-App.\-h.
 
 \hypertarget{classtest_app_acb60fb8a89e9ec5d461630a20b11ceda}{\index{test\-App@{test\-App}!timesince\-Last\-Transition@{timesince\-Last\-Transition}}
 \index{timesince\-Last\-Transition@{timesince\-Last\-Transition}!testApp@{test\-App}}
@@ -567,7 +561,7 @@ Time since Previous Transition/\-Animation.
 
 
 
-Definition at line 162 of file test\-App.\-h.
+Definition at line 174 of file test\-App.\-h.
 
 \hypertarget{classtest_app_a6ae76dc97fbeee00755f4a6cd6b87e19}{\index{test\-App@{test\-App}!userid@{userid}}
 \index{userid@{userid}!testApp@{test\-App}}
@@ -578,11 +572,11 @@ The user's id that is passed at run-\/time.\-Only a long long int (max value 922
 
 
 
-Definition at line 123 of file test\-App.\-h.
+Definition at line 132 of file test\-App.\-h.
 
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-/\-Users/rahulbudhiraja/\-Work/of\-\_\-v0073\-\_\-osx\-\_\-release/apps/my\-Apps/\-Nostalgia\-\_\-\-Spiral/src/\hyperlink{test_app_8h}{test\-App.\-h}\item 
-/\-Users/rahulbudhiraja/\-Work/of\-\_\-v0073\-\_\-osx\-\_\-release/apps/my\-Apps/\-Nostalgia\-\_\-\-Spiral/src/\hyperlink{test_app_8cpp}{test\-App.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{test_app_8h}{test\-App.\-h}\item 
+\hyperlink{test_app_8cpp}{test\-App.\-cpp}\end{DoxyCompactItemize}
