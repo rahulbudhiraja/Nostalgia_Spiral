@@ -25,7 +25,8 @@
 
 //#define DEBUGMODE
 
-#define PathToImageFolder "/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/"
+/* \brief Insert Path to your Images folder */
+#define PathToImageFolder "/Users/abcxyz/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/" 
 
 
 struct ImageData
