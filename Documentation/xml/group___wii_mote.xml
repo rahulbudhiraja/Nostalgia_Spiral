@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="group___wii_mote" kind="group">
+    <compoundname>WiiMote</compoundname>
+    <title>WiiMote</title>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group___wii_mote_1ga020730abb55e6ae6d0a28edee19050e0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::roll</definition>
+        <argsstring></argsstring>
+        <name>roll</name>
+        <briefdescription>
+<para>Roll,Yaw and Pitch as sent by OSCulator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga865985f78dd5def3ed20c87b9fc772b6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1gaabbebeb113838374f659e86a0355b260" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga8e560e923c82d421857538e4a5927542" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel</definition>
+        <argsstring></argsstring>
+        <name>accel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga7a77e8633c3a94e3e409a33a5cd9ae3f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::wiiX</definition>
+        <argsstring></argsstring>
+        <name>wiiX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga5ae41896388ae16ee530beca5333e02a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::wiiY</definition>
+        <argsstring></argsstring>
+        <name>wiiY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1gad1738ff98d225f80b853a9ddc9f5a116" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel_x</definition>
+        <argsstring></argsstring>
+        <name>accel_x</name>
+        <briefdescription>
+<para>Acceleration in x,y and z. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="193" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga204bcb2412a70a65ebea6008ee8c4eb0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel_y</definition>
+        <argsstring></argsstring>
+        <name>accel_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="193" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga61dbdd5c0b868568dde40a52f6e56054" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel_z</definition>
+        <argsstring></argsstring>
+        <name>accel_z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="193" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga98e05c3206ff95fccfebfc9df5317598" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::angular_velocity</definition>
+        <argsstring></argsstring>
+        <name>angular_velocity</name>
+        <briefdescription>
+<para>Angular Velocity as received from OSCulator ,this variable is helpful to predict if the swing is going forwards or backward .A +ve value means the swing is going front and a -ve value indicates the person is swinging backwards. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="196" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga034c44ff60fa1e5f021e90d5410ba657" prot="public" static="no" mutable="no">
+        <type>ofxOscReceiver</type>
+        <definition>ofxOscReceiver testApp::receiver</definition>
+        <argsstring></argsstring>
+        <name>receiver</name>
+        <briefdescription>
+<para>OSCReceiver class that interfaces with the OSCulator and receives values from the wii-mote. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="199" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga0124035d0454fb6bd9152f8a87c40677" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string testApp::Message</definition>
+        <argsstring></argsstring>
+        <name>Message</name>
+        <briefdescription>
+<para>The message received from OSCulator containing details of the wiimote values like angular velocity and acceleration. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="202" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga9ed611377cd46f5148a3a3d538e96484" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::windowWidth</definition>
+        <argsstring></argsstring>
+        <name>windowWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="204" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga4e8884eeef5b2657b62278969d4e3dcf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::windowHeight</definition>
+        <argsstring></argsstring>
+        <name>windowHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="204" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>These variables are used for receiving values from the wiimote </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="group___camera" kind="group">
+    <compoundname>Camera</compoundname>
+    <title>Camera</title>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group___camera_1ga0278ee237cbbd881252d6273b131bb55" prot="public" static="no" mutable="no">
+        <type>ofCamera</type>
+        <definition>ofCamera testApp::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="77" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_1gac01013264b9988207e7fd9e0a486ff2f" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::cameraStartPosition</definition>
+        <argsstring></argsstring>
+        <name>cameraStartPosition</name>
+        <briefdescription>
+<para>These variables will be useful if DEBUGMODE is defined. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="80" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_1gad3319d9cd3cb00e898f4f602b879efad" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::cameraEndPosition</definition>
+        <argsstring></argsstring>
+        <name>cameraEndPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="80" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_1ga4ca3a51642dedbf37f2b9f6ef96510c7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::cameraindex</definition>
+        <argsstring></argsstring>
+        <name>cameraindex</name>
+        <initializer>=0</initializer>
+        <briefdescription>
+<para>The Cameraindex value,this make the camera go from one image/position to another. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="83" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This is the camera variable that will move around the entire scene. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="group___wiggle" kind="group">
+    <compoundname>Wiggle</compoundname>
+    <title>Wiggle</title>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group___wiggle_1ga5495d37f44bb3e3b00a04ad5910e0a6b" prot="public" static="no" mutable="no">
+        <type>vector&lt; ofVec3f &gt;</type>
+        <definition>vector&lt;ofVec3f&gt; testApp::wigglePositions</definition>
+        <argsstring></argsstring>
+        <name>wigglePositions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="124" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1gaf81358868ae15faab1974ec074b1509f" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::currentwigglePosition</definition>
+        <argsstring></argsstring>
+        <name>currentwigglePosition</name>
+        <briefdescription>
+<para>Current Wiggle POsition. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="127" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1ga6b9af0b1ae4a2c0530eb6a8cf8340751" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::currentwiggleindex</definition>
+        <argsstring></argsstring>
+        <name>currentwiggleindex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="129" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1ga6073b33be7847d675ec089a1d514c506" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::wiggleAnimationCounter</definition>
+        <argsstring></argsstring>
+        <name>wiggleAnimationCounter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="131" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___wiggle_1gaaa5c2175be1d5ca404c3c23a898d0cdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::pushWigglePositions</definition>
+        <argsstring>()</argsstring>
+        <name>pushWigglePositions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pushing values </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="313" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="642" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="group___wiggle_1gacd718eb54b9dc2b45e463414c24de6b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::wiggle</definition>
+        <argsstring>()</argsstring>
+        <name>wiggle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Actual code that does wiggling. <simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="319" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="664" bodyend="713"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

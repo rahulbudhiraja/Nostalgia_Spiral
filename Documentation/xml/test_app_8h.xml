@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="test_app_8h" kind="file">
+    <compoundname>testApp.h</compoundname>
+    <includes local="yes">ofMain.h</includes>
+    <includes local="yes">ofxXmlSettings.h</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="yes">ofxOsc.h</includes>
+    <includedby refid="main_8cpp" local="yes">/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/main.cpp</includedby>
+    <includedby refid="test_app_8cpp" local="yes">/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp</includedby>
+    <incdepgraph>
+      <node id="42">
+        <label>/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h</label>
+        <link refid="testApp.h"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>ofxOsc.h</label>
+      </node>
+      <node id="43">
+        <label>ofMain.h</label>
+      </node>
+      <node id="44">
+        <label>ofxXmlSettings.h</label>
+      </node>
+      <node id="45">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="48">
+        <label>/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="47">
+        <label>/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h</label>
+        <link refid="testApp.h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp</label>
+        <link refid="test_app_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_image_data" prot="public">ImageData</innerclass>
+    <innerclass refid="classtest_app" prot="public">testApp</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="test_app_8h_1ae61f0f57405aafaccd8e2c8969531d94" prot="public" static="no">
+        <name>USEWII</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="10" column="10" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="test_app_8h_1a614217d263be1fb1a5f76e2ff7be19a2" prot="public" static="no">
+        <name>PORT</name>
+        <initializer>9000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="14" column="9" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="test_app_8h_1a6bf1c6f7b9de7bc6e0b374881492bbcc" prot="public" static="no">
+        <name>ADJUSTTIMEGAP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="18" column="9" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="test_app_8h_1a27fa4c9f9cc152f0fe3ad772b1a6b488" prot="public" static="no">
+        <name>EfficientReorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="20" column="9" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ofMain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ofxXmlSettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ofMain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ofxOsc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="test_app_8h_1ae61f0f57405aafaccd8e2c8969531d94" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>USEWII</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>ofxWiiOSC<sp/>addon<sp/>will<sp/>listen<sp/>to<sp/>messages<sp/>on<sp/>this<sp/>port</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="test_app_8h_1a614217d263be1fb1a5f76e2ff7be19a2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PORT<sp/>9000</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>below<sp/>parameter<sp/>is<sp/>defined,the<sp/>timegap<sp/>between<sp/>two<sp/>images<sp/>will<sp/>be<sp/>adjusted<sp/>.If<sp/>the<sp/>acceleration<sp/>of<sp/>the<sp/>wii-mote<sp/>is<sp/>large,the<sp/>user<sp/>is<sp/>swinging<sp/>faster<sp/>and<sp/>the<sp/>timegap<sp/>is<sp/>made<sp/>small.If<sp/>the<sp/>user<sp/>slows<sp/>down,it<sp/>means<sp/>he<sp/>would<sp/>like<sp/>to<sp/>look<sp/>at<sp/>the<sp/>image<sp/>for<sp/>more<sp/>time,so<sp/>the<sp/>timegap<sp/>is<sp/>made<sp/>large.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="test_app_8h_1a6bf1c6f7b9de7bc6e0b374881492bbcc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ADJUSTTIMEGAP</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="test_app_8h_1a27fa4c9f9cc152f0fe3ad772b1a6b488" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EfficientReorder</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>DEBUGMODE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>Prototype1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//#define<sp/>Prototype2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct_image_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_image_data" kindref="compound">ImageData</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30" refid="struct_image_data_1a7161728d2f1bd4240bd9359f6276dd3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_image_data_1a7161728d2f1bd4240bd9359f6276dd3b" kindref="member">imageScore</ref>;</highlight></codeline>
+<codeline lineno="31" refid="struct_image_data_1a372655668350953b85fda1f07cd3ffe1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_image_data_1a372655668350953b85fda1f07cd3ffe1" kindref="member">albumnumber</ref>;</highlight></codeline>
+<codeline lineno="32" refid="struct_image_data_1a254eb9353be246c69591d51088683397" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_image_data_1a254eb9353be246c69591d51088683397" kindref="member">imageNumber</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>EfficientReorder</highlight></codeline>
+<codeline lineno="35" refid="struct_image_data_1acf1bde00dd79a0960269618d9b885f61" refkind="member"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/>ofImage<sp/><ref refid="struct_image_data_1acf1bde00dd79a0960269618d9b885f61" kindref="member">theloadedimage</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="37"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isTagged;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="40" refid="struct_image_data_1ab7ad50e15d1943523214dd8cc2cd7e01" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_image_data_1ab7ad50e15d1943523214dd8cc2cd7e01" kindref="member">operator()</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_image_data" kindref="compound">ImageData</ref>&amp;l,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_image_data" kindref="compound">ImageData</ref><sp/>&amp;m)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(l.<ref refid="struct_image_data_1a7161728d2f1bd4240bd9359f6276dd3b" kindref="member">imageScore</ref>&lt;m.<ref refid="struct_image_data_1a7161728d2f1bd4240bd9359f6276dd3b" kindref="member">imageScore</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classtest_app" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classtest_app" kindref="compound">testApp</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ofBaseApp{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtest_app_1a3d796120bccff4106a3ec028b9a81912" kindref="member">testApp</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1ad431db15b6150b965cd52bcba8e16e11" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1afb39d201aec71a295b7609876bf7d0c6" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1af869cba67b1dab8481f8d0e216d59dcd" kindref="member">draw</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a904d147c7e532cb92656d5dd4895cd26" kindref="member">keyPressed</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>key);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a1116a10088e4932f6d482efe723cd45e" kindref="member">keyReleased</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>key);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a33541b19eff9f8285b2487bfc146d58b" kindref="member">mouseMoved</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a075bcc2be16fd8f3eaa9162fb40a0a1f" kindref="member">mouseDragged</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>button);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a3f200702ce91859cac2872a39302679d" kindref="member">mousePressed</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>button);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1aa3680ffc782b1e5c451289817f20c9c6" kindref="member">mouseReleased</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>button);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a428b7df9c64352d6e7cb234fc297e6c9" kindref="member">windowResized</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1af15e9e9064fe5ccbe6c82cc401ae9e09" kindref="member">dragEvent</ref>(ofDragInfo<sp/>dragInfo);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a66dbc8c5c2d4e20febebe9fd42b8c851" kindref="member">gotMessage</ref>(ofMessage<sp/>msg);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>DEBUGMODE</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofEasyCam<sp/><ref refid="group___camera_1ga0278ee237cbbd881252d6273b131bb55" kindref="member">camera</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#ifndef<sp/>DEBUGMODE</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77" refid="group___camera_1ga0278ee237cbbd881252d6273b131bb55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofCamera<sp/><ref refid="group___camera_1ga0278ee237cbbd881252d6273b131bb55" kindref="member">camera</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80" refid="group___camera_1gac01013264b9988207e7fd9e0a486ff2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___camera_1gac01013264b9988207e7fd9e0a486ff2f" kindref="member" tooltip="These variables will be useful if DEBUGMODE is defined. ">cameraStartPosition</ref>,<ref refid="group___camera_1gad3319d9cd3cb00e898f4f602b879efad" kindref="member">cameraEndPosition</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="group___camera_1ga4ca3a51642dedbf37f2b9f6ef96510c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group___camera_1ga4ca3a51642dedbf37f2b9f6ef96510c7" kindref="member" tooltip="The Cameraindex value,this make the camera go from one image/position to another. ...">cameraindex</ref>=0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93" refid="group___camera_animation_1ga2a5d49fd1f7f50f745f56095a1fa0099" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___camera_animation_1ga2a5d49fd1f7f50f745f56095a1fa0099" kindref="member" tooltip="checks whether the camera is currently transitioning to another picture or if it is stationary a...">animationMode</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="96" refid="group___camera_animation_1gadd9ab1aa902948afbdf1c6db0dfde385" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___camera_animation_1gadd9ab1aa902948afbdf1c6db0dfde385" kindref="member" tooltip="stores intermediate tweenvalues for all animations ">tweenvalue</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99" refid="group___camera_animation_1gae9f60797c1c5d9f1ac06e1d6a5259957" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___camera_animation_1gae9f60797c1c5d9f1ac06e1d6a5259957" kindref="member" tooltip="Stores the temporary camera position while tweening(interpolating camera position while moving from 1...">tweenedCameraPosition</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102" refid="group___camera_animation_1ga21b16bdba744425519597fcb925df43a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group___camera_animation_1ga21b16bdba744425519597fcb925df43a" kindref="member" tooltip="Animation Counter that is operative while the animation is occuring. ">animationCounter</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105" refid="group___camera_animation_1gab8a277e1055730fb5d6786ce0c4804b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___camera_animation_1gab8a277e1055730fb5d6786ce0c4804b2" kindref="member" tooltip="If set,this variable will start the Animation of the spiral zooming out. ">isstartingAnimationActive</ref>;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108" refid="group___camera_animation_1ga577bf117cf10109de967ea0d3ca17f1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group___camera_animation_1ga577bf117cf10109de967ea0d3ca17f1f" kindref="member" tooltip="During the starting animation,the StartAnimationCounter will change the tweenvalue which in turn sets...">startAnimationCounter</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114" refid="classtest_app_1a85133f49103cfa002f39d882f7168236" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofxXmlSettings<sp/><ref refid="classtest_app_1a85133f49103cfa002f39d882f7168236" kindref="member" tooltip="To load the XML File that is downloaded by the NostalgiaRoom Website. ">pictures_XML</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117" refid="classtest_app_1a6ae76dc97fbeee00755f4a6cd6b87e19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a6ae76dc97fbeee00755f4a6cd6b87e19" kindref="member" tooltip="The user&amp;#39;s id that is passed at run-time.Only a long long int (max value 9223372036854775807) can sup...">userid</ref>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124" refid="group___wiggle_1ga5495d37f44bb3e3b00a04ad5910e0a6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector<sp/>&lt;ofVec3f&gt;<sp/><ref refid="group___wiggle_1ga5495d37f44bb3e3b00a04ad5910e0a6b" kindref="member">wigglePositions</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="127" refid="group___wiggle_1gaf81358868ae15faab1974ec074b1509f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___wiggle_1gaf81358868ae15faab1974ec074b1509f" kindref="member" tooltip="Current Wiggle POsition. ">currentwigglePosition</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="129" refid="group___wiggle_1ga6b9af0b1ae4a2c0530eb6a8cf8340751" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group___wiggle_1ga6b9af0b1ae4a2c0530eb6a8cf8340751" kindref="member">currentwiggleindex</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="131" refid="group___wiggle_1ga6073b33be7847d675ec089a1d514c506" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___wiggle_1ga6073b33be7847d675ec089a1d514c506" kindref="member">wiggleAnimationCounter</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>End<sp/>of<sp/>Wiggling<sp/>stuff.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138" refid="classtest_app_1aced9b8a8419c8465877c2c9cd43f8934" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ImageData&gt;<sp/><ref refid="classtest_app_1aced9b8a8419c8465877c2c9cd43f8934" kindref="member" tooltip="The actual data structure that is used for storing the ImageData objects. ">combinedImageObjects</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="141" refid="classtest_app_1a68d0d30cea64a9d39a1b2deef16677ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ofVec3f&gt;<ref refid="classtest_app_1a68d0d30cea64a9d39a1b2deef16677ad" kindref="member" tooltip="Stores the positions of the stars. ">StarPositions</ref>;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="144"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146" refid="classtest_app_1af0dd2f3e3aabdb43bee49d74c156dc05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ofVec3f&gt;<sp/><ref refid="classtest_app_1af0dd2f3e3aabdb43bee49d74c156dc05" kindref="member" tooltip="These are Spiralpoints generated using the Conical Helix function. ">SpiralPoints</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classtest_app_1ad4de5d6e6e8f3b8bb7424e62792deb1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ofImage&gt;<ref refid="classtest_app_1ad4de5d6e6e8f3b8bb7424e62792deb1f" kindref="member" tooltip="Will store the loaded images from the directory in a Vector. ">ImageVector</ref>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153" refid="classtest_app_1a957cf7fdb3ea964a88ca1be13e4d68fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a957cf7fdb3ea964a88ca1be13e4d68fc" kindref="member" tooltip="Number of images loaded in the ImageVector data structure. ">numberofImages</ref>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="156" refid="classtest_app_1acb60fb8a89e9ec5d461630a20b11ceda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1acb60fb8a89e9ec5d461630a20b11ceda" kindref="member" tooltip="Time since Previous Transition/Animation. ">timesinceLastTransition</ref>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="161" refid="classtest_app_1a846feea7c2c4d4b1929bb72c546b3e19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="classtest_app_1a846feea7c2c4d4b1929bb72c546b3e19" kindref="member" tooltip="The whole starting Animation consists of a few Components.A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the OvershotCameraAnimation. ">overshotCameraStartingPosition</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166" refid="classtest_app_1ad2fca6ce5e37462cd820afc48633324d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1ad2fca6ce5e37462cd820afc48633324d" kindref="member" tooltip="When set,this will start the overshot camera animation. ">startoverShotCameraAnimation</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169" refid="classtest_app_1a0720011cfaade6388109232ea4927c19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a808376783cdf510335cd1b37026e9bb3" kindref="member" tooltip="Intermediate values that are used while tweening/animation of the camera positions. ">position1_z</ref>,<ref refid="classtest_app_1a0720011cfaade6388109232ea4927c19" kindref="member">position2_z</ref>;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="classtest_app_1a9bfe7793fa0689a991ff64174745c38f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofQTKitPlayer<sp/><ref refid="classtest_app_1a9bfe7793fa0689a991ff64174745c38f" kindref="member" tooltip="Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer. ">startingMovie</ref>;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="175" refid="classtest_app_1aea3cb9f5f0061a42a4953d6b6c949036" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1aea3cb9f5f0061a42a4953d6b6c949036" kindref="member" tooltip="Variable determines if the startingMovie has finished playing or not (initially set to false ) ...">startingMovieFinished</ref>;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="178" refid="classtest_app_1af696fd13ee9ecb38ac0ba0b72543ce06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofSoundPlayer<sp/><ref refid="classtest_app_1af696fd13ee9ecb38ac0ba0b72543ce06" kindref="member" tooltip="This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his...">BluementhalMp3</ref>;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>USEWII</highlight></codeline>
+<codeline lineno="182"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="190" refid="group___wii_mote_1ga865985f78dd5def3ed20c87b9fc772b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___wii_mote_1ga020730abb55e6ae6d0a28edee19050e0" kindref="member" tooltip="Roll,Yaw and Pitch as sent by OSCulator. ">roll</ref>,<sp/><ref refid="group___wii_mote_1ga865985f78dd5def3ed20c87b9fc772b6" kindref="member">yaw</ref>,<sp/><ref refid="group___wii_mote_1gaabbebeb113838374f659e86a0355b260" kindref="member">pitch</ref>,<sp/><ref refid="group___wii_mote_1ga8e560e923c82d421857538e4a5927542" kindref="member">accel</ref>,<sp/><ref refid="group___wii_mote_1ga7a77e8633c3a94e3e409a33a5cd9ae3f" kindref="member">wiiX</ref>,<sp/><ref refid="group___wii_mote_1ga5ae41896388ae16ee530beca5333e02a" kindref="member">wiiY</ref>;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193" refid="group___wii_mote_1ga61dbdd5c0b868568dde40a52f6e56054" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___wii_mote_1gad1738ff98d225f80b853a9ddc9f5a116" kindref="member" tooltip="Acceleration in x,y and z. ">accel_x</ref>,<ref refid="group___wii_mote_1ga204bcb2412a70a65ebea6008ee8c4eb0" kindref="member">accel_y</ref>,<ref refid="group___wii_mote_1ga61dbdd5c0b868568dde40a52f6e56054" kindref="member">accel_z</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="196" refid="group___wii_mote_1ga98e05c3206ff95fccfebfc9df5317598" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group___wii_mote_1ga98e05c3206ff95fccfebfc9df5317598" kindref="member" tooltip="Angular Velocity as received from OSCulator ,this variable is helpful to predict if the swing is goin...">angular_velocity</ref>;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="199" refid="group___wii_mote_1ga034c44ff60fa1e5f021e90d5410ba657" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofxOscReceiver<sp/><ref refid="group___wii_mote_1ga034c44ff60fa1e5f021e90d5410ba657" kindref="member" tooltip="OSCReceiver class that interfaces with the OSCulator and receives values from the wii-mote...">receiver</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="202" refid="group___wii_mote_1ga0124035d0454fb6bd9152f8a87c40677" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="group___wii_mote_1ga0124035d0454fb6bd9152f8a87c40677" kindref="member" tooltip="The message received from OSCulator containing details of the wiimote values like angular velocity an...">Message</ref>;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="204" refid="group___wii_mote_1ga9ed611377cd46f5148a3a3d538e96484" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group___wii_mote_1ga9ed611377cd46f5148a3a3d538e96484" kindref="member">windowWidth</ref>,<ref refid="group___wii_mote_1ga4e8884eeef5b2657b62278969d4e3dcf" kindref="member">windowHeight</ref>;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="209"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>ADJUSTTIMEGAP</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="212" refid="classtest_app_1ac559756a01e0b98378bc29dfba9fac79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1ac559756a01e0b98378bc29dfba9fac79" kindref="member" tooltip="These are the wii-mote variables that are used to adjust the timegap between two images. ">minAngularVelocity</ref>,<ref refid="classtest_app_1ab9565e8e6dc748ef68e6845f5f94cae9" kindref="member">maxAngularVelocity</ref>;</highlight></codeline>
+<codeline lineno="213" refid="classtest_app_1ab007edbc20b09d607f8010e2dbafdb97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1ab007edbc20b09d607f8010e2dbafdb97" kindref="member">minAccel</ref>,<ref refid="classtest_app_1a34e834a5e4d359700147a74eece8eed1" kindref="member">maxAccel</ref>;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight></codeline>
+<codeline lineno="216"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="217" refid="classtest_app_1ab336e228840f001d15f9b1eb3a30972f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofTrueTypeFont<sp/><ref refid="classtest_app_1ab336e228840f001d15f9b1eb3a30972f" kindref="member" tooltip="Font to display the wiimote values on screen for debugging. ">fonttodisplayWiimoteValues</ref>;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="220" refid="classtest_app_1a8ce5505df4526abed238956b65956edd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a8ce5505df4526abed238956b65956edd" kindref="member" tooltip="Swing&amp;#39;s current state i.e. ">State</ref>;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight></codeline>
+<codeline lineno="222"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="224" refid="classtest_app_1a944f2713019239a4b49241a5cc9a00c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a944f2713019239a4b49241a5cc9a00c9" kindref="member" tooltip="Time that an image will be shown on the screen,this is controlled by the wii-motes acceleration...">timeGap</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="228" refid="classtest_app_1a42478a80a90ce9f663c04bcdaea5c5bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a42478a80a90ce9f663c04bcdaea5c5bd" kindref="member" tooltip="This variable is used to check if a half-swing is completed ,that is from back to front or from front...">isturnCompleted</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="231" refid="classtest_app_1a918c09b5a4389a8402cfacb25d390226" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a918c09b5a4389a8402cfacb25d390226" kindref="member" tooltip="If set,this variable will cause the currentVolume variable to fade. ">fadeAudio</ref>;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="234" refid="classtest_app_1a51c20c5432d9f6b06f719526d9a34ee6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a51c20c5432d9f6b06f719526d9a34ee6" kindref="member" tooltip="The current volume variable is generally set to 1 ,but if fadeAudio is enabled,it will reduce the aud...">currentVolume</ref>;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237" refid="classtest_app_1a8a65a6d1a473417cec1c2ac2e6116aae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a8a65a6d1a473417cec1c2ac2e6116aae" kindref="member" tooltip="This variable is used to start the installation if the user is swinging on the wii-mote or if the ent...">startInstallation</ref>;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/></highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>below<sp/>variables<sp/>are<sp/>used<sp/>in<sp/>the<sp/>starting<sp/>if<sp/>the<sp/>person<sp/>is<sp/>not<sp/>swinging<sp/></highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="244" refid="classtest_app_1af5b1af55af2256ef3751de075fc7a9cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofTrueTypeFont<sp/><ref refid="classtest_app_1af5b1af55af2256ef3751de075fc7a9cc" kindref="member" tooltip="previewText is used for loading the font Asyouwish.ttf ">previewText</ref>;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="247" refid="classtest_app_1ad9a4beab6f2e0f13d32b00b502e89bdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1ad9a4beab6f2e0f13d32b00b502e89bdc" kindref="member" tooltip="This string will display &amp;quot;Start Swinging !&amp;quot; at the start. ">tempText</ref>;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="250" refid="classtest_app_1acf09303bc452d2a38098f6bf94655408" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1acf09303bc452d2a38098f6bf94655408" kindref="member" tooltip="If true,the ending variable will trigger the backward playing of the starting video and provides a ni...">ending</ref>;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="255" refid="classtest_app_1a9ced1a64554a911109fe8a975b95b590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>multimap<sp/>&lt;int,<sp/>int<sp/>&gt;<sp/><ref refid="classtest_app_1a9ced1a64554a911109fe8a975b95b590" kindref="member" tooltip="Unused. ">imageScores</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258" refid="classtest_app_1ae31cc868f554f62b4c6e4e9db3b4155b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ImageData&gt;<sp/><ref refid="classtest_app_1ae31cc868f554f62b4c6e4e9db3b4155b" kindref="member" tooltip="Unused Data Structures that were used earlier ,when the XML file was different to rank the images...">untaggedImageObjects</ref>,<ref refid="classtest_app_1af65c8dc2f4620bfe7fdf6a39043cb48d" kindref="member">taggedImageObjects</ref>;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="261" refid="classtest_app_1a500cd1228b3364bf30c8fb185e375688" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ofVec3f&gt;<sp/><ref refid="classtest_app_1a500cd1228b3364bf30c8fb185e375688" kindref="member" tooltip="Unused Data Structure. ">imageData</ref>;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>UNUSED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267" refid="classtest_app_1a8a2b9b9cf76097e20f148b616297029b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a8a2b9b9cf76097e20f148b616297029b" kindref="member">prevAngVel</ref>=0;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Used<sp/>with<sp/>the<sp/>old<sp/>re-ordering<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270" refid="classtest_app_1aa16e3bba73f9adb3c6363ac429e5a472" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>multimap<sp/>&lt;int,<sp/>int<sp/>&gt;<sp/><ref refid="classtest_app_1aa16e3bba73f9adb3c6363ac429e5a472" kindref="member">albumScores</ref>;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>below<sp/>data<sp/>structures<sp/>were<sp/>used<sp/>with<sp/>the<sp/>early<sp/>re-ordering<sp/>algorithms<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273" refid="classtest_app_1a9cb9aa0700c4c8b316329a86c4e650ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;ImageData&gt;<sp/><ref refid="classtest_app_1adcd4c3dfc7257326a79e6a3fc8b33406" kindref="member">imageDetails</ref>,<ref refid="classtest_app_1a7f7226fc54fdb7d06366ed0fa3ab7ee3" kindref="member">taggedImages</ref>,<ref refid="classtest_app_1a9cb9aa0700c4c8b316329a86c4e650ec" kindref="member">untaggedImages</ref>;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___camera_animation_1ga2a792bfdf269fd69951cbf97d4f574af" kindref="member">adjustoverShotCameraPosition</ref>();</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___camera_animation_1ga1facfe2200dae7ad147b8f9ab31f68c6" kindref="member">animate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___camera_animation_1ga79467453f6ea0dd63961a810dca9ac6a" kindref="member">startAnimation</ref>();</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___camera_animation_1ga1a97063e992528dc79867e516d9365f0" kindref="member">startAnimationCameraPosition</ref>();</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___wiggle_1gaaa5c2175be1d5ca404c3c23a898d0cdd" kindref="member">pushWigglePositions</ref>();</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ofVec3f<sp/><ref refid="group___wiggle_1gacd718eb54b9dc2b45e463414c24de6b9" kindref="member">wiggle</ref>();</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1aa93380112b906e2aac2d8738309b2d17" kindref="member">loadImagesandXMLData</ref>();</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a6dbcb5f1e47c842dfd1ab6b188097677" kindref="member">drawImages</ref>();</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1aa30f4f1db2d186466f97e6ca15169712" kindref="member">generateCircularSpiral</ref>();</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___drawing_stars_1ga57e6d61c73ba0244b9d7a8c227aec244" kindref="member">assignStarPositions</ref>();</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___drawing_stars_1ga3ea688a73ca9eb760a3f0a07fde0ac10" kindref="member">drawStars</ref>();</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>This<sp/>funtion<sp/>will<sp/>load<sp/>the<sp/>images<sp/>from<sp/>the<sp/>directory<sp/>and<sp/>push<sp/>them<sp/>into<sp/>an<sp/>ImageVector.UNUSED<sp/>in<sp/>the<sp/>current<sp/>version<sp/>of<sp/>the<sp/>program<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1afcb51e1a0b9152b9f6e6b102959bab51" kindref="member" tooltip="Unused. ">loadImagesFromDirectory</ref>();</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>following<sp/>are<sp/>unused<sp/>data<sp/>structures<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a98baf4cdf9fa0f0a56056322b4e7f7e7" kindref="member">newReorder</ref>();</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1abaca61ce3e4c1b6ce726c907915acf80" kindref="member">complexReorder</ref>();</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Unused<sp/>function<sp/>that<sp/>returns<sp/>the<sp/>lowest<sp/>score<sp/>of<sp/>2<sp/>imageData<sp/>objects<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a81cf913142d9512f9d1063cb7e71199b" kindref="member">sortOnImageScore</ref>(<ref refid="struct_image_data" kindref="compound">ImageData</ref><sp/>l,<ref refid="struct_image_data" kindref="compound">ImageData</ref><sp/>r);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1a8a5d9dd51b5c7058ed88611b6ab2b57d" kindref="member">sortImages</ref>();</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classtest_app_1ab3aec1217fe6743f4ec9ed762148f627" kindref="member">reorder</ref>();</highlight></codeline>
+<codeline lineno="361"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h"/>
+  </compounddef>
+</doxygen>

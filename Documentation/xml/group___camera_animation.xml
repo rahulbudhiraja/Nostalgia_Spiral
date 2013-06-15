@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="group___camera_animation" kind="group">
+    <compoundname>CameraAnimation</compoundname>
+    <title>CameraAnimation</title>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group___camera_animation_1ga2a5d49fd1f7f50f745f56095a1fa0099" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::animationMode</definition>
+        <argsstring></argsstring>
+        <name>animationMode</name>
+        <briefdescription>
+<para>checks whether the camera is currently transitioning to another picture or if it is stationary a.k.a animationMode </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="93" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1gadd9ab1aa902948afbdf1c6db0dfde385" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::tweenvalue</definition>
+        <argsstring></argsstring>
+        <name>tweenvalue</name>
+        <briefdescription>
+<para>stores intermediate tweenvalues for all animations </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="96" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1gae9f60797c1c5d9f1ac06e1d6a5259957" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::tweenedCameraPosition</definition>
+        <argsstring></argsstring>
+        <name>tweenedCameraPosition</name>
+        <briefdescription>
+<para>Stores the temporary camera position while tweening(interpolating camera position while moving from 1 point in the spiral to another) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="99" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1ga21b16bdba744425519597fcb925df43a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::animationCounter</definition>
+        <argsstring></argsstring>
+        <name>animationCounter</name>
+        <briefdescription>
+<para>Animation Counter that is operative while the animation is occuring. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="102" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1gab8a277e1055730fb5d6786ce0c4804b2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::isstartingAnimationActive</definition>
+        <argsstring></argsstring>
+        <name>isstartingAnimationActive</name>
+        <briefdescription>
+<para>If set,this variable will start the Animation of the spiral zooming out. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="105" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1ga577bf117cf10109de967ea0d3ca17f1f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::startAnimationCounter</definition>
+        <argsstring></argsstring>
+        <name>startAnimationCounter</name>
+        <briefdescription>
+<para>During the starting animation,the StartAnimationCounter will change the tweenvalue which in turn sets the CameraPosition. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="108" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___camera_animation_1ga2a792bfdf269fd69951cbf97d4f574af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::adjustoverShotCameraPosition</definition>
+        <argsstring>()</argsstring>
+        <name>adjustoverShotCameraPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="286" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="961" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga1facfe2200dae7ad147b8f9ab31f68c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::animate</definition>
+        <argsstring>(int, int)</argsstring>
+        <name>animate</name>
+        <param>
+          <type>int</type>
+          <defname>pos1</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>pos2</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the position from which we will animateFrom,pos2 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="294" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="548" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga79467453f6ea0dd63961a810dca9ac6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::startAnimation</definition>
+        <argsstring>()</argsstring>
+        <name>startAnimation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function plays the starting animation which zooms out of the spiral </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="299" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga1a97063e992528dc79867e516d9365f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::startAnimationCameraPosition</definition>
+        <argsstring>()</argsstring>
+        <name>startAnimationCameraPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If the starting animation is active,this function will return a vector that has the startingCamera&apos;s intermediate tweened position <simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="303" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="593" bodyend="632"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This are the variables that are used for animating the camera. </para>    </briefdescription>
+    <detaileddescription>
+<para>Vector that will use the above vector and ofLerp to compute the exact cameraposition <simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

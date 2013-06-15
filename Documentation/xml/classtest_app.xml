@@ -1,0 +1,1486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="classtest_app" kind="class" prot="public">
+    <compoundname>testApp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ofBaseApp</basecompoundref>
+    <includes refid="test_app_8h" local="no">testApp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="group___camera_1ga0278ee237cbbd881252d6273b131bb55" prot="public" static="no" mutable="no">
+        <type>ofCamera</type>
+        <definition>ofCamera testApp::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="77" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_1gac01013264b9988207e7fd9e0a486ff2f" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::cameraStartPosition</definition>
+        <argsstring></argsstring>
+        <name>cameraStartPosition</name>
+        <briefdescription>
+<para>These variables will be useful if DEBUGMODE is defined. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="80" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_1gad3319d9cd3cb00e898f4f602b879efad" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::cameraEndPosition</definition>
+        <argsstring></argsstring>
+        <name>cameraEndPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="80" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_1ga4ca3a51642dedbf37f2b9f6ef96510c7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::cameraindex</definition>
+        <argsstring></argsstring>
+        <name>cameraindex</name>
+        <initializer>=0</initializer>
+        <briefdescription>
+<para>The Cameraindex value,this make the camera go from one image/position to another. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="83" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1ga2a5d49fd1f7f50f745f56095a1fa0099" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::animationMode</definition>
+        <argsstring></argsstring>
+        <name>animationMode</name>
+        <briefdescription>
+<para>checks whether the camera is currently transitioning to another picture or if it is stationary a.k.a animationMode </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="93" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1gadd9ab1aa902948afbdf1c6db0dfde385" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::tweenvalue</definition>
+        <argsstring></argsstring>
+        <name>tweenvalue</name>
+        <briefdescription>
+<para>stores intermediate tweenvalues for all animations </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="96" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1gae9f60797c1c5d9f1ac06e1d6a5259957" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::tweenedCameraPosition</definition>
+        <argsstring></argsstring>
+        <name>tweenedCameraPosition</name>
+        <briefdescription>
+<para>Stores the temporary camera position while tweening(interpolating camera position while moving from 1 point in the spiral to another) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="99" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1ga21b16bdba744425519597fcb925df43a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::animationCounter</definition>
+        <argsstring></argsstring>
+        <name>animationCounter</name>
+        <briefdescription>
+<para>Animation Counter that is operative while the animation is occuring. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="102" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1gab8a277e1055730fb5d6786ce0c4804b2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::isstartingAnimationActive</definition>
+        <argsstring></argsstring>
+        <name>isstartingAnimationActive</name>
+        <briefdescription>
+<para>If set,this variable will start the Animation of the spiral zooming out. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="105" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___camera_animation_1ga577bf117cf10109de967ea0d3ca17f1f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::startAnimationCounter</definition>
+        <argsstring></argsstring>
+        <name>startAnimationCounter</name>
+        <briefdescription>
+<para>During the starting animation,the StartAnimationCounter will change the tweenvalue which in turn sets the CameraPosition. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="108" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a85133f49103cfa002f39d882f7168236" prot="public" static="no" mutable="no">
+        <type>ofxXmlSettings</type>
+        <definition>ofxXmlSettings testApp::pictures_XML</definition>
+        <argsstring></argsstring>
+        <name>pictures_XML</name>
+        <briefdescription>
+<para>To load the XML File that is downloaded by the NostalgiaRoom Website. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="114" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a6ae76dc97fbeee00755f4a6cd6b87e19" prot="public" static="no" mutable="no">
+        <type>long long int</type>
+        <definition>long long int testApp::userid</definition>
+        <argsstring></argsstring>
+        <name>userid</name>
+        <briefdescription>
+<para>The user&apos;s id that is passed at run-time.Only a long long int (max value 9223372036854775807) can support the range of the userids provided by Facebbok. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="117" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1ga5495d37f44bb3e3b00a04ad5910e0a6b" prot="public" static="no" mutable="no">
+        <type>vector&lt; ofVec3f &gt;</type>
+        <definition>vector&lt;ofVec3f&gt; testApp::wigglePositions</definition>
+        <argsstring></argsstring>
+        <name>wigglePositions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="124" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1gaf81358868ae15faab1974ec074b1509f" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::currentwigglePosition</definition>
+        <argsstring></argsstring>
+        <name>currentwigglePosition</name>
+        <briefdescription>
+<para>Current Wiggle POsition. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="127" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1ga6b9af0b1ae4a2c0530eb6a8cf8340751" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::currentwiggleindex</definition>
+        <argsstring></argsstring>
+        <name>currentwiggleindex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="129" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wiggle_1ga6073b33be7847d675ec089a1d514c506" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::wiggleAnimationCounter</definition>
+        <argsstring></argsstring>
+        <name>wiggleAnimationCounter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="131" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1aced9b8a8419c8465877c2c9cd43f8934" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_image_data" kindref="compound">ImageData</ref> &gt;</type>
+        <definition>vector&lt;ImageData&gt; testApp::combinedImageObjects</definition>
+        <argsstring></argsstring>
+        <name>combinedImageObjects</name>
+        <briefdescription>
+<para>The actual data structure that is used for storing the <ref refid="struct_image_data" kindref="compound">ImageData</ref> objects. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="138" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a68d0d30cea64a9d39a1b2deef16677ad" prot="public" static="no" mutable="no">
+        <type>vector&lt; ofVec3f &gt;</type>
+        <definition>vector&lt;ofVec3f&gt; testApp::StarPositions</definition>
+        <argsstring></argsstring>
+        <name>StarPositions</name>
+        <briefdescription>
+<para>Stores the positions of the stars. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="141" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1af0dd2f3e3aabdb43bee49d74c156dc05" prot="public" static="no" mutable="no">
+        <type>vector&lt; ofVec3f &gt;</type>
+        <definition>vector&lt;ofVec3f&gt; testApp::SpiralPoints</definition>
+        <argsstring></argsstring>
+        <name>SpiralPoints</name>
+        <briefdescription>
+<para>These are Spiralpoints generated using the Conical Helix function. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="146" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ad4de5d6e6e8f3b8bb7424e62792deb1f" prot="public" static="no" mutable="no">
+        <type>vector&lt; ofImage &gt;</type>
+        <definition>vector&lt;ofImage&gt; testApp::ImageVector</definition>
+        <argsstring></argsstring>
+        <name>ImageVector</name>
+        <briefdescription>
+<para>Will store the loaded images from the directory in a Vector. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="150" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a957cf7fdb3ea964a88ca1be13e4d68fc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::numberofImages</definition>
+        <argsstring></argsstring>
+        <name>numberofImages</name>
+        <briefdescription>
+<para>Number of images loaded in the ImageVector data structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="153" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1acb60fb8a89e9ec5d461630a20b11ceda" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::timesinceLastTransition</definition>
+        <argsstring></argsstring>
+        <name>timesinceLastTransition</name>
+        <briefdescription>
+<para>Time since Previous Transition/Animation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="156" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a846feea7c2c4d4b1929bb72c546b3e19" prot="public" static="no" mutable="no">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::overshotCameraStartingPosition</definition>
+        <argsstring></argsstring>
+        <name>overshotCameraStartingPosition</name>
+        <briefdescription>
+<para>The whole starting Animation consists of a few Components.A video played at the start,The zooming out effect from the end of the spiral and an overshot animation that will take the Camera to the highest ranked image that will be shown first during the experience. The below data structures are for for the OvershotCameraAnimation. </para>        </briefdescription>
+        <detaileddescription>
+<para>This vector will store the overshotCameraPosition and changes the cameraPosition during the start while tweening </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="161" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ad2fca6ce5e37462cd820afc48633324d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::startoverShotCameraAnimation</definition>
+        <argsstring></argsstring>
+        <name>startoverShotCameraAnimation</name>
+        <briefdescription>
+<para>When set,this will start the overshot camera animation. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="166" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a808376783cdf510335cd1b37026e9bb3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::position1_z</definition>
+        <argsstring></argsstring>
+        <name>position1_z</name>
+        <briefdescription>
+<para>Intermediate values that are used while tweening/animation of the camera positions. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="169" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a0720011cfaade6388109232ea4927c19" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::position2_z</definition>
+        <argsstring></argsstring>
+        <name>position2_z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="169" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a9bfe7793fa0689a991ff64174745c38f" prot="public" static="no" mutable="no">
+        <type>ofQTKitPlayer</type>
+        <definition>ofQTKitPlayer testApp::startingMovie</definition>
+        <argsstring></argsstring>
+        <name>startingMovie</name>
+        <briefdescription>
+<para>Apparently,the ofQTKitPlayer plays HD Video better than ofVideoPlayer. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="172" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1aea3cb9f5f0061a42a4953d6b6c949036" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::startingMovieFinished</definition>
+        <argsstring></argsstring>
+        <name>startingMovieFinished</name>
+        <briefdescription>
+<para>Variable determines if the startingMovie has finished playing or not (initially set to false ) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="175" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1af696fd13ee9ecb38ac0ba0b72543ce06" prot="public" static="no" mutable="no">
+        <type>ofSoundPlayer</type>
+        <definition>ofSoundPlayer testApp::BluementhalMp3</definition>
+        <argsstring></argsstring>
+        <name>BluementhalMp3</name>
+        <briefdescription>
+<para>This class plays the Bluementhal song by Ulrich Schnauss in the background while the user watches his/her pictures.It is. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="178" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga020730abb55e6ae6d0a28edee19050e0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::roll</definition>
+        <argsstring></argsstring>
+        <name>roll</name>
+        <briefdescription>
+<para>Roll,Yaw and Pitch as sent by OSCulator. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga865985f78dd5def3ed20c87b9fc772b6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1gaabbebeb113838374f659e86a0355b260" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga8e560e923c82d421857538e4a5927542" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel</definition>
+        <argsstring></argsstring>
+        <name>accel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga7a77e8633c3a94e3e409a33a5cd9ae3f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::wiiX</definition>
+        <argsstring></argsstring>
+        <name>wiiX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga5ae41896388ae16ee530beca5333e02a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::wiiY</definition>
+        <argsstring></argsstring>
+        <name>wiiY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="190" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1gad1738ff98d225f80b853a9ddc9f5a116" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel_x</definition>
+        <argsstring></argsstring>
+        <name>accel_x</name>
+        <briefdescription>
+<para>Acceleration in x,y and z. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="193" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga204bcb2412a70a65ebea6008ee8c4eb0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel_y</definition>
+        <argsstring></argsstring>
+        <name>accel_y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="193" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga61dbdd5c0b868568dde40a52f6e56054" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::accel_z</definition>
+        <argsstring></argsstring>
+        <name>accel_z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="193" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga98e05c3206ff95fccfebfc9df5317598" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::angular_velocity</definition>
+        <argsstring></argsstring>
+        <name>angular_velocity</name>
+        <briefdescription>
+<para>Angular Velocity as received from OSCulator ,this variable is helpful to predict if the swing is going forwards or backward .A +ve value means the swing is going front and a -ve value indicates the person is swinging backwards. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="196" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga034c44ff60fa1e5f021e90d5410ba657" prot="public" static="no" mutable="no">
+        <type>ofxOscReceiver</type>
+        <definition>ofxOscReceiver testApp::receiver</definition>
+        <argsstring></argsstring>
+        <name>receiver</name>
+        <briefdescription>
+<para>OSCReceiver class that interfaces with the OSCulator and receives values from the wii-mote. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="199" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga0124035d0454fb6bd9152f8a87c40677" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string testApp::Message</definition>
+        <argsstring></argsstring>
+        <name>Message</name>
+        <briefdescription>
+<para>The message received from OSCulator containing details of the wiimote values like angular velocity and acceleration. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="202" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga9ed611377cd46f5148a3a3d538e96484" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::windowWidth</definition>
+        <argsstring></argsstring>
+        <name>windowWidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="204" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group___wii_mote_1ga4e8884eeef5b2657b62278969d4e3dcf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int testApp::windowHeight</definition>
+        <argsstring></argsstring>
+        <name>windowHeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="204" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ac559756a01e0b98378bc29dfba9fac79" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::minAngularVelocity</definition>
+        <argsstring></argsstring>
+        <name>minAngularVelocity</name>
+        <briefdescription>
+<para>These are the wii-mote variables that are used to adjust the timegap between two images. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="212" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ab9565e8e6dc748ef68e6845f5f94cae9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::maxAngularVelocity</definition>
+        <argsstring></argsstring>
+        <name>maxAngularVelocity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="212" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ab007edbc20b09d607f8010e2dbafdb97" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::minAccel</definition>
+        <argsstring></argsstring>
+        <name>minAccel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="213" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a34e834a5e4d359700147a74eece8eed1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::maxAccel</definition>
+        <argsstring></argsstring>
+        <name>maxAccel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="213" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ab336e228840f001d15f9b1eb3a30972f" prot="public" static="no" mutable="no">
+        <type>ofTrueTypeFont</type>
+        <definition>ofTrueTypeFont testApp::fonttodisplayWiimoteValues</definition>
+        <argsstring></argsstring>
+        <name>fonttodisplayWiimoteValues</name>
+        <briefdescription>
+<para>Font to display the wiimote values on screen for debugging. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="217" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a8ce5505df4526abed238956b65956edd" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string testApp::State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <briefdescription>
+<para>Swing&apos;s current state i.e. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="220" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a944f2713019239a4b49241a5cc9a00c9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::timeGap</definition>
+        <argsstring></argsstring>
+        <name>timeGap</name>
+        <briefdescription>
+<para>Time that an image will be shown on the screen,this is controlled by the wii-motes acceleration. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="224" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a42478a80a90ce9f663c04bcdaea5c5bd" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::isturnCompleted</definition>
+        <argsstring></argsstring>
+        <name>isturnCompleted</name>
+        <briefdescription>
+<para>This variable is used to check if a half-swing is completed ,that is from back to front or from front to back. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="228" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a918c09b5a4389a8402cfacb25d390226" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::fadeAudio</definition>
+        <argsstring></argsstring>
+        <name>fadeAudio</name>
+        <briefdescription>
+<para>If set,this variable will cause the currentVolume variable to fade. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="231" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a51c20c5432d9f6b06f719526d9a34ee6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::currentVolume</definition>
+        <argsstring></argsstring>
+        <name>currentVolume</name>
+        <briefdescription>
+<para>The current volume variable is generally set to 1 ,but if fadeAudio is enabled,it will reduce the audio by -0.001 every frame,this is used in the end along with the Corresponding video to reduce the volume of the music. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="234" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a8a65a6d1a473417cec1c2ac2e6116aae" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::startInstallation</definition>
+        <argsstring></argsstring>
+        <name>startInstallation</name>
+        <briefdescription>
+<para>This variable is used to start the installation if the user is swinging on the wii-mote or if the enter key is pressed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="237" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1af5b1af55af2256ef3751de075fc7a9cc" prot="public" static="no" mutable="no">
+        <type>ofTrueTypeFont</type>
+        <definition>ofTrueTypeFont testApp::previewText</definition>
+        <argsstring></argsstring>
+        <name>previewText</name>
+        <briefdescription>
+<para>previewText is used for loading the font Asyouwish.ttf </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="244" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ad9a4beab6f2e0f13d32b00b502e89bdc" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string testApp::tempText</definition>
+        <argsstring></argsstring>
+        <name>tempText</name>
+        <briefdescription>
+<para>This string will display &quot;Start Swinging !&quot; at the start. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="247" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1acf09303bc452d2a38098f6bf94655408" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool testApp::ending</definition>
+        <argsstring></argsstring>
+        <name>ending</name>
+        <briefdescription>
+<para>If true,the ending variable will trigger the backward playing of the starting video and provides a nice smooth ending. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="250" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a9ced1a64554a911109fe8a975b95b590" prot="public" static="no" mutable="no">
+        <type>multimap&lt; int, int &gt;</type>
+        <definition>multimap&lt;int, int &gt; testApp::imageScores</definition>
+        <argsstring></argsstring>
+        <name>imageScores</name>
+        <briefdescription>
+<para>Unused. </para>        </briefdescription>
+        <detaileddescription>
+<para>A multimap is used because it is easier to store 2 elements(Image number and index) and then sort the whole array based on the score .Unused </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="255" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1ae31cc868f554f62b4c6e4e9db3b4155b" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_image_data" kindref="compound">ImageData</ref> &gt;</type>
+        <definition>vector&lt;ImageData&gt; testApp::untaggedImageObjects</definition>
+        <argsstring></argsstring>
+        <name>untaggedImageObjects</name>
+        <briefdescription>
+<para>Unused Data Structures that were used earlier ,when the XML file was different to rank the images. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="258" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1af65c8dc2f4620bfe7fdf6a39043cb48d" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_image_data" kindref="compound">ImageData</ref> &gt;</type>
+        <definition>vector&lt;ImageData&gt; testApp::taggedImageObjects</definition>
+        <argsstring></argsstring>
+        <name>taggedImageObjects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="258" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a500cd1228b3364bf30c8fb185e375688" prot="public" static="no" mutable="no">
+        <type>vector&lt; ofVec3f &gt;</type>
+        <definition>vector&lt;ofVec3f&gt; testApp::imageData</definition>
+        <argsstring></argsstring>
+        <name>imageData</name>
+        <briefdescription>
+<para>Unused Data Structure. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="261" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a8a2b9b9cf76097e20f148b616297029b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float testApp::prevAngVel</definition>
+        <argsstring></argsstring>
+        <name>prevAngVel</name>
+        <initializer>=0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="267" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1aa16e3bba73f9adb3c6363ac429e5a472" prot="public" static="no" mutable="no">
+        <type>multimap&lt; int, int &gt;</type>
+        <definition>multimap&lt;int, int &gt; testApp::albumScores</definition>
+        <argsstring></argsstring>
+        <name>albumScores</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="270" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1adcd4c3dfc7257326a79e6a3fc8b33406" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_image_data" kindref="compound">ImageData</ref> &gt;</type>
+        <definition>vector&lt;ImageData&gt; testApp::imageDetails</definition>
+        <argsstring></argsstring>
+        <name>imageDetails</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="273" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a7f7226fc54fdb7d06366ed0fa3ab7ee3" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_image_data" kindref="compound">ImageData</ref> &gt;</type>
+        <definition>vector&lt;ImageData&gt; testApp::taggedImages</definition>
+        <argsstring></argsstring>
+        <name>taggedImages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="273" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtest_app_1a9cb9aa0700c4c8b316329a86c4e650ec" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_image_data" kindref="compound">ImageData</ref> &gt;</type>
+        <definition>vector&lt;ImageData&gt; testApp::untaggedImages</definition>
+        <argsstring></argsstring>
+        <name>untaggedImages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="273" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtest_app_1a3d796120bccff4106a3ec028b9a81912" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>testApp::testApp</definition>
+        <argsstring>(long long int id)</argsstring>
+        <name>testApp</name>
+        <param>
+          <type>long long int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="49" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="636" bodyend="640"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1ad431db15b6150b965cd52bcba8e16e11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="52" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="5" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1afb39d201aec71a295b7609876bf7d0c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="53" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="100" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1af869cba67b1dab8481f8d0e216d59dcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::draw</definition>
+        <argsstring>()</argsstring>
+        <name>draw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="54" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="199" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a904d147c7e532cb92656d5dd4895cd26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::keyPressed</definition>
+        <argsstring>(int key)</argsstring>
+        <name>keyPressed</name>
+        <param>
+          <type>int</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="56" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="401" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a1116a10088e4932f6d482efe723cd45e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::keyReleased</definition>
+        <argsstring>(int key)</argsstring>
+        <name>keyReleased</name>
+        <param>
+          <type>int</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="57" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="441" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a33541b19eff9f8285b2487bfc146d58b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::mouseMoved</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>mouseMoved</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="58" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="446" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a075bcc2be16fd8f3eaa9162fb40a0a1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::mouseDragged</definition>
+        <argsstring>(int x, int y, int button)</argsstring>
+        <name>mouseDragged</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="59" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="451" bodyend="453"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a3f200702ce91859cac2872a39302679d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::mousePressed</definition>
+        <argsstring>(int x, int y, int button)</argsstring>
+        <name>mousePressed</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="60" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="456" bodyend="458"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1aa3680ffc782b1e5c451289817f20c9c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::mouseReleased</definition>
+        <argsstring>(int x, int y, int button)</argsstring>
+        <name>mouseReleased</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="61" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="461" bodyend="463"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a428b7df9c64352d6e7cb234fc297e6c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::windowResized</definition>
+        <argsstring>(int w, int h)</argsstring>
+        <name>windowResized</name>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="62" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="466" bodyend="468"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1af15e9e9064fe5ccbe6c82cc401ae9e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::dragEvent</definition>
+        <argsstring>(ofDragInfo dragInfo)</argsstring>
+        <name>dragEvent</name>
+        <param>
+          <type>ofDragInfo</type>
+          <declname>dragInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="63" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="476" bodyend="478"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a66dbc8c5c2d4e20febebe9fd42b8c851" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::gotMessage</definition>
+        <argsstring>(ofMessage msg)</argsstring>
+        <name>gotMessage</name>
+        <param>
+          <type>ofMessage</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="64" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="471" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga2a792bfdf269fd69951cbf97d4f574af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::adjustoverShotCameraPosition</definition>
+        <argsstring>()</argsstring>
+        <name>adjustoverShotCameraPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="286" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="961" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga1facfe2200dae7ad147b8f9ab31f68c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::animate</definition>
+        <argsstring>(int, int)</argsstring>
+        <name>animate</name>
+        <param>
+          <type>int</type>
+          <defname>pos1</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>pos2</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using ofLerp <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the position from which we will animateFrom,pos2 </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="294" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="548" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga79467453f6ea0dd63961a810dca9ac6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::startAnimation</definition>
+        <argsstring>()</argsstring>
+        <name>startAnimation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function plays the starting animation which zooms out of the spiral </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="299" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___camera_animation_1ga1a97063e992528dc79867e516d9365f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::startAnimationCameraPosition</definition>
+        <argsstring>()</argsstring>
+        <name>startAnimationCameraPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If the starting animation is active,this function will return a vector that has the startingCamera&apos;s intermediate tweened position <simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="303" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="593" bodyend="632"/>
+      </memberdef>
+      <memberdef kind="function" id="group___wiggle_1gaaa5c2175be1d5ca404c3c23a898d0cdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::pushWigglePositions</definition>
+        <argsstring>()</argsstring>
+        <name>pushWigglePositions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pushing values </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="313" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="642" bodyend="662"/>
+      </memberdef>
+      <memberdef kind="function" id="group___wiggle_1gacd718eb54b9dc2b45e463414c24de6b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ofVec3f</type>
+        <definition>ofVec3f testApp::wiggle</definition>
+        <argsstring>()</argsstring>
+        <name>wiggle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Actual code that does wiggling. <simplesect kind="return"><para>ofVec3f </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="319" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="664" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1aa93380112b906e2aac2d8738309b2d17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::loadImagesandXMLData</definition>
+        <argsstring>()</argsstring>
+        <name>loadImagesandXMLData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load the Images and XML Data.This function will load the images from the directory and then parse the xml to get the score and album number.Once that is done ,we combine the untagged and tagged images to get a combined Data Structure </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="324" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="732" bodyend="959"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a6dbcb5f1e47c842dfd1ab6b188097677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::drawImages</definition>
+        <argsstring>()</argsstring>
+        <name>drawImages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function will draw the images.Used in draw </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="328" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="521" bodyend="544"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1aa30f4f1db2d186466f97e6ca15169712" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::generateCircularSpiral</definition>
+        <argsstring>()</argsstring>
+        <name>generateCircularSpiral</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that will generate the points on the Spiral </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="331" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="480" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="group___drawing_stars_1ga57e6d61c73ba0244b9d7a8c227aec244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::assignStarPositions</definition>
+        <argsstring>()</argsstring>
+        <name>assignStarPositions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="338" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="724" bodyend="729"/>
+      </memberdef>
+      <memberdef kind="function" id="group___drawing_stars_1ga3ea688a73ca9eb760a3f0a07fde0ac10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::drawStars</definition>
+        <argsstring>()</argsstring>
+        <name>drawStars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="339" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="715" bodyend="722"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1afcb51e1a0b9152b9f6e6b102959bab51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::loadImagesFromDirectory</definition>
+        <argsstring>()</argsstring>
+        <name>loadImagesFromDirectory</name>
+        <briefdescription>
+<para>Unused. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="347" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="1001" bodyend="1036"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a98baf4cdf9fa0f0a56056322b4e7f7e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::newReorder</definition>
+        <argsstring>()</argsstring>
+        <name>newReorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="350" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="1043" bodyend="1077"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1abaca61ce3e4c1b6ce726c907915acf80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::complexReorder</definition>
+        <argsstring>()</argsstring>
+        <name>complexReorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="351" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="1079" bodyend="1149"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a81cf913142d9512f9d1063cb7e71199b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool testApp::sortOnImageScore</definition>
+        <argsstring>(ImageData l, ImageData r)</argsstring>
+        <name>sortOnImageScore</name>
+        <param>
+          <type><ref refid="struct_image_data" kindref="compound">ImageData</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_image_data" kindref="compound">ImageData</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="354" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="1039" bodyend="1041"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1a8a5d9dd51b5c7058ed88611b6ab2b57d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::sortImages</definition>
+        <argsstring>()</argsstring>
+        <name>sortImages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This was an old function which was used to sort the images </para>        </detaileddescription>
+        <inbodydescription>
+<para>The New Sorting Algorithm </para>        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="356" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="1151" bodyend="1260"/>
+      </memberdef>
+      <memberdef kind="function" id="classtest_app_1ab3aec1217fe6743f4ec9ed762148f627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void testApp::reorder</definition>
+        <argsstring>()</argsstring>
+        <name>reorder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unused </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="360" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.cpp" bodystart="1262" bodyend="1332"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="9">
+        <label>ofBaseApp</label>
+      </node>
+      <node id="8">
+        <label>testApp</label>
+        <link refid="classtest_app"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="11">
+        <label>ofBaseApp</label>
+      </node>
+      <node id="10">
+        <label>testApp</label>
+        <link refid="classtest_app"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" line="46" column="1" bodyfile="/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/src/testApp.h" bodystart="46" bodyend="361"/>
+    <listofallmembers>
+      <member refid="group___wii_mote_1ga8e560e923c82d421857538e4a5927542" prot="public" virt="non-virtual"><scope>testApp</scope><name>accel</name></member>
+      <member refid="group___wii_mote_1gad1738ff98d225f80b853a9ddc9f5a116" prot="public" virt="non-virtual"><scope>testApp</scope><name>accel_x</name></member>
+      <member refid="group___wii_mote_1ga204bcb2412a70a65ebea6008ee8c4eb0" prot="public" virt="non-virtual"><scope>testApp</scope><name>accel_y</name></member>
+      <member refid="group___wii_mote_1ga61dbdd5c0b868568dde40a52f6e56054" prot="public" virt="non-virtual"><scope>testApp</scope><name>accel_z</name></member>
+      <member refid="group___camera_animation_1ga2a792bfdf269fd69951cbf97d4f574af" prot="public" virt="non-virtual"><scope>testApp</scope><name>adjustoverShotCameraPosition</name></member>
+      <member refid="classtest_app_1aa16e3bba73f9adb3c6363ac429e5a472" prot="public" virt="non-virtual"><scope>testApp</scope><name>albumScores</name></member>
+      <member refid="group___wii_mote_1ga98e05c3206ff95fccfebfc9df5317598" prot="public" virt="non-virtual"><scope>testApp</scope><name>angular_velocity</name></member>
+      <member refid="group___camera_animation_1ga1facfe2200dae7ad147b8f9ab31f68c6" prot="public" virt="non-virtual"><scope>testApp</scope><name>animate</name></member>
+      <member refid="group___camera_animation_1ga21b16bdba744425519597fcb925df43a" prot="public" virt="non-virtual"><scope>testApp</scope><name>animationCounter</name></member>
+      <member refid="group___camera_animation_1ga2a5d49fd1f7f50f745f56095a1fa0099" prot="public" virt="non-virtual"><scope>testApp</scope><name>animationMode</name></member>
+      <member refid="group___drawing_stars_1ga57e6d61c73ba0244b9d7a8c227aec244" prot="public" virt="non-virtual"><scope>testApp</scope><name>assignStarPositions</name></member>
+      <member refid="classtest_app_1af696fd13ee9ecb38ac0ba0b72543ce06" prot="public" virt="non-virtual"><scope>testApp</scope><name>BluementhalMp3</name></member>
+      <member refid="group___camera_1ga0278ee237cbbd881252d6273b131bb55" prot="public" virt="non-virtual"><scope>testApp</scope><name>camera</name></member>
+      <member refid="group___camera_1gad3319d9cd3cb00e898f4f602b879efad" prot="public" virt="non-virtual"><scope>testApp</scope><name>cameraEndPosition</name></member>
+      <member refid="group___camera_1ga4ca3a51642dedbf37f2b9f6ef96510c7" prot="public" virt="non-virtual"><scope>testApp</scope><name>cameraindex</name></member>
+      <member refid="group___camera_1gac01013264b9988207e7fd9e0a486ff2f" prot="public" virt="non-virtual"><scope>testApp</scope><name>cameraStartPosition</name></member>
+      <member refid="classtest_app_1aced9b8a8419c8465877c2c9cd43f8934" prot="public" virt="non-virtual"><scope>testApp</scope><name>combinedImageObjects</name></member>
+      <member refid="classtest_app_1abaca61ce3e4c1b6ce726c907915acf80" prot="public" virt="non-virtual"><scope>testApp</scope><name>complexReorder</name></member>
+      <member refid="classtest_app_1a51c20c5432d9f6b06f719526d9a34ee6" prot="public" virt="non-virtual"><scope>testApp</scope><name>currentVolume</name></member>
+      <member refid="group___wiggle_1ga6b9af0b1ae4a2c0530eb6a8cf8340751" prot="public" virt="non-virtual"><scope>testApp</scope><name>currentwiggleindex</name></member>
+      <member refid="group___wiggle_1gaf81358868ae15faab1974ec074b1509f" prot="public" virt="non-virtual"><scope>testApp</scope><name>currentwigglePosition</name></member>
+      <member refid="classtest_app_1af15e9e9064fe5ccbe6c82cc401ae9e09" prot="public" virt="non-virtual"><scope>testApp</scope><name>dragEvent</name></member>
+      <member refid="classtest_app_1af869cba67b1dab8481f8d0e216d59dcd" prot="public" virt="non-virtual"><scope>testApp</scope><name>draw</name></member>
+      <member refid="classtest_app_1a6dbcb5f1e47c842dfd1ab6b188097677" prot="public" virt="non-virtual"><scope>testApp</scope><name>drawImages</name></member>
+      <member refid="group___drawing_stars_1ga3ea688a73ca9eb760a3f0a07fde0ac10" prot="public" virt="non-virtual"><scope>testApp</scope><name>drawStars</name></member>
+      <member refid="classtest_app_1acf09303bc452d2a38098f6bf94655408" prot="public" virt="non-virtual"><scope>testApp</scope><name>ending</name></member>
+      <member refid="classtest_app_1a918c09b5a4389a8402cfacb25d390226" prot="public" virt="non-virtual"><scope>testApp</scope><name>fadeAudio</name></member>
+      <member refid="classtest_app_1ab336e228840f001d15f9b1eb3a30972f" prot="public" virt="non-virtual"><scope>testApp</scope><name>fonttodisplayWiimoteValues</name></member>
+      <member refid="classtest_app_1aa30f4f1db2d186466f97e6ca15169712" prot="public" virt="non-virtual"><scope>testApp</scope><name>generateCircularSpiral</name></member>
+      <member refid="classtest_app_1a66dbc8c5c2d4e20febebe9fd42b8c851" prot="public" virt="non-virtual"><scope>testApp</scope><name>gotMessage</name></member>
+      <member refid="classtest_app_1a500cd1228b3364bf30c8fb185e375688" prot="public" virt="non-virtual"><scope>testApp</scope><name>imageData</name></member>
+      <member refid="classtest_app_1adcd4c3dfc7257326a79e6a3fc8b33406" prot="public" virt="non-virtual"><scope>testApp</scope><name>imageDetails</name></member>
+      <member refid="classtest_app_1a9ced1a64554a911109fe8a975b95b590" prot="public" virt="non-virtual"><scope>testApp</scope><name>imageScores</name></member>
+      <member refid="classtest_app_1ad4de5d6e6e8f3b8bb7424e62792deb1f" prot="public" virt="non-virtual"><scope>testApp</scope><name>ImageVector</name></member>
+      <member refid="group___camera_animation_1gab8a277e1055730fb5d6786ce0c4804b2" prot="public" virt="non-virtual"><scope>testApp</scope><name>isstartingAnimationActive</name></member>
+      <member refid="classtest_app_1a42478a80a90ce9f663c04bcdaea5c5bd" prot="public" virt="non-virtual"><scope>testApp</scope><name>isturnCompleted</name></member>
+      <member refid="classtest_app_1a904d147c7e532cb92656d5dd4895cd26" prot="public" virt="non-virtual"><scope>testApp</scope><name>keyPressed</name></member>
+      <member refid="classtest_app_1a1116a10088e4932f6d482efe723cd45e" prot="public" virt="non-virtual"><scope>testApp</scope><name>keyReleased</name></member>
+      <member refid="classtest_app_1aa93380112b906e2aac2d8738309b2d17" prot="public" virt="non-virtual"><scope>testApp</scope><name>loadImagesandXMLData</name></member>
+      <member refid="classtest_app_1afcb51e1a0b9152b9f6e6b102959bab51" prot="public" virt="non-virtual"><scope>testApp</scope><name>loadImagesFromDirectory</name></member>
+      <member refid="classtest_app_1a34e834a5e4d359700147a74eece8eed1" prot="public" virt="non-virtual"><scope>testApp</scope><name>maxAccel</name></member>
+      <member refid="classtest_app_1ab9565e8e6dc748ef68e6845f5f94cae9" prot="public" virt="non-virtual"><scope>testApp</scope><name>maxAngularVelocity</name></member>
+      <member refid="group___wii_mote_1ga0124035d0454fb6bd9152f8a87c40677" prot="public" virt="non-virtual"><scope>testApp</scope><name>Message</name></member>
+      <member refid="classtest_app_1ab007edbc20b09d607f8010e2dbafdb97" prot="public" virt="non-virtual"><scope>testApp</scope><name>minAccel</name></member>
+      <member refid="classtest_app_1ac559756a01e0b98378bc29dfba9fac79" prot="public" virt="non-virtual"><scope>testApp</scope><name>minAngularVelocity</name></member>
+      <member refid="classtest_app_1a075bcc2be16fd8f3eaa9162fb40a0a1f" prot="public" virt="non-virtual"><scope>testApp</scope><name>mouseDragged</name></member>
+      <member refid="classtest_app_1a33541b19eff9f8285b2487bfc146d58b" prot="public" virt="non-virtual"><scope>testApp</scope><name>mouseMoved</name></member>
+      <member refid="classtest_app_1a3f200702ce91859cac2872a39302679d" prot="public" virt="non-virtual"><scope>testApp</scope><name>mousePressed</name></member>
+      <member refid="classtest_app_1aa3680ffc782b1e5c451289817f20c9c6" prot="public" virt="non-virtual"><scope>testApp</scope><name>mouseReleased</name></member>
+      <member refid="classtest_app_1a98baf4cdf9fa0f0a56056322b4e7f7e7" prot="public" virt="non-virtual"><scope>testApp</scope><name>newReorder</name></member>
+      <member refid="classtest_app_1a957cf7fdb3ea964a88ca1be13e4d68fc" prot="public" virt="non-virtual"><scope>testApp</scope><name>numberofImages</name></member>
+      <member refid="classtest_app_1a846feea7c2c4d4b1929bb72c546b3e19" prot="public" virt="non-virtual"><scope>testApp</scope><name>overshotCameraStartingPosition</name></member>
+      <member refid="classtest_app_1a85133f49103cfa002f39d882f7168236" prot="public" virt="non-virtual"><scope>testApp</scope><name>pictures_XML</name></member>
+      <member refid="group___wii_mote_1gaabbebeb113838374f659e86a0355b260" prot="public" virt="non-virtual"><scope>testApp</scope><name>pitch</name></member>
+      <member refid="classtest_app_1a808376783cdf510335cd1b37026e9bb3" prot="public" virt="non-virtual"><scope>testApp</scope><name>position1_z</name></member>
+      <member refid="classtest_app_1a0720011cfaade6388109232ea4927c19" prot="public" virt="non-virtual"><scope>testApp</scope><name>position2_z</name></member>
+      <member refid="classtest_app_1a8a2b9b9cf76097e20f148b616297029b" prot="public" virt="non-virtual"><scope>testApp</scope><name>prevAngVel</name></member>
+      <member refid="classtest_app_1af5b1af55af2256ef3751de075fc7a9cc" prot="public" virt="non-virtual"><scope>testApp</scope><name>previewText</name></member>
+      <member refid="group___wiggle_1gaaa5c2175be1d5ca404c3c23a898d0cdd" prot="public" virt="non-virtual"><scope>testApp</scope><name>pushWigglePositions</name></member>
+      <member refid="group___wii_mote_1ga034c44ff60fa1e5f021e90d5410ba657" prot="public" virt="non-virtual"><scope>testApp</scope><name>receiver</name></member>
+      <member refid="classtest_app_1ab3aec1217fe6743f4ec9ed762148f627" prot="public" virt="non-virtual"><scope>testApp</scope><name>reorder</name></member>
+      <member refid="group___wii_mote_1ga020730abb55e6ae6d0a28edee19050e0" prot="public" virt="non-virtual"><scope>testApp</scope><name>roll</name></member>
+      <member refid="classtest_app_1ad431db15b6150b965cd52bcba8e16e11" prot="public" virt="non-virtual"><scope>testApp</scope><name>setup</name></member>
+      <member refid="classtest_app_1a8a5d9dd51b5c7058ed88611b6ab2b57d" prot="public" virt="non-virtual"><scope>testApp</scope><name>sortImages</name></member>
+      <member refid="classtest_app_1a81cf913142d9512f9d1063cb7e71199b" prot="public" virt="non-virtual"><scope>testApp</scope><name>sortOnImageScore</name></member>
+      <member refid="classtest_app_1af0dd2f3e3aabdb43bee49d74c156dc05" prot="public" virt="non-virtual"><scope>testApp</scope><name>SpiralPoints</name></member>
+      <member refid="classtest_app_1a68d0d30cea64a9d39a1b2deef16677ad" prot="public" virt="non-virtual"><scope>testApp</scope><name>StarPositions</name></member>
+      <member refid="group___camera_animation_1ga79467453f6ea0dd63961a810dca9ac6a" prot="public" virt="non-virtual"><scope>testApp</scope><name>startAnimation</name></member>
+      <member refid="group___camera_animation_1ga1a97063e992528dc79867e516d9365f0" prot="public" virt="non-virtual"><scope>testApp</scope><name>startAnimationCameraPosition</name></member>
+      <member refid="group___camera_animation_1ga577bf117cf10109de967ea0d3ca17f1f" prot="public" virt="non-virtual"><scope>testApp</scope><name>startAnimationCounter</name></member>
+      <member refid="classtest_app_1a9bfe7793fa0689a991ff64174745c38f" prot="public" virt="non-virtual"><scope>testApp</scope><name>startingMovie</name></member>
+      <member refid="classtest_app_1aea3cb9f5f0061a42a4953d6b6c949036" prot="public" virt="non-virtual"><scope>testApp</scope><name>startingMovieFinished</name></member>
+      <member refid="classtest_app_1a8a65a6d1a473417cec1c2ac2e6116aae" prot="public" virt="non-virtual"><scope>testApp</scope><name>startInstallation</name></member>
+      <member refid="classtest_app_1ad2fca6ce5e37462cd820afc48633324d" prot="public" virt="non-virtual"><scope>testApp</scope><name>startoverShotCameraAnimation</name></member>
+      <member refid="classtest_app_1a8ce5505df4526abed238956b65956edd" prot="public" virt="non-virtual"><scope>testApp</scope><name>State</name></member>
+      <member refid="classtest_app_1af65c8dc2f4620bfe7fdf6a39043cb48d" prot="public" virt="non-virtual"><scope>testApp</scope><name>taggedImageObjects</name></member>
+      <member refid="classtest_app_1a7f7226fc54fdb7d06366ed0fa3ab7ee3" prot="public" virt="non-virtual"><scope>testApp</scope><name>taggedImages</name></member>
+      <member refid="classtest_app_1ad9a4beab6f2e0f13d32b00b502e89bdc" prot="public" virt="non-virtual"><scope>testApp</scope><name>tempText</name></member>
+      <member refid="classtest_app_1a3d796120bccff4106a3ec028b9a81912" prot="public" virt="non-virtual"><scope>testApp</scope><name>testApp</name></member>
+      <member refid="classtest_app_1a944f2713019239a4b49241a5cc9a00c9" prot="public" virt="non-virtual"><scope>testApp</scope><name>timeGap</name></member>
+      <member refid="classtest_app_1acb60fb8a89e9ec5d461630a20b11ceda" prot="public" virt="non-virtual"><scope>testApp</scope><name>timesinceLastTransition</name></member>
+      <member refid="group___camera_animation_1gae9f60797c1c5d9f1ac06e1d6a5259957" prot="public" virt="non-virtual"><scope>testApp</scope><name>tweenedCameraPosition</name></member>
+      <member refid="group___camera_animation_1gadd9ab1aa902948afbdf1c6db0dfde385" prot="public" virt="non-virtual"><scope>testApp</scope><name>tweenvalue</name></member>
+      <member refid="classtest_app_1ae31cc868f554f62b4c6e4e9db3b4155b" prot="public" virt="non-virtual"><scope>testApp</scope><name>untaggedImageObjects</name></member>
+      <member refid="classtest_app_1a9cb9aa0700c4c8b316329a86c4e650ec" prot="public" virt="non-virtual"><scope>testApp</scope><name>untaggedImages</name></member>
+      <member refid="classtest_app_1afb39d201aec71a295b7609876bf7d0c6" prot="public" virt="non-virtual"><scope>testApp</scope><name>update</name></member>
+      <member refid="classtest_app_1a6ae76dc97fbeee00755f4a6cd6b87e19" prot="public" virt="non-virtual"><scope>testApp</scope><name>userid</name></member>
+      <member refid="group___wiggle_1gacd718eb54b9dc2b45e463414c24de6b9" prot="public" virt="non-virtual"><scope>testApp</scope><name>wiggle</name></member>
+      <member refid="group___wiggle_1ga6073b33be7847d675ec089a1d514c506" prot="public" virt="non-virtual"><scope>testApp</scope><name>wiggleAnimationCounter</name></member>
+      <member refid="group___wiggle_1ga5495d37f44bb3e3b00a04ad5910e0a6b" prot="public" virt="non-virtual"><scope>testApp</scope><name>wigglePositions</name></member>
+      <member refid="group___wii_mote_1ga7a77e8633c3a94e3e409a33a5cd9ae3f" prot="public" virt="non-virtual"><scope>testApp</scope><name>wiiX</name></member>
+      <member refid="group___wii_mote_1ga5ae41896388ae16ee530beca5333e02a" prot="public" virt="non-virtual"><scope>testApp</scope><name>wiiY</name></member>
+      <member refid="group___wii_mote_1ga4e8884eeef5b2657b62278969d4e3dcf" prot="public" virt="non-virtual"><scope>testApp</scope><name>windowHeight</name></member>
+      <member refid="classtest_app_1a428b7df9c64352d6e7cb234fc297e6c9" prot="public" virt="non-virtual"><scope>testApp</scope><name>windowResized</name></member>
+      <member refid="group___wii_mote_1ga9ed611377cd46f5148a3a3d538e96484" prot="public" virt="non-virtual"><scope>testApp</scope><name>windowWidth</name></member>
+      <member refid="group___wii_mote_1ga865985f78dd5def3ed20c87b9fc772b6" prot="public" virt="non-virtual"><scope>testApp</scope><name>yaw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

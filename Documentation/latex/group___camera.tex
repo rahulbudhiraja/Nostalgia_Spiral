@@ -1,0 +1,205 @@
+\hypertarget{group___camera}{\section{Camera}
+\label{group___camera}\index{Camera@{Camera}}
+}
+
+
+These are used for positioning and animating the camera in the scene.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+of\-Vec3f \hyperlink{group___camera_ga2a792bfdf269fd69951cbf97d4f574af}{test\-App\-::adjustover\-Shot\-Camera\-Position} ()
+\item 
+of\-Vec3f \hyperlink{group___camera_ga1facfe2200dae7ad147b8f9ab31f68c6}{test\-App\-::animate} (int, int)
+\item 
+void \hyperlink{group___camera_ga79467453f6ea0dd63961a810dca9ac6a}{test\-App\-::start\-Animation} ()
+\item 
+of\-Vec3f \hyperlink{group___camera_ga1a97063e992528dc79867e516d9365f0}{test\-App\-::start\-Animation\-Camera\-Position} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+of\-Camera \hyperlink{group___camera_ga0278ee237cbbd881252d6273b131bb55}{test\-App\-::camera}
+\item 
+of\-Vec3f \hyperlink{group___camera_gac01013264b9988207e7fd9e0a486ff2f}{test\-App\-::camera\-Start\-Position}
+\begin{DoxyCompactList}\small\item\em These variables will be useful if D\-E\-B\-U\-G\-M\-O\-D\-E is defined. \end{DoxyCompactList}\item 
+of\-Vec3f \hyperlink{group___camera_gad3319d9cd3cb00e898f4f602b879efad}{test\-App\-::camera\-End\-Position}
+\item 
+int \hyperlink{group___camera_ga4ca3a51642dedbf37f2b9f6ef96510c7}{test\-App\-::cameraindex} =0
+\begin{DoxyCompactList}\small\item\em The Cameraindex value,this make the camera go from one image/position to another. \end{DoxyCompactList}\item 
+bool \hyperlink{group___camera_ga2a5d49fd1f7f50f745f56095a1fa0099}{test\-App\-::animation\-Mode}
+\begin{DoxyCompactList}\small\item\em checks whether the camera is currently transitioning to another picture or if it is stationary a.\-k.\-a animation\-Mode \end{DoxyCompactList}\item 
+float \hyperlink{group___camera_gadd9ab1aa902948afbdf1c6db0dfde385}{test\-App\-::tweenvalue}
+\begin{DoxyCompactList}\small\item\em stores intermediate tweenvalues for all animations \end{DoxyCompactList}\item 
+of\-Vec3f \hyperlink{group___camera_gae9f60797c1c5d9f1ac06e1d6a5259957}{test\-App\-::tweened\-Camera\-Position}
+\begin{DoxyCompactList}\small\item\em Stores the temporary camera position while tweening(interpolating camera position while moving from 1 point in the spiral to another) \end{DoxyCompactList}\item 
+int \hyperlink{group___camera_ga21b16bdba744425519597fcb925df43a}{test\-App\-::animation\-Counter}
+\begin{DoxyCompactList}\small\item\em Animation Counter that is operative while the animation is occuring. \end{DoxyCompactList}\item 
+bool \hyperlink{group___camera_gab8a277e1055730fb5d6786ce0c4804b2}{test\-App\-::isstarting\-Animation\-Active}
+\begin{DoxyCompactList}\small\item\em If set,this variable will start the Animation of the spiral zooming out. \end{DoxyCompactList}\item 
+int \hyperlink{group___camera_ga577bf117cf10109de967ea0d3ca17f1f}{test\-App\-::start\-Animation\-Counter}
+\begin{DoxyCompactList}\small\item\em During the starting animation,the Start\-Animation\-Counter will change the tweenvalue which in turn sets the Camera\-Position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+These are used for positioning and animating the camera in the scene. 
+
+\subsection{Function Documentation}
+\hypertarget{group___camera_ga2a792bfdf269fd69951cbf97d4f574af}{\index{Camera@{Camera}!adjustover\-Shot\-Camera\-Position@{adjustover\-Shot\-Camera\-Position}}
+\index{adjustover\-Shot\-Camera\-Position@{adjustover\-Shot\-Camera\-Position}!Camera@{Camera}}
+\subsubsection[{adjustover\-Shot\-Camera\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::adjustover\-Shot\-Camera\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group___camera_ga2a792bfdf269fd69951cbf97d4f574af}
+
+
+Definition at line 847 of file test\-App.\-cpp.
+
+\hypertarget{group___camera_ga1facfe2200dae7ad147b8f9ab31f68c6}{\index{Camera@{Camera}!animate@{animate}}
+\index{animate@{animate}!Camera@{Camera}}
+\subsubsection[{animate}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::animate (
+\begin{DoxyParamCaption}
+\item[{int}]{pos1, }
+\item[{int}]{pos2}
+\end{DoxyParamCaption}
+)}}\label{group___camera_ga1facfe2200dae7ad147b8f9ab31f68c6}
+Given 2 indices (that are positions in a conical helix,this Function will animate the camera from one position to another using of\-Lerp 
+\begin{DoxyParams}{Parameters}
+{\em pos1} & is the position from which we will animate\-From,pos2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+of\-Vec3f 
+\end{DoxyReturn}
+
+
+Definition at line 531 of file test\-App.\-cpp.
+
+\hypertarget{group___camera_ga79467453f6ea0dd63961a810dca9ac6a}{\index{Camera@{Camera}!start\-Animation@{start\-Animation}}
+\index{start\-Animation@{start\-Animation}!Camera@{Camera}}
+\subsubsection[{start\-Animation}]{\setlength{\rightskip}{0pt plus 5cm}void test\-App\-::start\-Animation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group___camera_ga79467453f6ea0dd63961a810dca9ac6a}
+This function plays the starting animation which zooms out of the spiral \hypertarget{group___camera_ga1a97063e992528dc79867e516d9365f0}{\index{Camera@{Camera}!start\-Animation\-Camera\-Position@{start\-Animation\-Camera\-Position}}
+\index{start\-Animation\-Camera\-Position@{start\-Animation\-Camera\-Position}!Camera@{Camera}}
+\subsubsection[{start\-Animation\-Camera\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::start\-Animation\-Camera\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group___camera_ga1a97063e992528dc79867e516d9365f0}
+If the starting animation is active,this function will return a vector that has the starting\-Camera's intermediate tweened position \begin{DoxyReturn}{Returns}
+of\-Vec3f 
+\end{DoxyReturn}
+
+
+Definition at line 571 of file test\-App.\-cpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{group___camera_ga21b16bdba744425519597fcb925df43a}{\index{Camera@{Camera}!animation\-Counter@{animation\-Counter}}
+\index{animation\-Counter@{animation\-Counter}!Camera@{Camera}}
+\subsubsection[{animation\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::animation\-Counter}}\label{group___camera_ga21b16bdba744425519597fcb925df43a}
+
+
+Animation Counter that is operative while the animation is occuring. 
+
+
+
+Definition at line 115 of file test\-App.\-h.
+
+\hypertarget{group___camera_ga2a5d49fd1f7f50f745f56095a1fa0099}{\index{Camera@{Camera}!animation\-Mode@{animation\-Mode}}
+\index{animation\-Mode@{animation\-Mode}!Camera@{Camera}}
+\subsubsection[{animation\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::animation\-Mode}}\label{group___camera_ga2a5d49fd1f7f50f745f56095a1fa0099}
+
+
+checks whether the camera is currently transitioning to another picture or if it is stationary a.\-k.\-a animation\-Mode 
+
+
+
+Definition at line 106 of file test\-App.\-h.
+
+\hypertarget{group___camera_ga0278ee237cbbd881252d6273b131bb55}{\index{Camera@{Camera}!camera@{camera}}
+\index{camera@{camera}!Camera@{Camera}}
+\subsubsection[{camera}]{\setlength{\rightskip}{0pt plus 5cm}of\-Camera test\-App\-::camera}}\label{group___camera_ga0278ee237cbbd881252d6273b131bb55}
+
+
+Definition at line 97 of file test\-App.\-h.
+
+\hypertarget{group___camera_gad3319d9cd3cb00e898f4f602b879efad}{\index{Camera@{Camera}!camera\-End\-Position@{camera\-End\-Position}}
+\index{camera\-End\-Position@{camera\-End\-Position}!Camera@{Camera}}
+\subsubsection[{camera\-End\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::camera\-End\-Position}}\label{group___camera_gad3319d9cd3cb00e898f4f602b879efad}
+
+
+Definition at line 100 of file test\-App.\-h.
+
+\hypertarget{group___camera_ga4ca3a51642dedbf37f2b9f6ef96510c7}{\index{Camera@{Camera}!cameraindex@{cameraindex}}
+\index{cameraindex@{cameraindex}!Camera@{Camera}}
+\subsubsection[{cameraindex}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::cameraindex =0}}\label{group___camera_ga4ca3a51642dedbf37f2b9f6ef96510c7}
+
+
+The Cameraindex value,this make the camera go from one image/position to another. 
+
+
+
+Definition at line 103 of file test\-App.\-h.
+
+\hypertarget{group___camera_gac01013264b9988207e7fd9e0a486ff2f}{\index{Camera@{Camera}!camera\-Start\-Position@{camera\-Start\-Position}}
+\index{camera\-Start\-Position@{camera\-Start\-Position}!Camera@{Camera}}
+\subsubsection[{camera\-Start\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::camera\-Start\-Position}}\label{group___camera_gac01013264b9988207e7fd9e0a486ff2f}
+
+
+These variables will be useful if D\-E\-B\-U\-G\-M\-O\-D\-E is defined. 
+
+
+
+Definition at line 100 of file test\-App.\-h.
+
+\hypertarget{group___camera_gab8a277e1055730fb5d6786ce0c4804b2}{\index{Camera@{Camera}!isstarting\-Animation\-Active@{isstarting\-Animation\-Active}}
+\index{isstarting\-Animation\-Active@{isstarting\-Animation\-Active}!Camera@{Camera}}
+\subsubsection[{isstarting\-Animation\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool test\-App\-::isstarting\-Animation\-Active}}\label{group___camera_gab8a277e1055730fb5d6786ce0c4804b2}
+
+
+If set,this variable will start the Animation of the spiral zooming out. 
+
+
+
+Definition at line 118 of file test\-App.\-h.
+
+\hypertarget{group___camera_ga577bf117cf10109de967ea0d3ca17f1f}{\index{Camera@{Camera}!start\-Animation\-Counter@{start\-Animation\-Counter}}
+\index{start\-Animation\-Counter@{start\-Animation\-Counter}!Camera@{Camera}}
+\subsubsection[{start\-Animation\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}int test\-App\-::start\-Animation\-Counter}}\label{group___camera_ga577bf117cf10109de967ea0d3ca17f1f}
+
+
+During the starting animation,the Start\-Animation\-Counter will change the tweenvalue which in turn sets the Camera\-Position. 
+
+
+
+Definition at line 121 of file test\-App.\-h.
+
+\hypertarget{group___camera_gae9f60797c1c5d9f1ac06e1d6a5259957}{\index{Camera@{Camera}!tweened\-Camera\-Position@{tweened\-Camera\-Position}}
+\index{tweened\-Camera\-Position@{tweened\-Camera\-Position}!Camera@{Camera}}
+\subsubsection[{tweened\-Camera\-Position}]{\setlength{\rightskip}{0pt plus 5cm}of\-Vec3f test\-App\-::tweened\-Camera\-Position}}\label{group___camera_gae9f60797c1c5d9f1ac06e1d6a5259957}
+
+
+Stores the temporary camera position while tweening(interpolating camera position while moving from 1 point in the spiral to another) 
+
+
+
+Definition at line 112 of file test\-App.\-h.
+
+\hypertarget{group___camera_gadd9ab1aa902948afbdf1c6db0dfde385}{\index{Camera@{Camera}!tweenvalue@{tweenvalue}}
+\index{tweenvalue@{tweenvalue}!Camera@{Camera}}
+\subsubsection[{tweenvalue}]{\setlength{\rightskip}{0pt plus 5cm}float test\-App\-::tweenvalue}}\label{group___camera_gadd9ab1aa902948afbdf1c6db0dfde385}
+
+
+stores intermediate tweenvalues for all animations 
+
+
+
+Definition at line 109 of file test\-App.\-h.
+
