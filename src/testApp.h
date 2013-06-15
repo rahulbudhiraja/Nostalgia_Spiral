@@ -71,13 +71,13 @@ public:
         void windowResized(int w, int h);
         void dragEvent(ofDragInfo dragInfo);
         void gotMessage(ofMessage msg);
-    /** @} */
-    
-    
-    /**
-     The Constructor takes the facebook userid and looks for that particular uid in the Images folder
-     @param a long long it
-     */
+        /** @} */
+        
+        
+        /**
+         The Constructor takes the facebook userid and looks for that particular uid in the Images folder
+         @param a long long it
+         */
         testApp(long long int uid);
     
     
