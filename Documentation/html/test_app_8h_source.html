@@ -112,74 +112,80 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//#define DEBUGMODE</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="test_app_8h.html#af1ac2cf7160dad9611b473a7966a8c66">   28</a></span>&#160;<span class="preprocessor">#define PathToImageFolder &quot;/Users/rahulbudhiraja/Work/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="struct_image_data.html">   31</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_image_data.html">ImageData</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">   33</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">imageScore</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="struct_image_data.html#a372655668350953b85fda1f07cd3ffe1">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_image_data.html#a372655668350953b85fda1f07cd3ffe1">albumnumber</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="struct_image_data.html#a254eb9353be246c69591d51088683397">   35</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_image_data.html#a254eb9353be246c69591d51088683397">imageNumber</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifdef EfficientReorder</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="struct_image_data.html#acf1bde00dd79a0960269618d9b885f61">   38</a></span>&#160;<span class="preprocessor"></span>    ofImage <a class="code" href="struct_image_data.html#acf1bde00dd79a0960269618d9b885f61">theloadedimage</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span>   <span class="keywordtype">bool</span> isTagged;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor"></span> </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="struct_image_data.html#ab7ad50e15d1943523214dd8cc2cd7e01">   43</a></span>&#160;   <span class="keywordtype">bool</span> <a class="code" href="struct_image_data.html#ab7ad50e15d1943523214dd8cc2cd7e01">operator()</a>(<span class="keyword">const</span> <a class="code" href="struct_image_data.html">ImageData</a>&amp;l,<span class="keyword">const</span> <a class="code" href="struct_image_data.html">ImageData</a> &amp;m) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> (l.<a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">imageScore</a>&lt;m.<a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">imageScore</a>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;       }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classtest_app.html">   49</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtest_app.html">testApp</a> : <span class="keyword">public</span> ofBaseApp{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;       </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gad431db15b6150b965cd52bcba8e16e11">setup</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gafb39d201aec71a295b7609876bf7d0c6">update</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gaf869cba67b1dab8481f8d0e216d59dcd">draw</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga904d147c7e532cb92656d5dd4895cd26">keyPressed</a>(<span class="keywordtype">int</span> key);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga1116a10088e4932f6d482efe723cd45e">keyReleased</a>(<span class="keywordtype">int</span> key);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga33541b19eff9f8285b2487bfc146d58b">mouseMoved</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga075bcc2be16fd8f3eaa9162fb40a0a1f">mouseDragged</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> button);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga3f200702ce91859cac2872a39302679d">mousePressed</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> button);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gaa3680ffc782b1e5c451289817f20c9c6">mouseReleased</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> button);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga428b7df9c64352d6e7cb234fc297e6c9">windowResized</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gaf15e9e9064fe5ccbe6c82cc401ae9e09">dragEvent</a>(ofDragInfo dragInfo);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga66dbc8c5c2d4e20febebe9fd42b8c851">gotMessage</a>(ofMessage msg);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="classtest_app.html#ad4619d5025758886b4de4162c389dc7a">testApp</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> uid);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifdef DEBUGMODE</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span>       ofEasyCam <a class="code" href="group___camera.html#ga0278ee237cbbd881252d6273b131bb55">camera</a>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef DEBUGMODE</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span>    </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="group___camera.html#ga0278ee237cbbd881252d6273b131bb55">   91</a></span>&#160;        ofCamera <a class="code" href="group___camera.html#ga0278ee237cbbd881252d6273b131bb55">camera</a>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="group___camera.html#gac01013264b9988207e7fd9e0a486ff2f">   94</a></span>&#160;        ofVec3f <a class="code" href="group___camera.html#gac01013264b9988207e7fd9e0a486ff2f" title="These variables will be useful if DEBUGMODE is defined. ">cameraStartPosition</a>,<a class="code" href="group___camera.html#gad3319d9cd3cb00e898f4f602b879efad">cameraEndPosition</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="group___camera.html#ga4ca3a51642dedbf37f2b9f6ef96510c7">   97</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="group___camera.html#ga4ca3a51642dedbf37f2b9f6ef96510c7" title="The Cameraindex value,this make the camera go from one image/position to another. ...">cameraindex</a>=0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/* \brief Insert Path to your Images folder */</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="test_app_8h.html#af1ac2cf7160dad9611b473a7966a8c66">   30</a></span>&#160;<span class="preprocessor">#define PathToImageFolder &quot;/Applications/MAMP/htdocs/NostalgiaRoom/&quot; // if you have downloaded the images to your MAMP folder</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="comment">// #define PathToImageFolder &quot;/Users/abcxyz/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/&quot; // if you have downloaded the images to your openframeworks folder</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="struct_image_data.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_image_data.html">ImageData</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">   36</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">imageScore</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="struct_image_data.html#a372655668350953b85fda1f07cd3ffe1">   37</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_image_data.html#a372655668350953b85fda1f07cd3ffe1">albumnumber</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="struct_image_data.html#a254eb9353be246c69591d51088683397">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_image_data.html#a254eb9353be246c69591d51088683397">imageNumber</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifdef EfficientReorder</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="struct_image_data.html#acf1bde00dd79a0960269618d9b885f61">   41</a></span>&#160;<span class="preprocessor"></span>    ofImage <a class="code" href="struct_image_data.html#acf1bde00dd79a0960269618d9b885f61">theloadedimage</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span>   <span class="keywordtype">bool</span> isTagged;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="struct_image_data.html#ab7ad50e15d1943523214dd8cc2cd7e01">   46</a></span>&#160;   <span class="keywordtype">bool</span> <a class="code" href="struct_image_data.html#ab7ad50e15d1943523214dd8cc2cd7e01">operator()</a>(<span class="keyword">const</span> <a class="code" href="struct_image_data.html">ImageData</a>&amp;l,<span class="keyword">const</span> <a class="code" href="struct_image_data.html">ImageData</a> &amp;m) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> (l.<a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">imageScore</a>&lt;m.<a class="code" href="struct_image_data.html#a7161728d2f1bd4240bd9359f6276dd3b">imageScore</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;     </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classtest_app.html">   52</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtest_app.html">testApp</a> : <span class="keyword">public</span> ofBaseApp{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;       </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gad431db15b6150b965cd52bcba8e16e11">setup</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gafb39d201aec71a295b7609876bf7d0c6">update</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gaf869cba67b1dab8481f8d0e216d59dcd">draw</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga904d147c7e532cb92656d5dd4895cd26">keyPressed</a>(<span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga1116a10088e4932f6d482efe723cd45e">keyReleased</a>(<span class="keywordtype">int</span> key);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga33541b19eff9f8285b2487bfc146d58b">mouseMoved</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga075bcc2be16fd8f3eaa9162fb40a0a1f">mouseDragged</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> button);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga3f200702ce91859cac2872a39302679d">mousePressed</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> button);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gaa3680ffc782b1e5c451289817f20c9c6">mouseReleased</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> button);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga428b7df9c64352d6e7cb234fc297e6c9">windowResized</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#gaf15e9e9064fe5ccbe6c82cc401ae9e09">dragEvent</a>(ofDragInfo dragInfo);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___openframeworks_defaults.html#ga66dbc8c5c2d4e20febebe9fd42b8c851">gotMessage</a>(ofMessage msg);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classtest_app.html#ad4619d5025758886b4de4162c389dc7a">testApp</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> uid);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#ifdef DEBUGMODE</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span>       ofEasyCam <a class="code" href="group___camera.html#ga0278ee237cbbd881252d6273b131bb55">camera</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef DEBUGMODE</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">/* \brief This is the main camera structure that will navigate the scene */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="group___camera.html#ga0278ee237cbbd881252d6273b131bb55">   97</a></span>&#160;        ofCamera <a class="code" href="group___camera.html#ga0278ee237cbbd881252d6273b131bb55">camera</a>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="group___camera_animation.html#ga2a5d49fd1f7f50f745f56095a1fa0099">  107</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="group___camera_animation.html#ga2a5d49fd1f7f50f745f56095a1fa0099" title="checks whether the camera is currently transitioning to another picture or if it is stationary a...">animationMode</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="group___camera_animation.html#gadd9ab1aa902948afbdf1c6db0dfde385">  110</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="group___camera_animation.html#gadd9ab1aa902948afbdf1c6db0dfde385" title="stores intermediate tweenvalues for all animations ">tweenvalue</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="group___camera_animation.html#gae9f60797c1c5d9f1ac06e1d6a5259957">  113</a></span>&#160;        ofVec3f <a class="code" href="group___camera_animation.html#gae9f60797c1c5d9f1ac06e1d6a5259957" title="Stores the temporary camera position while tweening(interpolating camera position while moving from 1...">tweenedCameraPosition</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="group___camera_animation.html#ga21b16bdba744425519597fcb925df43a">  116</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="group___camera_animation.html#ga21b16bdba744425519597fcb925df43a" title="Animation Counter that is operative while the animation is occuring. ">animationCounter</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        </div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="group___camera_animation.html#gab8a277e1055730fb5d6786ce0c4804b2">  119</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="group___camera_animation.html#gab8a277e1055730fb5d6786ce0c4804b2" title="If set,this variable will start the Animation of the spiral zooming out. ">isstartingAnimationActive</a>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;               </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="group___camera_animation.html#ga577bf117cf10109de967ea0d3ca17f1f">  122</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="group___camera_animation.html#ga577bf117cf10109de967ea0d3ca17f1f" title="During the starting animation,the StartAnimationCounter will change the tweenvalue which in turn sets...">startAnimationCounter</a>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classtest_app.html#a85133f49103cfa002f39d882f7168236">  128</a></span>&#160;        ofxXmlSettings <a class="code" href="classtest_app.html#a85133f49103cfa002f39d882f7168236" title="To load the XML File that is downloaded by the NostalgiaRoom Website. ">pictures_XML</a>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="classtest_app.html#a6ae76dc97fbeee00755f4a6cd6b87e19">  131</a></span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="classtest_app.html#a6ae76dc97fbeee00755f4a6cd6b87e19" title="The user&#39;s id that is passed at run-time.Only a long long int (max value 9223372036854775807) can sup...">userid</a>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="group___camera.html#gac01013264b9988207e7fd9e0a486ff2f">  100</a></span>&#160;        ofVec3f <a class="code" href="group___camera.html#gac01013264b9988207e7fd9e0a486ff2f" title="These variables will be useful if DEBUGMODE is defined. ">cameraStartPosition</a>,<a class="code" href="group___camera.html#gad3319d9cd3cb00e898f4f602b879efad">cameraEndPosition</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="group___camera.html#ga4ca3a51642dedbf37f2b9f6ef96510c7">  103</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="group___camera.html#ga4ca3a51642dedbf37f2b9f6ef96510c7" title="The Cameraindex value,this make the camera go from one image/position to another. ...">cameraindex</a>=0;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="group___camera.html#ga2a5d49fd1f7f50f745f56095a1fa0099">  106</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="group___camera.html#ga2a5d49fd1f7f50f745f56095a1fa0099" title="checks whether the camera is currently transitioning to another picture or if it is stationary a...">animationMode</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="group___camera.html#gadd9ab1aa902948afbdf1c6db0dfde385">  109</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="group___camera.html#gadd9ab1aa902948afbdf1c6db0dfde385" title="stores intermediate tweenvalues for all animations ">tweenvalue</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="group___camera.html#gae9f60797c1c5d9f1ac06e1d6a5259957">  112</a></span>&#160;        ofVec3f <a class="code" href="group___camera.html#gae9f60797c1c5d9f1ac06e1d6a5259957" title="Stores the temporary camera position while tweening(interpolating camera position while moving from 1...">tweenedCameraPosition</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="group___camera.html#ga21b16bdba744425519597fcb925df43a">  115</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="group___camera.html#ga21b16bdba744425519597fcb925df43a" title="Animation Counter that is operative while the animation is occuring. ">animationCounter</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="group___camera.html#gab8a277e1055730fb5d6786ce0c4804b2">  118</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="group___camera.html#gab8a277e1055730fb5d6786ce0c4804b2" title="If set,this variable will start the Animation of the spiral zooming out. ">isstartingAnimationActive</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;               </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="group___camera.html#ga577bf117cf10109de967ea0d3ca17f1f">  121</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="group___camera.html#ga577bf117cf10109de967ea0d3ca17f1f" title="During the starting animation,the StartAnimationCounter will change the tweenvalue which in turn sets...">startAnimationCounter</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classtest_app.html#a85133f49103cfa002f39d882f7168236">  127</a></span>&#160;        ofxXmlSettings <a class="code" href="classtest_app.html#a85133f49103cfa002f39d882f7168236" title="To load the XML File that is downloaded by the NostalgiaRoom Website. ">pictures_XML</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="classtest_app.html#a6ae76dc97fbeee00755f4a6cd6b87e19">  130</a></span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> <a class="code" href="classtest_app.html#a6ae76dc97fbeee00755f4a6cd6b87e19" title="The user&#39;s id that is passed at run-time.Only a long long int (max value 9223372036854775807) can sup...">userid</a>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        </div>
 <div class="line"><a name="l00139"></a><span class="lineno"><a class="code" href="group___wiggle.html#ga5495d37f44bb3e3b00a04ad5910e0a6b">  139</a></span>&#160;        vector &lt;ofVec3f&gt; <a class="code" href="group___wiggle.html#ga5495d37f44bb3e3b00a04ad5910e0a6b" title="Different wiggle Positions/Directions .Look at the wiggle() function for more details. ">wigglePositions</a>;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    </div>
 <div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="group___wiggle.html#gaf81358868ae15faab1974ec074b1509f">  142</a></span>&#160;        ofVec3f <a class="code" href="group___wiggle.html#gaf81358868ae15faab1974ec074b1509f" title="Current Wiggle POsition. ">currentwigglePosition</a>;</div>
@@ -271,34 +277,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00273"></a><span class="lineno"><a class="code" href="classtest_app.html#af65c8dc2f4620bfe7fdf6a39043cb48d">  273</a></span>&#160;        vector&lt;ImageData&gt; <a class="code" href="classtest_app.html#af65c8dc2f4620bfe7fdf6a39043cb48d" title="Unused. ">taggedImageObjects</a>;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        </div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        ofVec3f <a class="code" href="group___camera_animation.html#ga2a792bfdf269fd69951cbf97d4f574af">adjustoverShotCameraPosition</a>();</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        ofVec3f <a class="code" href="group___camera_animation.html#ga1facfe2200dae7ad147b8f9ab31f68c6">animate</a>(<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___camera_animation.html#ga79467453f6ea0dd63961a810dca9ac6a">startAnimation</a>();</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        ofVec3f <a class="code" href="group___camera_animation.html#ga1a97063e992528dc79867e516d9365f0">startAnimationCameraPosition</a>();</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    </div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___wiggle.html#gaaa5c2175be1d5ca404c3c23a898d0cdd">pushWigglePositions</a>();</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        ofVec3f <a class="code" href="group___wiggle.html#gacd718eb54b9dc2b45e463414c24de6b9">wiggle</a>();</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa93380112b906e2aac2d8738309b2d17">loadImagesandXMLData</a>();</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a6dbcb5f1e47c842dfd1ab6b188097677">drawImages</a>();</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa30f4f1db2d186466f97e6ca15169712">generateCircularSpiral</a>();</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;           </div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___drawing_stars.html#ga57e6d61c73ba0244b9d7a8c227aec244">assignStarPositions</a>();</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___drawing_stars.html#ga3ea688a73ca9eb760a3f0a07fde0ac10">drawStars</a>();</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;};</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="comment">/* \brief Vector that will use the above vector and ofLerp to compute the exact cameraposition</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">         @returns ofVec3f</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        ofVec3f <a class="code" href="group___camera.html#ga2a792bfdf269fd69951cbf97d4f574af">adjustoverShotCameraPosition</a>();</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        ofVec3f <a class="code" href="group___camera.html#ga1facfe2200dae7ad147b8f9ab31f68c6">animate</a>(<span class="keywordtype">int</span>,<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___camera.html#ga79467453f6ea0dd63961a810dca9ac6a">startAnimation</a>();</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        ofVec3f <a class="code" href="group___camera.html#ga1a97063e992528dc79867e516d9365f0">startAnimationCameraPosition</a>();</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="group___wiggle.html#gaaa5c2175be1d5ca404c3c23a898d0cdd">pushWigglePositions</a>();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        ofVec3f <a class="code" href="group___wiggle.html#gacd718eb54b9dc2b45e463414c24de6b9">wiggle</a>();</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa93380112b906e2aac2d8738309b2d17">loadImagesandXMLData</a>();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a6dbcb5f1e47c842dfd1ab6b188097677">drawImages</a>();</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#aa30f4f1db2d186466f97e6ca15169712">generateCircularSpiral</a>();</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;           </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a57e6d61c73ba0244b9d7a8c227aec244">assignStarPositions</a>();</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtest_app.html#a3ea688a73ca9eb760a3f0a07fde0ac10">drawStars</a>();</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 12 2013 22:51:24 for NostalgiaRoom docs by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 14 2013 21:13:37 for NostalgiaRoom docs by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

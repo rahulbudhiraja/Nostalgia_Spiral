@@ -26,7 +26,9 @@
 //#define DEBUGMODE
 
 /* \brief Insert Path to your Images folder */
-#define PathToImageFolder "/Users/abcxyz/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/" 
+  
+#define PathToImageFolder "/Applications/MAMP/htdocs/NostalgiaRoom/" // if you have downloaded the images to your MAMP folder
+// #define PathToImageFolder "/Users/abcxyz/of_v0073_osx_release/apps/myApps/Nostalgia_Spiral/bin/data/Images/" // if you have downloaded the images to your openframeworks folder
 
 
 struct ImageData
@@ -53,6 +55,7 @@ public:
        
     /**
      * @addtogroup OpenframeworksDefaults
+     * \brief Default functions provided by Openframeworks
      * @{
      */
         void setup();
@@ -83,12 +86,14 @@ public:
 #endif
 #ifndef DEBUGMODE
     
+    
+        
         /**
          * @addtogroup Camera
-         * \brief This is the camera variable that will move around the entire scene 
-         *
-         * @{
-         */
+         * \brief These are used for positioning and animating the camera in the scene.
+         * @{ */
+
+        /* \brief This is the main camera structure that will navigate the scene */
         ofCamera camera;
     
         /** \brief These variables will be useful if DEBUGMODE is defined */
@@ -97,13 +102,6 @@ public:
         /** \brief The Cameraindex value,this make the camera go from one image/position to another */
         int cameraindex=0;
     
-        /** @} */
-    
-        /**
-         * @addtogroup CameraAnimation
-         * \brief This are the variables that are used for animating the camera
-         * @{ */
-
         /** \brief checks whether the camera is currently transitioning to another picture or if it is stationary a.k.a animationMode */
         bool animationMode;
     
@@ -133,6 +131,7 @@ public:
         
         /**
          * @addtogroup Wiggle 
+         * \brief These are used to wiggle the camera while looking at a specific picture.
          * 
          *@{ */
     
@@ -198,7 +197,7 @@ public:
         
         /** @addtogroup WiiMote
          * 
-         * These variables are used for receiving values from the wiimote
+         * \brief These variables are used for receiving values from the wiimote
          * @{ 
          */
         
@@ -274,10 +273,12 @@ public:
         vector<ImageData> taggedImageObjects;
         
     
-        /** @addtogroup CameraAnimation
+        /** @addtogroup Camera
          *
          * @{
-         Vector that will use the above vector and ofLerp to compute the exact cameraposition
+         */
+    
+        /* \brief Vector that will use the above vector and ofLerp to compute the exact cameraposition
          @returns ofVec3f
          */
         ofVec3f adjustoverShotCameraPosition();
@@ -327,7 +328,7 @@ public:
         /** Function that will generate the points on the Spiral */
         void generateCircularSpiral();
            
-        /** @addtogroup DrawingStars
+        /** DrawingStars
           *
          * Drawing small dot stars in the background was attempted.Unfortunately,its too memory intensive ,nevertheless these functions are included if anyone is interested in trying them out.Just call assignStarPositions() in the setup function and drawStars() in the draw function 
          * @{
@@ -335,7 +336,7 @@ public:
         void assignStarPositions();
         void drawStars();
     
-        /** @} */
+
         
     
 };
